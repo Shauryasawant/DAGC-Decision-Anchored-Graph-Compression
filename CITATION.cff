@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use DAGC in your research, please cite it using the metadata below."
+title: "DAGC: Decision-Anchored Graph Compression"
+version: 0.1.0
+date-released: 2026-07-16
+authors:
+  - family-names: Sawant
+    given-names: Shaurya
+license: MIT
