@@ -1,0 +1,22 @@
+# Python bytecode and build outputs
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local editor and operating-system files
+*.code-workspace
+.vscode/
+.idea/
+.DS_Store
+
+# Local credentials
+.env
+.env.*
+!.env.example
