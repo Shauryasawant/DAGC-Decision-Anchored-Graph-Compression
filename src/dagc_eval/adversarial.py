@@ -8,6 +8,7 @@ Ported from the original monolithic Main_notebook.py into the packaged
 layout -- logic unchanged, only import paths adjusted.
 """
 from __future__ import annotations
+import dataclasses
 import difflib
 import json
 import math
@@ -17,8 +18,8 @@ from typing import Dict, List
 import numpy as np
 
 from dagc.extraction import extract_decisions
-from dagc.compressor import compress_dagc, _collect_decision_artifacts
-from dagc.utils import _get_text
+from dagc.compressor import DAGC_CFG, _collect_decision_artifacts, _footprint_text, compress_dagc
+from dagc.utils import _get_text, _tok
 
 from .benchmark import generate_trace
 from .match import match_decision
@@ -108,7 +109,7 @@ def _atk_long_context(messages, spec, seed, n_filler=25):
     msgs = list(messages)
     prefix = [_filler_msg() for _ in range(n_filler)]
     suffix = [_filler_msg() for _ in range(n_filler)]
-    return prefix + msgs + suffix
+    return prefix + msgs[:-1] + suffix + msgs[-1:]
 
 _ADV_ATTACKS = {
     'A_injection': _atk_injection,
@@ -155,26 +156,33 @@ def _remap_decisions(decisions, index_map):
 
 def run_adversarial_suite(task_spec: Dict, n_seeds: int = 3, verbose: bool = True) -> Dict:
     """
-    Run all four attacks against `task_spec`'s synthetic trace, n_seeds
+    Run all configured attacks against `task_spec`'s synthetic trace, n_seeds
     times each, and report clean vs. adversarial DRR per attack.
 
     robust == (adv_DRR / clean_DRR) >= 0.85
     """
-    agg = {a: {'clean': [], 'adv': []} for a in _ADV_ATTACKS}
+    agg = {a: {'clean': [], 'adv': [], 'clean_diagnostics': [], 'adv_diagnostics': []}
+           for a in _ADV_ATTACKS}
 
     for seed in range(n_seeds):
         base = generate_trace(task_spec, noise_level=3, rng_seed=seed)
         decs = extract_decisions(base)
         if not decs:
             continue
-        clean_comp = compress_dagc(base)
+        clean_orig_toks = sum(_tok(_footprint_text(m)) for m in base)
+        clean_budget = max(1, int(clean_orig_toks * (1 - DAGC_CFG.TARGET_REDUCTION)))
+        clean_cfg = dataclasses.replace(DAGC_CFG, ABSOLUTE_BUDGET_TOKENS=clean_budget)
+        clean_diagnostics = {}
+        clean_comp = compress_dagc(base, cfg=clean_cfg, diagnostics=clean_diagnostics)
         clean_drr = float(np.mean([
             match_decision(d, reproduce_decision(clean_comp, d))['decision_score']
             for d in decs]))
         for name, fn in _ADV_ATTACKS.items():
             try:
                 adv_trace = fn(base, task_spec, seed)
-                adv_comp = compress_dagc(adv_trace)
+                adv_cfg = dataclasses.replace(DAGC_CFG, ABSOLUTE_BUDGET_TOKENS=clean_budget)
+                adv_diagnostics = {}
+                adv_comp = compress_dagc(adv_trace, cfg=adv_cfg, diagnostics=adv_diagnostics)
                 index_map = _align_message_indices(base, adv_trace)
                 adv_decs = _remap_decisions(decs, index_map)
                 adv_drr = float(np.mean([
@@ -182,6 +190,8 @@ def run_adversarial_suite(task_spec: Dict, n_seeds: int = 3, verbose: bool = Tru
                     for d, rd in zip(decs, adv_decs)]))
                 agg[name]['clean'].append(clean_drr)
                 agg[name]['adv'].append(adv_drr)
+                agg[name]['clean_diagnostics'].append(clean_diagnostics)
+                agg[name]['adv_diagnostics'].append(adv_diagnostics)
             except Exception:
                 agg[name]['clean'].append(clean_drr)
                 agg[name]['adv'].append(float('nan'))
@@ -196,8 +206,22 @@ def run_adversarial_suite(task_spec: Dict, n_seeds: int = 3, verbose: bool = Tru
             continue
         cm, am = float(np.mean(c)), float(np.mean(a))
         ratio = am / max(cm, 1e-9)
+        clean_diag = vals['clean_diagnostics']
+        adv_diag = vals['adv_diagnostics']
+        def diag_mean(rows, key):
+            values = [row[key] for row in rows if key in row]
+            return round(float(np.mean(values)), 2) if values else float('nan')
         summary[name] = {'clean_drr': round(cm, 4), 'adv_drr': round(am, 4),
-                          'ratio': round(ratio, 4), 'robust': ratio >= 0.85}
+                          'ratio': round(ratio, 4), 'robust': ratio >= 0.85,
+                          'clean_budget': diag_mean(clean_diag, 'total_budget'),
+                          'clean_evidence_floor': diag_mean(clean_diag, 'evidence_floor'),
+                          'clean_output_toks': diag_mean(clean_diag, 'output_tokens'),
+                          'adv_budget': diag_mean(adv_diag, 'total_budget'),
+                          'adv_evidence_floor': diag_mean(adv_diag, 'evidence_floor'),
+                          'adv_output_toks': diag_mean(adv_diag, 'output_tokens'),
+                          'adv_causal_skeleton_error': next(
+                              (row.get('causal_skeleton_error') for row in adv_diag
+                               if row.get('causal_skeleton_error')), None)}
 
     if verbose:
         print(f"\n{'='*62}")
@@ -211,4 +235,13 @@ def run_adversarial_suite(task_spec: Dict, n_seeds: int = 3, verbose: bool = Tru
                   f"  {row['ratio']:>7.3f}  {st:>10}")
         print('=' * 62)
         print("Robust <=> adv_DRR / clean_DRR >= 0.85")
+        for name, row in summary.items():
+            print(f"clean:  budget={row['clean_budget']}  "
+                  f"evidence_floor={row['clean_evidence_floor']}  "
+                  f"output_toks={row['clean_output_toks']}")
+            print(f"{name}: budget={row['adv_budget']}  "
+                  f"evidence_floor={row['adv_evidence_floor']}  "
+                  f"output_toks={row['adv_output_toks']}")
+            if row.get('adv_causal_skeleton_error'):
+                print(f"  ⚠ causal skeleton failed on at least one seed: {row['adv_causal_skeleton_error']}")
     return summary

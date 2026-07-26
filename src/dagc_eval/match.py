@@ -37,8 +37,20 @@ def _token_f1(pred, gold):
 
 def _stem(word):
     for s in ('ing', 'ed', 's'):
-        if word.endswith(s) and len(word) - len(s) >= 3:
-            return word[:-len(s)]
+        if not word.endswith(s):
+            continue
+        stem = word[:-len(s)]
+        # Silent-e retry checked BEFORE the length floor below, not
+        # after: 'using' strips to 'us' (2 chars), which the floor
+        # would reject outright -- but 'us'+'e'='use' is a real,
+        # recognized word, so confirm against known vocabulary first
+        # rather than discarding short-but-valid silent-e stems. Only
+        # applies to '-ing': '-ed'/'-s' don't drop a silent e the same
+        # way ('confirmed' -> 'confirm', not 'confirme').
+        if s == 'ing' and stem and (stem + 'e') in _STEM_TARGET_WORDS:
+            return stem + 'e'
+        if len(stem) >= 3:
+            return stem
     return word
 
 # Keep synonym groups separate so close matches score higher than broad ones.
@@ -53,6 +65,32 @@ _VERB_SYNONYM_FAMILIES = [
     {'best', 'optimal', 'winner', 'final'},
 ]
 
+# Nominalizations (verb -> noun-of-that-verb) that plain suffix-stripping
+# can't reach because they don't share the verb's stem at all
+# ('confirmation' doesn't end in -ing/-ed/-s, and stripping those
+# suffixes from it would be wrong anyway). Scoped narrowly to words
+# already inside _VERB_SYNONYM_FAMILIES above -- this isn't a general
+# morphology fix, just closing the specific gap those families expose.
+_IRREGULAR_STEM_FORMS = {
+    'confirmation': 'confirm',
+    'confirmations': 'confirm',
+    'recommendation': 'recommend',
+    'recommendations': 'recommend',
+    'selection': 'select',
+    'decision': 'decide',
+    'implementation': 'implement',
+    'application': 'apply',
+    'verification': 'verify',
+    'finalization': 'finalize',
+    'finalisation': 'finalise',
+    'suggestion': 'suggest',
+    'proposal': 'propose',
+    'preference': 'prefer',
+    'conclusion': 'conclude',
+}
+
+_STEM_TARGET_WORDS = {w for fam in _VERB_SYNONYM_FAMILIES for w in fam}
+
 _CONNECTIVE_STEMS = {_stem(w) for w in _JUDGMENT_CONNECTIVE_WORDS}
 
 
@@ -64,6 +102,10 @@ def _build_family_index(families):
     for fam_idx, family in enumerate(families):
         for word in family:
             index[_stem(word)] = fam_idx
+    for irregular, canonical in _IRREGULAR_STEM_FORMS.items():
+        canon_stem = _stem(canonical)
+        if canon_stem in index:
+            index[irregular] = index[canon_stem]
     return index
 
 

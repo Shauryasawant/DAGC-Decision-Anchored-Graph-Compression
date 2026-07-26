@@ -24,8 +24,9 @@ from typing import Dict, List, Optional, Tuple
 
 from dagc.extraction import (
     _CANONICAL_TARGET_KEY_TIERS, _extract_rationale, _extract_target,
-    _extract_verb, _flatten_arg_values, _get_tool_call_args,
-    _get_tool_call_name, _stringify_arg_value,
+    _extract_verb, _find_decisive_match, _flatten_arg_values,
+    _get_tool_call_args, _get_tool_call_name, _stringify_arg_value,
+    _bare_rationale_value,
 )
 from dagc.utils import _artifacts, _get_text, target_still_recoverable, action_still_recoverable
 from dagc.compressor import _decision_critical_values
@@ -131,7 +132,6 @@ def _build_tool_catalogue(messages):
 def _deterministic_extract(compressed_msgs, decision):
     target_idx = decision['msg_idx']
 
-    # Use the same critical-value rules as the compressor.
     this_decision_values = _decision_critical_values([decision])
 
     for m in compressed_msgs:
@@ -152,13 +152,35 @@ def _deterministic_extract(compressed_msgs, decision):
             pinned_action = gt_action
         else:
             pinned_action = None
+
+        fresh_rationale = _extract_rationale(
+            text, arts, decision_values=this_decision_values,
+            decision_idx=decision['msg_idx'])
+        pinned_rationale = [
+            r for r in (decision.get('rationale') or [])
+            if target_still_recoverable(_bare_rationale_value(r), text, arts)
+        ]
+        seen, rationale = set(), []
+        for r in pinned_rationale + fresh_rationale:
+            bare = _bare_rationale_value(r)
+            if bare not in seen:
+                seen.add(bare)
+                rationale.append(r)
+
+        # Same decisive-clause scoping used to build ground truth --
+        # recomputed here on the COMPRESSED text, since the decisive
+        # sentence's position can shift/shrink after compression.
+        dm = _find_decisive_match(text)
+        decisive_span = (dm.start(), dm.end()) if dm is not None else None
+
         if tc and decision['type'] == 'action':
             tc_name = _get_tool_call_name(tc, decision.get('action', ''))
             tc_args = _get_tool_call_args(tc)
             return {
                 'action': pinned_action if pinned_action is not None else tc_name,
-                'target': pinned_target if pinned_target is not None else _extract_target(tc_args, text, tc_name),
-                'rationale': _extract_rationale(text, arts, decision_values=this_decision_values, decision_idx=decision['msg_idx']),
+                'target': pinned_target if pinned_target is not None else
+                    _extract_target(tc_args, text, tc_name, decision_idx=target_idx, decisive_span=decisive_span),
+                'rationale': rationale,
                 'confidence': 0.9 if pinned_target is not None else 0.85,
                 '_success': True, '_fallback': 'deterministic',
                 '_target_source': 'pinned' if pinned_target is not None else 're_derived',
@@ -168,7 +190,8 @@ def _deterministic_extract(compressed_msgs, decision):
             return {
                 'action': pinned_action if pinned_action is not None else
                         ('confirm' if decision['type'] == 'confirmation' else _extract_verb(text)),
-                'target': pinned_target if pinned_target is not None else _extract_target({}, text),
+                'target': pinned_target if pinned_target is not None else
+                    _extract_target({}, text, decision_idx=target_idx, decisive_span=decisive_span),
                 'rationale': _extract_rationale(text, arts, decision_values=this_decision_values, decision_idx=decision['msg_idx']),
                 'confidence': 0.9 if pinned_target is not None else 0.80,
                 '_success': True, '_fallback': 'deterministic',
@@ -248,21 +271,77 @@ def _resolve_target_from_compressed(compressed_msgs: List[Dict], decision: Dict)
 
 
 def _merge_llm_and_deterministic(llm_result: Dict, det_result: Optional[Dict]) -> Dict:
+    """
+    Combine an LLM reconstruction with the deterministic re-extraction of
+    the same decision. The deterministic target wins whenever it's
+    available (grounded in surviving source text, not a guess) -- but the
+    returned `confidence` must describe THAT target, not whichever
+    confidence happened to be lying around. Concretely:
+
+      - If deterministic supplied no target, the LLM's own target and
+        confidence stand as-is (nothing to reconcile).
+      - If deterministic supplied a target, its OWN confidence
+        (computed by _deterministic_extract from pinned/re_derived
+        status) replaces the LLM's self-reported number, since that
+        number was never an estimate of the deterministic target's
+        reliability in the first place.
+      - Agreement between the two sources is a genuine, extra evidence
+        signal -- not something to discard. When the LLM independently
+        landed on the same target, that's corroboration and confidence
+        is nudged up (capped at 0.99, never allowed to reach false
+        certainty). When they disagree, the deterministic confidence is
+        kept but capped, and the mismatch is exposed via `_agreement`
+        so a caller (eval harness, review queue) can flag it instead of
+        the disagreement being silently absorbed.
+      - Both rationales are unioned rather than one replacing the other,
+        since they come from different, non-redundant evidence
+        (LLM free-text reasoning vs. regex-grounded extraction).
+    """
     if not llm_result.get('_success', True):
         return det_result if det_result is not None else llm_result
     if det_result is None:
         return llm_result
 
     merged = dict(llm_result)
-    # Prefer a deterministic target extracted from the surviving message.
-    if det_result.get('target'):
-        merged['target'] = det_result['target']
+
+    det_target = det_result.get('target')
+    llm_target = llm_result.get('target')
+
+    if det_target:
+        merged['target'] = det_target
         merged['_target_source'] = 'deterministic'
+
+        agree = (str(llm_target).strip().lower() == str(det_target).strip().lower()
+                 if llm_target else False)
+        merged['_agreement'] = agree
+
+        det_conf = det_result.get('confidence', 0.0)
+        if agree:
+            llm_conf = llm_result.get('confidence', 0.0) or 0.0
+            merged['confidence'] = min(0.99, max(det_conf, llm_conf) + 0.05)
+        else:
+            # Deterministic target wins on grounding, but an unconfirmed
+            # disagreement shouldn't claim the same certainty an agreed
+            # result would -- cap it below the "agreed" ceiling.
+            merged['confidence'] = min(0.9, det_conf)
     else:
         merged['_target_source'] = 'llm_only'
+        merged['_agreement'] = None
+        # LLM's own confidence stands -- nothing deterministic to blend.
 
     if not merged.get('action') and det_result.get('action'):
         merged['action'] = det_result['action']
+
+    llm_rat = merged.get('rationale', []) or []
+    det_rat = det_result.get('rationale', []) or []
+    seen, combined = set(), []
+    for r in list(llm_rat) + list(det_rat):
+        key = str(r).strip().lower()
+        if key and key not in seen:
+            seen.add(key)
+            combined.append(r)
+    merged['rationale'] = combined
+
     return merged
 
 
@@ -280,9 +359,40 @@ def _trace_fingerprint(compressed_msgs):
     return hashlib.md5(json.dumps(payload, sort_keys=True).encode()).hexdigest()
 
 
-def _decision_cache_key(decision, compressed_msgs):
+def _llm_identity(llm: Optional[LLMClient]) -> str:
+    """
+    Stable identity token for cache-key purposes. Two different LLM
+    clients (different model, different provider, or no LLM at all)
+    must never collide on the same cache entry, even when the
+    decision/trace inputs are identical -- otherwise a deterministic-only
+    call and an LLM-backed call for the SAME decision would share a
+    cache slot and silently return each other's results.
+
+    Preference order, most-specific first:
+      1. An explicit `model` or `model_name` attribute, if the client
+         exposes one -- this is the actual thing that changes output.
+      2. The client's class name, as a coarser fallback (distinguishes
+         different LLMClient implementations even without a model attr).
+      3. 'none', when no LLM was supplied at all (deterministic-only path).
+
+    Deliberately does NOT fall back to id(llm) (Python object id): that
+    would make the cache key different across process restarts / new
+    client instances of the SAME model, defeating caching entirely for
+    the common case of "construct a fresh client object each run."
+    """
+    if llm is None:
+        return 'none'
+    model = getattr(llm, 'model', None) or getattr(llm, 'model_name', None)
+    if model:
+        return f'{type(llm).__name__}:{model}'
+    return type(llm).__name__
+
+
+def _decision_cache_key(decision, compressed_msgs, llm: Optional[LLMClient] = None,
+                         max_retries: int = 2):
     return (decision.get('type'), decision.get('action'), str(decision.get('target')),
-            tuple(decision.get('rationale', [])), _trace_fingerprint(compressed_msgs))
+            tuple(decision.get('rationale', [])), _trace_fingerprint(compressed_msgs),
+            _llm_identity(llm), max_retries)
 
 
 def reproduce_decision(compressed_msgs: List[Dict], decision: Dict,
@@ -297,7 +407,7 @@ def reproduce_decision(compressed_msgs: List[Dict], decision: Dict,
     free-text reconstruction for decisions whose message was compressed
     away.
     """
-    key = _decision_cache_key(decision, compressed_msgs)
+    key = _decision_cache_key(decision, compressed_msgs, llm, max_retries)
     with _REPRO_CACHE_LOCK:
         if key in _REPRO_CACHE:
             return copy.deepcopy(_REPRO_CACHE[key])

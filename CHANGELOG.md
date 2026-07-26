@@ -4,8 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
-- Removed commitment extraction, protection, evaluation metrics, and CLI support.
+- Packaging fix: include runtime JSON/JSONL assets in the distribution so installed builds work outside the repo checkout.
 
-## 0.2.0 - 2026-07-15
+## 0.1.0 - 2026-07-26
 
-- Fix: `src/dagc/__init__.py.__version__` was stale at `0.1.0` while `pyproject.toml` already said `0.1.1`; both now read `0.2.0`.
+- Initial package release for DAGC with compression, rationale extraction, and evaluation support.

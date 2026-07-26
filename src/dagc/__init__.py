@@ -1,5 +1,5 @@
 """
-dagc — Decision-Anchored Graph Compression.
+dagc — Decision-Anchored/Aware Graph Compression.
 
 Compress long agent/chat message histories while guaranteeing that every
 artifact a decision depends on (tool-call arguments, confirmed IDs, cited
@@ -21,11 +21,16 @@ Bring your own tokenizer/embedder for production-grade quality:
 """
 from .compressor import compress, compress_any, compress_dagc, DAGCConfig, DAGC_CFG
 from .extraction import extract_decisions
+from .sv_dagc import compress_dagc_sv
+from .rationale_ext import (
+    extract_rationale_candidates, inject_rationale_stubs, inject_dropped_rationale_stubs,
+)
 from .graph import (
     build_dependency_graph, attach_dependencies, compute_rci, compute_chain_rci,
     CausalMessageGraph, CausalGraphConfig, SpectralCompressor,
 )
 from .config import configure, Runtime, Tokenizer, Embedder, runtime
+from .convmem import Memory
 from .formats import (
     normalize_message, normalize_trace,
     denormalize_message, denormalize_trace,
@@ -37,10 +42,13 @@ __version__ = "0.1.0"
 
 __all__ = [
     "compress", "compress_any", "compress_dagc", "DAGCConfig", "DAGC_CFG",
+    "compress_dagc_sv",
     "extract_decisions",
+    "extract_rationale_candidates", "inject_rationale_stubs", "inject_dropped_rationale_stubs",
     "build_dependency_graph", "attach_dependencies", "compute_rci", "compute_chain_rci",
     "CausalMessageGraph", "CausalGraphConfig", "SpectralCompressor",
     "configure", "Runtime", "Tokenizer", "Embedder", "runtime",
+    "Memory",
     "normalize_message", "normalize_trace",
     "denormalize_message", "denormalize_trace",
     "register_adapter", "register_format_adapter", "to_dagc_format",

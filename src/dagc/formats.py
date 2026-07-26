@@ -1,10 +1,10 @@
-"""Shared, format-tolerant normalization for dagc traces.
+"""Helpers for normalizing dagc traces across a few different message formats.
 
-This module provides a single implementation for:
-- normalizing message shapes into dagc's canonical dict form
-- unwrapping common trace envelopes
-- denormalizing compressed output back into the caller's original shape
-- registering custom per-message adapters
+The point here is to keep the trace handling in one place:
+- turn odd message shapes into dagc's canonical dict form
+- unwrap the common envelope wrappers
+- convert compressed output back to the caller's original shape
+- let callers register their own per-message adapters
 """
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ REGISTRY: Dict[str, Callable[[Any], Dict]] = {}
 
 
 def register_adapter(name: str):
-    """Register a custom adapter for a named schema."""
+    """Register a custom adapter for a specific schema name."""
 
     def _wrap(fn: Callable[[Any], Dict]) -> Callable[[Any], Dict]:
         REGISTRY[name] = fn

@@ -1,0 +1,1 @@
+{"weights": {"courtesy_opener": 2.0, "has_judgment_verb": -1.8605004198168358, "has_directive_cue": -0.22743090284945833, "has_artifact": 0.19900690696218304, "has_causal": -0.05494762845644481, "has_enumeration": -3.0, "has_entity": -0.03570428529117488, "is_short": 0.1963667998244612}, "prior_log_odds": 2.5559736874472763}

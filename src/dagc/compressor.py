@@ -10,14 +10,15 @@ algorithms.
 from __future__ import annotations
 import json
 import math
+import os
 import re
 from collections import defaultdict
 from dataclasses import dataclass
+from functools import lru_cache
 from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
-
-
+from dagc.extraction import _JUDGMENT_VERBS
+from .extraction import _find_decisive_match, _sentence_containing
 import numpy as np
-
 from .utils import (
     _art_density, _artifacts, _cos, _encode, _get_text, _head_tail_cap,
     _split_sents, _tok, _value_still_recoverable,
@@ -25,7 +26,7 @@ from .utils import (
 from .extraction import (
     _CONFIRM_SIGNALS, _STRONG_JUDGMENT_SIGNALS, _get_tool_call_args,
     _get_tool_call_name, _is_meaningful_candidate_value, _key_tier_rank,
-    _stringify_arg_value, extract_decisions,
+    _stringify_arg_value, _verb_match_is_decisive, extract_decisions,
 )
 from .graph import (
     CausalGraphConfig, CausalMessageGraph, SpectralCompressor,
@@ -34,9 +35,16 @@ from .graph import (
 )
 
 
+
+
+@lru_cache(maxsize=8192)
+def _word_boundary_re(art_lower: str):
+    return re.compile(r'(?<![A-Za-z0-9_])' + re.escape(art_lower) + r'(?![A-Za-z0-9_])')
+
+
 def compress_any(raw_messages, target_reduction: Optional[float] = None,
                  cfg: Optional[DAGCConfig] = None,
-                 decision_roles: Tuple[str, ...] = ('assistant',),
+                 decision_roles: Tuple[str, ...] = ('user', 'assistant'),
                  force_preserve: Optional[Iterable[str]] = None,
                  rehydrate: bool = True,
                  **overrides):
@@ -70,6 +78,7 @@ def compress_any(raw_messages, target_reduction: Optional[float] = None,
 @dataclass
 class DAGCConfig:
     TARGET_REDUCTION: float = 0.87
+    ABSOLUTE_BUDGET_TOKENS: Optional[int] = None
     EVIDENCE_MIN_BUDGET_PCT: float = 0.09
     PHASE1_FRAC: float = 0.42
     PER_DECISION_MIN_TOKENS: int = 22
@@ -111,6 +120,15 @@ class DAGCConfig:
     MIN_SENT_TOKENS: int = 4
     MAX_EMBED_CHUNK: int = 200
 
+    USE_DECISION_LOSS_OBJECTIVE: bool = False
+    LOSS_LAMBDA: float = 0.5   # Lagrange multiplier: weight on decision-loss
+                                # reduction relative to the existing causal/
+                                # semantic efficiency score, both expressed
+                                # per token spent.
+    USE_FILLER_FILTER: bool = True         
+    FILLER_PROB_THRESHOLD: float = 0.75
+    FILLER_SURPRISAL_BITS: float = 4.0
+
 DAGC_CFG = DAGCConfig()
 
 
@@ -128,32 +146,84 @@ def _is_tool_call_msg(m):
     return isinstance(m.get('tool_call'), dict)
 
 
+@lru_cache(maxsize=8192)
+def _multiword_art_re(art_lower: str):
+    """
+    Match a multi-word artifact against source text while tolerating
+    punctuation/whitespace differences between its words. Target strings
+    built by the tokenizer-based extraction fallbacks (object-phrase,
+    bigram) join words with a single space, discarding whatever
+    punctuation originally sat between them (e.g. 'info() method' becomes
+    'info method'). A literal substring check then can never find that
+    target back in its own source sentence -- this checks word-by-word
+    instead, with each word boundary-matched and the gap between words
+    accepting any run of non-alphanumeric characters, so it matches
+    regardless of what that punctuation was.
+    """
+    words = art_lower.split()
+    parts = [r'(?<![A-Za-z0-9_])' + re.escape(w) + r'(?![A-Za-z0-9_])' for w in words]
+    return re.compile(r'[^A-Za-z0-9]*'.join(parts))
+
+
 def _art_in_text(art: str, text: str) -> bool:
     """
     Case-insensitive 'does this critical value appear in this text' check.
-
-    Action verbs are always normalized to lowercase at extraction time
-    (_extract_verb: `.lower()` on both the direct-verb match and the
-    connective fallback), but English capitalizes sentence-initial words
-    -- so a decisive verb/connective at a sentence boundary ("Select
-    the...", "Therefore, ...") is routinely capitalized in source text
-    while its target_arts entry is always lowercase. A case-sensitive
-    `in` check silently fails on exactly this class of value.
-
-    Safe everywhere: path/id/error artifacts are extracted verbatim from
-    the same text they're later matched against, so they're already
-    case-consistent -- this can only convert an existing false negative
-    into a correct match, never a false positive within the same message.
+    ... [existing docstring unchanged] ...
     """
-    return bool(art) and art.lower() in text.lower()
+    if not art:
+        return False
+    art_low = art.lower()
+    text_low = text.lower()
+    if re.fullmatch(r'[a-z0-9_]+', art_low):
+        return bool(_word_boundary_re(art_low).search(text_low))
+    if ' ' in art_low and re.fullmatch(r'[a-z0-9_ ]+', art_low):
+        # Multi-word, punctuation-free target string (typical output of
+        # the tokenizer-based extraction fallbacks) -- match word-by-word,
+        # tolerant of whatever punctuation the source text had between
+        # the words that extraction's tokenizer discarded.
+        return bool(_multiword_art_re(art_low).search(text_low))
+    return art_low in text_low
 
+_NONCRITICAL_ACTION_VERBS = {
+    "recommend",
+    "recommends",
+    "recommended",
+    "recommendation",
+
+    "suggest",
+    "suggests",
+    "suggested",
+    "suggestion",
+
+    "confirm",
+    "confirms",
+    "confirmed",
+    "confirmation",
+
+    "decide",
+    "decides",
+    "decided",
+    "decision",
+
+    "think",
+    "thinks",
+    "thought",
+
+    "believe",
+    "believes",
+    "believed",
+
+    "conclude",
+    "concludes",
+    "concluded",
+}
 
 def _decision_critical_values(decisions: List[Dict]) -> Set[str]:
     out: Set[str] = set()
     for d in decisions:
         act = d.get('action')
         # Decision verbs come from a controlled vocabulary.
-        if act and 2 <= len(str(act)) <= 30:
+        if act and str(act).lower() not in _NONCRITICAL_ACTION_VERBS and 2 <= len(str(act)) <= 30:
             out.add(str(act))
 
         t = d.get('target')
@@ -168,7 +238,11 @@ def _decision_critical_values(decisions: List[Dict]) -> Set[str]:
                 continue
             m = re.search(r'[=:]\s*(.+)$', rat)
             val = (m.group(1) if m else rat).strip()
-            if 2 <= len(val) <= 60 and len(val.split()) <= 6 and _is_meaningful_candidate_value(val):
+            # Rationale entries are already curated by _extract_rationale
+            # (capped to 8, meaningful-value gated) -- anything that made it
+            # in is worth preserving. Drop the word-count cap; keep the
+            # length ceiling (every value is already truncated upstream).
+            if 2 <= len(val) <= 60 and _is_meaningful_candidate_value(val):
                 out.add(val)
 
     return out
@@ -194,21 +268,61 @@ def _artifact_owners(art: str, by_decision: Dict[int, Set[str]]) -> Set[int]:
     return {k for k, arts in by_decision.items() if art in arts}
 
 
-def _build_preserved_tag(missing: List[str], by_decision: Optional[Dict[int, Set[str]]] = None,
-                         *channels: str) -> str:
-    parts = []
-    for a in sorted(missing)[:6]:
-        if _already_covered(a, *channels):
-            continue
-        owners = _artifact_owners(a, by_decision or {}) if by_decision is not None else set()
+def _build_preserved_tag(missing, by_decision=None, *channels, max_tokens=None, must_keep=None):
+    if by_decision and missing and not any(_artifact_owners(a, by_decision) for a in missing):
+        import warnings
+        warnings.warn(
+            "_build_preserved_tag: zero owners resolved for any missing "
+            "artifact -- by_decision/missing key-space mismatch likely.",
+            RuntimeWarning,
+        )
+
+    def _is_must(a):
+        return bool(_JUDGMENT_VERBS.fullmatch(a.strip())) or a in must_keep
+
+    def _priority(a):
+        return (0 if _is_must(a) else 1, len(a), a)
+
+    def _build_entry(a):
+        # by_decision is {msg_idx: {owned artifacts}} -- need the REVERSE
+        # lookup. by_decision.get(a) never matches (a is a string, keys
+        # are ints); _artifact_owners already exists for exactly this.
+        owners = _artifact_owners(a, by_decision) if by_decision else None
         if owners:
             owner_str = ','.join(str(k) for k in sorted(owners))
-            parts.append(f'{a}#d{owner_str}')
+            entry = f'{a}#d{owner_str}'
         else:
-            parts.append(a)
-    if not parts:
-        return ''
-    return '[preserved: ' + ', '.join(parts) + ']'
+            entry = a
+        return entry, _tok(entry) + 1
+
+    ordered = sorted(missing, key=_priority)
+    must_items = [a for a in ordered if _is_must(a)]
+    other_items = [a for a in ordered if not _is_must(a)]
+
+    parts, used = [], _tok('[preserved: ]')
+    all_must_fit = True
+
+    for a in must_items:
+        if _already_covered(a, *channels):
+            continue
+        entry, entry_toks = _build_entry(a)
+        if max_tokens is not None and used + entry_toks > max_tokens:
+            all_must_fit = False
+            continue
+        parts.append(entry)
+        used += entry_toks
+
+    if all_must_fit:
+        for a in other_items:
+            if _already_covered(a, *channels):
+                continue
+            entry, entry_toks = _build_entry(a)
+            if max_tokens is not None and used + entry_toks > max_tokens:
+                continue
+            parts.append(entry)
+            used += entry_toks
+
+    return '[preserved: ' + ', '.join(parts) + ']' if parts else ''
 
 
 def _extract_decision_targets(decisions, cfg: DAGCConfig):
@@ -255,6 +369,67 @@ def _corroborated_artifacts(messages: List[Dict], decisions: List[Dict],
     return {a for a, f in art_freq.items() if f >= min_corroboration or a in dec_arts}
 
 
+# --- Rate-distortion decision-loss objective ---
+# Formalizes decision-preserving compression the way classic rate-distortion
+# theory (Shannon) formalizes lossy compression generally: minimize a
+# distortion measure subject to a rate (token) budget. The distortion here
+# is DECISION-LOSS specifically -- the fraction of a decision's critical
+# values that become unrecoverable -- rather than the generic semantic-
+# similarity distortion (ROUGE/embedding distance) ordinary summarization
+# optimizes for.
+#
+#     minimize  L(S) = sum_d w_d * loss_d(S)     s.t.  tokens(S) <= budget
+#     loss_d(S) = |T_d \ covered(S)| / |T_d|
+#
+# The Lagrangian relaxation, minimize tokens(S) + lambda*L(S), translated
+# into a greedy per-candidate marginal-value rule (the same rule the
+# existing GAMMA-weighted efficiency score already uses) becomes: add
+# lambda * (loss this candidate would remove) / (tokens it costs) directly
+# onto the existing efficiency score. It's an additive Lagrangian term on
+# the same per-candidate loop, not a replacement selection mechanism.
+
+def _decision_loss(by_decision: Dict[int, Set[str]], covered_arts: Set[str],
+                    type_weight: Optional[Dict[str, float]] = None,
+                    decisions: Optional[List[Dict]] = None) -> float:
+    """L(S): weighted mean, across decisions, of the fraction of that
+    decision's critical values NOT present in `covered_arts`. Weighted by
+    decision type when supplied (an 'action' losing its target is worse
+    than a 'confirmation' losing one -- mirrors cfg.W_ACTION/W_JUDGMENT/
+    W_CONFIRMATION already used for the same reason elsewhere)."""
+    if not by_decision:
+        return 0.0
+    type_by_idx = {d['msg_idx']: d.get('type') for d in decisions} if decisions else {}
+
+    total_w, total_loss = 0.0, 0.0
+    for msg_idx, arts in by_decision.items():
+        if not arts:
+            continue
+        missing = arts - covered_arts
+        loss_d = len(missing) / len(arts)
+        w = type_weight.get(type_by_idx.get(msg_idx), 1.0) if type_weight else 1.0
+        total_loss += w * loss_d
+        total_w += w
+    return total_loss / total_w if total_w > 0 else 0.0
+
+
+def _marginal_loss_reduction(candidate_text: str, by_decision: Dict[int, Set[str]],
+                              covered_arts: Set[str],
+                              type_weight: Optional[Dict[str, float]] = None,
+                              decisions: Optional[List[Dict]] = None) -> float:
+    """L(S) - L(S U {candidate}): the drop in decision-loss ONE candidate
+    sentence would buy if selected next, holding everything else fixed.
+    Always >= 0. Uses the same _art_in_text boundary-aware check used
+    everywhere else in this module, so it agrees with how coverage is
+    checked for the hard-guarantee/still_miss logic elsewhere."""
+    before = _decision_loss(by_decision, covered_arts, type_weight, decisions)
+    newly_covered = {a for arts in by_decision.values() for a in arts
+                     if a not in covered_arts and _art_in_text(a, candidate_text)}
+    if not newly_covered:
+        return 0.0
+    after = _decision_loss(by_decision, covered_arts | newly_covered, type_weight, decisions)
+    return max(0.0, before - after)
+
+
 _RE_METRIC_KV = re.compile(r'\b([A-Za-z][\w-]*)\s*[=:]\s*(\d+(?:\.\d+)?(?:%|e[-+]?\d+)?)\b')
 
 
@@ -272,7 +447,6 @@ def _decision_metric_strings(decisions: List[Dict]) -> Set[str]:
             if re.search(r'\d', norm):
                 out.add(norm)
     return out
-
 
 def _select_priority_content(content: str, target_arts: Set[str], dec_metrics: Set[str],
                               budget: int, cfg: DAGCConfig, head_frac: float = 0.5,
@@ -292,22 +466,62 @@ def _select_priority_content(content: str, target_arts: Set[str], dec_metrics: S
     if not sents:
         return _head_tail_cap(content, budget, head_frac)
 
-    def _is_critical(s):
-        if any(_art_in_text(a, s) for a in target_arts):
-            return True
-        if _extract_metric_strings(s) and any(ms in dec_metrics for ms in _extract_metric_strings(s)):
-            return True
-        return bool(_STRONG_JUDGMENT_SIGNALS.search(s) or _CONFIRM_SIGNALS.search(s))
+    covered_arts: Set[str] = set()
+    covered_metrics: Set[str] = set()
+
+    def _new_coverage(s):
+        new_arts = {a for a in target_arts if a and _art_in_text(a, s) and a not in covered_arts}
+        s_metrics = set(_extract_metric_strings(s))
+        new_metrics = {ms for ms in s_metrics if ms in dec_metrics and ms not in covered_metrics}
+        return new_arts, new_metrics
 
     selected: List[str] = []
     used = 0
 
     for s in sents:
-        if _is_critical(s):
-            t = _tok(s)
-            if used + t <= budget * 1.25:
-                selected.append(s)
-                used += t
+        new_arts, new_metrics = _new_coverage(s)
+        is_signal = bool(_STRONG_JUDGMENT_SIGNALS.search(s) or _CONFIRM_SIGNALS.search(s))
+        if not is_signal:
+            # _STRONG_JUDGMENT_SIGNALS/_CONFIRM_SIGNALS is a narrower
+            # vocabulary than the full _JUDGMENT_VERBS set extraction
+            # itself uses to decide a message IS a decision (suggest,
+            # prefer, implement, use, switch, migrate, deploy, target,
+            # keep, remove, move, 'go with', etc. are all decisive for
+            # extraction but invisible here). Without this fallback, the
+            # sentence carrying the actual decisive verb for those
+            # decision types has no structural protection during
+            # compression -- it survives only if it happens to also
+            # carry a target artifact or metric. That silently breaks
+            # action-reproduction for exactly the decisions whose verb
+            # falls in this gap, even when target/rationale for the same
+            # decision (protected separately, via target_arts) reproduce
+            # perfectly.
+            is_signal = any(_verb_match_is_decisive(s, m) for m in _JUDGMENT_VERBS.finditer(s))
+        if not (new_arts or new_metrics or is_signal):
+            continue
+        t = _tok(s)
+        if used + t <= budget * 1.25:
+            selected.append(s)
+            used += t
+            covered_arts |= new_arts
+            covered_metrics |= new_metrics
+        elif new_arts or is_signal:
+            # Hard guarantee, not a soft preference: a sentence that is
+            # the ONLY carrier of a still-uncovered decision-critical
+            # value (target_arts), OR the sentence carrying the decisive
+            # judgment/confirmation verb itself, must never be dropped
+            # just because it doesn't fit the soft per-sentence budget
+            # tolerance. Skipping either is unrecoverable -- the fallback
+            # below (_head_tail_cap) slices the ORIGINAL content by raw
+            # head/tail POSITION, with no idea which sentence the value
+            # or verb actually lives in, so anything not captured here is
+            # lost for good. Extending this from new_arts-only to also
+            # cover is_signal closes the exact gap that let a decision's
+            # target/rationale survive while its own action verb was cut.
+            selected.append(s)
+            used += t
+            covered_arts |= new_arts
+            covered_metrics |= new_metrics
 
     head_n = max(1, int(len(sents) * head_frac))
     ordered = sents[:head_n] + list(reversed(sents[head_n:]))
@@ -320,15 +534,16 @@ def _select_priority_content(content: str, target_arts: Set[str], dec_metrics: S
             used += t
 
     result = ' '.join(selected).strip() or _head_tail_cap(content, budget, head_frac)
-
-    missing = [a for a in target_arts if a and a in content and a not in result]
+    missing = [a for a in target_arts if a and _art_in_text(a, content) and not _art_in_text(a, result)]
     if missing:
-        tag = _build_preserved_tag(missing, by_decision)
-        candidate = (result + ' ' + tag).strip()
-        # Do not let a preservation tag make the message longer than the cap.
-        result = candidate if _tok(candidate) <= budget * 1.5 else result
-
+        must_missing = [a for a in missing if a in target_arts]
+        must_cost = sum(_tok(a) + 2 for a in must_missing)
+        remaining = max(must_cost, int(budget * 1.5) - _tok(result))
+        tag = _build_preserved_tag(missing, by_decision, max_tokens=remaining, must_keep=target_arts)
+        if tag:
+            result = (result + ' ' + tag).strip()
     return _monotonic(content, result)
+
 
 
 def _slim_tool_args(args: dict, target_arts: Set[str], max_keys: int = 4) -> dict:
@@ -381,6 +596,51 @@ def _footprint_text(msg: Dict, target_arts: Optional[Set[str]] = None) -> str:
     return ' '.join(p for p in parts if p)
 
 
+_CALIBRATED_PATH = os.path.join(os.path.dirname(__file__), "filler_scorer_calibrated.json")
+_FILLER_SCORER = None
+
+def _get_filler_scorer():
+    global _FILLER_SCORER
+    if _FILLER_SCORER is None:
+        from .filler_score import FillerScorer  # deferred: breaks filler_score -> rationale_ext -> compressor cycle
+        if os.path.exists(_CALIBRATED_PATH):
+            with open(_CALIBRATED_PATH) as f:
+                _FILLER_SCORER = FillerScorer.from_json(f.read())
+        else:
+            _FILLER_SCORER = FillerScorer()
+    return _FILLER_SCORER
+
+
+def _apply_filler_filter(content: str, full_text: str, target_arts: Set[str],
+                          cfg: DAGCConfig) -> str:
+    """
+    Final micro-pruning pass on ALREADY-SELECTED text: strips courtesy/
+    filler clauses that survived only because they filled budget, not
+    because they were decision-critical. Runs AFTER decision-selection,
+    never instead of it.
+
+    Hard safety gate on top of filler_score's own two gates: a clause
+    is never deleted if it contains any decision-critical value in
+    target_arts, even if filler_score's surprisal check missed it (e.g.
+    a target value that isn't shaped like one of _artifacts()'s tracked
+    kinds -- ids/paths/errors/numbers -- so surprisal never sees it).
+    """
+    if not cfg.USE_FILLER_FILTER or not content:
+        return content
+    from .filler_score import filler_deletion_candidates, apply_deletions
+    scorer = _get_filler_scorer()
+    candidates = filler_deletion_candidates(
+        content, full_text, scorer,
+        prob_threshold=cfg.FILLER_PROB_THRESHOLD,
+        surprisal_threshold_bits=cfg.FILLER_SURPRISAL_BITS,
+    )
+    safe = [c for c, p, s in candidates
+            if not any(_art_in_text(a, c) for a in target_arts)]
+    if not safe:
+        return content
+    result = apply_deletions(content, safe)
+    return _monotonic(content, result) if result else content
+
 def _monotonic(original: str, candidate: str) -> str:
     """Compression must never cost more tokens than the untouched
     original. If a rescue/tag mechanism pushed the candidate past that,
@@ -388,14 +648,15 @@ def _monotonic(original: str, candidate: str) -> str:
     return candidate if _tok(candidate) < _tok(original) else original
 
 def _compress_protected_message(m: Dict, target_arts: Set[str], dec_metrics: Set[str],
-                                  cfg: DAGCConfig,
+                                  cfg: DAGCConfig, full_text: str = '',
                                   by_decision: Optional[Dict[int, Set[str]]] = None) -> str:
     role = m.get('role', '')
     content = m.get('content', '') or ''
     is_tc = isinstance(m.get('tool_call'), dict)
 
     if role == 'system':
-        return _head_tail_cap(content, cfg.SYSTEM_MAX_TOKENS)
+        capped = _head_tail_cap(content, cfg.SYSTEM_MAX_TOKENS)
+        return _apply_filler_filter(capped, full_text, target_arts, cfg)
 
     if is_tc:
         tc = m['tool_call']
@@ -410,8 +671,8 @@ def _compress_protected_message(m: Dict, target_arts: Set[str], dec_metrics: Set
 
         prefix = (_select_priority_content(content, target_arts, dec_metrics, c_budget, cfg,
                                             head_frac=1.0, by_decision=by_decision) if content else '')
+        prefix = _apply_filler_filter(prefix, full_text, target_arts, cfg)
 
-        # Avoid repeating a tool name that is already present.
         if tool_name and _already_covered(tool_name, prefix):
             return _monotonic(content, prefix.strip())
 
@@ -422,6 +683,7 @@ def _compress_protected_message(m: Dict, target_arts: Set[str], dec_metrics: Set
                                        cfg.DECISION_MAX_TOKENS, cfg,
                                        head_frac=cfg.JUDGMENT_HEAD_FRAC,
                                        by_decision=by_decision)
+    result = _apply_filler_filter(result, full_text, target_arts, cfg)
     return _monotonic(content, result)
 
 
@@ -456,23 +718,32 @@ def _scale_protected_cfg(cfg: DAGCConfig, protected_msgs: List[Dict], total_budg
     return pcfg
 
 
-def _judgment_has_evidence(msg_idx: int, messages: List[Dict], cfg: DAGCConfig = None) -> bool:
+def _judgment_has_evidence(msg_idx: int, messages: List[Dict], cfg: DAGCConfig = None,
+                            decision: Optional[Dict] = None) -> bool:
     """Anti-injection evidence gate: a judgment/confirmation only counts as
     "well-supported" if the tool activity *before it in the trace* backs
     it up. Every signal here is computed strictly from messages[:msg_idx]
     -- nothing after the decision, real or adversarially injected, can
     ever change the verdict. This is a heuristic firewall against a
     message that *claims* a decision with no supporting evidence in the
-    trace -- not a security control."""
+    trace -- not a security control.
+
+    `decision`, when supplied, is this message's own already-extracted
+    decision dict (from extract_decisions), used for the verbatim-
+    corroboration sub-check below instead of re-deriving a target from
+    scratch. Corroboration is only enforced for 'confirmation'-type
+    decisions, which restate something that should already be present
+    earlier in the trace. It is NOT enforced for 'judgment' decisions,
+    because a judgment's target is typically a freshly COMPUTED value (a
+    correlation id, an aggregate, a winning metric) that by construction
+    will not appear verbatim anywhere earlier. If `decision` is omitted,
+    falls back to the original weaker re-derived-target corroboration
+    for backward compatibility."""
     threshold = getattr(cfg, 'EVIDENCE_BEFORE_FRAC', 0.70)
     min_corr = getattr(cfg, 'MIN_TOOL_CORROBORATION', 1)
 
     if msg_idx <= 0 or msg_idx >= len(messages):
         return True
-
-    from .extraction import _extract_entity_target
-    text = _get_text(messages[msg_idx])
-    target = _extract_entity_target(text)
 
     before = messages[:msg_idx]
     tools_before = sum(1 for m in before if m.get('role') == 'tool')
@@ -489,6 +760,25 @@ def _judgment_has_evidence(msg_idx: int, messages: List[Dict], cfg: DAGCConfig =
     if density < (1 - threshold):
         return False
 
+    if decision is not None:
+        if decision.get('type') != 'confirmation':
+            return True   # density check already passed above; that's the real signal
+        raw_candidates = [decision.get('target')] + [
+            re.sub(r'^[a-z_]+[:=]\s*', '', str(r)) for r in decision.get('rationale', [])
+        ]
+        candidates = [str(c).strip() for c in raw_candidates if c and len(str(c).strip()) >= 3]
+        if not candidates:
+            return True
+        corroborations = sum(
+            1 for c in candidates for m in before
+            if m.get('role') in ('tool', 'assistant') and c.lower() in _get_text(m).lower()
+        )
+        return corroborations >= min_corr
+
+    # Backward-compatible path for callers that don't pass a decision dict.
+    from .extraction import _extract_entity_target
+    text = _get_text(messages[msg_idx])
+    target = _extract_entity_target(text)
     if target and len(target.strip()) >= 3:
         target_low = target.lower().strip()
         corroborations = sum(
@@ -613,43 +903,64 @@ def _phase1_hard_guarantee(pool, decisions, budget, extra_critical=None):
         if a in covered or a not in best:
             continue
         idx, cost = best[a]
+
+        # Bug 1 fix: check "already injected" BEFORE the budget gate.
+        # If this sentence was already selected (for a different
+        # artifact), covering `a` here costs zero additional tokens --
+        # `used_toks` already paid for it. Applying the budget check
+        # first (old order) could wrongly skip marking `a` as covered
+        # even though the text carrying it is already in the output.
+        if idx in injected:
+            covered.add(a)
+            continue
+
         if used_toks + cost > budget and cost > 40:
             continue
-        if idx not in injected:
-            injected.add(idx)
-            selected.append(idx)
-            used_toks += cost
-            s, _ = pool[idx]
-            for other in target_arts:
-                if other in s:
-                    covered.add(other)
-        else:
-            covered.add(a)
+
+        injected.add(idx)
+        selected.append(idx)
+        used_toks += cost
+        s, _ = pool[idx]
+        for other in target_arts:
+            # Bug 2 fix: use the same word-boundary-aware, case-
+            # insensitive check used everywhere else in this module
+            # (and used to build `best` above), instead of a raw
+            # substring `in`, which both false-negatives on case
+            # mismatches and false-positives on partial-word matches
+            # (e.g. "id" inside "paid").
+            if _art_in_text(other, s):
+                covered.add(other)
 
     return selected, covered
 
+def _make_stub(msg_idx: int, dropped_msg: Dict) -> Optional[Dict]:
+    """Called only for messages that would otherwise vanish entirely from
+    the compressed output (excluded from `pool` by MSTAR_HARD_DROP, or
+    included in `pool` but none of their sentences got selected). Keeps a
+    cheap, deterministic marker instead of silence, built from the same
+    _artifacts() call already used everywhere else in this module."""
+    arts = _artifacts(_footprint_text(dropped_msg))
+    fingerprint = arts['paths'] + arts['ids'] + arts['errors']
+    if not fingerprint:
+        return None  # nothing artifact-shaped in it -- genuinely safe to fully drop
+    return {
+        'role': dropped_msg.get('role', 'assistant'),
+        '_orig_idx': msg_idx,
+        '_stub': True,
+        'content': f"[dropped — contained: {', '.join(fingerprint[:5])}]",
+    }
 
 def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
-                   decision_roles: Tuple[str, ...] = ('assistant',),
-                   force_preserve: Optional[Iterable[str]] = None) -> List[Dict]:
-    """
-    Decision-Anchored Graph Compression — v4.3.
-
-    Compresses a message trace to roughly cfg.TARGET_REDUCTION fewer
-    tokens while hard-guaranteeing that every artifact a decision depends
-    on (tool-call arguments, confirmed IDs, cited metrics) survives in the
-    output. Purely algorithmic -- no network calls.
-
-    Returns a list of messages (same dict shape as input, plus an
-    '_orig_idx' key recording each message's position in the original
-    trace).
-    """
+                   decision_roles: Tuple[str, ...] = ('user', 'assistant'),
+                   force_preserve: Optional[Iterable[str]] = None,
+                   diagnostics: Optional[Dict[str, Any]] = None) -> List[Dict]:
     if cfg is None:
         cfg = DAGC_CFG
 
     task = next((m['content'] for m in messages if m.get('role') == 'user'), 'complete the task')
     task_emb = _encode([task])[0]
     orig_toks = sum(_tok(_footprint_text(m)) for m in messages)
+    full_trace_text = '\n'.join(_get_text(m) for m in messages) 
     n = len(messages)
 
     try:
@@ -661,19 +972,34 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
     injection_filtered: Set[int] = set()
     for d in decisions:
         if d['type'] in ('judgment', 'confirmation'):
-            if not _judgment_has_evidence(d['msg_idx'], messages, cfg):
+            if not _judgment_has_evidence(d['msg_idx'], messages, cfg, decision=d):
+
                 injection_filtered.add(d['msg_idx'])
 
     valid_decisions = [d for d in decisions if d['msg_idx'] not in injection_filtered]
 
     # Preserve literal decision values even when a message is not protected.
-    target_arts = _collect_decision_artifacts(decisions)
+    target_arts = _collect_decision_artifacts(valid_decisions)
+
+    # A decision's own extracted target must never depend on being
+    # independently REDISCOVERED by a generic artifact regex (paths/ids/
+    # errors) that exists for a different purpose and can legitimately
+    # disagree with what extraction already determined the answer was --
+    # e.g. a decimal target that the ids/paths regexes only partially or
+    # coincidentally capture, or don't capture at all. Adding it directly
+    # here closes that gap at its source, for every decision type, rather
+    # than relying on it happening to also match one of the artifact kinds.
+    for d in valid_decisions:
+        t = d.get('target')
+        if t and 2 <= len(str(t)) <= 80:
+            target_arts.add(str(t))
+
     if force_preserve:
         target_arts |= {str(x) for x in force_preserve if x and 2 <= len(str(x)) <= 80}
-    dec_metrics = _decision_metric_strings(decisions)
-    by_decision = _collect_decision_artifacts_by_decision(decisions)
+    dec_metrics = _decision_metric_strings(valid_decisions)
+    by_decision = _collect_decision_artifacts_by_decision(valid_decisions)
 
-    corroborated = _corroborated_artifacts(messages, decisions, cfg.ART_CORROBORATION_MIN)
+    corroborated = _corroborated_artifacts(messages, valid_decisions, cfg.ART_CORROBORATION_MIN)
 
     # User-provided IDs and paths are authoritative on first mention.
     user_stated_artifacts: Set[str] = set()
@@ -689,15 +1015,16 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
     M_star = set(range(n))
     spec_scores = {i: 0.0 for i in range(n)}
     cg = None
+    causal_error = None
     try:
         if cfg.USE_CAUSAL_SKELETON:
-            cg = CausalMessageGraph(messages, decisions,
-                                     CausalGraphConfig(CAUSAL_TAU=cfg.TAU, ADD_SEQ_EDGES=False))
+            cg = CausalMessageGraph(messages, valid_decisions,
+                                    CausalGraphConfig(CAUSAL_TAU=cfg.TAU, ADD_SEQ_EDGES=False))
             M_star = cg.minimal_sufficient_set()
         if cfg.USE_SPECTRAL and cg is not None:
             spec_scores = SpectralCompressor(cg).normalized_scores()
-    except Exception:
-        pass
+    except Exception as exc:
+        causal_error = f'{type(exc).__name__}: {exc}'
 
     protected: Set[int] = set()
     for i, m in enumerate(messages):
@@ -708,17 +1035,21 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
         if d['type'] == 'action' and cfg.PROTECT_TOOL_CALLS:
             protected.add(mi)
         elif d['type'] in ('judgment', 'confirmation') and cfg.PROTECT_JUDGMENTS:
-            if _judgment_has_evidence(mi, messages, cfg):
+            if _judgment_has_evidence(mi, messages, cfg, decision=d):
                 protected.add(mi)
 
-    total_budget = max(1, int(orig_toks * (1 - cfg.TARGET_REDUCTION)))
+    if cfg.ABSOLUTE_BUDGET_TOKENS is not None:
+        total_budget = max(1, int(cfg.ABSOLUTE_BUDGET_TOKENS))
+    else:
+        total_budget = max(1, int(orig_toks * (1 - cfg.TARGET_REDUCTION)))
 
     pcfg = _scale_protected_cfg(cfg, [messages[i] for i in protected], total_budget)
     compressed_protected_content: Dict[int, str] = {}
     if cfg.COMPRESS_PROTECTED:
         for i in protected:
             compressed_protected_content[i] = _compress_protected_message(
-                messages[i], target_arts, dec_metrics, pcfg, by_decision=by_decision)
+                messages[i], target_arts, dec_metrics, pcfg,
+                full_text=full_trace_text, by_decision=by_decision)
 
     def _prot_tok(i: int) -> int:
         if cfg.COMPRESS_PROTECTED and i in compressed_protected_content:
@@ -735,17 +1066,18 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
         causal_n[i] = causal_n.get(i, 0.0) * cfg.MSTAR_CAUSAL_BONUS
     for i in injection_filtered:
         causal_n[i] = 0.0
-
-    dependency_edges = build_dependency_graph(messages, decisions)
+        
+    dependency_edges = build_dependency_graph(messages, valid_decisions)
     dependency_vals: Set[str] = {e['artifact'] for e in dependency_edges}
-    n_valid_decisions = len(decisions)
+    n_valid_decisions = len(valid_decisions)
     _target_lens = [_tok(a) for a in target_arts] or [8]
     per_decision_floor = max(
         getattr(cfg, 'PER_DECISION_MIN_TOKENS', 22),
         int(np.mean(_target_lens)) + 10,
     )
+    evidence_scale_toks = total_budget if cfg.ABSOLUTE_BUDGET_TOKENS is not None else orig_toks
     min_evidence_budget = max(
-        int(orig_toks * cfg.EVIDENCE_MIN_BUDGET_PCT),
+        int(evidence_scale_toks * cfg.EVIDENCE_MIN_BUDGET_PCT),
         n_valid_decisions * per_decision_floor,
         len(dependency_vals) * 15,
     )
@@ -753,6 +1085,19 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
     evidence_floor = min(min_evidence_budget, max(20, int(total_budget * 0.5)))
     free_budget = max(evidence_floor, total_budget - protected_toks)
     phase1_budget = int(free_budget * cfg.PHASE1_FRAC)
+
+    if diagnostics is not None:
+        diagnostics.update({
+            'orig_tokens': orig_toks,
+            'total_budget': total_budget,
+            'evidence_floor': evidence_floor,
+            'protected_tokens': protected_toks,
+            'free_budget': free_budget,
+            'causal_skeleton_used': cfg.USE_CAUSAL_SKELETON and causal_error is None,
+            'causal_skeleton_error': causal_error,
+            'valid_decisions': valid_decisions,
+            'injection_filtered_msg_idxs': sorted(injection_filtered),
+})
 
     pool: List[Tuple[str, int]] = []
     for i, m in enumerate(messages):
@@ -778,12 +1123,15 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
                     mc['content'] = compressed_protected_content[i]
                 mc['_orig_idx'] = i
                 out.append(mc)
+        if diagnostics is not None:
+            diagnostics['output_tokens'] = sum(_tok(_footprint_text(m)) for m in out)
         return out
 
     pool_texts = [s for s, _ in pool]
     pool_embs = _encode(pool_texts, max_chunk=cfg.MAX_EMBED_CHUNK)
 
-    p1_idx, covered_arts = _phase1_hard_guarantee(pool, decisions, phase1_budget,
+    # AFTER
+    p1_idx, covered_arts = _phase1_hard_guarantee(pool, valid_decisions, phase1_budget,
                                                     extra_critical=dependency_vals)
     p1_set = set(p1_idx)
     p1_toks = sum(_tok(pool[i][0]) for i in p1_idx)
@@ -811,7 +1159,13 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
             for ms in _extract_metric_strings(s):
                 if ms in dec_metrics:
                     covered_metrics.add(ms)
-            for kind in ('paths', 'ids', 'errors'):
+            # FIX (numbers omission): 'numbers' is a real bucket _artifacts()
+            # returns, and a purely numeric decision target (a metric
+            # threshold, a count, a percentage) needs to register as covered
+            # here just like paths/ids/errors do -- otherwise it can survive
+            # in the output text yet still be treated as "still missing"
+            # downstream.
+            for kind in ('paths', 'ids', 'numbers', 'errors'):
                 covered_arts.update(_artifacts(s)[kind])
 
     remaining = max(0, free_budget - p1_toks)
@@ -820,6 +1174,12 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
     selected_embs = [pool_embs[i] for i in p1_idx]
     p2_idx: List[int] = []
     used_p2 = 0
+
+    if cfg.USE_DECISION_LOSS_OBJECTIVE:
+        decision_type_weight = {'action': cfg.W_ACTION, 'judgment': cfg.W_JUDGMENT,
+                                 'confirmation': cfg.W_CONFIRMATION}
+        loss_covered: Set[str] = {a for arts in by_decision.values() for a in arts
+                                    if a in covered_arts}
 
     for _ in range(len(pending)):
         if not pending or used_p2 >= remaining:
@@ -840,6 +1200,10 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
             red = max((_cos(pool_embs[idx], e) for e in selected_embs), default=0.0)
             sem = cfg.MMR_LAMBDA * rel - (1 - cfg.MMR_LAMBDA) * red
             eff = (cfg.GAMMA * causal + (1 - cfg.GAMMA) * max(0.0, sem)) / (t + 1e-9)
+            if cfg.USE_DECISION_LOSS_OBJECTIVE:
+                lr = _marginal_loss_reduction(s, by_decision, loss_covered,
+                                               decision_type_weight, valid_decisions)
+                eff += cfg.LOSS_LAMBDA * (lr / (t + 1e-9))
             if eff > best_eff:
                 best_eff, best_i = eff, idx
 
@@ -847,9 +1211,14 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
             break
 
         s, _mi = pool[best_i]
+        if cfg.USE_DECISION_LOSS_OBJECTIVE:
+            loss_covered |= {a for arts in by_decision.values() for a in arts
+                              if a not in loss_covered and _art_in_text(a, s)}
         p2_idx.append(best_i)
         selected_embs.append(pool_embs[best_i])
-        for kind in ('paths', 'ids', 'errors'):
+        # FIX (numbers omission): see identical note above -- same tuple,
+        # same gap, same fix. This is the phase-2 greedy-selection update site.
+        for kind in ('paths', 'ids', 'numbers', 'errors'):
             covered_arts.update(_artifacts(s)[kind])
         for ms in _extract_metric_strings(s):
             if ms in dec_metrics:
@@ -859,7 +1228,10 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
 
     for i in protected:
         cc = compressed_protected_content.get(i, _get_text(messages[i]))
-        for kind in ('paths', 'ids', 'errors'):
+        # FIX (numbers omission): protected (system/judgment/tool-call)
+        # messages can themselves carry the surviving copy of a numeric
+        # decision target -- this update site had the same missing bucket.
+        for kind in ('paths', 'ids', 'numbers', 'errors'):
             covered_arts.update(_artifacts(cc)[kind])
         for a in target_arts:
             if _art_in_text(a, cc):
@@ -880,7 +1252,11 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
             p2_idx.append(best_idx)
             all_sel.add(best_idx)
             s, _ = pool[best_idx]
-            for kind in ('paths', 'ids', 'errors'):
+            # FIX (numbers omission): last-resort rescue site -- without this,
+            # a rescued numeric target gets added to the output text but never
+            # marked covered, so it looks identical to a value that's still
+            # missing to any code reading covered_arts afterward.
+            for kind in ('paths', 'ids', 'numbers', 'errors'):
                 covered_arts.update(_artifacts(s)[kind])
 
     msg_sents: Dict[int, List[str]] = {}
@@ -889,6 +1265,7 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
         msg_sents.setdefault(mi, []).append(s)
 
     out: List[Dict] = []
+    n_stubbed = 0
     for i, m in enumerate(messages):
         if i in protected:
             mc = dict(m)
@@ -912,16 +1289,59 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
             out.append(mc)
         elif i in msg_sents:
             mc = dict(m)
-            mc['content'] = ' '.join(msg_sents[i])
+            content = ' '.join(msg_sents[i])
+            mc['content'] = _apply_filler_filter(content, full_trace_text, target_arts, cfg)
             mc['_orig_idx'] = i
             out.append(mc)
+        elif getattr(cfg, 'FINGERPRINT_STUBS', True):
+            stub = _make_stub(i, m)
+            if stub is not None:
+                out.append(stub)
+                n_stubbed += 1
+
+    if cfg.USE_DECISION_LOSS_OBJECTIVE:
+        # Final consistency pass for the decision-loss objective: `covered_arts`
+        # only ever gets updated with the ('paths','ids','numbers','errors')
+        # REGEX subset during phase 2 (see the loops above), so target_arts \
+        # covered_arts can still under-report loss for a value outside those
+        # regex kinds that never got tracked at all (a plain-word/phrase
+        # decision value, e.g.). `loss_covered` doesn't have that gap -- it's
+        # built with the same _art_in_text check the objective itself scores
+        # against -- so once the objective is active it remains the
+        # authoritative source of "did this decision's value actually make it
+        # into the output", not covered_arts. This block re-derives
+        # loss_covered against the FINAL shipped text (protected + selected +
+        # stubbed) and, if any by_decision-owned value still isn't recoverable
+        # after every earlier rescue pass, hard-appends it as a last-resort
+        # [preserved: ...] tag rather than letting it silently disappear.
+        for m_out in out:
+            text = _footprint_text(m_out)
+            for arts in by_decision.values():
+                for a in arts:
+                    if a not in loss_covered and _art_in_text(a, text):
+                        loss_covered.add(a)
+        truly_missing = {a for arts in by_decision.values() for a in arts} - loss_covered
+        if truly_missing:
+            tag = _build_preserved_tag(truly_missing, by_decision, must_keep=truly_missing)
+            if tag:
+                if out:
+                    out[-1] = dict(out[-1])
+                    out[-1]['content'] = (out[-1].get('content', '') + ' ' + tag).strip()
+                else:
+                    out.append({'role': 'assistant', '_orig_idx': n, '_stub': True, 'content': tag})
+        if diagnostics is not None:
+            diagnostics['decision_loss_final_rescue'] = sorted(truly_missing)
+
+    if diagnostics is not None:
+        diagnostics['output_tokens'] = sum(_tok(_footprint_text(m)) for m in out)
+        diagnostics['n_stubbed'] = n_stubbed
     return out
 
 
 # Public shorthand for compress_dagc.
 def compress(messages: List[Dict], target_reduction: Optional[float] = None,
              cfg: Optional[DAGCConfig] = None,
-             decision_roles: Tuple[str, ...] = ('assistant',),
+             decision_roles: Tuple[str, ...] = ('user', 'assistant'),
              force_preserve: Optional[Iterable[str]] = None,
              **overrides) -> List[Dict]:
     """
@@ -959,10 +1379,75 @@ def compress(messages: List[Dict], target_reduction: Optional[float] = None,
                           force_preserve=force_preserve)
 
 
+def decision_loss_frontier(messages: List[Dict], budgets: List[int],
+                            cfg: Optional[DAGCConfig] = None,
+                            decision_roles: Tuple[str, ...] = ('user', 'assistant')) -> List[Dict]:
+    """
+    Empirical rate-distortion curve: runs compression at each token budget
+    in `budgets` and reports (output_tokens, decision_loss) for each --
+    the actual frontier the rate-distortion formalization predicts exists,
+    measured directly rather than just asserted. Report this curve instead
+    of a single compression-ratio number.
+
+    How to use this for a write-up: call
+    ``decision_loss_frontier(messages, budgets=[50, 100, 200, 400, 800])``
+    on a batch of traces and plot ``output_tokens`` vs ``decision_loss``.
+    That plot *is* the empirical rate-distortion curve -- a measured
+    result, not just a derivation.
+
+    Two things worth deciding before running this at scale:
+
+    1. ``cfg.LOSS_LAMBDA`` isn't derivable from theory alone -- it needs
+       the same kind of fitting/sweep treatment as the other hand-tuned
+       constants in this module (GAMMA, MMR_LAMBDA). A small grid search
+       against the frontier this function produces -- i.e. sweep LOSS_LAMBDA,
+       rerun this function at each value, and compare the resulting curves
+       -- is the natural way to pick it.
+    2. Whether the ``[preserved: ...]`` hard-guarantee tag should consult
+       ``loss_covered`` instead of / in addition to ``covered_arts`` so the
+       rescue mechanism stays consistent with this objective when both are
+       active -- implemented above in `compress_dagc` as a final
+       loss_covered-aware rescue pass, gated behind
+       ``cfg.USE_DECISION_LOSS_OBJECTIVE``.
+    """
+    base_cfg = cfg or DAGCConfig()
+    decisions = extract_decisions(messages, decision_roles=decision_roles)
+    decisions = _attach_dependencies(messages, decisions)
+    by_decision = _collect_decision_artifacts_by_decision(decisions)
+    type_weight = {'action': base_cfg.W_ACTION, 'judgment': base_cfg.W_JUDGMENT,
+                   'confirmation': base_cfg.W_CONFIRMATION}
+
+    results = []
+    for b in sorted(budgets):
+        import copy as _copy
+        run_cfg = _copy.deepcopy(base_cfg)
+        run_cfg.ABSOLUTE_BUDGET_TOKENS = b
+        diag: Dict[str, Any] = {}
+        out = compress_dagc(messages, cfg=run_cfg, decision_roles=decision_roles, diagnostics=diag)
+
+        covered: Set[str] = set()
+        for m in out:
+            text = _footprint_text(m)
+            for arts in by_decision.values():
+                for a in arts:
+                    if a not in covered and _art_in_text(a, text):
+                        covered.add(a)
+
+        loss = _decision_loss(by_decision, covered, type_weight, decisions)
+        results.append({
+            'requested_budget': b,
+            'output_tokens': diag.get('output_tokens', sum(_tok(_footprint_text(m)) for m in out)),
+            'decision_loss': loss,
+            'n_decisions': len(decisions),
+        })
+    return results
+
+
 __all__ = [
     "compress",
     "compress_any",
     "compress_dagc",
     "DAGCConfig",
     "DAGC_CFG",
+    "decision_loss_frontier",
 ]

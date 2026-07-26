@@ -1,0 +1,1234 @@
+[
+  {
+    "id": "plain_going_with",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Which database should we use?"
+      },
+      {
+        "role": "assistant",
+        "content": "Let's go with Postgres, it handles joins better."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "plain_ill_use",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How should I store the config?"
+      },
+      {
+        "role": "assistant",
+        "content": "I'll just use a YAML file for this."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "plain_switching_to",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We're switching to the v2 endpoint from now on."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "plain_final_answer_no_template",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Redis or Memcached?"
+      },
+      {
+        "role": "assistant",
+        "content": "Redis. It gives us persistence we'd otherwise lose."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "plain_short_imperative",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Use the staging bucket for this run."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "plain_after_deliberation",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Weigh MongoDB vs Postgres for us."
+      },
+      {
+        "role": "assistant",
+        "content": "MongoDB gives flexible schema, Postgres gives strong consistency and joins. Given our reporting needs, Postgres is the one we'll use."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "buried_mid_paragraph",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "There's a lot to consider here. Latency matters, cost matters. We'll use the us-east-1 region for this, since that's where most of our other services already live. Let me know if that changes anything on your end."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "user_stated_decision",
+    "predicted": "known_gap",
+    "messages": [
+      {
+        "role": "user",
+        "content": "OK, decision made -- we're going with the Rust rewrite."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "hedge_leaning_towards",
+    "predicted": "hard_fail_expected",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "I'm leaning towards Postgres, but not fully sure yet."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "hedge_probably",
+    "predicted": "hard_fail_expected",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We'll probably end up using Redis for this."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "deliberation_no_decision",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Postgres or Mongo?"
+      },
+      {
+        "role": "assistant",
+        "content": "Both have tradeoffs -- Postgres for joins, Mongo for flexible schema. What's more important for your use case?"
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "question_with_decision_words",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Should we switch to Postgres or stay on MySQL?"
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "elimination_implied",
+    "predicted": "known_gap",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "MongoDB is out -- we ruled it out over the schema issues. Redis doesn't give us persistence guarantees either."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "reversal_same_convo",
+    "predicted": "known_gap",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Let's use MySQL."
+      },
+      {
+        "role": "user",
+        "content": "Actually can we do Postgres instead?"
+      },
+      {
+        "role": "assistant",
+        "content": "Sure, Postgres it is."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "casual_aside_no_signal",
+    "predicted": "known_gap",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Cool, going with the free tier for now since we're just prototyping."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "sarcasm_ambiguous",
+    "predicted": "judgment_call",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Oh sure, let's rewrite the whole thing in Rust. Great idea."
+      }
+    ],
+    "expect_decision": null,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "codeblock_decision",
+    "predicted": "judgment_call",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "```yaml\ndatabase: postgres\nregion: us-east-1\n```"
+      }
+    ],
+    "expect_decision": null,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "ack_only",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Sounds good, thanks!"
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv_going_to_meeting",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Okay, going to the meeting now, back in an hour."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv_go_with_flow",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Let's just go with the flow on this one."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv_going_to_lunch",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "I'm going to lunch, can we pick this up after?"
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv_switching_to_bad_mood",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "I'm switching to a different mindset about this whole thing."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv_use_bathroom",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "One sec, going to use the bathroom real quick."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "cross_hiring_candidate",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Priya or Daniel for the lead role?"
+      },
+      {
+        "role": "assistant",
+        "content": "Let's go with Priya, her systems design experience is stronger."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_travel_flight",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We're switching to the evening flight instead of the morning one."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_cooking_method",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Use the slow cooker for this batch, it browns less but holds moisture."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_legal_clause",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Arbitration clause or litigation clause?"
+      },
+      {
+        "role": "assistant",
+        "content": "Arbitration. It keeps costs predictable if this ever goes sideways."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_scheduling_slot",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Let's confirm the 3pm slot for the review, that works for everyone."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_hardware_laptop",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Weigh the M3 model against the older Intel one for us."
+      },
+      {
+        "role": "assistant",
+        "content": "The Intel one is cheaper up front, but battery life is much worse. Given how much travel you do, the M3 model is the one we'll get."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": true
+  },
+  {
+    "id": "cross_writing_tone",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "I'll adopt a more casual tone for the newsletter going forward."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_marketing_channel",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Budget's tight this quarter, and organic reach has been inconsistent. We're prioritizing the referral program over paid ads for launch."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": true
+  },
+  {
+    "id": "cross_venue_choice",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Rooftop bar or the downtown loft for the offsite?"
+      },
+      {
+        "role": "assistant",
+        "content": "Rooftop bar. Weather's supposed to hold and people will actually mingle."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_numbered_option",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "1) Keep the old logo 2) New minimal mark 3) Full rebrand -- pick one."
+      },
+      {
+        "role": "assistant",
+        "content": "Option 2, the minimal mark. It's the least risky and still feels like a refresh."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": true
+  },
+  {
+    "id": "cross_parenthetical_decision",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We'll move forward with the annual plan (it works out cheaper over 12 months anyway)."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": true
+  },
+  {
+    "id": "cross_semicolon_decision",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Cost and turnaround both matter here; we're going with the local printer for this run."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_allcaps_emphasis",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Final call: we're using the SHORT survey, not the long one. Fatigue is killing response rates."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_emoji_casual",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Going with the blue theme \ud83c\udfa8 it tested way better with users."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross_version_tag_only",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Rolling back to v1 for now until the v2 bugs are sorted."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": true
+  },
+  {
+    "id": "cross_neg_still_deciding_hiring",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Priya or Daniel for the lead role?"
+      },
+      {
+        "role": "assistant",
+        "content": "Both have strong portfolios, honestly. Want me to set up a second interview round?"
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "cross_neg_venue_question",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Should we book the rooftop bar or the downtown loft?"
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "cross_neg_ack_scheduling",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Great, see you then!"
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "cross_neg_hedge_hiring",
+    "predicted": "hard_fail_expected",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "I'm leaning towards Priya but I'd want to see her references first."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "cross_neg_hedge_venue",
+    "predicted": "hard_fail_expected",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We'll probably end up at the rooftop bar, weather permitting."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_going_to_dentist",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Going to the dentist this afternoon, back online by 4."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_switching_to_tea",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "I'm switching to tea, coffee's been wrecking my sleep lately."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_use_restroom_before_call",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "One sec, going to use the restroom before the call starts."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_go_with_gut_idiom",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Sometimes you just have to go with your gut on these things, you know?"
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_switching_topics",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Switching topics for a sec -- did anyone hear back from the landlord?"
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_vague_certain_things",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We're switching to certain things being handled differently next quarter, more on that later."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_use_various_approaches",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Honestly we'll probably use various approaches depending on the client."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_going_briefly",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Going to step out briefly, keep the thread going without me."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_use_somewhat_different",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We'll use a somewhat different structure this time, still figuring out details."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "adv2_going_to_gym_now",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Going to the gym now, ping me if anything urgent comes up."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "multi_decision_then_reversal",
+    "predicted": "known_gap",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Let's go with the local printer."
+      },
+      {
+        "role": "user",
+        "content": "Actually their turnaround is too slow, can we use the online one instead?"
+      },
+      {
+        "role": "assistant",
+        "content": "Fair, switching to the online printer then."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 2,
+    "violation": false
+  },
+  {
+    "id": "multi_user_states_decision_alt",
+    "predicted": "known_gap",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Alright, final call -- we're doing the annual plan, not monthly."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "multi_elimination_alt",
+    "predicted": "known_gap",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "The downtown loft is out, parking's a nightmare there. The rooftop bar doesn't have a backup plan for rain either."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "multi_casual_aside_alt",
+    "predicted": "known_gap",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Yeah, sticking with the free trial for now since we're not sure yet."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "multi_bare_answer_wrong_shape",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Rooftop bar or downtown loft?"
+      },
+      {
+        "role": "assistant",
+        "content": "Not sure yet, need to check both calendars first."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "multi_bare_answer_three_options",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Slack, email, or a shared doc for updates?"
+      },
+      {
+        "role": "assistant",
+        "content": "Slack. Easiest for quick back-and-forth."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "multi_decision_buried_in_question",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We'll use the referral program for launch -- does that also work for you on timing, or do you need another week?"
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "multi_long_ramble_with_decision",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Okay so I looked at everything -- pricing, turnaround, reviews, the whole thing, and honestly none of it was a slam dunk either way, it's genuinely close. That said, we're going with the local printer for this run, mostly for the turnaround time. Let me know if budget changes that calculus."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "multi_codeblock_alt",
+    "predicted": "judgment_call",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "```json\n{\"theme\": \"blue\", \"layout\": \"grid\"}\n```"
+      }
+    ],
+    "expect_decision": null,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "multi_sarcasm_alt",
+    "predicted": "judgment_call",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Oh brilliant, let's just rebrand the whole company two weeks before launch. Genius."
+      }
+    ],
+    "expect_decision": null,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "edge_dash_decision",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Decision -- we're using the local printer, not the online one."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "edge_quoted_decision",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "As discussed: \"we'll use the referral program for launch.\""
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "edge_trailing_ellipsis_hedge",
+    "predicted": "hard_fail_expected",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "I guess we could maybe use the referral program..."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "edge_multiple_sentences_no_decision",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Referral programs can work well for early-stage products. Paid ads tend to be more expensive per acquisition early on. Either could work depending on runway."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "edge_decision_then_unrelated_lunch",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We're using the referral program for launch. Anyway, I'm going to grab lunch, back in 30."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "edge_single_word_reply",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Slack or email for the update?"
+      },
+      {
+        "role": "assistant",
+        "content": "Slack."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "edge_single_word_reply_no_options",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How's the weather looking?"
+      },
+      {
+        "role": "assistant",
+        "content": "Sunny."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "edge_confirm_with_id",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Confirmed -- ticket ORD-4471 is the one we're escalating."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "edge_confirm_no_referent",
+    "predicted": "hard_fail_expected",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Confirmed, thanks for checking."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "edge_negation_of_decision_word",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We're NOT using the referral program, budget got cut."
+      }
+    ],
+    "expect_decision": false,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "cross2_migrate_provider",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "We're migrating to the new payment provider next sprint."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross2_implement_policy",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Let's implement the four-day workweek trial starting next month."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross2_prefer_supplier",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Local supplier or the overseas one, given the lead times?"
+      },
+      {
+        "role": "assistant",
+        "content": "I prefer the local supplier here, the lead time difference isn't worth the risk."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross2_select_candidate_short",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Selecting the second draft for the cover design."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "cross2_go_with_gut_feeling_real",
+    "predicted": "should_pass",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Blue palette or the earthy tones for the rebrand?"
+      },
+      {
+        "role": "assistant",
+        "content": "Going with the earthy tones palette, it tested better with the focus group."
+      }
+    ],
+    "expect_decision": true,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "judge_rhetorical_question",
+    "predicted": "judgment_call",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "I mean, do we even need the rooftop bar at this point? Just saying."
+      }
+    ],
+    "expect_decision": null,
+    "got_decision": false,
+    "n_decisions": 0,
+    "violation": false
+  },
+  {
+    "id": "judge_third_party_report",
+    "predicted": "judgment_call",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Apparently marketing already decided to go with the referral program."
+      }
+    ],
+    "expect_decision": null,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "judge_conditional_decision",
+    "predicted": "judgment_call",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "If the budget holds, we'll use the local printer; otherwise the online one."
+      }
+    ],
+    "expect_decision": null,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  },
+  {
+    "id": "judge_quoting_someone_else",
+    "predicted": "judgment_call",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "The client said, and I quote, 'just use whatever's cheapest.'"
+      }
+    ],
+    "expect_decision": null,
+    "got_decision": true,
+    "n_decisions": 1,
+    "violation": false
+  }
+]

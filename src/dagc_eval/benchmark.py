@@ -189,7 +189,8 @@ def compute_drr(messages, compressor=compress_dagc, llm=None,
         print(f'RCI           : {rci_data["RCI"]}')
         print(f'Reduction     : {reduction:.1f}%')
         print(f'Artifact ret. : {legacy["art_ret"]:.2%} (all) / '
-              f'{legacy.get("decision_art_ret", float("nan")):.2%} (decision-critical)')
+              f'{legacy.get("decision_art_ret"):.2%} (decision-critical)' if legacy.get("decision_art_ret") is not None
+              else '(no decisions to score) (decision-critical)')
 
     out = {'DRR_soft': DRR_soft, 'DRR_binary': DRR_bin, 'decisions': results,
            'compressed': compressed, 'orig_tokens': orig_toks, 'comp_tokens': comp_toks,

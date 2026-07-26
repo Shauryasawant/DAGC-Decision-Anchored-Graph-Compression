@@ -85,7 +85,7 @@ def main():
     p_eval = sub.add_parser('evaluate', help='Score a trace with compute_drr')
     p_eval.add_argument('input', help='Path to input trace JSON')
     p_eval.add_argument('-o', '--output', help='Path to write report (.json/.csv/.md/.html)')
-    p_eval.add_argument('--decision-roles', default='assistant')
+    p_eval.add_argument('--decision-roles', default='user,assistant')
     p_eval.add_argument('--quiet', action='store_true')
     p_eval.set_defaults(func=cmd_evaluate)
 
