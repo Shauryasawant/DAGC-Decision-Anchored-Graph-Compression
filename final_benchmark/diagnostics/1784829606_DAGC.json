@@ -1,0 +1,128 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI, you may use extremely long chains of thought to deeply consider the problem and deliberate with yourself via systematic reasoning processes to help come to a correct soluti",
+      "tok_count": 350,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Hey, can you get me the latest news headlines for the United States?",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "<think>\nAlright, the user wants the latest news headlines from the United States. Let me think about how to approach this.\n\nFirst, I should check the available tools. Looking at the tools provided, th",
+      "tok_count": 202,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "<think>\nThe tool_response provided a list of headlines. To respond, I should pick one or two key headlines that summarize the news from the United States. Let's look at the headlines:\n\n- \"President si",
+      "tok_count": 180,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI, you may [\u2026] {tool_call}\n</tool_call>",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Hey, can you get me the latest news headlines for the United States?",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "Alright the user wants the latest news headlines from the United States. Let me think about how to approach this. First",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "I should pick one or two key headlines that summarize the news from the United States.",
+      "tok_count": 17
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 350,
+      "retained_tokens": 18,
+      "retention_frac": 0.05142857142857143
+    },
+    "1": {
+      "orig_tokens": 15,
+      "retained_tokens": 15,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 202,
+      "retained_tokens": 23,
+      "retention_frac": 0.11386138613861387
+    },
+    "3": {
+      "orig_tokens": 180,
+      "retained_tokens": 17,
+      "retention_frac": 0.09444444444444444
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "United",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>\nAlright, the user wants the latest news headlines from the United States. Let me think about how to approach this.\n\nFirst, I should check the available tools. Looking at the tools provided, there's a function called 'get_news_headlines' which matches what the user is asking for. The function requires a 'country' parameter, so I need to specify 'United States' as the country.\n\nI'll need to construct the JSON object for the function call. The structure should include the function name and the arguments. The country is the only argument needed here. So the arguments object will have 'country': 'United States'. That's all, no other options mentioned. \n\nPutting it together, the tool_call should have the name 'get_news_headlines' and the arguments as mentioned. No other parameters needed. That should give the latest US news headlines.\n</think>\n<tool_call>\n{\"name\":\"get_news_headlines\",\"arguments\":{\"country\":\"United States\"}}\n</tool_call>",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "United",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 747,
+    "comp_total_toks": 73,
+    "reduction": 90.22757697456493,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

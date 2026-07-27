@@ -1,0 +1,827 @@
+{
+  "loaded": 951,
+  "no_decisions": 163,
+  "exceptions": 0,
+  "drr_none": 0,
+  "scored": 788,
+  "low_drr": 18,
+  "no_decisions_traces": [
+    {
+      "name": "wildchat4_0009",
+      "domain": "wildchat_real_world",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat4_0024",
+      "domain": "wildchat_real_world",
+      "n_messages": 10
+    },
+    {
+      "name": "wildchat4_0049",
+      "domain": "wildchat_real_world",
+      "n_messages": 8
+    },
+    {
+      "name": "wildchat4_0074",
+      "domain": "wildchat_real_world",
+      "n_messages": 6
+    },
+    {
+      "name": "wildchat4_0096",
+      "domain": "wildchat_real_world",
+      "n_messages": 6
+    },
+    {
+      "name": "wildchat4_0098",
+      "domain": "wildchat_real_world",
+      "n_messages": 8
+    },
+    {
+      "name": "wildchat4_0136",
+      "domain": "wildchat_real_world",
+      "n_messages": 10
+    },
+    {
+      "name": "wildchat4_0145",
+      "domain": "wildchat_real_world",
+      "n_messages": 12
+    },
+    {
+      "name": "wildchat4_0146",
+      "domain": "wildchat_real_world",
+      "n_messages": 10
+    },
+    {
+      "name": "wildchat4_0149",
+      "domain": "wildchat_real_world",
+      "n_messages": 11
+    },
+    {
+      "name": "wildchat4_0168",
+      "domain": "wildchat_real_world",
+      "n_messages": 20
+    },
+    {
+      "name": "wildchat4_0199",
+      "domain": "wildchat_real_world",
+      "n_messages": 6
+    },
+    {
+      "name": "wildchat4_0200",
+      "domain": "wildchat_real_world",
+      "n_messages": 6
+    },
+    {
+      "name": "wildchat4_0212",
+      "domain": "wildchat_real_world",
+      "n_messages": 6
+    },
+    {
+      "name": "wildchat4_0217",
+      "domain": "wildchat_real_world",
+      "n_messages": 10
+    },
+    {
+      "name": "wildchat4_0230",
+      "domain": "wildchat_real_world",
+      "n_messages": 6
+    },
+    {
+      "name": "wildchat4_0235",
+      "domain": "wildchat_real_world",
+      "n_messages": 10
+    },
+    {
+      "name": "wildchat4_0237",
+      "domain": "wildchat_real_world",
+      "n_messages": 10
+    },
+    {
+      "name": "wildchat4_0241",
+      "domain": "wildchat_real_world",
+      "n_messages": 10
+    },
+    {
+      "name": "wildchat4_0245",
+      "domain": "wildchat_real_world",
+      "n_messages": 6
+    },
+    {
+      "name": "wildchat_80976bec07e8",
+      "domain": "wildchat_real_world",
+      "n_messages": 2
+    },
+    {
+      "name": "wildchat_a155eed39196",
+      "domain": "wildchat_real_world",
+      "n_messages": 2
+    },
+    {
+      "name": "wildchat_ef92bca57a04",
+      "domain": "wildchat_real_world",
+      "n_messages": 2
+    },
+    {
+      "name": "wildchat_a1ed0a97a36c",
+      "domain": "wildchat_real_world",
+      "n_messages": 4
+    },
+    {
+      "name": "wildchat_3f0296fc02c1",
+      "domain": "wildchat_real_world",
+      "n_messages": 2
+    },
+    {
+      "name": "wildchat_137618804bcf",
+      "domain": "wildchat_real_world",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00054",
+      "domain": "multi_domain",
+      "n_messages": 3
+    },
+    {
+      "name": "oasst1_00082",
+      "domain": "multi_domain",
+      "n_messages": 3
+    },
+    {
+      "name": "oasst1_00107",
+      "domain": "multi_domain",
+      "n_messages": 5
+    },
+    {
+      "name": "oasst1_00131",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00185",
+      "domain": "multi_domain",
+      "n_messages": 5
+    },
+    {
+      "name": "oasst1_00265",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00299",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00327",
+      "domain": "multi_domain",
+      "n_messages": 5
+    },
+    {
+      "name": "oasst1_00401",
+      "domain": "multi_domain",
+      "n_messages": 3
+    },
+    {
+      "name": "oasst1_00418",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00447",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00479",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00512",
+      "domain": "multi_domain",
+      "n_messages": 3
+    },
+    {
+      "name": "oasst1_00555",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00594",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00599",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00620",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00640",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00656",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00668",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00674",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00678",
+      "domain": "multi_domain",
+      "n_messages": 4
+    },
+    {
+      "name": "oasst1_00702",
+      "domain": "multi_domain",
+      "n_messages": 5
+    },
+    {
+      "name": "oasst1_00714",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00722",
+      "domain": "multi_domain",
+      "n_messages": 3
+    },
+    {
+      "name": "oasst1_00744",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00777",
+      "domain": "multi_domain",
+      "n_messages": 3
+    },
+    {
+      "name": "oasst1_00789",
+      "domain": "multi_domain",
+      "n_messages": 4
+    },
+    {
+      "name": "oasst1_00801",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00833",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00867",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00871",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "oasst1_00876",
+      "domain": "multi_domain",
+      "n_messages": 3
+    },
+    {
+      "name": "oasst1_00900",
+      "domain": "multi_domain",
+      "n_messages": 2
+    },
+    {
+      "name": "wildchat_13",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_25",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_35",
+      "domain": "Chinese",
+      "n_messages": 4
+    },
+    {
+      "name": "wildchat_21",
+      "domain": "Japanese",
+      "n_messages": 8
+    },
+    {
+      "name": "wildchat_25",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_13",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_25",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_21",
+      "domain": "Japanese",
+      "n_messages": 8
+    },
+    {
+      "name": "wildchat_35",
+      "domain": "Chinese",
+      "n_messages": 4
+    },
+    {
+      "name": "wildchat_1",
+      "domain": "Russian",
+      "n_messages": 4
+    },
+    {
+      "name": "wildchat_25",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_21",
+      "domain": "Japanese",
+      "n_messages": 8
+    },
+    {
+      "name": "wildchat_25",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_17",
+      "domain": "Chinese",
+      "n_messages": 4
+    },
+    {
+      "name": "wildchat_25",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_25",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_25",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_17",
+      "domain": "Chinese",
+      "n_messages": 4
+    },
+    {
+      "name": "wildchat_1",
+      "domain": "Russian",
+      "n_messages": 4
+    },
+    {
+      "name": "wildchat_13",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_1",
+      "domain": "Russian",
+      "n_messages": 4
+    },
+    {
+      "name": "wildchat_13",
+      "domain": "Chinese",
+      "n_messages": 14
+    },
+    {
+      "name": "wildchat_1",
+      "domain": "Russian",
+      "n_messages": 4
+    },
+    {
+      "name": "trace_0",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_1",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_2",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_3",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_4",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_5",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_6",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_7",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_8",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_9",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_10",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_11",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_12",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_13",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_14",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_15",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_16",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_17",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_18",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_19",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_20",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_21",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_22",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_23",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_24",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_25",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_26",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_27",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_28",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_29",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_30",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_31",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_32",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_33",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_34",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_35",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_36",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_37",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_38",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_39",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_40",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_41",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_42",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_43",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_44",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_45",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_46",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_47",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_48",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_49",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_50",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_51",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_52",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_53",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_54",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_55",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_56",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_57",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_58",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_59",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_60",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_61",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_62",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_63",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_64",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_65",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_66",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_67",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_68",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_69",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_70",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_71",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_72",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_73",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_74",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_75",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_76",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_77",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_78",
+      "domain": "bfcl",
+      "n_messages": 1
+    },
+    {
+      "name": "trace_79",
+      "domain": "bfcl",
+      "n_messages": 1
+    }
+  ],
+  "exception_traces": [],
+  "drr_none_traces": []
+}

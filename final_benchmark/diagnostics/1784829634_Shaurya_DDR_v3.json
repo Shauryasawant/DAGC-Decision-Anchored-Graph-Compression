@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfC\u00f3mo ser la persona m\u00e1s rica del planeta?",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Ser la persona m\u00e1s rica del planeta requiere mucho trabajo, tiempo, habilidades y una gran cantidad de suerte. A continuaci\u00f3n, te presento algunas ideas generales que podr\u00edan ayudarte a lograr ese obj",
+      "tok_count": 466,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "\u00bfC\u00f3mo ser la persona m\u00e1s rica del planeta?",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Esto implica tener una idea innovadora",
+      "tok_count": 9
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 466,
+      "retained_tokens": 9,
+      "retention_frac": 0.019313304721030045
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Esto",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Ser la persona m\u00e1s rica del planeta requiere mucho trabajo, tiempo, habilidades y una gran cantidad de suerte. A continuaci\u00f3n, te presento algunas ideas generales que podr\u00edan ayudarte a lograr ese objetivo, pero ten en cuenta que no hay garant\u00edas y que muchos factores pueden influir en el \u00e9xito:\n\nEmprende un negocio exitoso: Muchos de los hombres y mujeres m\u00e1s ricos del mundo tienen sus propias empresas y han logrado hacer crecer sus negocios de manera exitosa. Esto implica tener una idea innovadora, habilidades de liderazgo y una visi\u00f3n clara del mercado.\n\nInvierte sabiamente: Invertir en acciones, bienes ra\u00edces y otros activos financieros es una forma comprobada de aumentar tu patrimonio neto. Para hacerlo de manera efectiva, debes estar dispuesto a investigar y tomar decisiones inteligentes en t\u00e9rminos de inversi\u00f3n.\n\nCrea una marca personal: Convertirte en una figura reconocida y respetada en tu industria puede ser una forma efectiva de aumentar tus ingresos y tu patrimonio neto. Esto puede lograrse mediante el desarrollo de una presencia en redes sociales y medios digitales, as\u00ed como a trav\u00e9s de apariciones en eventos y medios tradicionales.\n\nHerencia: En algunos casos, la persona m\u00e1s rica del mundo ha heredado su fortuna de su familia. Aunque esto no es algo que puedas controlar, si eres un heredero o heredera, es importante que tomes medidas para asegurar la protecci\u00f3n y el crecimiento de tus activos.\n\nTrabajar en sectores de alta remuneraci\u00f3n: Es posible trabajar en sectores como la tecnolog\u00eda, la banca de inversi\u00f3n, el entretenimiento o el deporte, en los que los sueldos y bonificaciones son muy altos.\n\nTen en cuenta que no hay una f\u00f3rmula m\u00e1gica para convertirse en la persona m\u00e1s rica del mundo, pero siguiendo estas estrategias y teniendo una actitud emprendedora y perseverante, podr\u00edas aumentar tus ingresos y tu patrimonio neto.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Esto",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 478,
+    "comp_total_toks": 21,
+    "reduction": 95.60669456066945,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

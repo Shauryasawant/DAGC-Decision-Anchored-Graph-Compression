@@ -1,0 +1,128 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "What are the names of proteins found in the plasma membrane?",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the cellbio.get_proteins function to handle this request. {\"args\": {}, \"name\": \"cellbio.get_proteins\"}",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a helpful [\u2026]",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "What are the names of proteins found in the plasma membrane?",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the cellbio.get_proteins function to handle this request. {\"args\": {}, \"name\": \"cellbio.get_proteins\"}",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 9,
+      "retained_tokens": 5,
+      "retention_frac": 0.5555555555555556
+    },
+    "1": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 31,
+      "retained_tokens": 31,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "cellbio.get_proteins",
+        "target": "get_proteins",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I'll use the cellbio.get_proteins function to handle this request. {\"args\": {}, \"name\": \"cellbio.get_proteins\"}",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "cellbio.get_proteins",
+        "target": "get_proteins",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 55,
+    "comp_total_toks": 51,
+    "reduction": 7.272727272727275,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

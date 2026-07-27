@@ -1,0 +1,288 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 873,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I\u2019m calling to schedule my vaccinations. My Patient ID is PC-002244, and my DOB is December 1, 1960. I\u2019m immunocompromised and need to get the flu, shingles, and COVID-19 vaccines. Can you co",
+      "tok_count": 68,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"dob\": \"1960-12-01\", \"patient_id\": \"PC-002244\"}, \"name\": \"authenticate_patient\"}",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"patient_id\": \"PC-002244\"}, \"name\": \"get_patient_profile\"}",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "I've verified your identity and confirmed you're eligible for all three vaccines: flu, COVID-19, and shingles. Your age (64) meets all the minimum age requirements.\n\nTo schedule your vaccinations, I n",
+      "tok_count": 168,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "Try to be helpful and always follow the policy.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Hello My Patient ID is PC-002244 and my DOB is December 1 1960. and COVID-19 vaccines. Can you confirm my eligibility for all three and help schedule them?",
+      "tok_count": 40
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"dob\": \"1960-12-01\", \"patient_id\": \"PC-002244\"}, \"name\": \"authenticate_patient\"}",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"patient_id\": \"PC-002244\"}, \"name\": \"get_patient_profile\"}",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": "COVID-19 COVID-19 and shingles (Shingrix) are all inactivated or recombinant vaccines and generally safe I recommend discussing the timing with your healthcare provider to ensure optimal immune respon",
+      "tok_count": 41
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 873,
+      "retained_tokens": 10,
+      "retention_frac": 0.011454753722794959
+    },
+    "1": {
+      "orig_tokens": 68,
+      "retained_tokens": 40,
+      "retention_frac": 0.5882352941176471
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 31,
+      "retained_tokens": 31,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 21,
+      "retained_tokens": 21,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 168,
+      "retained_tokens": 41,
+      "retention_frac": 0.24404761904761904
+    }
+  },
+  "removed_message_indices": [
+    2,
+    4,
+    5,
+    7
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_patient",
+        "target": "PC-002244",
+        "rationale": [
+          "id:PC-002244"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "PC-002244"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"dob\": \"1960-12-01\", \"patient_id\": \"PC-002244\"}, \"name\": \"authenticate_patient\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "authenticate_patient",
+        "target": "PC-002244",
+        "rationale": [
+          "id:PC-002244"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_patient_profile",
+        "target": "PC-002244",
+        "rationale": [
+          "id:PC-002244"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "PC-002244"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"patient_id\": \"PC-002244\"}, \"name\": \"get_patient_profile\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "get_patient_profile",
+        "target": "PC-002244",
+        "rationale": [
+          "id:PC-002244"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "recommend",
+        "target": "COVID-19",
+        "rationale": [
+          "id:COVID-19",
+          "winner:immune"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "COVID-19"
+          ],
+          "errors": []
+        },
+        "verbatim": "I've verified your identity and confirmed you're eligible for all three vaccines: flu, COVID-19, and shingles. Your age (64) meets all the minimum age requirements.\n\nTo schedule your vaccinations, I need some additional information:\n\n1. **Preferred pharmacy location** (location ID or address)\n2. **Preferred dates and times** for each vaccine - we can schedule them at the same visit or separate visits, but I need specific appointment times for each vaccine type\n\n**Important note for immunocompromised patients:** While flu, COVID-19, and shingles (Shingrix) are all inactivated or recombinant vaccines and generally safe, I recommend discussing the timing with your healthcare provider to ensure optimal immune response.\n\nOnce you provide the location and appointment preferences, I can schedule each vaccine using our booking system.",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": "recommend",
+        "target": "COVID-19",
+        "rationale": [
+          "id:COVID-19",
+          "winner:immune"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1161,
+    "comp_total_toks": 143,
+    "reduction": 87.68303186907838,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

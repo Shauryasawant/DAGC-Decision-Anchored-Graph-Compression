@@ -1,0 +1,281 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 958,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out to request a temporary transfer of two unused Premium lessons from my account to my friend's verified account. My User ID is m9n0o1p2 (ending in 1234). They're currently faci",
+      "tok_count": 72,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"last_four_digits\": \"1234\", \"user_id\": \"m9n0o1p2\"}, \"name\": \"verify_user_identity\"}",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"user_id\": \"m9n0o1p2\"}, \"name\": \"get_user_profile\"}",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': 'Hello! I\\'ve verified your identity and can see you have a Premium subscription with 2 lesson credits available. \\n\\nHowever, I need to inform you ",
+      "tok_count": 220,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "Thank you for explaining the limitations. Since direct transfers aren't possible, would I be able to request a refund for the two unused Premium lessons? If I receive the refund amount, I could manual",
+      "tok_count": 61,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"User requesting refund for 2 unused Premium lesson credits to provide funds to friend for emergency financial hardship. Lesson credit transfers not supported in automated system",
+      "tok_count": 46,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 958
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 958,
+      "retained_tokens": 958,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 72,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 34,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 25,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 220,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 61,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 46,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "verify_user_identity",
+        "target": "m9n0o1p2",
+        "rationale": [
+          "value:m9n0o1p2"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"last_four_digits\": \"1234\", \"user_id\": \"m9n0o1p2\"}, \"name\": \"verify_user_identity\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_user_profile",
+        "target": "m9n0o1p2",
+        "rationale": [
+          "value:m9n0o1p2"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"user_id\": \"m9n0o1p2\"}, \"name\": \"get_user_profile\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "transfer_to_human_agent",
+        "target": null,
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"User requesting refund for 2 unused Premium lesson credits to provide funds to friend for emergency financial hardship. Lesson credit transfers not supported in automated system.\"}, \"name\": \"transfer_to_human_agent\"}",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": false
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1416,
+    "comp_total_toks": 958,
+    "reduction": 32.34463276836158,
+    "DRR_soft": 0.0,
+    "RCI": 0.3333
+  }
+}

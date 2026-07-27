@@ -1,0 +1,236 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "assistant",
+      "preview": "I am an AI language model developed by OpenAI. I use natural language processing techniques to understand and generate text, and I don't have any physical existence or emotions. I'm designed to assist",
+      "tok_count": 57,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "What",
+      "tok_count": 1,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "can you do for me?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "user",
+      "preview": "What are the top games right now?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "The top games right now vary depending on the platform and genre. Here are some of the most popular games across different platforms:\n\nPC:\n- Valorant\n- Apex Legends\n- Fortnite\n- Call of Duty: Warzone\n",
+      "tok_count": 222,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "user",
+      "preview": "Which game on this list is the most appealing to everyone regardless of personality?",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "It's difficult to determine which game on that list is the most appealing to everyone regardless of personality, as different people have different preferences when it comes to games. However, I would",
+      "tok_count": 134,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "assistant",
+      "preview": "I use natural language processing techniques to understand and generate text",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "Final Fantasy VII Remake The top games right now vary depending on the platform and genre. [preserved: Among#d6]",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "user",
+      "preview": "Which game on this list is the most appealing to everyone regardless of personality?",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "I would say that the game that has gained the most widespread popularity recently is Among Us.",
+      "tok_count": 18
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 57,
+      "retained_tokens": 11,
+      "retention_frac": 0.19298245614035087
+    },
+    "1": {
+      "orig_tokens": 1,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 6,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 8,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 222,
+      "retained_tokens": 27,
+      "retention_frac": 0.12162162162162163
+    },
+    "5": {
+      "orig_tokens": 15,
+      "retained_tokens": 15,
+      "retention_frac": 1.0
+    },
+    "6": {
+      "orig_tokens": 134,
+      "retained_tokens": 18,
+      "retention_frac": 0.13432835820895522
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "natural language processing techniques",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I am an AI language model developed by OpenAI. I use natural language processing techniques to understand and generate text, and I don't have any physical existence or emotions. I'm designed to assist humans in various tasks such as writing, answering questions, generating recommendations, and much more.",
+        "msg_idx": 0
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "natural language processing techniques",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "final",
+        "target": "Fantasy",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The top games right now vary depending on the platform and genre. Here are some of the most popular games across different platforms:\n\nPC:\n- Valorant\n- Apex Legends\n- Fortnite\n- Call of Duty: Warzone\n- Minecraft\n\nPlayStation:\n- The Last of Us Part II\n- Ghost of Tsushima\n- Final Fantasy VII Remake\n- Marvel's Spider-Man: Miles Morales\n- Demon's Souls\n\nXbox:\n- Halo: The Master Chief Collection\n- Gears 5\n- Forza Horizon 4\n- Ori and the Will of the Wisps\n- Sea of Thieves\n\nNintendo Switch:\n- Animal Crossing: New Horizons\n- Super Mario 3D World + Bowser's Fury\n- The Legend of Zelda: Breath of the Wild\n- Mario Kart 8 Deluxe\n- Super Smash Bros. Ultimate\n\nMobile:\n- Among Us\n- PUBG Mobile\n- Call of Duty: Mobile\n- Genshin Impact\n- Roblox\n\nPlease note that this list is not exhaustive and there are many other great games out there.",
+        "msg_idx": 4
+      },
+      "reproduced": {
+        "action": "final",
+        "target": "Fantasy",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Among",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "It's difficult to determine which game on that list is the most appealing to everyone regardless of personality, as different people have different preferences when it comes to games. However, I would say that the game that has gained the most widespread popularity recently is Among Us. It's a multiplayer social deduction game that is easy to learn and play, and can be fun for both casual and serious gamers. The game has also become popular on social media platforms like TikTok and Twitch, which has helped to increase its overall appeal. So, Among Us may be a good starting point for people who are new to gaming or who may not have specific preferences when it comes to game genres.",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Among",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 443,
+    "comp_total_toks": 71,
+    "reduction": 83.97291196388261,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

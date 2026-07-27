@@ -1,0 +1,183 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "rateusingascaleof1to10yourHAHAHAHAconfidencethatyouransweriscorrect",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "As an AI language model, I am unable to feel emotions or confidence. But based on my training data and accuracy, I would say that my answers are generally correct around 7-8 out of 10. However, please",
+      "tok_count": 66,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "how did you know what I said given no spaces were used?",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "As an AI language model trained on vast amounts of text data, I have learned to recognize patterns and piece together words even when there are no spaces. It is one of the many capabilities that comes",
+      "tok_count": 63,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Teach me how to do this.",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "To improve your ability to understand text without spaces, you'll need to practice and develop pattern recognition skills. Here are some steps to help you get started:\n\n1. Familiarize yourself with co",
+      "tok_count": 270,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "please keep in mind that the accuracy of my responses can vary depending on the input question and context provided.",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Teach me how to do this.",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "you'll need to practice and develop pattern recognition skills. Practice with formal and informal text: Different writing styles can use different language Gradually remove spaces: Begin by reading se",
+      "tok_count": 52
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 22,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 66,
+      "retained_tokens": 21,
+      "retention_frac": 0.3181818181818182
+    },
+    "2": {
+      "orig_tokens": 13,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 63,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 8,
+      "retained_tokens": 8,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 270,
+      "retained_tokens": 52,
+      "retention_frac": 0.1925925925925926
+    }
+  },
+  "removed_message_indices": [
+    0,
+    2,
+    3
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "keep",
+        "target": "input question",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I am unable to feel emotions or confidence. But based on my training data and accuracy, I would say that my answers are generally correct around 7-8 out of 10. However, please keep in mind that the accuracy of my responses can vary depending on the input question and context provided.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "keep",
+        "target": "input question",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "Practice",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "To improve your ability to understand text without spaces, you'll need to practice and develop pattern recognition skills. Here are some steps to help you get started:\n\n1. Familiarize yourself with common words: Read a lot and expand your vocabulary. The more words you know, the easier it is to identify them when they're stuck together.\n\n2. Identify word boundaries: Look for common prefixes, suffixes, and word roots to help you distinguish where one word ends and another begins.\n\n3. Recognize sentence structure: Understand basic grammatical rules and sentence structures, which will provide context and aid in identifying word boundaries.\n\n4. Practice with formal and informal text: Different writing styles can use different language, slang, or abbreviations. Familiarizing yourself with both formal and informal writing will broaden your pattern recognition.\n\n5. Solve word puzzles: Try word-guessing games and puzzles, like hangman or word scrambles, to practice recognizing words from jumbled or incomplete inputs.\n\n6. Gradually remove spaces: Begin by reading sentences with some spaces missing and gradually work your way toward reading sentences with no spaces at all. This will help develop your ability to recognize words in continuous blocks of text.\n\nRemember, practice is key. The more time and effort you invest in practicing these skills, the better you'll become at understanding text without spaces.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "Practice",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 442,
+    "comp_total_toks": 81,
+    "reduction": 81.67420814479638,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

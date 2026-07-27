@@ -1,0 +1,123 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Create an itinerary for a 7 days trip to Tokyo with daily budgets not exceeding $100 and prefer exploring nature.",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the travel_itinerary_generator function to handle this request. {\"args\": {}, \"name\": \"travel_itinerary_generator\"}",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a helpful [\u2026]",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the travel_itinerary_generator function to handle this request. {\"args\": {}, \"name\": \"travel_itinerary_generator\"}",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 9,
+      "retained_tokens": 5,
+      "retention_frac": 0.5555555555555556
+    },
+    "1": {
+      "orig_tokens": 23,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 27,
+      "retained_tokens": 27,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "travel_itinerary_generator",
+        "target": "travel itinerary generator function",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I'll use the travel_itinerary_generator function to handle this request. {\"args\": {}, \"name\": \"travel_itinerary_generator\"}",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "travel_itinerary_generator",
+        "target": "travel itinerary generator function",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 62,
+    "comp_total_toks": 35,
+    "reduction": 43.548387096774185,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

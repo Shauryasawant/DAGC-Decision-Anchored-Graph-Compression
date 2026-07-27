@@ -1,0 +1,254 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI, you may use extremely long chains of thought to deeply consider the problem and deliberate with yourself via systematic reasoning processes to help come to a correct soluti",
+      "tok_count": 441,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "What's the current stock price of Apple?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "<think>\nOkay, the user wants to know the current stock price of Apple. I need to use the get_stock_price function to get that information. The parameters for get_stock_price are an object with a 'comp",
+      "tok_count": 117,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "<think>\nThe assistant received a stock price request for Apple. The get_stock_price function was called with the company parameter set to \"Apple\", and the response included the stock price of $150.75.",
+      "tok_count": 76,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "And what about Microsoft?",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "<think>\nThe user followed up with a request for Microsoft's stock price. I need to call get_stock_price again but with the company set to \"Microsoft\" this time. The function should return the current ",
+      "tok_count": 70,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "<think>\nThe user requested Microsoft's stock price. The get_stock_price function was called with \"Microsoft\" as the company, and the response included the stock price of $210.22. The assistant's respo",
+      "tok_count": 62,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI [\u2026] _call}\n</tool_call>",
+      "tok_count": 14
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I need to use the get_stock_price function to get that information. Okay",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "[dropped \u2014 contained: 150.75]",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "And what about Microsoft?",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "The user followed up with a request for Microsoft's stock price. I need to call get_stock_price again but with the company set to \"Microsoft\" this time.",
+      "tok_count": 33
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "The user requested Microsoft's stock price. The get_stock_price function was called with \"Microsoft\" as the company and the response included the stock price of $210.22.",
+      "tok_count": 35
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 441,
+      "retained_tokens": 14,
+      "retention_frac": 0.031746031746031744
+    },
+    "1": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 117,
+      "retained_tokens": 15,
+      "retention_frac": 0.1282051282051282
+    },
+    "3": {
+      "orig_tokens": 76,
+      "retained_tokens": 11,
+      "retention_frac": 0.14473684210526316
+    },
+    "4": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 70,
+      "retained_tokens": 33,
+      "retention_frac": 0.4714285714285714
+    },
+    "6": {
+      "orig_tokens": 62,
+      "retained_tokens": 35,
+      "retention_frac": 0.5645161290322581
+    }
+  },
+  "removed_message_indices": [
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "get_stock_price",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>\nOkay, the user wants to know the current stock price of Apple. I need to use the get_stock_price function to get that information. The parameters for get_stock_price are an object with a 'company' property. The company name here is \"Apple\". So I'll construct the argument object with company: \"Apple\" and call the function with that.\n\nThe function call would be: get_stock_price with arguments {company: \"Apple\"}.\n</think>\n<tool_call>\n{\"name\":\"get_stock_price\",\"arguments\":{\"company\":\"Apple\"}}\n</tool_call>",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "get_stock_price",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Microsoft",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>\nThe user followed up with a request for Microsoft's stock price. I need to call get_stock_price again but with the company set to \"Microsoft\" this time. The function should return the current price for Microsoft.\n</think>\n<tool_call>\n{\"name\":\"get_stock_price\",\"arguments\":{\"company\":\"Microsoft\"}}\n</tool_call>",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Microsoft",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "210.22",
+        "rationale": [
+          "value:210.22"
+        ],
+        "artifacts": {
+          "paths": [
+            "210.22"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>\nThe user requested Microsoft's stock price. The get_stock_price function was called with \"Microsoft\" as the company, and the response included the stock price of $210.22. The assistant's response confirms this information clearly.\n</think>The current stock price of Microsoft is $210.22.",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "210.22",
+        "rationale": [
+          "value:210.22"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 780,
+    "comp_total_toks": 113,
+    "reduction": 85.51282051282051,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

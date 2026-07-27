@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Cyber technology has critically transformed advertising, marketing, and commerce, leading to significant changes in business and consumer behavior. The emergence of persuasive and deceptive design ele",
+      "tok_count": 909,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hey there! Let's talk about how technology has changed the game when it comes to advertising, marketing, and shopping. The way we interact with businesses online has changed a lot, thanks to things li",
+      "tok_count": 325,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "These platforms employ persuasive strategies to encourage content sharing and interaction among users Concerns regarding the ethical implications and potential harmful consequences for users' mental h",
+      "tok_count": 54
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "social media platforms use persuasive strategies to make us share content and interact with other users. Video games are notorious for using psychological tricks to keep us playing and spending money.",
+      "tok_count": 61
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 909,
+      "retained_tokens": 54,
+      "retention_frac": 0.0594059405940594
+    },
+    "1": {
+      "orig_tokens": 325,
+      "retained_tokens": 61,
+      "retention_frac": 0.18769230769230769
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "persuasive strategies",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Hey there! Let's talk about how technology has changed the game when it comes to advertising, marketing, and shopping. The way we interact with businesses online has changed a lot, thanks to things like persuasive design and dark patterns in the user interface.\n\nFor example, social media platforms use persuasive strategies to make us share content and interact with other users. And don't even get me started on those confusing, convoluted privacy settings! They're designed to be tricky and make it hard for us to control how much of our data gets shared.\n\nAnother way technology can be harmful is through addiction. Video games are notorious for using psychological tricks to keep us playing and spending money. We're talking \"skinner boxes,\" \"compulsion loops,\" and other sneaky tactics that can lead to serious problems.\n\nThe digital marketing industry is also guilty of deceptive design, with things like click-farms and fake reviews manipulating our trust in what we see online. It's hard to know who to believe and what information to trust!\n\nAnd then there are the dark patterns in UI design that Facebook and other platforms use to get us to give up our privacy without realizing it. They take advantage of our cognitive biases to make us think it's all normal, when really we're giving up more than we mean to.\n\nThese challenges are only going to get more complex as technology continues to evolve. We need to be aware of the ethical implications of these design elements and work towards a more user-centric approach to design in the digital age. We can't let businesses take advantage of our vulnerability - let's strive for a more ethical and sustainable digital world!",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "persuasive strategies",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1234,
+    "comp_total_toks": 115,
+    "reduction": 90.68071312803889,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

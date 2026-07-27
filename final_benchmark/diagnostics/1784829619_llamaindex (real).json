@@ -1,0 +1,98 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "What is the difference between open assistant and ChatGPT? Why should i use Open Assistant? And can you give me some examples of advanced chatbots that are similar to Open Assistant?",
+      "tok_count": 37,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "First of all, a major difference is that Open Assistant is, as the name implies, open source. ChatGPT is closed source and might have more restrictions. \n\nOpen Assistant has less rules and restriction",
+      "tok_count": 91,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "What is the difference in performance between the two models? Can you be more specific about the performance in conversational tasks, knowledge grounded question answering and in summarization?",
+      "tok_count": 33,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "What is the difference in performance between the two models? Can you be more specific about the performance in conversational tasks, knowledge grounded question answering and in summarization?",
+      "tok_count": 33
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 37,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 91,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 33,
+      "retained_tokens": 33,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Character.ai",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "Character.ai"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "First of all, a major difference is that Open Assistant is, as the name implies, open source. ChatGPT is closed source and might have more restrictions. \n\nOpen Assistant has less rules and restrictions than ChatGPT, and can be implemented into a multitude of applications. \n\nSome examples of similar chatbots are ChatGPT, Bing Chat, YouChat, Replit Ghostwriter, Character.ai, and Jasper, but there are many more.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 161,
+    "comp_total_toks": 33,
+    "reduction": 79.5031055900621,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

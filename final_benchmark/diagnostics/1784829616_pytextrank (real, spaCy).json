@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Ich habe vor einiger Zeit mit Marie dar\u00fcber geredet, dass man meistens nur negative Post bekommt. Nun habe ich vor ihr einen netten, lustigen und positiven Brief zu schreiben. Kannst du mir einen voll",
+      "tok_count": 57,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Liebe Marie,\n\nich hoffe, du hast es gut und bist gesund. Ich habe vor einiger Zeit mit dir dar\u00fcber gesprochen, dass man meistens nur negative Post bekommt. Das hat mich dazu gebracht, dir einen netten",
+      "tok_count": 229,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Zeit mit Marie dar\u00fcber geredet, dass man meistens nur negative Post bekommt.",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Liebe Marie,\n\nich hoffe, du hast es gut und bist gesund. Ich habe vor einiger Zeit mit dir dar\u00fcber gesprochen, dass man meistens nur negative Post bekommt. Das hat mich dazu gebracht, dir einen netten",
+      "tok_count": 229
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 57,
+      "retained_tokens": 20,
+      "retention_frac": 0.3508771929824561
+    },
+    "1": {
+      "orig_tokens": 229,
+      "retained_tokens": 229,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Ich",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Liebe Marie,\n\nich hoffe, du hast es gut und bist gesund. Ich habe vor einiger Zeit mit dir dar\u00fcber gesprochen, dass man meistens nur negative Post bekommt. Das hat mich dazu gebracht, dir einen netten, lustigen und positiven Brief zu schreiben.\n\nIch denke an dich und wollte dir sagen, wie wundervoll du bist. Du hast mich so oft unterst\u00fctzt und mich bei meinen Unternehmungen ermutigt, besonders wenn ich etwas Neues ausprobiert habe. Dein Wissen und deine Inspiration haben mir so viel geholfen, dass ich einige meiner Ziele erreicht habe.\n\nIch bin dir sehr dankbar daf\u00fcr und ich hoffe, dass du f\u00fcr deine Bem\u00fchungen belohnt wirst. Es ist wichtig, dass wir uns gegenseitig ermutigen, unsere Tr\u00e4ume zu verfolgen und immer neue Ziele zu setzen.\n\nIch w\u00fcnsche dir alles Gute und hoffe, dass du deine Tr\u00e4ume erf\u00fcllst.\n\nAlles Liebe, [Dein Name]",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Ich",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 286,
+    "comp_total_toks": 249,
+    "reduction": 12.937062937062937,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

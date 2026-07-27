@@ -1,0 +1,128 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Predict the growth of forest in Yellowstone National Park for the next 5 years including human impact.",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the forest_growth_forecast function to handle this request. {\"args\": {}, \"name\": \"forest_growth_forecast\"}",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a helpful [\u2026]",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Predict the growth of forest in Yellowstone National Park for the next 5 years including human impact.",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the forest_growth_forecast function to handle this request. {\"args\": {}, \"name\": \"forest_growth_forecast\"}",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 9,
+      "retained_tokens": 5,
+      "retention_frac": 0.5555555555555556
+    },
+    "1": {
+      "orig_tokens": 19,
+      "retained_tokens": 19,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 27,
+      "retained_tokens": 27,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "forest_growth_forecast",
+        "target": "forest growth forecast function",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I'll use the forest_growth_forecast function to handle this request. {\"args\": {}, \"name\": \"forest_growth_forecast\"}",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "forest_growth_forecast",
+        "target": "forest growth forecast function",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 58,
+    "comp_total_toks": 54,
+    "reduction": 6.896551724137934,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

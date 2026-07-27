@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfC\u00f3mo inculcar\u00edas la conciencia del cuidado ambiental en los ni\u00f1os?",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Ense\u00f1ar a los ni\u00f1os a ser respetuosos con el medio ambiente puede hacerse de las siguientes maneras:\n\n1. Haci\u00e9ndoles preguntas que les hagan reflexionar sobre c\u00f3mo afectan sus acciones al medio ambien",
+      "tok_count": 337,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "\u00bfC\u00f3mo inculcar\u00edas la conciencia del cuidado ambiental en los ni\u00f1os?",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Dar a los ni\u00f1os ejemplos pr\u00e1cticos de c\u00f3mo pueden cuidar el medio ambiente en su vida cotidiana",
+      "tok_count": 24
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 19,
+      "retained_tokens": 19,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 337,
+      "retained_tokens": 24,
+      "retention_frac": 0.0712166172106825
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Dar",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Ense\u00f1ar a los ni\u00f1os a ser respetuosos con el medio ambiente puede hacerse de las siguientes maneras:\n\n1. Haci\u00e9ndoles preguntas que les hagan reflexionar sobre c\u00f3mo afectan sus acciones al medio ambiente.\n2. Dar a los ni\u00f1os ejemplos pr\u00e1cticos de c\u00f3mo pueden cuidar el medio ambiente en su vida cotidiana, como por ejemplo, apagar las luces cuando salen de una habitaci\u00f3n o reciclar los residuos.\n3. Invol\u00facralos en actividades al aire libre. Ll\u00e9velos de paseo y h\u00e1gales sentirse parte de la naturaleza.\n4. Fomenta su creatividad en torno al medio ambiente anim\u00e1ndoles a idear sus propias soluciones para cuidarlo.\n5. S\u00e9 un buen modelo y demu\u00e9strales que t\u00fa tambi\u00e9n te preocupas por el medio ambiente y hazles ver c\u00f3mo lo haces en tu vida diaria.\n6. Inscribe a los ni\u00f1os a actividades ecol\u00f3gicas como limpiezas de playas o parques, y hazlos participar en eventos que promuevan la sensibilidad y sostenibilidad medio ambiental.\n7. Haz que sea divertido intentar mantener limpio el medio ambiente.\n8. Comparte con ellos libros y pel\u00edculas ecol\u00f3gicas entretenidas que fomenten el cuidado del medio ambiente.\n\nEstos son s\u00f3lo algunos ejemplos de c\u00f3mo ense\u00f1ar a los ni\u00f1os sobre el medio ambiente. Lo m\u00e1s importante es ser constante y estar dispuesto a ense\u00f1ar y aprender juntos sobre este importante tema.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Dar",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 356,
+    "comp_total_toks": 43,
+    "reduction": 87.92134831460675,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

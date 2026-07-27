@@ -1,0 +1,117 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "How can I get an EIN for my new business?",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "An Employer Identification Number (EIN) is a unique nine-digit number assigned by the Internal Revenue Service (IRS) to businesses in the United States for tax purposes. To obtain an EIN for your new ",
+      "tok_count": 518,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "hello",
+      "tok_count": 1,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "How can I get an EIN for my new business?",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "An Employer Identification Number (EIN) is a unique nine-digit number assigned by the Internal Revenue Service (IRS) to businesses in the United States for tax purposes. To obtain an EIN for your new ",
+      "tok_count": 518
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "hello",
+      "tok_count": 1
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 518,
+      "retained_tokens": 518,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 1,
+      "retained_tokens": 1,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "prefer",
+        "target": "SS-4",
+        "rationale": [
+          "id:SS-4"
+        ],
+        "artifacts": {
+          "paths": [
+            "/www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online"
+          ],
+          "ids": [
+            "SS-4"
+          ],
+          "errors": []
+        },
+        "verbatim": "An Employer Identification Number (EIN) is a unique nine-digit number assigned by the Internal Revenue Service (IRS) to businesses in the United States for tax purposes. To obtain an EIN for your new business, follow these steps:\n\n1. Determine eligibility: Ensure that your business is located in the United States or its territories, and that you have a valid Social Security Number (SSN), Individual Taxpayer Identification Number (ITIN), or another valid taxpayer identification number.\n\n2. Apply online: The easiest and fastest way to obtain an EIN is to apply online through the IRS website. The online application is available Monday through Friday, 7 a.m. to 10 p.m. Eastern Time. Visit the IRS EIN Assistant at: https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online\n\n3. Complete the application: Fill out the required information about your business, including its legal name, physical address, mailing address, responsible party, and business structure (e.g., sole proprietorship, partnership, corporation, etc.).\n\n4. Submit the application: After reviewing your information, submit the application. If your application is complete and valid, you will receive your EIN immediately.\n\n5. Record your EIN: Once you receive your EIN, store it in a secure location, as you will need it for various business activities, such as filing taxes, opening a bank account, and applying for business licenses or permits.\n\nAlternative methods:\nIf you prefer not to apply online, you can also obtain an EIN by:\n\n1. Fax: Complete Form SS-4, \"Application for Employer Identification Number,\" and fax it to the IRS at (855) 641-6935. You should receive your EIN within four business days.\n\n2. Mail: Complete Form SS-4 and mail it to:\nInternal Revenue Service\nAttn: EIN Operation\nCincinnati, OH 45999\nThis method may take up to four weeks for processing.\n\n3. Telephone (for international applicants): If you have no legal residence, principal place of business, or principal office or agency in the U.S. or its territories, you can call the IRS at (267) 941-1099 (not a toll-free number) to apply for an EIN. This service is available from 6 a.m. to 11 p.m. Eastern Time, Monday through Friday.\n\nRemember to check the IRS website for the most up-to-date information, as requirements and processes may change over time.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "prefer",
+        "target": "SS-4",
+        "rationale": [
+          "id:SS-4"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 531,
+    "comp_total_toks": 531,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

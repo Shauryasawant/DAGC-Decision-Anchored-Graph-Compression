@@ -1,0 +1,222 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 724,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm calling about my residential solar project with Project ID P2025-445 at 789 Pine Road, Townsville. I need to reschedule the site assessment because unexpected roof repairs are underway. C",
+      "tok_count": 73,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you reschedule your site assessment appointment. First, I need to verify your identity for security purposes.\\n\\nCould ",
+      "tok_count": 108,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Sure, my registered email is sarah.miller@townsville.com and my phone number is (555) 887-3456. Let me know once verification is complete, and we can proceed with rescheduling. I\u2019ll also need to confi",
+      "tok_count": 65,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"email\": \"sarah.miller@townsville.com\", \"phone\": \"(555) 887-3456\"}, \"name\": \"verify_customer_identity\"}",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"project_id\": \"P2025-445\"}, \"name\": \"retrieve_project_status\"}",
+      "tok_count": 22,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 724
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"project_id\": \"P2025-445\"}, \"name\": \"retrieve_project_status\"}",
+      "tok_count": 22
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 724,
+      "retained_tokens": 724,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 73,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 108,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 65,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 36,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 22,
+      "retained_tokens": 22,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "verify_customer_identity",
+        "target": "sarah.miller@townsville.com",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "townsville.com"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"email\": \"sarah.miller@townsville.com\", \"phone\": \"(555) 887-3456\"}, \"name\": \"verify_customer_identity\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "retrieve_project_status",
+        "target": "P2025-445",
+        "rationale": [
+          "id:P2025-445"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "P2025-445"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"project_id\": \"P2025-445\"}, \"name\": \"retrieve_project_status\"}",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": "retrieve_project_status",
+        "target": "P2025-445",
+        "rationale": [
+          "id:P2025-445"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1028,
+    "comp_total_toks": 746,
+    "reduction": 27.431906614785994,
+    "DRR_soft": 0.5,
+    "RCI": 0.3333
+  }
+}

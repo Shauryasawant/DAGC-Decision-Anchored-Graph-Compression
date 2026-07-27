@@ -1,0 +1,85 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfPor qu\u00e9 ya no se usan tuber\u00edas de plomo en las viviendas?",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Las tuber\u00edas de plomo se han dejado de usar en las viviendas debido a que el plomo es un metal t\u00f3xico que puede causar graves problemas de salud. El plomo se puede filtrar en el agua potable y, si se ",
+      "tok_count": 159,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Las tuber\u00edas de plomo se han dejado de usar en las viviendas debido a que el plomo es un metal t\u00f3xico que puede causar graves problemas de salud. El plomo se puede filtrar en el agua potable y, si se ",
+      "tok_count": 159
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 20,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 159,
+      "retained_tokens": 159,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "PVC",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Las tuber\u00edas de plomo se han dejado de usar en las viviendas debido a que el plomo es un metal t\u00f3xico que puede causar graves problemas de salud. El plomo se puede filtrar en el agua potable y, si se ingiere, puede causar da\u00f1os al cerebro, al sistema nervioso y al sistema reproductivo. Adem\u00e1s, el plomo tambi\u00e9n puede acumularse en los tejidos del cuerpo humano y provocar problemas de salud a largo plazo. Por esta raz\u00f3n, muchos pa\u00edses han prohibido la instalaci\u00f3n de tuber\u00edas de plomo en las viviendas. En su lugar, se recomiendan materiales como el cobre o el PVC para la instalaci\u00f3n de tuber\u00edas.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "PVC",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 179,
+    "comp_total_toks": 159,
+    "reduction": 11.1731843575419,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

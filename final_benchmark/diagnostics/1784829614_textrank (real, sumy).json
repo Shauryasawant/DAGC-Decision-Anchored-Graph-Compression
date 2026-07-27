@@ -1,0 +1,93 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "I am using docker compose and i need to mount the docker socket - how would i do that?",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "You can mount the Docker socket in a Docker Compose service by adding the following to your docker-compose.yml file:\n\njavascript\n\nversion: '3'\nservices:\n  your_service_name:\n    # ... other service co",
+      "tok_count": 141,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "I am using docker compose and i need to mount the docker socket - how would i do that?",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "You can mount the Docker socket in a Docker Compose service by adding the following to your docker-compose.yml file:\n\njavascript\n\nversion: '3'\nservices:\n  your_service_name:\n    # ... other service co",
+      "tok_count": 141
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 20,
+      "retained_tokens": 20,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 141,
+      "retained_tokens": 141,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "/var/run/docker.sock",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "docker-compose.yml",
+            "/var/run/docker.sock"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "You can mount the Docker socket in a Docker Compose service by adding the following to your docker-compose.yml file:\n\njavascript\n\nversion: '3'\nservices:\n  your_service_name:\n    # ... other service configuration\n    volumes:\n      - /var/run/docker.sock:/var/run/docker.sock\n\nThis will mount the host's Docker socket at /var/run/docker.sock inside the service's container. This allows the service to interact with the host's Docker daemon and perform tasks such as starting and stopping containers.\n\nIt is important to note that mounting the Docker socket inside a container can potentially expose your host to security risks, so it should only be done in trusted environments or with proper security measures in place.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "/var/run/docker.sock",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 161,
+    "comp_total_toks": 161,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

@@ -1,0 +1,790 @@
+{
+  "raw": [
+    {
+      "trace_name": "wildchat4_0001",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 207,
+      "decision_loss": 0.5861000000000001,
+      "DRR_soft": 0.4139,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0001",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 207,
+      "decision_loss": 0.5861000000000001,
+      "DRR_soft": 0.4139,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0001",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 207,
+      "decision_loss": 0.5861000000000001,
+      "DRR_soft": 0.4139,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0001",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 207,
+      "decision_loss": 0.5861000000000001,
+      "DRR_soft": 0.4139,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0001",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 207,
+      "decision_loss": 0.5861000000000001,
+      "DRR_soft": 0.4139,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0001",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 207,
+      "decision_loss": 0.5861000000000001,
+      "DRR_soft": 0.4139,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0001",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 207,
+      "decision_loss": 0.5861000000000001,
+      "DRR_soft": 0.4139,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0001",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 207,
+      "decision_loss": 0.5861000000000001,
+      "DRR_soft": 0.4139,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0002",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 83,
+      "decision_loss": 0.5871,
+      "DRR_soft": 0.4129,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0002",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 83,
+      "decision_loss": 0.5871,
+      "DRR_soft": 0.4129,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0002",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 83,
+      "decision_loss": 0.5871,
+      "DRR_soft": 0.4129,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0002",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 83,
+      "decision_loss": 0.5871,
+      "DRR_soft": 0.4129,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0002",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 83,
+      "decision_loss": 0.5871,
+      "DRR_soft": 0.4129,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0002",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 83,
+      "decision_loss": 0.5871,
+      "DRR_soft": 0.4129,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0002",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 83,
+      "decision_loss": 0.5871,
+      "DRR_soft": 0.4129,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0002",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 83,
+      "decision_loss": 0.5871,
+      "DRR_soft": 0.4129,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0003",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 80,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0003",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 80,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0003",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 80,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0003",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 80,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0003",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 80,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0003",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 80,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0003",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 80,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0003",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 80,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0004",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 108,
+      "decision_loss": 0.4838,
+      "DRR_soft": 0.5162,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0004",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 108,
+      "decision_loss": 0.4838,
+      "DRR_soft": 0.5162,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0004",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 108,
+      "decision_loss": 0.4838,
+      "DRR_soft": 0.5162,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0004",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 108,
+      "decision_loss": 0.4838,
+      "DRR_soft": 0.5162,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0004",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 108,
+      "decision_loss": 0.4838,
+      "DRR_soft": 0.5162,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0004",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 108,
+      "decision_loss": 0.4838,
+      "DRR_soft": 0.5162,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0004",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 108,
+      "decision_loss": 0.4838,
+      "DRR_soft": 0.5162,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0004",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 108,
+      "decision_loss": 0.4838,
+      "DRR_soft": 0.5162,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0005",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 388,
+      "decision_loss": 0.7848999999999999,
+      "DRR_soft": 0.2151,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0005",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 388,
+      "decision_loss": 0.7848999999999999,
+      "DRR_soft": 0.2151,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0005",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 388,
+      "decision_loss": 0.7848999999999999,
+      "DRR_soft": 0.2151,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0005",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 388,
+      "decision_loss": 0.7848999999999999,
+      "DRR_soft": 0.2151,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0005",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 388,
+      "decision_loss": 0.7848999999999999,
+      "DRR_soft": 0.2151,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0005",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 388,
+      "decision_loss": 0.7848999999999999,
+      "DRR_soft": 0.2151,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0005",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 388,
+      "decision_loss": 0.7848999999999999,
+      "DRR_soft": 0.2151,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0005",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 388,
+      "decision_loss": 0.7848999999999999,
+      "DRR_soft": 0.2151,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0006",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 118,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0006",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 118,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0006",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 118,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0006",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 118,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0006",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 118,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0006",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 118,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0006",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 118,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0006",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 118,
+      "decision_loss": 0.6,
+      "DRR_soft": 0.4,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0007",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 97,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0007",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 97,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0007",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 97,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0007",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 97,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0007",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 97,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0007",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 97,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0007",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 97,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0007",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 97,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0008",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 402,
+      "decision_loss": 0.7,
+      "DRR_soft": 0.3,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0008",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 402,
+      "decision_loss": 0.7,
+      "DRR_soft": 0.3,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0008",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 402,
+      "decision_loss": 0.7,
+      "DRR_soft": 0.3,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0008",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 402,
+      "decision_loss": 0.7,
+      "DRR_soft": 0.3,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0008",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 402,
+      "decision_loss": 0.7,
+      "DRR_soft": 0.3,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0008",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 359,
+      "decision_loss": 0.7,
+      "DRR_soft": 0.3,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0008",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 237,
+      "decision_loss": 0.7,
+      "DRR_soft": 0.3,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0008",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 219,
+      "decision_loss": 0.7,
+      "DRR_soft": 0.3,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0012",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 72,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0012",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 72,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0012",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 72,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0012",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 72,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0012",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 72,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0012",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 72,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0012",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 72,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0012",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 72,
+      "decision_loss": 0.4,
+      "DRR_soft": 0.6,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0015",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.3,
+      "output_tokens": 119,
+      "decision_loss": 0.6818,
+      "DRR_soft": 0.3182,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0015",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.38571428571428573,
+      "output_tokens": 119,
+      "decision_loss": 0.6818,
+      "DRR_soft": 0.3182,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0015",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.4714285714285714,
+      "output_tokens": 119,
+      "decision_loss": 0.6818,
+      "DRR_soft": 0.3182,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0015",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.5571428571428572,
+      "output_tokens": 119,
+      "decision_loss": 0.6818,
+      "DRR_soft": 0.3182,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0015",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.6428571428571429,
+      "output_tokens": 119,
+      "decision_loss": 0.6818,
+      "DRR_soft": 0.3182,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0015",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.7285714285714286,
+      "output_tokens": 119,
+      "decision_loss": 0.6818,
+      "DRR_soft": 0.3182,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0015",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.8142857142857143,
+      "output_tokens": 119,
+      "decision_loss": 0.6818,
+      "DRR_soft": 0.3182,
+      "error": null
+    },
+    {
+      "trace_name": "wildchat4_0015",
+      "domain": "wildchat_real_world",
+      "target_reduction": 0.9,
+      "output_tokens": 119,
+      "decision_loss": 0.6818,
+      "DRR_soft": 0.3182,
+      "error": null
+    }
+  ],
+  "summary": [
+    {
+      "target_reduction": 0.3,
+      "mean_output_tokens": 167.4,
+      "mean_decision_loss": 0.58237,
+      "std_decision_loss": 0.11900972271205405,
+      "mean_DRR_soft": 0.41762999999999995,
+      "n_traces": 10
+    },
+    {
+      "target_reduction": 0.3857,
+      "mean_output_tokens": 167.4,
+      "mean_decision_loss": 0.58237,
+      "std_decision_loss": 0.11900972271205405,
+      "mean_DRR_soft": 0.41762999999999995,
+      "n_traces": 10
+    },
+    {
+      "target_reduction": 0.4714,
+      "mean_output_tokens": 167.4,
+      "mean_decision_loss": 0.58237,
+      "std_decision_loss": 0.11900972271205405,
+      "mean_DRR_soft": 0.41762999999999995,
+      "n_traces": 10
+    },
+    {
+      "target_reduction": 0.5571,
+      "mean_output_tokens": 167.4,
+      "mean_decision_loss": 0.58237,
+      "std_decision_loss": 0.11900972271205405,
+      "mean_DRR_soft": 0.41762999999999995,
+      "n_traces": 10
+    },
+    {
+      "target_reduction": 0.6429,
+      "mean_output_tokens": 167.4,
+      "mean_decision_loss": 0.58237,
+      "std_decision_loss": 0.11900972271205405,
+      "mean_DRR_soft": 0.41762999999999995,
+      "n_traces": 10
+    },
+    {
+      "target_reduction": 0.7286,
+      "mean_output_tokens": 163.1,
+      "mean_decision_loss": 0.58237,
+      "std_decision_loss": 0.11900972271205405,
+      "mean_DRR_soft": 0.41762999999999995,
+      "n_traces": 10
+    },
+    {
+      "target_reduction": 0.8143,
+      "mean_output_tokens": 150.9,
+      "mean_decision_loss": 0.58237,
+      "std_decision_loss": 0.11900972271205405,
+      "mean_DRR_soft": 0.41762999999999995,
+      "n_traces": 10
+    },
+    {
+      "target_reduction": 0.9,
+      "mean_output_tokens": 149.1,
+      "mean_decision_loss": 0.58237,
+      "std_decision_loss": 0.11900972271205405,
+      "mean_DRR_soft": 0.41762999999999995,
+      "n_traces": 10
+    }
+  ]
+}

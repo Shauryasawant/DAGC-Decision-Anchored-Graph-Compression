@@ -1,0 +1,345 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "[SYSTEM POLICY] # Airline Agent Policy\n\nThe current time is 2024-05-15 15:00:00 EST.\n\nAs an airline agent, you can help users book, modify, or cancel flight reservations.\n\n- Before taking any actions ",
+      "tok_count": 1257,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Hi, I need to cancel my flight.",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I can help you with that. Could you please provide your user ID, reservation ID, and the reason for cancellation (change of plan, airline cancelled flight, or other reasons)?",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "user",
+      "preview": "Sure, my user ID is sophia_silva_7557 and the reservation ID is H8Q05L. I'd like to cancel due to other reasons.",
+      "tok_count": 35,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "To proceed with the cancellation, I need to confirm a few details:\n\n1. Was the reservation made within the last 24 hours?\n2. If not, do you have travel insurance, or is it a business class reservation",
+      "tok_count": 57,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "user",
+      "preview": "I just need to cancel the flight and get a full refund, please.",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "I need to confirm the eligibility for a full refund based on the reservation details. Let me retrieve the reservation details first.",
+      "tok_count": 24,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"H8Q05L\", \"user_id\": \"sophia_silva_7557\", \"origin\": \"JFK\", \"destination\": \"ATL\", \"flight_type\": \"one_way\", \"cabin\": \"basic_economy\", \"flights\": [{\"origin\": \"JFK\", \"des",
+      "tok_count": 203,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "Based on the reservation details:\n\n- The reservation was made on 2024-05-03, which is more than 24 hours ago.\n- The reservation is for a basic economy flight, but you have purchased travel insurance.\n",
+      "tok_count": 86,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "user",
+      "preview": "Yes, please proceed with the cancellation and refund.",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "[calls cancel_reservation({\"reservation_id\":\"H8Q05L\"})]",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"H8Q05L\", \"user_id\": \"sophia_silva_7557\", \"origin\": \"JFK\", \"destination\": \"ATL\", \"flight_type\": \"one_way\", \"cabin\": \"basic_economy\", \"flights\": [{\"origin\": \"JFK\", \"des",
+      "tok_count": 227,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": "Your reservation has been successfully cancelled, and a full refund will be processed to your original payment method. You should see the refund in 5 to 7 business days. If you have any more questions",
+      "tok_count": 50,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "user",
+      "preview": "Great, thanks for your help! ###STOP###",
+      "tok_count": 10,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "The API does not check these for the agent, so the agent must make sure the rules apply before calling the API! The agent should ask for the payment or refund method instead. Change passengers: The us",
+      "tok_count": 185
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I can help you with that.",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "user",
+      "preview": "I'd like to cancel due to other reasons.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "I need to confirm the eligibility for a full refund based on the reservation details.",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": "Based on the reservation details:",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 12,
+      "role": "assistant",
+      "preview": "If you have any more questions or need further assistance, feel free to ask! You should see the refund in 5 to 7 business days.",
+      "tok_count": 30
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 13,
+      "role": "user",
+      "preview": "Great, thanks for your help! ###STOP###",
+      "tok_count": 10
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1257,
+      "retained_tokens": 185,
+      "retention_frac": 0.147175815433572
+    },
+    "1": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 36,
+      "retained_tokens": 7,
+      "retention_frac": 0.19444444444444445
+    },
+    "3": {
+      "orig_tokens": 35,
+      "retained_tokens": 10,
+      "retention_frac": 0.2857142857142857
+    },
+    "4": {
+      "orig_tokens": 57,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 15,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 24,
+      "retained_tokens": 16,
+      "retention_frac": 0.6666666666666666
+    },
+    "7": {
+      "orig_tokens": 203,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 86,
+      "retained_tokens": 6,
+      "retention_frac": 0.06976744186046512
+    },
+    "9": {
+      "orig_tokens": 10,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 15,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 227,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "12": {
+      "orig_tokens": 50,
+      "retained_tokens": 30,
+      "retention_frac": 0.6
+    },
+    "13": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    4,
+    5,
+    7,
+    9,
+    10,
+    11
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "confirm",
+        "target": "few details",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "To proceed with the cancellation, I need to confirm a few details:\n\n1. Was the reservation made within the last 24 hours?\n2. If not, do you have travel insurance, or is it a business class reservation?\n\nPlease let me know so I can assist you further.",
+        "msg_idx": 4
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "confirm",
+        "target": "reservation details",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I need to confirm the eligibility for a full refund based on the reservation details. Let me retrieve the reservation details first.",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "reservation details",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "confirm",
+        "target": "2024",
+        "rationale": [
+          "value:2024"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Based on the reservation details:\n\n- The reservation was made on 2024-05-03, which is more than 24 hours ago.\n- The reservation is for a basic economy flight, but you have purchased travel insurance.\n\nSince you have travel insurance, you are eligible to cancel the flight and receive a full refund due to the insurance coverage.\n\nWould you like to proceed with the cancellation? Please confirm by saying \"yes.\"",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.34,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2034,
+    "comp_total_toks": 264,
+    "reduction": 87.02064896755162,
+    "DRR_soft": 0.4466666666666667,
+    "RCI": 1.0
+  }
+}

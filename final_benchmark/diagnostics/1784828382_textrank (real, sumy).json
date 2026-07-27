@@ -1,0 +1,464 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "How did Hurricane Florence lose strength?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hurricane Florence lost strength due to several factors, including cooler ocean temperatures and increased wind shear. As the storm moved closer to land, it encountered cooler waters which weakened th",
+      "tok_count": 94,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "How did Hurricane Florence lose strength?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Hurricane Florence lost strength due to several factors. One of the significant factors was the wind shear. Wind shear is a difference in wind speed or direction at different heights in the atmosphere",
+      "tok_count": 133,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "How big was Hurricane Florence",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Hurricane Florence was a very large storm, with a maximum diameter of around 800 miles (1,280 kilometers). It had sustained winds of 130 mph (215 km/h) when it made landfall near Wrightsville Beach, N",
+      "tok_count": 139,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "What was Hurricane Florences' presure",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "The minimum central pressure of Hurricane Florence was estimated to be 958 millibars (28.29 inches of mercury) on September 12-13, 2018, by the National Hurricane Center. The pressure is an essential ",
+      "tok_count": 145,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Why did Hurricane Florence stall",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "Hurricane Florence stalled over the eastern coast of the United States due to a combination of factors. One contributing factor was a high-pressure ridge over the Atlantic Ocean, which built up and pr",
+      "tok_count": 129,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "What are the basic characteristics of a hurricane",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "A hurricane is a large and powerful tropical cyclone that contains a core of low-pressure organized around the eye, with strong winds and heavy rain. The basic characteristics of a hurricane include:\n",
+      "tok_count": 266,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "How did Hurricane Florence lose strength?",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Once Hurricane Florence made landfall, it lost a significant amount of strength due to the frictional effects of the landmass and the lack of warm moisture supply from the ocean.",
+      "tok_count": 35
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "How did Hurricane Florence lose strength?",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Finally, when the hurricane made landfall, the friction from the landmass weakened the storm, and it began to dissipate.",
+      "tok_count": 26
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "How big was Hurricane Florence",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "The storm was categorized as a Category 4 hurricane on the Saffir-Simpson Hurricane Wind Scale, meaning it was classified as a \"major hurricane\" due to its strength and potential for destructive winds",
+      "tok_count": 50
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "What was Hurricane Florences' presure",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "Despite the slight weakening of the storm as it made landfall, it still proved to be a significant and destructive storm, causing catastrophic flooding and widespread damage along the eastern coasts o",
+      "tok_count": 40
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "Why did Hurricane Florence stall",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "The presence of a cold front over the eastern United States also caused the storm to slow down and stall, as the cool air mass interacting with the warm, humid air of the hurricane caused instability ",
+      "tok_count": 42
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "user",
+      "preview": "What are the basic characteristics of a hurricane",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "A hurricane is a large and powerful tropical cyclone that contains a core of low-pressure organized around the eye, with strong winds and heavy rain. The basic characteristics of a hurricane include:\n",
+      "tok_count": 266
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 94,
+      "retained_tokens": 35,
+      "retention_frac": 0.3723404255319149
+    },
+    "2": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 133,
+      "retained_tokens": 26,
+      "retention_frac": 0.19548872180451127
+    },
+    "4": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 139,
+      "retained_tokens": 50,
+      "retention_frac": 0.3597122302158273
+    },
+    "6": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 145,
+      "retained_tokens": 40,
+      "retention_frac": 0.27586206896551724
+    },
+    "8": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 129,
+      "retained_tokens": 42,
+      "retention_frac": 0.32558139534883723
+    },
+    "10": {
+      "orig_tokens": 8,
+      "retained_tokens": 8,
+      "retention_frac": 1.0
+    },
+    "11": {
+      "orig_tokens": 266,
+      "retained_tokens": 266,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "moved",
+        "target": "storm moved closer",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Hurricane Florence lost strength due to several factors, including cooler ocean temperatures and increased wind shear. As the storm moved closer to land, it encountered cooler waters which weakened the storm. In addition, increasing wind shear disrupted the organization of the storm, making it harder for it to maintain its strength. Once Hurricane Florence made landfall, it lost a significant amount of strength due to the frictional effects of the landmass and the lack of warm moisture supply from the ocean.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Hurricane",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Florence",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Hurricane Florence lost strength due to several factors. One of the significant factors was the wind shear. Wind shear is a difference in wind speed or direction at different heights in the atmosphere. This difference causes the hurricane's structure to be disrupted, making it difficult for the storm to maintain its strength. Additionally, Florence encountered cooler water temperatures as it approached the eastern coast of the United States, which weakened the storm. Hurricanes require warm water temperatures to maintain its strength, and the cooler temperatures made it difficult for the hurricane to remain as powerful. Finally, when the hurricane made landfall, the friction from the landmass weakened the storm, and it began to dissipate.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.6,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "2018",
+        "rationale": [
+          "value:2018"
+        ],
+        "artifacts": {
+          "paths": [
+            "km/h"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Hurricane Florence was a very large storm, with a maximum diameter of around 800 miles (1,280 kilometers). It had sustained winds of 130 mph (215 km/h) when it made landfall near Wrightsville Beach, North Carolina, on September 14, 2018. The storm was categorized as a Category 4 hurricane on the Saffir-Simpson Hurricane Wind Scale, meaning it was classified as a \"major hurricane\" due to its strength and potential for destructive winds, storm surges, and heavy rainfall. Florence caused extensive damage along the eastern coast of the United States and resulted in at least 51 deaths in North Carolina, South Carolina, and Virginia.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Category",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.4,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "28.29",
+        "rationale": [
+          "value:28.29"
+        ],
+        "artifacts": {
+          "paths": [
+            "km/h"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The minimum central pressure of Hurricane Florence was estimated to be 958 millibars (28.29 inches of mercury) on September 12-13, 2018, by the National Hurricane Center. The pressure is an essential measure of hurricane intensity, and the lower the pressure, the stronger the storm. Florence was a powerful Category 4 storm with maximum sustained winds of 130 mph (215 km/h) when it made landfall on September 14, 2018, near Wrightsville Beach, North Carolina. Despite the slight weakening of the storm as it made landfall, it still proved to be a significant and destructive storm, causing catastrophic flooding and widespread damage along the eastern coasts of the United States.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "United",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.4,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "move",
+        "target": "Atlantic",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Hurricane Florence stalled over the eastern coast of the United States due to a combination of factors. One contributing factor was a high-pressure ridge over the Atlantic Ocean, which built up and prevented the storm from moving inland. Additionally, the steering currents that normally guide hurricanes were weak, causing Florence to move slowly and eventually stall. The presence of a cold front over the eastern United States also caused the storm to slow down and stall, as the cool air mass interacting with the warm, humid air of the hurricane caused instability in the atmosphere. The combination of these factors caused Florence to stall over the Carolinas, resulting in catastrophic flooding and significant property damage.",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "United",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "119",
+        "rationale": [
+          "value:119"
+        ],
+        "artifacts": {
+          "paths": [
+            "km/h"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "A hurricane is a large and powerful tropical cyclone that contains a core of low-pressure organized around the eye, with strong winds and heavy rain. The basic characteristics of a hurricane include:\n\n1. Eye: The center of the hurricane is called the eye, which is typically calm and clear, with little to no precipitation.\n\n2. Eyewall: The area surrounding the eye of the hurricane is called the eyewall, where the most sustained winds and heaviest precipitation occur.\n\n3. Rain bands: Bands of clouds and thunderstorms that spiral outward from the eye create heavy rainfall and gusty winds.\n\n4. Strong winds: Hurricanes are characterized by strong winds often exceeding 74 mph (119 km/h) that can cause significant damage.\n\n5. Low pressure: The center of the hurricane has low atmospheric pressure, often falling below 950 millibars.\n\n6. Warm water: Hurricanes form over warm ocean waters, typically with surface temperatures of at least 80\u00b0F (27\u00b0C).\n\n7. Seasonal: Hurricanes typically occur during the Atlantic hurricane season, which runs from June to November.\n\n8. Cyclonic: Hurricanes rotate counterclockwise in the Northern Hemisphere and clockwise in the Southern Hemisphere.\n\n9. Storm Surge: Coastal areas can experience a storm surge, a rapid rise of water associated with the storm's arrival.",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "119",
+        "rationale": [
+          "value:119"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 947,
+    "comp_total_toks": 500,
+    "reduction": 47.201689545934535,
+    "DRR_soft": 0.4666666666666666,
+    "RCI": 0.75
+  }
+}

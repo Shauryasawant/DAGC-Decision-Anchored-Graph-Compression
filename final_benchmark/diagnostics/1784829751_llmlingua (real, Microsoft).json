@@ -1,0 +1,166 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Hi there",
+      "tok_count": 2,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hello! How can I help you today? If you have any questions or need assistance, feel free to ask.",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Maybe i need a little help ",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Of course, I'm here to help! Please tell me what you need assistance with, and I'll do my best to provide the information or guidance you're looking for.",
+      "tok_count": 35,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "I was wondering if you have some advices for me",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "I'd be happy to offer advice, but I'll need more information about what you need advice on. Are you looking for advice on relationships, education, career, health, or something else? Please let me kno",
+      "tok_count": 55,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Hi there",
+      "tok_count": 2
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Hello! How can I help you today? If you have any questions or need assistance, feel free to ask.",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Maybe i need a little help ",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Of course, I'm here to help! Please tell me what you need assistance with, and I'll do my best to provide the information or guidance you're looking for.",
+      "tok_count": 35
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "I was wondering if you have some advices for me",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "I'd be happy to offer advice, but I'll need more information about what you need advice on. Are you looking for advice on relationships, education, career, health, or something else? Please let me kno",
+      "tok_count": 55
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 2,
+      "retained_tokens": 2,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 23,
+      "retained_tokens": 23,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 35,
+      "retained_tokens": 35,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 55,
+      "retained_tokens": 55,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "information or guidance",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Of course, I'm here to help! Please tell me what you need assistance with, and I'll do my best to provide the information or guidance you're looking for.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "best",
+        "target": "information or guidance",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 133,
+    "comp_total_toks": 133,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

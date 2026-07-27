@@ -1,0 +1,166 @@
+{
+  "raw": [
+    {
+      "task_index": 0,
+      "task": "Choose the best compression algorithm for agent traces.",
+      "attack_type": "A_injection",
+      "clean_DRR": 0.9116,
+      "adv_DRR": 0.914,
+      "ratio": 1.0026,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 0,
+      "task": "Choose the best compression algorithm for agent traces.",
+      "attack_type": "B_noise_amplify",
+      "clean_DRR": 0.9116,
+      "adv_DRR": 0.9114,
+      "ratio": 0.9997,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 0,
+      "task": "Choose the best compression algorithm for agent traces.",
+      "attack_type": "C_decision_mask",
+      "clean_DRR": 0.9116,
+      "adv_DRR": 0.9102,
+      "ratio": 0.9985,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 0,
+      "task": "Choose the best compression algorithm for agent traces.",
+      "attack_type": "D_contradiction",
+      "clean_DRR": 0.9116,
+      "adv_DRR": 0.91,
+      "ratio": 0.9982,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 1,
+      "task": "Select the best embedding model for sentence scoring.",
+      "attack_type": "A_injection",
+      "clean_DRR": 0.9144,
+      "adv_DRR": 0.9104,
+      "ratio": 0.9957,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 1,
+      "task": "Select the best embedding model for sentence scoring.",
+      "attack_type": "B_noise_amplify",
+      "clean_DRR": 0.9144,
+      "adv_DRR": 0.9101,
+      "ratio": 0.9953,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 1,
+      "task": "Select the best embedding model for sentence scoring.",
+      "attack_type": "C_decision_mask",
+      "clean_DRR": 0.9144,
+      "adv_DRR": 0.9097,
+      "ratio": 0.9948,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 1,
+      "task": "Select the best embedding model for sentence scoring.",
+      "attack_type": "D_contradiction",
+      "clean_DRR": 0.9144,
+      "adv_DRR": 0.9107,
+      "ratio": 0.996,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 2,
+      "task": "Identify the root cause of the pipeline failure.",
+      "attack_type": "A_injection",
+      "clean_DRR": 0.8867,
+      "adv_DRR": 0.8834,
+      "ratio": 0.9964,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 2,
+      "task": "Identify the root cause of the pipeline failure.",
+      "attack_type": "B_noise_amplify",
+      "clean_DRR": 0.8867,
+      "adv_DRR": 0.9133,
+      "ratio": 1.0301,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 2,
+      "task": "Identify the root cause of the pipeline failure.",
+      "attack_type": "C_decision_mask",
+      "clean_DRR": 0.8867,
+      "adv_DRR": 0.9167,
+      "ratio": 1.0338,
+      "robust": true,
+      "error": null
+    },
+    {
+      "task_index": 2,
+      "task": "Identify the root cause of the pipeline failure.",
+      "attack_type": "D_contradiction",
+      "clean_DRR": 0.8867,
+      "adv_DRR": 0.8867,
+      "ratio": 1.0,
+      "robust": true,
+      "error": null
+    }
+  ],
+  "summary": [
+    {
+      "attack_type": "A_injection",
+      "mean_clean_DRR": 0.9042333333333333,
+      "clean_ci_lo": 0.8866999999999999,
+      "clean_ci_hi": 0.9144,
+      "mean_adv_DRR": 0.9026,
+      "adv_ci_lo": 0.8834,
+      "adv_ci_hi": 0.914,
+      "n": 3
+    },
+    {
+      "attack_type": "B_noise_amplify",
+      "mean_clean_DRR": 0.9042333333333333,
+      "clean_ci_lo": 0.8866999999999999,
+      "clean_ci_hi": 0.9144,
+      "mean_adv_DRR": 0.9116,
+      "adv_ci_lo": 0.9101,
+      "adv_ci_hi": 0.9133,
+      "n": 3
+    },
+    {
+      "attack_type": "C_decision_mask",
+      "mean_clean_DRR": 0.9042333333333333,
+      "clean_ci_lo": 0.8866999999999999,
+      "clean_ci_hi": 0.9144,
+      "mean_adv_DRR": 0.9122,
+      "adv_ci_lo": 0.9097,
+      "adv_ci_hi": 0.9167,
+      "n": 3
+    },
+    {
+      "attack_type": "D_contradiction",
+      "mean_clean_DRR": 0.9042333333333333,
+      "clean_ci_lo": 0.8866999999999999,
+      "clean_ci_hi": 0.9144,
+      "mean_adv_DRR": 0.9024666666666666,
+      "adv_ci_lo": 0.8866999999999999,
+      "adv_ci_hi": 0.9107,
+      "n": 3
+    }
+  ]
+}

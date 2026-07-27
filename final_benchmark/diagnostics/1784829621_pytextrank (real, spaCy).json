@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Els ulls de les persones poden canviar de color a mesura que anem creixent?",
+      "tok_count": 24,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "S\u00ed, \u00e9s possible que els ulls de les persones canvi\u00efn durant la vida. \u00c9s relativament habitual que els nadons canvi\u00efn el color dels ulls durant els dos primers anys de vida. Aquest canvi sembla dependr",
+      "tok_count": 214,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Els ulls de les persones poden canviar de color a mesura que anem creixent?",
+      "tok_count": 24
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "S\u00ed, \u00e9s possible que els ulls de les persones canvi\u00efn durant la vida. \u00c9s relativament habitual que els nadons canvi\u00efn el color dels ulls durant els dos primers anys de vida. Aquest canvi sembla dependr",
+      "tok_count": 214
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 24,
+      "retained_tokens": 24,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 214,
+      "retained_tokens": 214,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "produir-se",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "S\u00ed, \u00e9s possible que els ulls de les persones canvi\u00efn durant la vida. \u00c9s relativament habitual que els nadons canvi\u00efn el color dels ulls durant els dos primers anys de vida. Aquest canvi sembla dependre del color original dels ulls, quan m\u00e9s clars siguin al n\u00e9ixer m\u00e9s probable \u00e9s que acabin tenint un color m\u00e9s fosc. Alguns estudis apunten que \u00e9s 10 vegades m\u00e9s probable que el color dels ulls s'enfosqueixi durant els dos primers anys de vida que no pas que s'aclareixin amb l'edat. Sembla ser que aquests canvis es produeixen principalment degut a l'efecte de la melanina. Durant l'edat adulta el canvi de color dels ulls sembla produir-se principalment en casos de traumatismes o infeccions oculars.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "produir-se",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 238,
+    "comp_total_toks": 238,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

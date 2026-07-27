@@ -1,0 +1,154 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfQu\u00e9 es el Counseling?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "El Counseling, tambi\u00e9n conocido como consejer\u00eda o terapia de apoyo, es un enfoque terap\u00e9utico que se enfoca en ayudar a las personas a resolver problemas emocionales y psicol\u00f3gicos a trav\u00e9s de la conv",
+      "tok_count": 197,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "\u00bfD\u00f3nde puedo encontrar m\u00e1s informaci\u00f3n a cerca del Counseling?",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Puede encontrar m\u00e1s informaci\u00f3n sobre el Counseling en varias fuentes, como la American Psychological Association (APA), el American Counseling Association (ACA), y el National Board of Certified Coun",
+      "tok_count": 123,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Counseling se estudia todos los paises? esta ampliamente difundido por todo el mundo?",
+      "tok_count": 23,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Counseling se estudia todos los paises? esta ampliamente difundido por todo el mundo?",
+      "tok_count": 23
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 6,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 197,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 13,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 123,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 23,
+      "retained_tokens": 23,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Counseling",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "El Counseling, tambi\u00e9n conocido como consejer\u00eda o terapia de apoyo, es un enfoque terap\u00e9utico que se enfoca en ayudar a las personas a resolver problemas emocionales y psicol\u00f3gicos a trav\u00e9s de la conversaci\u00f3n y el di\u00e1logo. A diferencia de otras formas de terapia, el Counseling se centra en las fortalezas y habilidades de la persona, en lugar de enfocarse en sus debilidades o patolog\u00edas. El objetivo es proporcionar un ambiente seguro y de apoyo para que las personas puedan explorar sus sentimientos y pensamientos, y as\u00ed tomar decisiones y acciones positivas en su vida. El Counseling puede ser \u00fatil para una amplia gama de problemas emocionales y psicol\u00f3gicos, como ansiedad, depresi\u00f3n, estr\u00e9s, problemas de relaciones, y muchas otras \u00e1reas de la vida en las que se necesite apoyo y orientaci\u00f3n.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Counseling",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Puede encontrar m\u00e1s informaci\u00f3n sobre el Counseling en varias fuentes, como la American Psychological Association (APA), el American Counseling Association (ACA), y el National Board of Certified Counselors (NBCC). Estas organizaciones proporcionan recursos y gu\u00edas para profesionales de la salud mental, as\u00ed como informaci\u00f3n sobre los diferentes tipos de terapia disponibles. Tambi\u00e9n hay varios sitios web y foros de discusi\u00f3n donde se puede encontrar informaci\u00f3n sobre el Counseling. Por ejemplo, el sitio web Psychology Today ofrece art\u00edculos sobre el Counseling, as\u00ed como listas de consejeros certificados y consejeros cualificados.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 362,
+    "comp_total_toks": 23,
+    "reduction": 93.646408839779,
+    "DRR_soft": 0.0,
+    "RCI": 1.0
+  }
+}

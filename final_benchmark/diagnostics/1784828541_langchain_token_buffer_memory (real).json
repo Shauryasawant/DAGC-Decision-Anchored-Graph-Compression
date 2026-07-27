@@ -1,0 +1,451 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Hizi taarifa ninazokuuliza hapa huwa unazisambaza pia?",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Kama unazungumzia taarifa ambazo nimezisikia na nimezithibitisha kuwa za kweli na za uhakika, basi naam, ninaweza kuzisambaza pia kwa wengine ili kusaidia kueneza habari sahihi na muhimu. Lakini kama ",
+      "tok_count": 160,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Mfano taarifa gani?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Taarifa ambazo ninaweza kuzisambaza ni pamoja na habari za kiafya, kisiasa, kiuchumi, na mambo mengine yanayohusu jamii. Kwa mfano, ikiwa kuna janga la kiafya kama virusi vya Corona, ningeweza kusamba",
+      "tok_count": 164,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Sawa nimegombana na mke wangu wa ndoa, ma nahitaji kumuacha je wanishauri nini?",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Kabla ya kufikiria kuhusu kuachana na mke wako wa ndoa, ni muhimu kujaribu kutatua masuala yenu kwa njia ya mazungumzo. Jaribu kuzungumza kwa uwazi na kwa kujieleza kwa utulivu ili kumaliza tofauti ze",
+      "tok_count": 312,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Nitajie taasisi za kifedha zilizopo nchini marekani ambazo husaidia mikopo ya ujasiriamali kwa nchi zinazoendelea kama Tanzania",
+      "tok_count": 47,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Kuna taasisi mbalimbali za kifedha nchini Marekani ambazo husaidia mikopo ya ujasiriamali kwa nchi zinazoendelea kama Tanzania, chache zifuatazo ni:\n\n1. Overseas Private Investment Corporation (OPIC) ",
+      "tok_count": 486,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Namaanisha mikopo hiyo kutolewa kwa watu binafsi kwa nchi zinazoendelea sio kwa taifa zima",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "Ninakuelewa sasa. Kuna taasisi kadhaa za kifedha nchini Marekani ambazo husaidia mikopo ya ujasiriamali kwa watu binafsi kutoka nchi zinazoendelea kama Tanzania. Chache za taasisi hizo ni pamoja na:\n\n",
+      "tok_count": 550,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "Taasisi hizo zote ulizonitajia zinaweza kusaidia watu binafsi tuliopo tanzania?",
+      "tok_count": 32,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "Kwa kawaida, taasisi hizo ambazo nilizitaja hapo awali, zinaweza kusaidia watu binafsi kutoka Tanzania kwa kutoa mikopo ya ujasiriamali. Hata hivyo, kabla ya kutuma maombi, ni muhimu kusoma kwa umakin",
+      "tok_count": 290,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "Kati ya taasisi hizo ulizonitajia ni taasisi ipi rahisi kupata mkopo na haiihitaji hatua ndefu katika ku apply?",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "Kila taasisi ya kifedha ina utaratibu wake wa kidhihirisho na hususani kwa wajasiriamali kutoka nchi zinazoendelea kama Tanzania, hivyo kila mmoja wao anahitaji taratibu za maombi kabla ya kutoa mkopo",
+      "tok_count": 359,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "user",
+      "preview": "Nisaidie hatua zote muhimu zinazotakiwa kufuatwa ili kuomba mkopo katika taasisi ya kiva",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "Hii ni hatua kwa hatua jinsi ya kufuata na kuomba mkopo kwa kutumia Kiva:\n\n1. Tembelea tovuti ya Kiva: Ingia kwenye tovuti ya Kiva kwa kutumia kivapro.com. Kisha bonyeza \"Join\" ili uweze kusajili akau",
+      "tok_count": 648,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "user",
+      "preview": "Nitajie kima cha kuanzia kukopa katika taasisi ya kiva",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "Kulingana na tovuti ya Kiva, wajasiriamali wanaweza kukopa kuanzia dola za Marekani 25 hadi 10,000. Hii inamaanisha kwamba, unaweza kuomba mkopo wa kiwango chochote kati ya hizi kutoka kwa Kiva kuling",
+      "tok_count": 213,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "user",
+      "preview": "Nisaidie hatua zote muhimu za kufanya maombi ya mkopo katika taasisi ya accion",
+      "tok_count": 29,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "Hapa kuna maelezo kwa njia ya hatua kwa hatua juu ya jinsi ya kuomba mkopo wa Accion:\n\n1. Tembelea wavuti ya Accion: Ingia kwenye wavuti ya Accion kupitia accion.org. Kufika kwenye tovuti, bonyeza kwe",
+      "tok_count": 516,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 18,
+      "role": "user",
+      "preview": "Nisaidie hatua zote muhimu za kufanya maombi ya mkopo katika taasisi ya accion",
+      "tok_count": 29
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 19,
+      "role": "assistant",
+      "preview": "Hapa kuna maelezo kwa njia ya hatua kwa hatua juu ya jinsi ya kuomba mkopo wa Accion:\n\n1. Tembelea wavuti ya Accion: Ingia kwenye wavuti ya Accion kupitia accion.org. Kufika kwenye tovuti, bonyeza kwe",
+      "tok_count": 516
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 22,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 160,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 164,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 31,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 312,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 47,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 486,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 36,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 550,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 32,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 290,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "12": {
+      "orig_tokens": 40,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 359,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "14": {
+      "orig_tokens": 34,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "15": {
+      "orig_tokens": 648,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 19,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "17": {
+      "orig_tokens": 213,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "18": {
+      "orig_tokens": 29,
+      "retained_tokens": 29,
+      "retention_frac": 1.0
+    },
+    "19": {
+      "orig_tokens": 516,
+      "retained_tokens": 516,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Kama",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Kama unazungumzia taarifa ambazo nimezisikia na nimezithibitisha kuwa za kweli na za uhakika, basi naam, ninaweza kuzisambaza pia kwa wengine ili kusaidia kueneza habari sahihi na muhimu. Lakini kama taarifa hizo hazijathibitishwa kuwa za kweli, basi sitazisambaza hadi pale nitakapojiridhisha kuwa ni za kweli. Kama msaidizi wa AI, lengo langu ni kufikisha habari sahihi na kuhakikisha kuwa watu wanapata habari za kuaminika.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Corona",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Taarifa ambazo ninaweza kuzisambaza ni pamoja na habari za kiafya, kisiasa, kiuchumi, na mambo mengine yanayohusu jamii. Kwa mfano, ikiwa kuna janga la kiafya kama virusi vya Corona, ningeweza kusambaza habari juu ya hatua za kuchukua ili kujilinda, au maeneo ambapo wanaweza kupata msaada au matibabu. Napenda kuhakikisha kuwa taarifa ninazosambaza zinaambatana na vyanzo vya kuaminika na zimekwishathibitishwa kuwa za kweli.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Kama",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Kabla ya kufikiria kuhusu kuachana na mke wako wa ndoa, ni muhimu kujaribu kutatua masuala yenu kwa njia ya mazungumzo. Jaribu kuzungumza kwa uwazi na kwa kujieleza kwa utulivu ili kumaliza tofauti zenu. Kama hamuwezi kufikia suluhu pamoja, basi ni vyema kutafuta msaada wa mlezi au mshauri wa mahusiano ili kukusaidia kutatua tatizo hilo kwa amani. \n\nKwa kweli, kuachana na mke wako wa ndoa ni uamuzi mgumu sana na hautakiwi kufanywa bila kufikiria kwa kina na kwa umakini. Ni muhimu kuzingatia athari za kihisia, kifedha na kijamii kwa pande zote mbili kabla ya kufikia uamuzi huo. Kama ni lazima kuachana, fanya hivyo kwa uvumilivu na heshima, na ikiwezekana, kwa njia ya mazungumzo wazi, na kuepuka kuleta maumivu makali kwa pande zote mbili.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Kwa",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Kwa kawaida, taasisi hizo ambazo nilizitaja hapo awali, zinaweza kusaidia watu binafsi kutoka Tanzania kwa kutoa mikopo ya ujasiriamali. Hata hivyo, kabla ya kutuma maombi, ni muhimu kusoma kwa umakini mahitaji yao na kufuata taratibu za kujisajili kwa mujibu wa maelekezo yao. Katika baadhi ya taasisi, wakati mwingine utaratibu wake ni kuwasaidia kwa kushirikiana na mashirika ya kifedha nchini Tanzania, badala ya kutoa moja kwa moja kwa mtu. \n\nPia ni muhimu kukumbuka kuwa, mikopo inayotolewa na taasisi hizi kwa kawaida ni kwa minajili ya biashara, na sio kwa shughuli za kibinafsi. Kwa hiyo, ili kuwa na nafasi nzuri ya kupata mikopo kutoka taasisi hizo, inashauriwa kuwa na mpango wa biashara ulio thabiti na wenye uwezekano wa kufanikiwa.",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Hata",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Kila taasisi ya kifedha ina utaratibu wake wa kidhihirisho na hususani kwa wajasiriamali kutoka nchi zinazoendelea kama Tanzania, hivyo kila mmoja wao anahitaji taratibu za maombi kabla ya kutoa mkopo. \n\nHata hivyo, kwa ujumla, taasisi kama Kiva na Accion zinazingatiwa kuwa rahisi zaidi kwa wajasiriamali kupata mikopo, hasa kwa wajasiriamali wa kati na wadogo wadogo, na huduma zao zinatolewa kwa njia ya haraka. Kupitia mtandao wao wa kimataifa, maombi ya mkopo yanaweza kujazwa papo hapo na kufanyiwa uamuzi wa haraka kuhusu kuthibitisha uhalali wa upatikanaji mkopo.\n\nHata hivyo, kiwango cha riba na utetezi hutofautiana kutokana na taasisi moja hadi nyingine.  Kwa hiyo, ni muhimu kuwasiliana na kila mwekezaji wa ujasiriamali kwa kujifunza zaidi kuhusu taratibu zao za maombi na huduma zinazotolewa, ikiwa ni pamoja na kiwango cha riba, hatua za marejesho ya mikopo, na utetezi mwingine unaohusika.",
+        "msg_idx": 13
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 3997,
+    "comp_total_toks": 545,
+    "reduction": 86.36477358018514,
+    "DRR_soft": 0.0,
+    "RCI": 0.3333
+  }
+}

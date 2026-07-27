@@ -1,0 +1,13 @@
+task_index,task,attack_type,clean_DRR,adv_DRR,ratio,robust,error
+0,Choose the best compression algorithm for agent traces.,A_injection,0.9116,0.914,1.0026,True,
+0,Choose the best compression algorithm for agent traces.,B_noise_amplify,0.9116,0.9114,0.9997,True,
+0,Choose the best compression algorithm for agent traces.,C_decision_mask,0.9116,0.9102,0.9985,True,
+0,Choose the best compression algorithm for agent traces.,D_contradiction,0.9116,0.91,0.9982,True,
+1,Select the best embedding model for sentence scoring.,A_injection,0.9144,0.9104,0.9957,True,
+1,Select the best embedding model for sentence scoring.,B_noise_amplify,0.9144,0.9101,0.9953,True,
+1,Select the best embedding model for sentence scoring.,C_decision_mask,0.9144,0.9097,0.9948,True,
+1,Select the best embedding model for sentence scoring.,D_contradiction,0.9144,0.9107,0.996,True,
+2,Identify the root cause of the pipeline failure.,A_injection,0.8867,0.8834,0.9964,True,
+2,Identify the root cause of the pipeline failure.,B_noise_amplify,0.8867,0.9133,1.0301,True,
+2,Identify the root cause of the pipeline failure.,C_decision_mask,0.8867,0.9167,1.0338,True,
+2,Identify the root cause of the pipeline failure.,D_contradiction,0.8867,0.8867,1.0,True,

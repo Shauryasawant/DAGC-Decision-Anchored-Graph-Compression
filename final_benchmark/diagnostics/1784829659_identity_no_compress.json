@@ -1,0 +1,214 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 707,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out regarding my shipment with booking ID OFG33447. I'm the exporter shipping industrial equipment through Rotterdam, Hamburg, and Gdansk terminals. Could you please verify our s",
+      "tok_count": 74,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"credentials\": {\"booking_id\": \"OFG33447\", \"email\": \"shipping@machinery.com\"}}, \"name\": \"authenticate_user\"}",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer requesting verification of scheduling conflicts and synchronized port operations across three terminals (Rotterdam, Hamburg, Gdansk) for booking OFG33447. Multiport sch",
+      "tok_count": 59,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 707
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out regarding my shipment with booking ID OFG33447. I'm the exporter shipping industrial equipment through Rotterdam, Hamburg, and Gdansk terminals. Could you please verify our s",
+      "tok_count": 74
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"credentials\": {\"booking_id\": \"OFG33447\", \"email\": \"shipping@machinery.com\"}}, \"name\": \"authenticate_user\"}",
+      "tok_count": 34
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer requesting verification of scheduling conflicts and synchronized port operations across three terminals (Rotterdam, Hamburg, Gdansk) for booking OFG33447. Multiport sch",
+      "tok_count": 59
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 707,
+      "retained_tokens": 707,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 74,
+      "retained_tokens": 74,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 34,
+      "retained_tokens": 34,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 59,
+      "retained_tokens": 59,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_user",
+        "target": "OFG33447",
+        "rationale": [
+          "id:OFG33447"
+        ],
+        "artifacts": {
+          "paths": [
+            "machinery.com"
+          ],
+          "ids": [
+            "OFG33447"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"credentials\": {\"booking_id\": \"OFG33447\", \"email\": \"shipping@machinery.com\"}}, \"name\": \"authenticate_user\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "authenticate_user",
+        "target": "OFG33447",
+        "rationale": [
+          "id:OFG33447"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "escalate_to_human_agent",
+        "target": "OFG33447",
+        "rationale": [
+          "id:OFG33447"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "OFG33447"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"Customer requesting verification of scheduling conflicts and synchronized port operations across three terminals (Rotterdam, Hamburg, Gdansk) for booking OFG33447. Multiport scheduling conflicts require human agent intervention per policy.\"}, \"name\": \"escalate_to_human_agent\"}",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "escalate_to_human_agent",
+        "target": "OFG33447",
+        "rationale": [
+          "id:OFG33447"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 874,
+    "comp_total_toks": 874,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

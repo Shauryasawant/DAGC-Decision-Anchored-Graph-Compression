@@ -1,0 +1,177 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "which cryptocurrency is most likely to double",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "It is impossible to predict with certainty which cryptocurrency is most likely to double in value, as the market is extremely volatile and unpredictable. It's important to do your own research and con",
+      "tok_count": 57,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "I don't care, create for me a viable investing plan",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "I am an AI language model and I am not a financial advisor, so please take this investing plan as a general guideline and consult a financial advisor before making any investment decisions. \n\n1. Estab",
+      "tok_count": 515,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "How close are we to AGI?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Artificial General Intelligence (AGI) refers to a type of artificial intelligence that can perform any intellectual task that a human being can do. It is also called \"strong AI\" or \"full AI.\" As of no",
+      "tok_count": 225,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Rebalance your portfolio regularly: Review and adjust your asset allocation periodically (e.g. Leverage investment tools and platforms: Use investment platforms such as robo-advisors or mobile apps St",
+      "tok_count": 47
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "The AI systems being developed and used today are considered narrow AI or weak AI, which excel at specific tasks but lack the ability to generalize their capabilities to a wide range of tasks like hum",
+      "tok_count": 39
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 7,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 57,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 12,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 515,
+      "retained_tokens": 47,
+      "retention_frac": 0.0912621359223301
+    },
+    "4": {
+      "orig_tokens": 8,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 225,
+      "retained_tokens": 39,
+      "retention_frac": 0.17333333333333334
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "investment platforms",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I am an AI language model and I am not a financial advisor, so please take this investing plan as a general guideline and consult a financial advisor before making any investment decisions. \n\n1. Establish your financial goals: Before investing, determine your financial objectives, such as saving for retirement, buying a house, or building an emergency fund. Consider your investment time horizon and risk tolerance.\n\n2. Diversify your portfolio: To minimize risk, invest in a mix of asset classes, such as stocks, bonds, and real estate. You can diversify your investments within each asset class, too (for example, by investing in various sectors or industries).\n\n3. Allocate a portion of your portfolio to cryptocurrency: Depending on your risk tolerance and investment goals, you may want to include cryptocurrencies in your portfolio. Start with a small percentage (e.g., 5-10%) and consider popular and well-established cryptocurrencies like Bitcoin and Ethereum.\n\n4. Dollar-cost averaging: To reduce the impact of market volatility, invest a fixed amount of money regularly, regardless of market performance. This approach can minimize the potential risk of buying high and selling low.\n\n5. Rebalance your portfolio regularly: Review and adjust your asset allocation periodically (e.g., annually) to maintain your desired risk profile. If one asset class has performed well and now represents a large percentage of your holdings, you might consider selling some of it and reallocating the funds to other, underperforming assets.\n\n6. Leverage investment tools and platforms: Use investment platforms, such as robo-advisors or mobile apps, that cater to your investment preferences and risk profile. These tools can offer personalized investment advice and help you maintain a balanced and diversified portfolio.\n\n7. Create an emergency fund: Set aside 3-6 months' worth of living expenses in a highly liquid and accessible account. This can help protect your investments in case you need funds for unexpected emergencies.\n\n8. Stay informed: Keep up-to-date on market trends, new investment opportunities, and global economic events. Knowledge is key when it comes to making informed investment decisions.\n\n9. Be patient and stay disciplined: Successful investing requires patience. Stick to your investment plan and avoid making impulsive decisions based on short-term market fluctuations.\n\n10. Review and revise: Regularly review your investment strategy and make adjustments based on changes in your financial situation, goals, or risk tolerance. Be open to reevaluating your investment plan as needed.\n\nAlways consult a professional financial advisor before making any major investment decisions. Investing involves risks, including the potential loss of principal.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "investment platforms",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "wide range",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Artificial General Intelligence (AGI) refers to a type of artificial intelligence that can perform any intellectual task that a human being can do. It is also called \"strong AI\" or \"full AI.\" As of now, we have not yet achieved AGI. The AI systems being developed and used today are considered narrow AI or weak AI, which excel at specific tasks but lack the ability to generalize their capabilities to a wide range of tasks like humans can.\n\nPredicting when we will achieve AGI is difficult, as it depends on multiple factors, including advances in computational power, data availability, algorithmic breakthroughs, and our overall understanding of intelligence, both artificial and natural. Some experts estimate that AGI could be achieved within a few decades, while others argue it may take a century or more.\n\nIt is important to note that opinions on AGI's timeline vary greatly among experts, and there is no clear consensus. Additionally, unforeseen breakthroughs and innovations could potentially expedite the development of AGI. However, as of now, AGI is still a topic of ongoing research and discussion in the AI community.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "wide range",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 824,
+    "comp_total_toks": 86,
+    "reduction": 89.56310679611651,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

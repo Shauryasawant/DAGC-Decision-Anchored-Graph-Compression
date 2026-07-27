@@ -1,0 +1,514 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u63a8\u8350\u51e0\u7bc7 \u5173\u4e8e\u9057\u4f20\u7b97\u6cd5   \u5173\u4e8efitness funciton  \u65b9\u9762\u7684\u6587\u732e",
+      "tok_count": 28,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "1. Goldberg, D. E. (1989). Genetic algorithms in search, optimization, and machine learning. Addison-Wesley.\n\n2.ISemiconductor manufactutioning scheduling using genetic algorithms with fitness approxi",
+      "tok_count": 322,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "\u8bf7\u95ee\u9057\u4f20\u7b97\u6cd5\u4e2d \u9002\u5e94\u5ea6\u51fd\u6570\u5982\u4f55\u5efa\u7acb\uff1f",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "\u5728\u9057\u4f20\u7b97\u6cd5\uff08Genetic Algorithm\uff0cGA\uff09\u4e2d\uff0c\u9002\u5e94\u5ea6\u51fd\u6570\uff08Fitness Function\uff09\u662f\u8bc4\u4f30\u4e2a\u4f53\u4f18\u52a3\u7684\u5173\u952e\u56e0\u7d20\u3002\u9002\u5e94\u5ea6\u51fd\u6570\u6839\u636e\u95ee\u9898\u672c\u8eab\u6765\u786e\u5b9a\uff0c\u6700\u7ec8\u7684\u76ee\u7684\u662f\u91cf\u5316\u4e2a\u4f53\u5728\u89e3\u7a7a\u95f4\u4e2d\u7684\u4f18\u52a3\u7a0b\u5ea6\u3002\u4ee5\u4e0b\u662f\u5efa\u7acb\u9002\u5e94\u5ea6\u51fd\u6570\u7684\u4e00\u822c\u6b65\u9aa4\uff1a\n\n1. \u786e\u5b9a\u76ee\u6807\u51fd\u6570\uff1a\u9996\u5148\uff0c\u9700\u8981\u4e86\u89e3\u4f60\u6b63\u5728\u89e3\u51b3\u7684\u4f18\u5316\u95ee\u9898\u3002\u8fd9\u53ef\u4ee5\u662f\u6700\u5927\u5316\u95ee\u9898\uff08\u5982\u5229\u6da6\u6700\u5927\u5316\u3001\u6027\u80fd\u6700\u5927\u5316\u7b49\uff09\uff0c\u4e5f\u53ef\u4ee5\u662f\u6700\u5c0f\u5316\u95ee\u9898\uff08\u5982\u6210\u672c\u6700\u5c0f\u5316\u3001\u8bef\u5dee\u6700\u5c0f\u5316\u7b49\uff09\u3002\u5c06\u6b64\u4f18",
+      "tok_count": 612,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "\u80fd\u63a8\u8350\u4e00\u4e9b\u8fd9\u65b9\u9762\u7684\u53c2\u8003\u6587\u732e\u4e48",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "\u5f53\u7136\u53ef\u4ee5\u3002\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5173\u4e8e\u9057\u4f20\u7b97\u6cd5\u9002\u5e94\u5ea6\u51fd\u6570\u8bbe\u8ba1\u7684\u53c2\u8003\u6587\u732e\uff1a\n\n1. Goldberg, D. E. (1989). Genetic algorithms in search, optimization, and machine learning. Addison-Wesley.\n\n2. Mitchell, M. (1998). An introduction to genetic algorith",
+      "tok_count": 306,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "\u6709\u4e13\u95e8\u9488\u5bf9 \u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684\u53c2\u8003\u4e48 \uff0c\u5c24\u5176\u9488\u5bf9\u7535\u673a\u65b9\u9762",
+      "tok_count": 29,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "\u5173\u4e8e\u9488\u5bf9\u7535\u673a\u63a7\u5236\u548c\u4f18\u5316\u65b9\u9762\u7684\u9057\u4f20\u7b97\u6cd5\u9002\u5e94\u5ea6\u51fd\u6570\uff0c\u8fd9\u91cc\u63d0\u4f9b\u4e00\u4e9b\u76f8\u5173\u6587\u732e\uff1a\n\n1. Li, S. (2009). A genetic algorithm for optimizing fitness functions of brushless DC motor. 2009 Chinese Control and Decision Conference, pp. 4126-4131.\n\n2. Sinh",
+      "tok_count": 403,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "\u5728\u7535\u673a\u8bbe\u8ba1\u65b9\u9762 \u6709\u76f8\u5e94\u6587\u732e\u4e48",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "\u5f53\u7136\u6709\uff0c\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5173\u4e8e\u91c7\u7528\u9057\u4f20\u7b97\u6cd5\u8fdb\u884c\u7535\u673a\u8bbe\u8ba1\u548c\u4f18\u5316\u7684\u53c2\u8003\u6587\u732e\uff1a\n\n1. Fu, W. N., Wang, J., & Jewell, G. W. (2006). Design optimization of electric motor using refined genetic algorithm. In Proceedings of the IEEE International Confer",
+      "tok_count": 430,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "\u6709\u5173\u4e8e \u7535\u673a\u8bbe\u8ba1 \u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684 \u53c2\u8003\u4e48",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "\u5173\u4e8e\u7535\u673a\u8bbe\u8ba1\u4e2d\u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684\u53c2\u8003\u6587\u732e\uff0c\u60a8\u53ef\u4ee5\u53c2\u8003\u4ee5\u4e0b\u51e0\u7bc7\uff1a\n\n1. Belfiore, N. P., Cupertino, F., & Pellegrino, G. (2009). Multi-objective optimal design of switched reluctance motors based on genetic algorithms improving efficienc",
+      "tok_count": 435,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "\u80fd\u5728\u591a\u4e00\u4e9b\u4e48",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "\u5f53\u7136\u53ef\u4ee5\u3002\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5173\u4e8e\u7535\u673a\u8bbe\u8ba1\u548c\u4f18\u5316\u4e2d\u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684\u53c2\u8003\u6587\u732e\uff1a\n\n1. Mikail, R., Husain, A., & Sozer, Y. (2017). Design optimization of outer-rotor permanent-magnet flux-switching machines for low-speed direct-drive applications ba",
+      "tok_count": 574,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "\u63a8\u8350\u51e0\u7bc7 \u5173\u4e8e\u9057\u4f20\u7b97\u6cd5   \u5173\u4e8efitness funciton  \u65b9\u9762\u7684\u6587\u732e",
+      "tok_count": 28
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "1. Goldberg, D. E. (1989). Genetic algorithms in search, optimization, and machine learning. Addison-Wesley.\n\n2.ISemiconductor manufactutioning scheduling using genetic algorithms with fitness approxi",
+      "tok_count": 322
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "\u8bf7\u95ee\u9057\u4f20\u7b97\u6cd5\u4e2d \u9002\u5e94\u5ea6\u51fd\u6570\u5982\u4f55\u5efa\u7acb\uff1f",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "\u5728\u9057\u4f20\u7b97\u6cd5\uff08Genetic Algorithm\uff0cGA\uff09\u4e2d\uff0c\u9002\u5e94\u5ea6\u51fd\u6570\uff08Fitness Function\uff09\u662f\u8bc4\u4f30\u4e2a\u4f53\u4f18\u52a3\u7684\u5173\u952e\u56e0\u7d20\u3002\u9002\u5e94\u5ea6\u51fd\u6570\u6839\u636e\u95ee\u9898\u672c\u8eab\u6765\u786e\u5b9a\uff0c\u6700\u7ec8\u7684\u76ee\u7684\u662f\u91cf\u5316\u4e2a\u4f53\u5728\u89e3\u7a7a\u95f4\u4e2d\u7684\u4f18\u52a3\u7a0b\u5ea6\u3002\u4ee5\u4e0b\u662f\u5efa\u7acb\u9002\u5e94\u5ea6\u51fd\u6570\u7684\u4e00\u822c\u6b65\u9aa4\uff1a\n\n1. \u786e\u5b9a\u76ee\u6807\u51fd\u6570\uff1a\u9996\u5148\uff0c\u9700\u8981\u4e86\u89e3\u4f60\u6b63\u5728\u89e3\u51b3\u7684\u4f18\u5316\u95ee\u9898\u3002\u8fd9\u53ef\u4ee5\u662f\u6700\u5927\u5316\u95ee\u9898\uff08\u5982\u5229\u6da6\u6700\u5927\u5316\u3001\u6027\u80fd\u6700\u5927\u5316\u7b49\uff09\uff0c\u4e5f\u53ef\u4ee5\u662f\u6700\u5c0f\u5316\u95ee\u9898\uff08\u5982\u6210\u672c\u6700\u5c0f\u5316\u3001\u8bef\u5dee\u6700\u5c0f\u5316\u7b49\uff09\u3002\u5c06\u6b64\u4f18",
+      "tok_count": 612
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "\u80fd\u63a8\u8350\u4e00\u4e9b\u8fd9\u65b9\u9762\u7684\u53c2\u8003\u6587\u732e\u4e48",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "\u5f53\u7136\u53ef\u4ee5\u3002\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5173\u4e8e\u9057\u4f20\u7b97\u6cd5\u9002\u5e94\u5ea6\u51fd\u6570\u8bbe\u8ba1\u7684\u53c2\u8003\u6587\u732e\uff1a\n\n1. Goldberg, D. E. (1989). Genetic algorithms in search, optimization, and machine learning. Addison-Wesley.\n\n2. Mitchell, M. (1998). An introduction to genetic algorith",
+      "tok_count": 306
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "\u6709\u4e13\u95e8\u9488\u5bf9 \u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684\u53c2\u8003\u4e48 \uff0c\u5c24\u5176\u9488\u5bf9\u7535\u673a\u65b9\u9762",
+      "tok_count": 29
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "\u5173\u4e8e\u9488\u5bf9\u7535\u673a\u63a7\u5236\u548c\u4f18\u5316\u65b9\u9762\u7684\u9057\u4f20\u7b97\u6cd5\u9002\u5e94\u5ea6\u51fd\u6570\uff0c\u8fd9\u91cc\u63d0\u4f9b\u4e00\u4e9b\u76f8\u5173\u6587\u732e\uff1a\n\n1. Li, S. (2009). A genetic algorithm for optimizing fitness functions of brushless DC motor. 2009 Chinese Control and Decision Conference, pp. 4126-4131.\n\n2. Sinh",
+      "tok_count": 403
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "\u5728\u7535\u673a\u8bbe\u8ba1\u65b9\u9762 \u6709\u76f8\u5e94\u6587\u732e\u4e48",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "\u5f53\u7136\u6709\uff0c\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5173\u4e8e\u91c7\u7528\u9057\u4f20\u7b97\u6cd5\u8fdb\u884c\u7535\u673a\u8bbe\u8ba1\u548c\u4f18\u5316\u7684\u53c2\u8003\u6587\u732e\uff1a\n\n1. Fu, W. N., Wang, J., & Jewell, G. W. (2006). Design optimization of electric motor using refined genetic algorithm. In Proceedings of the IEEE International Confer",
+      "tok_count": 430
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "user",
+      "preview": "\u6709\u5173\u4e8e \u7535\u673a\u8bbe\u8ba1 \u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684 \u53c2\u8003\u4e48",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "\u5173\u4e8e\u7535\u673a\u8bbe\u8ba1\u4e2d\u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684\u53c2\u8003\u6587\u732e\uff0c\u60a8\u53ef\u4ee5\u53c2\u8003\u4ee5\u4e0b\u51e0\u7bc7\uff1a\n\n1. Belfiore, N. P., Cupertino, F., & Pellegrino, G. (2009). Multi-objective optimal design of switched reluctance motors based on genetic algorithms improving efficienc",
+      "tok_count": 435
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 12,
+      "role": "user",
+      "preview": "\u80fd\u5728\u591a\u4e00\u4e9b\u4e48",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "\u5f53\u7136\u53ef\u4ee5\u3002\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5173\u4e8e\u7535\u673a\u8bbe\u8ba1\u548c\u4f18\u5316\u4e2d\u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684\u53c2\u8003\u6587\u732e\uff1a\n\n1. Mikail, R., Husain, A., & Sozer, Y. (2017). Design optimization of outer-rotor permanent-magnet flux-switching machines for low-speed direct-drive applications ba",
+      "tok_count": 574
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 28,
+      "retained_tokens": 28,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 322,
+      "retained_tokens": 322,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 19,
+      "retained_tokens": 19,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 612,
+      "retained_tokens": 612,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 17,
+      "retained_tokens": 17,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 306,
+      "retained_tokens": 306,
+      "retention_frac": 1.0
+    },
+    "6": {
+      "orig_tokens": 29,
+      "retained_tokens": 29,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 403,
+      "retained_tokens": 403,
+      "retention_frac": 1.0
+    },
+    "8": {
+      "orig_tokens": 15,
+      "retained_tokens": 15,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 430,
+      "retained_tokens": 430,
+      "retention_frac": 1.0
+    },
+    "10": {
+      "orig_tokens": 20,
+      "retained_tokens": 20,
+      "retention_frac": 1.0
+    },
+    "11": {
+      "orig_tokens": 435,
+      "retained_tokens": 435,
+      "retention_frac": 1.0
+    },
+    "12": {
+      "orig_tokens": 6,
+      "retained_tokens": 6,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 574,
+      "retained_tokens": 574,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "fitness approximation",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. Goldberg, D. E. (1989). Genetic algorithms in search, optimization, and machine learning. Addison-Wesley.\n\n2.ISemiconductor manufactutioning scheduling using genetic algorithms with fitness approximation\n\n3. Deb, K., Pratap, A., Agarwal, S., & Meyarivan, T. (2002). A fast and elitist multiobjective genetic algorithm: NSGA-II. IEEE transactions on evolutionary computation, 6(2), 182-197.\n\n4. Eiben, A. E., & Smith, J. E. (2015). Introduction to evolutionary computing. Springer.\n\n5. Haupt, R. L., & Haupt, S. E. (2004). Practical genetic algorithms. John Wiley & Sons.\n\n6. Fonseca, C. M., & Fleming, P. J. (1993). Genetic algorithms for multiobjective optimization: Formulation, discussion and generalization. In ICGA (Vol. 93, pp. 416-423).++\n\n7. Srinivas, N., & Deb, K. (1994). Multiobjective optimization using nondominated sorting in genetic algorithms. Evolutionary computation, 2(3), 221-248.\n\n8. Horn, J., Nafpliotis, N., & Goldberg, D. E. (1994). A niched Pareto genetic algorithm for multiobjective optimization. In Proceedings of the first IEEE conference on evolutionary computation, IEEE world congress on computational intelligence (Vol. 1, pp. 82-87). IEEE.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "fitness approximation",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "Optimization",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\u5f53\u7136\u53ef\u4ee5\u3002\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5173\u4e8e\u9057\u4f20\u7b97\u6cd5\u9002\u5e94\u5ea6\u51fd\u6570\u8bbe\u8ba1\u7684\u53c2\u8003\u6587\u732e\uff1a\n\n1. Goldberg, D. E. (1989). Genetic algorithms in search, optimization, and machine learning. Addison-Wesley.\n\n2. Mitchell, M. (1998). An introduction to genetic algorithms. MIT press.\n\n3. Haupt, R. L., & Haupt, S. E. (2004). Practical genetic algorithms. John Wiley & Sons.\n\n4. Holland, J. H. (1992). Adaptation in natural and artificial systems: an introductory analysis with applications to biology, control, and artificial intelligence. MIT press.\n\n5. Fogel, D. B. (2006). Evolutionary computation: toward a new philosophy of machine intelligence (Vol. 1). John Wiley & Sons.\n\n6. Coello, C. A., Lamont, G. B., & Van Veldhuizen, D. A. (2007). Evolutionary algorithms for solving multi-objective problems (Vol. 5). Springer.\n\n7. Deb, K. (2014). Multi-objective Optimization using Evolutionary Algorithms. John Wiley & Sons.\n\n\u8fd9\u4e9b\u6587\u732e\u8986\u76d6\u4e86\u9057\u4f20\u7b97\u6cd5\u7684\u57fa\u672c\u77e5\u8bc6\uff0c\u4e00\u4e9b\u4f8b\u5b50\u548c\u5b9e\u9645\u5e94\u7528\u4ee5\u53ca\u591a\u76ee\u6807\u4f18\u5316\u95ee\u9898\u7684\u8bbe\u8ba1\u65b9\u6cd5\u3002\u5e0c\u671b\u5bf9\u60a8\u6709\u6240\u5e2e\u52a9\uff01",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "Optimization",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "optimal",
+        "target": "excitation of",
+        "rationale": [
+          "winner:excitation",
+          "winner:tuning"
+        ],
+        "artifacts": {
+          "paths": [
+            "IEEE/PES"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\u5173\u4e8e\u9488\u5bf9\u7535\u673a\u63a7\u5236\u548c\u4f18\u5316\u65b9\u9762\u7684\u9057\u4f20\u7b97\u6cd5\u9002\u5e94\u5ea6\u51fd\u6570\uff0c\u8fd9\u91cc\u63d0\u4f9b\u4e00\u4e9b\u76f8\u5173\u6587\u732e\uff1a\n\n1. Li, S. (2009). A genetic algorithm for optimizing fitness functions of brushless DC motor. 2009 Chinese Control and Decision Conference, pp. 4126-4131.\n\n2. Sinha, A., & Nam, H. (2000). Optimal excitation of multimachine power system using genetic algorithms. IEEE Transactions on Energy Conversion, 15(3), 298-303.\n\n3. Lee, S. H., & Voung, B. T. (1999). GA-based optimal tuning of PID gains for a vector-controlled induction motor drive. The 1999 IEEE/PES Transmission and Distribution Conference, 2. \n\n4. Nobrega, E. F., & Pessoa, F. D. (2007). Optimal tuning of PID gains for induction motor control using genetic algorithms. 2007 IEEE Industry Applications Annual Meeting, pp. 1701-1705.\n\n5. Dharmalingam, B., Krishnan, S., Sahoo, S. K., & Dash, P. K. (2014). A hybrid intelligent controller for speed control of induction motor using an improved genetic algorithm. Swarm, Evolutionary, and Memetic Computing, pp. 340-348.\n\n6. Devassy, I., & Thomas, M. C. (2016). A review on usage of genetic algorithms for optimal tuning of PI controllers for vector controlled induction motor drives. Procedia Technology, 24, 925-932.\n\n\u8fd9\u4e9b\u6587\u732e\u4e13\u95e8\u7814\u7a76\u9057\u4f20\u7b97\u6cd5\u5728\u7535\u673a\u63a7\u5236\u548c\u4f18\u5316\u95ee\u9898\u4e2d\u9002\u5e94\u5ea6\u51fd\u6570\u7684\u5efa\u7acb\u548c\u8bbe\u8ba1\u3002\u5e0c\u671b\u8fd9\u4e9b\u6587\u732e\u80fd\u5e2e\u52a9\u5230\u60a8\u3002",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "optimal",
+        "target": "excitation of",
+        "rationale": [
+          "winner:excitation",
+          "winner:tuning"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "optimal",
+        "target": "refined genetic algorithm",
+        "rationale": [
+          "winner:design"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\u5f53\u7136\u6709\uff0c\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5173\u4e8e\u91c7\u7528\u9057\u4f20\u7b97\u6cd5\u8fdb\u884c\u7535\u673a\u8bbe\u8ba1\u548c\u4f18\u5316\u7684\u53c2\u8003\u6587\u732e\uff1a\n\n1. Fu, W. N., Wang, J., & Jewell, G. W. (2006). Design optimization of electric motor using refined genetic algorithm. In Proceedings of the IEEE International Conference on Industrial Informatics (pp. 593-598).\n\n2. Faiz, J., & Abiri, E. (2007). Optimal design of brushless DC in-wheel motors for high-performance electric vehicles. IEEE Transactions on Energy Conversion, 22(4), 852-860.\n\n3. Ohishi, K., & Hori, K. (2007). Design parameter optimization of interior permanent magnet synchronous motor using a genetic algorithm. In Conference record of the 2007 IEEE Industry Applications Conference Forty-Second IAS Annual Meeting.\n\n4. Aslam, M., Rahman, F., & Kamal, T. (2013). Design optimization of a permanent magnet synchronous motor using genetic algorithm based on magnetomechanical energy. International Journal of Engineering and Technology, 5(6), 784-792.\n\n5. Gargoom, A. M., & Ertugrul, N. (2005). Implementation of genetic algorithms for optimization of switched reluctance motors. In Australasian Universities Power Engineering Conference (AUPEC).\n\n6. Li, X., Shi, T., Li, Z., & Yang, C. (2006). Design optimization of switched reluctance motors using a hybrid genetic algorithm. In 2006 IEEE Power Engineering Society General Meeting (pp. 6-pp).\n\n\u8fd9\u4e9b\u6587\u732e\u5747\u6d89\u53ca\u5230\u91c7\u7528\u9057\u4f20\u7b97\u6cd5\u8fdb\u884c\u7535\u673a\u8bbe\u8ba1\u548c\u4f18\u5316\uff0c\u5176\u4e2d\u5305\u542b\u4e86\u4e0d\u540c\u7c7b\u578b\u7684\u7535\u673a\uff0c\u5982\u76f4\u6d41\u65e0\u5237\u7535\u673a\u3001\u6c38\u78c1\u540c\u6b65\u7535\u673a\u548c\u5f00\u5173\u78c1\u963b\u7535\u673a\u7b49\u3002\u5e0c\u671b\u8fd9\u4e9b\u6587\u732e\u5bf9\u60a8\u6709\u6240\u5e2e\u52a9\uff01",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "optimal",
+        "target": "refined genetic algorithm",
+        "rationale": [
+          "winner:design"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "optimal",
+        "target": "Vol.1",
+        "rationale": [
+          "winner:design",
+          "value:Vol.1"
+        ],
+        "artifacts": {
+          "paths": [
+            "Vol.1"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\u5173\u4e8e\u7535\u673a\u8bbe\u8ba1\u4e2d\u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684\u53c2\u8003\u6587\u732e\uff0c\u60a8\u53ef\u4ee5\u53c2\u8003\u4ee5\u4e0b\u51e0\u7bc7\uff1a\n\n1. Belfiore, N. P., Cupertino, F., & Pellegrino, G. (2009). Multi-objective optimal design of switched reluctance motors based on genetic algorithms improving efficiency and torque ripple. In 2009 IEEE Energy Conversion Congress and Exposition (pp. 1806-1813).\n\n2. Zhu, X., Ruhi, A., Rahman, M. A., & Dutta, R. (2012). 3-D finite-element-analysis-based multi-objective optimal design of permanent magnet motors with genetic algorithm. IEEE Transactions on Magnetics, 48(11), 3245-3248.\n\n3. M.Lajoie-Mazenc, B. Pottier, P. Brochet, I.Chebbi. (1998). Optimization of the Design of reluctance motors using genetic algorithms. In Conference Record of the 1998 IEEE Industry Applications Conference. Thirty-Third IAS Annual Meeting, Vol.1, pp. 553-558.\n\n4. Ganesan, T., Arumugam, R., & Sreejith, B. (2006). Design optimization of switched reluctance motor using intelligent techniques. World Academy of Science, Engineering and Technology, 1, 422-427.\n\n5. Aslam, M., Rahman, F., & Kamal, T. (2013). Design optimization of a permanent magnet synchronous motor using genetic algorithm based on magnetomechanical energy. International Journal of Engineering and Technology, 5(6), 784-792.\n\n\u8fd9\u4e9b\u6587\u732e\u6db5\u76d6\u4e86\u4e0d\u540c\u7c7b\u578b\u7684\u7535\u673a\u8bbe\u8ba1\u95ee\u9898\uff0c\u5e76\u4ecb\u7ecd\u4e86\u5982\u4f55\u6839\u636e\u7535\u673a\u6027\u80fd\u3001\u626d\u77e9\u3001\u6548\u7387\u7b49\u56e0\u7d20\u6765\u5efa\u7acb\u9002\u5e94\u5ea6\u51fd\u6570\u3002\u5e0c\u671b\u5b83\u4eec\u80fd\u5e2e\u52a9\u60a8\u66f4\u597d\u5730\u7406\u89e3\u7535\u673a\u8bbe\u8ba1\u4e2d\u9002\u5e94\u5ea6\u51fd\u6570\u7684\u5efa\u7acb\u548c\u5e94\u7528\u3002",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "optimal",
+        "target": "Vol.1",
+        "rationale": [
+          "winner:design",
+          "value:Vol.1"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "optimal",
+        "target": "genetic algorithm",
+        "rationale": [
+          "winner:design"
+        ],
+        "artifacts": {
+          "paths": [
+            "IEEE/ASME"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\u5f53\u7136\u53ef\u4ee5\u3002\u4ee5\u4e0b\u662f\u4e00\u4e9b\u5173\u4e8e\u7535\u673a\u8bbe\u8ba1\u548c\u4f18\u5316\u4e2d\u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u7684\u53c2\u8003\u6587\u732e\uff1a\n\n1. Mikail, R., Husain, A., & Sozer, Y. (2017). Design optimization of outer-rotor permanent-magnet flux-switching machines for low-speed direct-drive applications based on genetic algorithm. IEEE Transactions on Magnetics, 53(6), 1-8.\n\n2. Jung, J. W., Li, W., & Sul, S. K. (2006). Multiconstrained design optimization method of double-layer fractional-slot concentrated winding PM motor adopting genetic algorithm. In International Conference on Electrical Machines and Systems (ICEMS 2006).\n\n3. Kim, W., & Cho, Y. (1996). Multi-objective optimization of induction motors using genetic algorithms. In Industry Applications Conference, 1996 31st IAS Annual Meeting, Conference Record of the 1996 IEEE (Vol. 4, pp. 2310-2315).\n\n4. Chikouche, D., & Chaker, A. (2009). Optimal design of induction motors using genetic algorithms. In 2009 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (pp. 1175-1180).\n\n5. Hussain, I., Gandomkar, F. J., Mahmoudi, A., Poure, P., & Saadate, S. (2012). Design optimization of axial-flux permanent-magnet non-slotted motor using genetic optimization with the particles 'algorithms. In 2012 XXth International Conference on Electrical Machines (pp. 874-880).\n\n6. Pu, R., Zhao, Z., Tang, C., & Kang, Y. (2016). Optimal design of permanent magnet synchronous traction motor with high direct drive performance for railway vehicles. IEEE Transactions on Magnetics, 52(4), 1-4.\n\n7. Wang, X., & Lipo, T. A. (2004). A new form of torque and flux control strategies using direct torque control space vector modulator for interior permanent magnet motors. In 2004 IEEE 35th Annual Power Electronics Specialists Conference (PESC 04) (Vol. 3, pp. 1990-1995).\n\n\u8fd9\u4e9b\u6587\u732e\u4e3b\u8981\u6d89\u53ca\u4e86\u6c38\u78c1\u3001\u611f\u5e94\u548c\u540c\u6b65\u7535\u673a\u7b49\u4e0d\u540c\u7c7b\u578b\u7684\u7535\u673a\u8bbe\u8ba1\u548c\u4f18\u5316\uff0c\u4ee5\u53ca\u76f8\u5e94\u7684\u9002\u5e94\u5ea6\u51fd\u6570\u5efa\u7acb\u548c\u5e94\u7528\u3002\u5e0c\u671b\u8fd9\u4e9b\u6587\u732e\u80fd\u5e2e\u52a9\u60a8\u8fdb\u4e00\u6b65\u4e86\u89e3\u7535\u673a\u8bbe\u8ba1\u9886\u57df\u4e2d\u9002\u5e94\u5ea6\u51fd\u6570\u7684\u5efa\u7acb\u65b9\u6cd5\u3002",
+        "msg_idx": 13
+      },
+      "reproduced": {
+        "action": "optimal",
+        "target": "genetic algorithm",
+        "rationale": [
+          "winner:design"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 3216,
+    "comp_total_toks": 3216,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

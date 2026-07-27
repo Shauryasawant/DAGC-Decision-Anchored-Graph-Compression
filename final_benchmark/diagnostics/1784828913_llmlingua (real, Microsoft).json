@@ -1,0 +1,170 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "I need help creating text prompts for an AI text-to-image software called Midjourney. Can you help me create good text prompts based on some ideas I have? Here is information about Midjourney as well ",
+      "tok_count": 1488,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Please provide some ideas or concepts you have in mind for the AI text-to-image generator.",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "I want several prompts depicting a long haired black with white patches Persian cat in varying styles",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "1. A long-haired black and white Persian cat in the style of an impressionist painting, with soft brushstrokes and vibrant colors. --v 5 --ar 4:3 --s 300\n\n2. A vintage Japanese Ukiyo-e print featuring",
+      "tok_count": 327,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Can you try to be a little more imaginative?",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "1. A cosmic long-haired Persian cat with black and white patches floating through a colorful nebula, surrounded by a constellation shaped like a cat's paw. --v 5 --ar 1:1 --s 500 --c 20\n\n2. A steampun",
+      "tok_count": 409,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "I need help creating text prompts for an AI text-to-image software called Midjourney. Can you help me create good text prompts based on some ideas I have? Here is information about Midjourney as well ",
+      "tok_count": 1488
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Please provide some ideas or concepts you have in mind for the AI text-to-image generator.",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "I want several prompts depicting a long haired black with white patches Persian cat in varying styles",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "1. A long-haired black and white Persian cat in the style of an impressionist painting, with soft brushstrokes and vibrant colors. --v 5 --ar 4:3 --s 300\n\n2. A vintage Japanese Ukiyo-e print featuring",
+      "tok_count": 327
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Can you try to be a little more imaginative?",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "1. A cosmic long-haired Persian cat with black and white patches floating through a colorful nebula, surrounded by a constellation shaped like a cat's paw. --v 5 --ar 1:1 --s 500 --c 20\n\n2. A steampun",
+      "tok_count": 409
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1488,
+      "retained_tokens": 1488,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 18,
+      "retained_tokens": 18,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 17,
+      "retained_tokens": 17,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 327,
+      "retained_tokens": 327,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 409,
+      "retained_tokens": 409,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "500",
+        "rationale": [
+          "value:500"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. A cosmic long-haired Persian cat with black and white patches floating through a colorful nebula, surrounded by a constellation shaped like a cat's paw. --v 5 --ar 1:1 --s 500 --c 20\n\n2. A steampunk fantasy world featuring a long-haired Persian cat with black and white patches wearing Victorian-era goggles and a top hat, perched on the shoulder of a mechanical cat robot. --v 5 --ar 9:16 --s 600 --c 25\n\n3. A mystical landscape with a long-haired Persian cat with black and white patches resting on the crescent moon as the guardian of a mesmerizing dream world, inspired by the works of Hayao Miyazaki. --v 5 --ar 5:7 --s 700 --c 15\n\n4. A psychedelic explosion of colors and shapes, with a long-haired Persian cat with black and white patches transforming into a kaleidoscopic vision, inspired by 1960s vintage art posters. --v 5 --ar 4:3 --s 800 --c 30\n\n5. A playful fusion of Alice in Wonderland and a long-haired Persian cat with black and white patches, sitting upon a throne in a whimsical garden filled with oversized flowers, mushrooms, and Cheshire Cat-inspired elements. --v 5 --ar 3:5 --s 400 --c 20\n\n6. A post-apocalyptic scene with a heroic long-haired Persian cat with black and white patches wielding a lightning-infused sword, leading a band of cat warriors against the forces of darkness. --v 5 --ar 16:9 --s 300 --c 25\n\n7. A long-haired Persian cat with black and white patches transforming into a majestic, ethereal creature with crystalized fur and glowing eyes, soaring through a surreal landscape filled with floating islands and luminescent flora. --v 5 --ar 8:5 --s 500 --c35",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "500",
+        "rationale": [
+          "value:500"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2269,
+    "comp_total_toks": 2269,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

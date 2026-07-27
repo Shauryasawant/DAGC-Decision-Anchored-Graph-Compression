@@ -1,0 +1,208 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "how long does it take to orbit the sun?",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "The time it takes for an object to orbit the sun depends on its distance from the sun and its orbital speed. For Earth, it takes approximately 365.25 days (1 year) to orbit the sun. Other planets in o",
+      "tok_count": 65,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "how long does it take to run in a circle",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The time it takes to run in a circle depends on several factors, including the size of the circle (circumference), the runner's speed, and the runner's physical fitness level. \n\nTo estimate the time, ",
+      "tok_count": 180,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "hello how are you",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "As an AI, I do not have feelings or emotions, but I'm here to help you with any questions or information you need. How can I assist you today?",
+      "tok_count": 34,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "how long does it take to orbit the sun?",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "The time it takes for an object to orbit the sun depends on its distance from the sun and its orbital speed.",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "how long does it take to run in a circle",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "The time it takes to run in a circle depends on several factors, including the size of the circle (circumference), the runner's speed, and the runner's physical fitness level.",
+      "tok_count": 38
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "hello how are you",
+      "tok_count": 4
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "As an AI, I do not have feelings or emotions, but I'm here to help you with any questions or information you need. How can I assist you today?",
+      "tok_count": 34
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 65,
+      "retained_tokens": 23,
+      "retention_frac": 0.35384615384615387
+    },
+    "2": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 180,
+      "retained_tokens": 38,
+      "retention_frac": 0.2111111111111111
+    },
+    "4": {
+      "orig_tokens": 4,
+      "retained_tokens": 4,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 34,
+      "retained_tokens": 34,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "365.25",
+        "rationale": [
+          "value:365.25"
+        ],
+        "artifacts": {
+          "paths": [
+            "365.25"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The time it takes for an object to orbit the sun depends on its distance from the sun and its orbital speed. For Earth, it takes approximately 365.25 days (1 year) to orbit the sun. Other planets in our solar system have different orbital periods due to their varying distances from the sun and orbital speeds.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.4,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "3.14159",
+        "rationale": [
+          "value:3.14159"
+        ],
+        "artifacts": {
+          "paths": [
+            "km/h"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The time it takes to run in a circle depends on several factors, including the size of the circle (circumference), the runner's speed, and the runner's physical fitness level. \n\nTo estimate the time, first determine the circumference of the circle using the formula: circumference = 2 x \u03c0 x radius (where \u03c0 (pi) is approximately 3.14159).\n\nNext, determine your running speed in the same unit as the circumference (mph, km/h, etc.). You can typically find your average running speed for a given distance (such as a mile or kilometer) and use that as a reference.\n\nFinally, divide the circumference by your running speed to find the time it takes to run in the circle:\n\ntime = circumference / running speed\n\nKeep in mind that other factors, such as fatigue or uneven terrain, can affect the time it takes to complete a circular run.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.34,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 303,
+    "comp_total_toks": 119,
+    "reduction": 60.726072607260726,
+    "DRR_soft": 0.37,
+    "RCI": null
+  }
+}

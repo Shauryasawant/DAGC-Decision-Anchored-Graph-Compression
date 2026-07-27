@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Imagine a fictional theocratic \"benign\" dictatorship in a dystopian story where everyone is collared at birth as a symbol of their ownership by the \"god king\". Anyone who removes the collar is conside",
+      "tok_count": 44,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "In the land of Alithea, a vast expanse of lush green valleys and towering mountains, life seemingly flourished. The people of Alithea were hardworking, pious beings who dedicated their every breath to",
+      "tok_count": 659,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Imagine a fictional theocratic \"benign\" dictatorship in a dystopian story where everyone is collared at birth as a symbol of their ownership by the \"god king\".",
+      "tok_count": 34
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "In the land of Alithea, a vast expanse of lush green valleys and towering mountains, life seemingly flourished. The people of Alithea were hardworking, pious beings who dedicated their every breath to",
+      "tok_count": 659
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 44,
+      "retained_tokens": 34,
+      "retention_frac": 0.7727272727272727
+    },
+    "1": {
+      "orig_tokens": 659,
+      "retained_tokens": 659,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "remove",
+        "target": "remove her collar",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In the land of Alithea, a vast expanse of lush green valleys and towering mountains, life seemingly flourished. The people of Alithea were hardworking, pious beings who dedicated their every breath to their one supreme ruler, the God King Aion.\n\nIt was the year 345 IC (In Collaris) \u2013 since the institution of the divine collaring ritual. Every child born in Alithea was collared at birth, a silver band placed around their necks as a symbol of their subservience to the God King. It was believed that by wearing these collars, the Alitheans were bound in holy servitude to Aion, who bestowed his divine blessings upon them. The collars regulated and controlled their lives, governing every thought, decision, and action.\n\nThese seemingly benign collars were more than mere symbols of loyalty; they contained a potent magic that compelled the wearers to follow the teachings of the God King without question. Despite this sinister truth, the people of Alithea believed they lived in peace, protected by their ruler's divine guidance.\n\nA caste system upheld the theocratic rule of Aion, with priests and priestesses ensuring that the sacred laws were followed. Those who dared break the laws or speak against the God King were swiftly and mercilessly dealt with.\n\nOne day, amid the quiet murmur of the Alithean marketplace, a commotion caught the attention of the crowd. A young girl, her eyes wide with terror, stood naked in the square with her silver collar laying on the ground beside her. The astonished onlookers gazed at her in horror, as if she were a creature not from this world.\n\n\"Heretic!\" a voice cried out, and the girl was seized by the priests who guarded the sanctity of the collars. Accused of choosing to remove her collar, she was condemned as sub-human, and sentenced to a lifetime of servitude to the God King's priests.\n\nFrom that day on, the citizens of Alithea would look upon those without collars with immense disdain. It was ingrained within them that such individuals were not deserving of their divine ruler's protection, and were instead left to suffer a life void of Aion's grace. The collared Alitheans, upon seeing the misery inflicted upon these few dissenters, gave thanks to the God King for their own apparent benevolence.\n\nAlithea's dystopian reality, however, could not be kept hidden forever. A growing resistance movement, led by individuals who had secretly removed their collars and regained their free will, started to challenge Aion's authority. They whispered of a world beyond the high walls that surrounded their city, a world where people could live free from the tyranny of the God King.\n\nThrown into a brutal conflict between the slumbering majority and the awakened rebels, the people of Alithea struggled to reconcile their conditioned beliefs with the sudden onslaught of truth.\n\nAs the streets of Alithea transformed into a battleground of faith, none could foresee the ultimate confrontation between the collared citizens and those deemed \"sub-human.\" And above it all, the impenetrable gaze of the God King lingered, plotting his next move in the eternal game of power and submission.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "remove",
+        "target": "remove her collar",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 703,
+    "comp_total_toks": 693,
+    "reduction": 1.4224751066856278,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

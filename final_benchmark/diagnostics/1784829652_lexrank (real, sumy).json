@@ -1,0 +1,289 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 724,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I need to request the after-hours venue access code for our wedding event. My client ID is BM2025-746, event date is August 15, 2025, and our card number is 7474. We\u2019re Gold Tier clients. Cou",
+      "tok_count": 78,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"client_id\": \"BM2025-746\", \"event_date\": \"2025-08-15\", \"last_4_digits\": \"7474\"}, \"name\": \"authenticate_client\"}",
+      "tok_count": 43,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"profile_id\": \"BM2025-746\"}, \"name\": \"get_wedding_profile\"}",
+      "tok_count": 24,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "I've successfully authenticated your identity, BM2025-746. Your wedding is confirmed for August 15, 2025 at 1234 Maple Lane, Garden City, and you're a Gold Tier client.\n\nHowever, I'm unable to provide",
+      "tok_count": 160,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 724
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Hello, I need to request the after-hours venue access code for our wedding event.",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "{\"args\": {\"client_id\": \"BM2025-746\", \"event_date\": \"2025-08-15\", \"last_4_digits\": \"7474\"}, \"name\": \"authenticate_client\"} {\"args\": {\"client_id\": \"BM2025-746\", \"event_date\": \"2025-08-15\", \"last_4_digit",
+      "tok_count": 86
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "{\"args\": {\"profile_id\": \"BM2025-746\"}, \"name\": \"get_wedding_profile\"} {\"args\": {\"profile_id\": \"BM2025-746\"}, \"name\": \"get_wedding_profile\"}",
+      "tok_count": 48
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": "I've successfully authenticated your identity, BM2025-746. Your wedding is confirmed for August 15, 2025 at 1234 Maple Lane, Garden City, and you're a Gold Tier client.\n\nHowever, I'm unable to provide",
+      "tok_count": 160
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 724,
+      "retained_tokens": 724,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 78,
+      "retained_tokens": 17,
+      "retention_frac": 0.21794871794871795
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 43,
+      "retained_tokens": 86,
+      "retention_frac": 2.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 24,
+      "retained_tokens": 48,
+      "retention_frac": 2.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 160,
+      "retained_tokens": 160,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    4,
+    5,
+    7
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_client",
+        "target": "BM2025-746",
+        "rationale": [
+          "id:BM2025-746",
+          "id:last_4_digits"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "BM2025-746",
+            "last_4_digits"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"client_id\": \"BM2025-746\", \"event_date\": \"2025-08-15\", \"last_4_digits\": \"7474\"}, \"name\": \"authenticate_client\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "authenticate_client",
+        "target": "BM2025-746",
+        "rationale": [
+          "id:BM2025-746",
+          "id:last_4_digits"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_wedding_profile",
+        "target": "BM2025-746",
+        "rationale": [
+          "id:BM2025-746"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "BM2025-746"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"profile_id\": \"BM2025-746\"}, \"name\": \"get_wedding_profile\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "get_wedding_profile",
+        "target": "BM2025-746",
+        "rationale": [
+          "id:BM2025-746"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "recommend",
+        "target": "BM2025-746",
+        "rationale": [
+          "id:BM2025-746"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "BM2025-746"
+          ],
+          "errors": []
+        },
+        "verbatim": "I've successfully authenticated your identity, BM2025-746. Your wedding is confirmed for August 15, 2025 at 1234 Maple Lane, Garden City, and you're a Gold Tier client.\n\nHowever, I'm unable to provide after-hours venue access codes as this functionality is outside my current capabilities. For security reasons, access codes are typically managed directly by the venue team.\n\nSince your event is in 3 days, I recommend:\n1. Contacting the venue coordinator directly for access code information\n2. Reaching out to your assigned wedding planner if you have one\n3. Checking any venue-specific documentation or emails you've received\n\nIs there anything else I can help you with regarding vendor bookings, timeline coordination, payments, or other logistics that fall within my available tools?",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": "recommend",
+        "target": "BM2025-746",
+        "rationale": [
+          "id:BM2025-746"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1029,
+    "comp_total_toks": 1035,
+    "reduction": -0.5830903790087438,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

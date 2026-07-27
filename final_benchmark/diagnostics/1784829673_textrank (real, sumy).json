@@ -1,0 +1,363 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 940,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm calling to reschedule my pest control appointment. My name is Alexander Taylor, phone number 555-1479, and the service address is 77 Home Gym Lane. I need to adjust the appointment time s",
+      "tok_count": 82,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"full_name\": \"Alexander Taylor\", \"phone_number\": \"555-1479\", \"service_address\": \"77 Home Gym Lane\"}, \"name\": \"authenticate_customer\"}",
+      "tok_count": 38,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"customer_id\": \"CUST-77821\", \"status\": \"upcoming\"}, \"name\": \"get_customer_appointments\"}",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"end_date\": \"2025-01-31\", \"service_tier\": \"standard\", \"start_date\": \"2025-01-29\"}, \"name\": \"check_availability\"}",
+      "tok_count": 43,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "I've verified your identity, Alexander. You have an upcoming appointment APPT-93742 scheduled for January 30th at 2:00 PM.\n\nI checked available slots that fit your request (before 6 AM or after 8 PM) ",
+      "tok_count": 122,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 940
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "I need to adjust the appointment time since I have client training sessions from 6 AM to 8 PM daily.",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "{\"args\": {\"full_name\": \"Alexander Taylor\", \"phone_number\": \"555-1479\", \"service_address\": \"77 Home Gym Lane\"}, \"name\": \"authenticate_customer\"} {\"args\": {\"full_name\": \"Alexander Taylor\", \"phone_number",
+      "tok_count": 76
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "{\"args\": {\"customer_id\": \"CUST-77821\", \"status\": \"upcoming\"}, \"name\": \"get_customer_appointments\"} {\"args\": {\"customer_id\": \"CUST-77821\", \"status\": \"upcoming\"}, \"name\": \"get_customer_appointments\"}",
+      "tok_count": 60
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "{\"args\": {\"end_date\": \"2025-01-31\", \"service_tier\": \"standard\", \"start_date\": \"2025-01-29\"}, \"name\": \"check_availability\"} {\"args\": {\"end_date\": \"2025-01-31\", \"service_tier\": \"standard\", \"start_date\":",
+      "tok_count": 86
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "I've verified your identity, Alexander. You have an upcoming appointment APPT-93742 scheduled for January 30th at 2:00 PM.\n\nI checked available slots that fit your request (before 6 AM or after 8 PM) ",
+      "tok_count": 122
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 940,
+      "retained_tokens": 940,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 82,
+      "retained_tokens": 23,
+      "retention_frac": 0.2804878048780488
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 38,
+      "retained_tokens": 76,
+      "retention_frac": 2.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 30,
+      "retained_tokens": 60,
+      "retention_frac": 2.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 43,
+      "retained_tokens": 86,
+      "retention_frac": 2.0
+    },
+    "10": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "11": {
+      "orig_tokens": 122,
+      "retained_tokens": 122,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    4,
+    5,
+    7,
+    8,
+    10
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_customer",
+        "target": "Alexander Taylor",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"full_name\": \"Alexander Taylor\", \"phone_number\": \"555-1479\", \"service_address\": \"77 Home Gym Lane\"}, \"name\": \"authenticate_customer\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "authenticate_customer",
+        "target": "Alexander Taylor",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_customer_appointments",
+        "target": "CUST-77821",
+        "rationale": [
+          "id:CUST-77821"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "CUST-77821"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"customer_id\": \"CUST-77821\", \"status\": \"upcoming\"}, \"name\": \"get_customer_appointments\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "get_customer_appointments",
+        "target": "CUST-77821",
+        "rationale": [
+          "id:CUST-77821"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "check_availability",
+        "target": "2025-01-29",
+        "rationale": [
+          "value:2025-01-29"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"end_date\": \"2025-01-31\", \"service_tier\": \"standard\", \"start_date\": \"2025-01-29\"}, \"name\": \"check_availability\"}",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "check_availability",
+        "target": "2025-01-29",
+        "rationale": [
+          "value:2025-01-29"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "APPT-93742",
+        "rationale": [
+          "id:APPT-93742"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "APPT-93742"
+          ],
+          "errors": []
+        },
+        "verbatim": "I've verified your identity, Alexander. You have an upcoming appointment APPT-93742 scheduled for January 30th at 2:00 PM.\n\nI checked available slots that fit your request (before 6 AM or after 8 PM) and found these options for January 30th:\n1. **5:00 AM** (before 6 AM)\n2. **8:30 PM** (after 8 PM)\n\nBoth options meet the 48-hour advance notice requirement. Which time would you prefer?\n\nAlso, I need to know the reason for rescheduling to proceed with the change.",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "APPT-93742",
+        "rationale": [
+          "id:APPT-93742"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1255,
+    "comp_total_toks": 1307,
+    "reduction": -4.143426294820718,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

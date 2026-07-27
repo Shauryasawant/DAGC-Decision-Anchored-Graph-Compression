@@ -1,0 +1,115 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "What is the final velocity of a vehicle that started from rest and accelerated at 4 m/s^2 for a distance of 300 meters?",
+      "tok_count": 29,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the kinematics.final_velocity_from_distance function to handle this request. {\"args\": {}, \"name\": \"kinematics.final_velocity_from_distance\"}",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 29,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 31,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "kinematics.final_velocity_from_distance",
+        "target": "final_velocity_from_distance",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I'll use the kinematics.final_velocity_from_distance function to handle this request. {\"args\": {}, \"name\": \"kinematics.final_velocity_from_distance\"}",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 72,
+    "comp_total_toks": 12,
+    "reduction": 83.33333333333334,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

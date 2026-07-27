@@ -1,0 +1,183 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "If Tintin could know everything about a person or object just by touching them, how would various stories be affected?",
+      "tok_count": 24,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "If Tintin had the power to know everything about a person or object just by touching them, various stories would be significantly affected, with many of the mysteries and adventures being shortened or",
+      "tok_count": 466,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Further detail on all this, if you can.",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Certainly! Here's a further breakdown of how Tintin's adventures and stories would be affected if he could know everything about a person or object just by touching them:\n\n1. The Secret of the Unicorn",
+      "tok_count": 703,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Now what if Captain Haddock had Heat vision?",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "If Captain Haddock had heat vision, various Tintin stories would be affected, as Haddock's abilities would present new opportunities and challenges during their adventures. Here are a few examples of ",
+      "tok_count": 527,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "If Tintin could know everything about a person or object just by touching them, how would various stories be affected?",
+      "tok_count": 24
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Further detail on all this, if you can.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Now what if Captain Haddock had Heat vision?",
+      "tok_count": 10
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 24,
+      "retained_tokens": 24,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 466,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 703,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 527,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    3,
+    5
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "714",
+        "rationale": [
+          "value:714"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "If Tintin had the power to know everything about a person or object just by touching them, various stories would be significantly affected, with many of the mysteries and adventures being shortened or altered. Here are a few examples of how this power would change some of Tintin's most notable stories:\n\n1. The Secret of the Unicorn and Red Rackham's Treasure:\nWith this ability, Tintin would immediately know the significance of the three model ships and the parchments hidden within, as well as the location of Red Rackham's treasure. As a result, Tintin would avoid many of the mysteries and challenges that arise during these stories.\n\n2. The Blue Lotus:\nIn this story, Tintin investigates the opium trade and international conspiracies. With the power to know everything about a person or object, Tintin could easily expose the villains and their plans, significantly shortening the story.\n\n3. Cigars of the Pharaoh:\nIf Tintin could know everything about the cigars and the people involved in the drug smuggling ring, he would instantly solve the case and bring the criminals to justice, eliminating the need for Tintin's adventures through the Middle East and India.\n\n4. The Seven Crystal Balls and Prisoners of the Sun:\nIn these two books, Tintin searches for a mysterious illness afflicting explorers and travels to South America to solve the mystery. With his newfound power, Tintin could identify the cause of the illness and the secrets of the Inca civilization much sooner, reducing the length and difficulty of the adventure.\n\n5. Flight 714 to Sydney:\nIn this story, Tintin and his friends get caught up in a hijacking and encounter extraterrestrial forces. With his ability to know everything about a person or object, Tintin would quickly uncover the hijackers' plans and the truth about the mysterious island they land on.\n\nOverall, while Tintin's adventures would be radically different with this power, they would also lose a significant amount of suspense, mystery, and excitement that make the stories so beloved by readers. Many of Tintin's characteristic qualities, such as his resourcefulness, determination, and investigative skills, would be de-emphasized in favor of a more straightforward, and potentially less compelling, series of stories.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "714",
+        "rationale": [
+          "value:714"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "If Captain Haddock had heat vision, various Tintin stories would be affected, as Haddock's abilities would present new opportunities and challenges during their adventures. Here are a few examples of how Haddock's heat vision would change some of Tintin's adventures:\n\n1. The Secret of the Unicorn and Red Rackham's Treasure:\nIn the original story, Haddock helps Tintin solve the mystery by providing historical knowledge about his ancestors, and they face many challenges together. With his heat vision, Haddock could use it to defend himself and Tintin from the nefarious Bird brothers in Marlinspike Hall or potentially dig up Red Rackham's treasure more efficiently.\n\n2. The Seven Crystal Balls and Prisoners of the Sun:\nWhen searching for Professor Calculus in Peru, Haddock's heat vision could come in handy when facing various obstacles such as escaping from the clutches of the Incas' descendants or disabling traps. Furthermore, his heat vision may aid in rescuing the expedition team and Calculus from captivity.\n\n3. The Calculus Affair:\nWhen attempting to rescue Professor Calculus from kidnappers in Syldavia and Borduria, Haddock's heat vision could be used to escape from capture or take out enemies covertly. It could also possibly help create diversions, enabling Tintin and Haddock to evade their captors.\n\n4. Flight 714 to Sydney:\nGiven that Haddock is not the best at keeping his temper in check, his heat vision could both create new opportunities and problems in this adventure. On one hand, it might allow him to disable the hijackers and protect the passengers. On the other hand, Haddock's heat vision could unintentionally cause damage or even harm other characters.\n\n5. Tintin in Tibet:\nCaptain Haddock accompanies Tintin in the search for Chang, who is lost in the Himalayas after a plane crash. Haddock's heat vision could be useful in melting snow and ice, allowing the duo to progress through the inhospitable terrain more quickly. It could also help in providing warmth during the freezing conditions or creating a temporary shelter.\n\nIn summary, if Captain Haddock had heat vision, every Tintin adventure involving him might be altered, as his ability would present new solutions to various challenges that Tintin and his friends encounter. However, Haddock's heat vision could also create additional problems, particularly when his temper gets the better of him, leading to potentially dangerous situations. This new development might affect their dynamic, changing the way Haddock engages in these adventures and potentially altering the outcome of Tintin's stories.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1740,
+    "comp_total_toks": 44,
+    "reduction": 97.47126436781609,
+    "DRR_soft": 0.0,
+    "RCI": 0.0
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Zeige mir Links von Studien, welche aufzeigen, dass ein Mutterschaftstest mit mtDNA m\u00f6glich ist.",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Es gibt wissenschaftliche Studien und Ver\u00f6ffentlichungen, die den Einsatz von mtDNA bei Mutterschaftstests diskutieren. Hier sind einige Links zu diesen Studien:\n\n1. Hou, Q., Zhang, J., Li, H., Liu, R",
+      "tok_count": 453,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Was heisst monoklonal?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Monoklonal bedeutet, dass eine Zellpopulation oder eine Gruppe von Molek\u00fclen, wie Antik\u00f6rper, aus einer einzigen Zelle oder einem einzigen Vorl\u00e4ufer stammt. Monoklonale Antik\u00f6rper sind Molek\u00fcle, die v",
+      "tok_count": 212,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Kannst du mir eine Studie (mit Link) finden, welche untersucht, ob man HV1, HV2 und HV3 zur Unterscheidung von Individuen verwenden kann?",
+      "tok_count": 39,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Ich habe eine Studie gefunden, die auf die Verwendung von HV1, HV2 und HV3 in mitochondrialen DNA-Tests eingeht. Hier ist der Link zur Studie:\n\n- Irwin, J.A., Saunier, J.L., Strouss, K.M. et al. (2009",
+      "tok_count": 325,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Wieviele Haplotypen gibt es beim Menschen? Gib mir einen Link, welcher dieses Thema aufgreift",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Es ist schwierig, eine genaue Anzahl von Haplotypen beim Menschen zu bestimmen, da neue Haplotypen entdeckt werden, wenn mehr Menschen sequenziert werden und da Haplotypen auf verschiedenen Zeitskalen",
+      "tok_count": 419,
+      "protected": true
+    }
+  ],
+  "trace_post": [],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 25,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 453,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 212,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 39,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 325,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 25,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 419,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Monoklonale",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Monoklonal bedeutet, dass eine Zellpopulation oder eine Gruppe von Molek\u00fclen, wie Antik\u00f6rper, aus einer einzigen Zelle oder einem einzigen Vorl\u00e4ufer stammt. Monoklonale Antik\u00f6rper sind Molek\u00fcle, die von einer einzigen Zelllinie, dem sogenannten Klon, produziert werden und daher identisch sind und gegen das gleiche Epitop, also den Teil des Antigens, gerichtet sind. Monoklonale Zellpopulationen sind in Bezug auf ihre Eigenschaften und Funktionen homogen, weil sie aus einer einzigen Zelle entstanden sind. \n\nMonoklonale Antik\u00f6rper werden in der medizinischen Forschung und Behandlung eingesetzt und haben eine wichtige Rolle in der Diagnostik und Therapie verschiedener Erkrankungen, wie Krebs, Autoimmunerkrankungen und Infektionskrankheiten, eingenommen.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "/www.sciencedirect.com/science/article/pii/S187249730900004X",
+        "rationale": [
+          "value:/www.sciencedirect.com/science/article/pii/S187249730900004X"
+        ],
+        "artifacts": {
+          "paths": [
+            "/www.sciencedirect.com/science/article/pii/S187249730900004X"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Ich habe eine Studie gefunden, die auf die Verwendung von HV1, HV2 und HV3 in mitochondrialen DNA-Tests eingeht. Hier ist der Link zur Studie:\n\n- Irwin, J.A., Saunier, J.L., Strouss, K.M. et al. (2009). Development and Expansion of High-Quality Control Region Databases to Improve Forensic mtDNA Evidence Interpretation. Forensic Sci Int Genet 3, 154\u2013157.\nLink: https://www.sciencedirect.com/science/article/pii/S187249730900004X\n\nIn dieser Studie wurden HV1, HV2 und HV3sequenzen von 4.839 unabh\u00e4ngigen europ\u00e4isch-amerikanischen, afroamerikanischen, hispanischen, englisch-amerikanischen und amerikanisch-indischen Individuen analysiert, um zu bewerten, wie gut diese hypervariablen Bereiche die Unterscheidung von Individuen erm\u00f6glichen. Die Autoren entwickelten und erweiterten hochwertige Kontrollregiondatenbanken, um die Interpretation von forensischen mtDNA-Beweisen zu verbessern. Anhand von Identifizierungsindizes und H\u00e4ufigkeiten der gefundenen Sequenzen wurden Unterschiede zwischen und innerhalb der Populationen bewertet.\n\nBitte beachten Sie, dass der Zugriff auf den Volltext dieses Artikels m\u00f6glicherweise einen kostenpflichtigen Abonnement- oder Kaufdienst erfordert.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1507,
+    "comp_total_toks": 0,
+    "reduction": 100.0,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

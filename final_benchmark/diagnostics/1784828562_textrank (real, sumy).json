@@ -1,0 +1,238 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Write a very detailed summary of the following:\n\n\n7. Outside World: The world beyond Harmonis is a diverse and complex landscape, where various nations struggle with corruption, inequality, poverty, a",
+      "tok_count": 1872,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Harmonis is a utopian nation, founded under the guidance and protection of a god known as The Absolute Sovereign. With a class-based society designed to uphold merit, personal growth, and a strong sen",
+      "tok_count": 466,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Write a very detailed summary of the following in prose, not excluding the classes.\n\n\n1. The tiny utopian country, named Harmonis, has a population of fewer than 20,000 people, governed by a theocrati",
+      "tok_count": 609,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Harmonis, a small country with a population of fewer than 20,000 people, is a utopian nation governed by a theocratic benign dictatorship under the leadership of the Godking, Godking Primoris. The soc",
+      "tok_count": 363,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "You forgot to mention all the classes in prose.",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Harmonis is a utopian nation characterized by its unique class system, which is represented by the type of collar worn by each individual. The topmost rank is held by the Uncollared Godking, who gover",
+      "tok_count": 289,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "All concubines are given an orange pendant. What should it's material and shape be?",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "The orange pendant given to all concubines could be made of carnelian, a semi-precious gemstone known for its vibrant orange hues. The pendant could be elegantly shaped into a teardrop or a heart, sym",
+      "tok_count": 60,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "The main source of income and resources for Harmonis are derived from a combination of agriculture from the fertile lands, specialized handicrafts, a unique style of magical system derived by the Sove",
+      "tok_count": 268
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "The main source of income and resources in Harmonis comes from agriculture, specialized handicrafts, the use of a unique magical system by the Sovereign, and valuable metals and gemstones. The role of",
+      "tok_count": 163
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "- Godking: Uncollared - The Divine Harem: Platinum collar with celestial symbols - The Favored: White thread collar (children below 12 years of age) - The Trial: Red thread collar (individuals aged 12",
+      "tok_count": 238
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Harmonis, a small country with a population of fewer than 20,000 people, is a utopian nation governed by a theocratic benign dictatorship under the leadership of the Godking, Godking Primoris. The cla",
+      "tok_count": 185
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "You forgot to mention all the classes in prose.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "The Council of the Wise, a higher-ranking class, don gold collars with ornate patterns, while The League of Masters don silver collars with intricate engravings. Further down the hierarchy are The Zea",
+      "tok_count": 178
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "All concubines are given an orange pendant. What should it's material and shape be?",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "The orange pendant given to all concubines could be made of carnelian, a semi-precious gemstone known for its vibrant orange hues. The pendant could be elegantly shaped into a teardrop or a heart, sym",
+      "tok_count": 60
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1872,
+      "retained_tokens": 268,
+      "retention_frac": 0.14316239316239315
+    },
+    "1": {
+      "orig_tokens": 466,
+      "retained_tokens": 163,
+      "retention_frac": 0.3497854077253219
+    },
+    "2": {
+      "orig_tokens": 609,
+      "retained_tokens": 238,
+      "retention_frac": 0.39080459770114945
+    },
+    "3": {
+      "orig_tokens": 363,
+      "retained_tokens": 185,
+      "retention_frac": 0.509641873278237
+    },
+    "4": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 289,
+      "retained_tokens": 178,
+      "retention_frac": 0.615916955017301
+    },
+    "6": {
+      "orig_tokens": 19,
+      "retained_tokens": 19,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 60,
+      "retained_tokens": 60,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "unique magical system",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Harmonis is a utopian nation, founded under the guidance and protection of a god known as The Absolute Sovereign. With a class-based society designed to uphold merit, personal growth, and a strong sense of unity, Harmonis remains an idyllic place where family and interpersonal relationships thrive despite their class differences.\n\nThe main source of income and resources in Harmonis comes from agriculture, specialized handicrafts, the use of a unique magical system by the Sovereign, and valuable metals and gemstones. This wealth is distributed modestly across social classes to promote fair economic growth and inter-class cooperation. The nation's public education system, overseen by the League of Masters, offers accessible learning opportunities in various fields.\n\nThe healthcare system in Harmonis combines conventional and magical healing techniques, addressing both physical and mental well-being. Magic is also integrated into daily life, enhancing agriculture, transportation, communication, and infrastructure. The economy is supported by responsible resource management, including efficient water use, sustainable agriculture, energy conservation, and waste reduction.\n\nCulturally, Harmonis features unique art forms such as elaborate dances, intricate tapestries, shadow puppetry, enchanting music, and evocative storytelling. Several festivals throughout the year celebrate the Godking's reign, harvest, and love and intimacy.\n\nHarmonis is a peaceful nation, and other countries may view it with admiration or suspicion. However, its value as a trade partner and lack of a military force keep it safe from conflict. Citizens leaving Harmonis for the outside world may face challenges adapting to societies plagued by corruption, inequality, and strife.\n\nThe role of technology and innovation in Harmonis is significant, blending magical techniques with advancements in transportation, communication, and medical fields. Cultural exchange between Harmonis and other nations leads to vibrant interactions in arts, literature, and traditions, as well as trade fairs and scholarly exchanges. The unique magic of the Sovereign remains exclusive to Harmonis and is not shared with outsiders.\n\nDespite their achievements, Harmonis has faced historical milestones, such as the establishment of the collared class system and valuable trade partnerships, and even potential crises or invasions. By maintaining a balance between its utopian principles and a diverse class system, Harmonis continues to be an exemplary society where its citizens can prosper and contribute to the common good.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "unique magical system",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "removing",
+        "target": "Godking",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Harmonis, a small country with a population of fewer than 20,000 people, is a utopian nation governed by a theocratic benign dictatorship under the leadership of the Godking, Godking Primoris. The society is structured around a meritocracy-based class system, which is represented by the type of collar worn by each individual. The classes range from the Uncollared Godking to the barbed wire-collared prisoners, The Bound. Every six years, the Godking personally collars and re-collars citizens, marking their achievements on the collar.\n\nCitizens are free to leave the country at any time, undergoing a ceremonial removal of their collar to renounce the Godking's protection and the country's way of life. Removing a collar within the country, however, results in exile. This freedom to leave prevents rebellions and ensures the citizens' obedience to the Godking.\n\nThe collaring ceremony demonstrates deference to the Godking as the supreme authority through rituals and acts where individuals kneel before the Godking, bow their heads in respect, say their vows, obey a menial order, and receive their collar.\n\nThe utopian country is divinely protected by The Absolute Sovereign, a god embodying the principles of absolute power, authority, and loyalty. The deity believes that willing submission of individuals to the state, represented by the Godking, is essential for maintaining order, hence allowing citizens to leave the country as they please. Personal worship of other gods is allowed as long as individuals remain obedient to the Godking.\n\nChoosing a new Godking is a merit-based selection process set by The Absolute Sovereign. Potential successors are assessed based on their achievements and loyalty to the deity's principles, with divine intervention directing the chosen successor through a sign from The Absolute Sovereign.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Godking",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.6,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 3688,
+    "comp_total_toks": 1121,
+    "reduction": 69.60412147505424,
+    "DRR_soft": 0.8,
+    "RCI": 0.6667
+  }
+}

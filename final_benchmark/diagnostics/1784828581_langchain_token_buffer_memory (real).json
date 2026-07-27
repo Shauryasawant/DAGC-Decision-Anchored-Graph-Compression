@@ -1,0 +1,186 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "what is wo dong le",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "As an AI language model, I am not certain what context or language \"wo dong le\" originates from. However, \"wo dong le\" can translate to \"I understand\" in Mandarin Chinese.",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "im referring to chinese",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "In Mandarin Chinese, \"wo dong le\" (\u6211\u61c2\u4e86) is a phrase that can be translated to \"I understand\" in English.",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "what about haoxing",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "In Mandarin Chinese, \"haoxing\" (\u597d\u884c) can have various meanings depending on the context. It could mean \"good luck\", \"may it go well\", or \"have a good trip.\"",
+      "tok_count": 42,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "how about houxu",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "In Mandarin Chinese, \"houxu\" (\u540e\u7eed) means \"follow-up\" or \"subsequent\". It refers to something that comes after an initial event or action is taken. For example, when making plans, you may discuss the \"h",
+      "tok_count": 69,
+      "protected": true
+    }
+  ],
+  "trace_post": [],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 40,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 4,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 31,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 42,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 69,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Mandarin",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In Mandarin Chinese, \"haoxing\" (\u597d\u884c) can have various meanings depending on the context. It could mean \"good luck\", \"may it go well\", or \"have a good trip.\"",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "follow-up",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In Mandarin Chinese, \"houxu\" (\u540e\u7eed) means \"follow-up\" or \"subsequent\". It refers to something that comes after an initial event or action is taken. For example, when making plans, you may discuss the \"houxu,\" or the follow-up details that need to be considered and addressed later.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 201,
+    "comp_total_toks": 0,
+    "reduction": 100.0,
+    "DRR_soft": 0.0,
+    "RCI": 0.0
+  }
+}

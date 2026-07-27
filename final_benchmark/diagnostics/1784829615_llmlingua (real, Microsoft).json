@@ -1,0 +1,170 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "que actividades se supone que son comunes en una persona de 20 a\u00f1os?",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Es dif\u00edcil decir qu\u00e9 actividades son \"comunes\" en una persona de 20 a\u00f1os, ya que las personas son \u00fanicas y sus intereses, circunstancias y prioridades pueden variar ampliamente. Sin embargo, asistir a",
+      "tok_count": 79,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "y si es el caso, que la persona de 20 a\u00f1os no le apetece hacer nada, \u00bfqu\u00e9 deber\u00eda hacer?",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "La persona de 20 a\u00f1os deber\u00eda plantarse \"\u00bfpor qu\u00e9 no quiero hacer nada?\". La respuesta a esa pregunta le ayudar\u00e1 a identificar el factor limitante que le podr\u00eda ayudar a solucionar el problema. Adem\u00e1s",
+      "tok_count": 84,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "que actividades se supone que son comunes en una persona de 20 a\u00f1os?",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Es dif\u00edcil decir qu\u00e9 actividades son \"comunes\" en una persona de 20 a\u00f1os, ya que las personas son \u00fanicas y sus intereses, circunstancias y prioridades pueden variar ampliamente. Sin embargo, asistir a",
+      "tok_count": 79
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "y si es el caso, que la persona de 20 a\u00f1os no le apetece hacer nada, \u00bfqu\u00e9 deber\u00eda hacer?",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "La persona de 20 a\u00f1os deber\u00eda plantarse \"\u00bfpor qu\u00e9 no quiero hacer nada?\". La respuesta a esa pregunta le ayudar\u00e1 a identificar el factor limitante que le podr\u00eda ayudar a solucionar el problema. Adem\u00e1s",
+      "tok_count": 84
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 17,
+      "retained_tokens": 17,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 79,
+      "retained_tokens": 79,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 27,
+      "retained_tokens": 27,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 84,
+      "retained_tokens": 84,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "20",
+        "rationale": [
+          "value:20"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Es dif\u00edcil decir qu\u00e9 actividades son \"comunes\" en una persona de 20 a\u00f1os, ya que las personas son \u00fanicas y sus intereses, circunstancias y prioridades pueden variar ampliamente. Sin embargo, asistir a la universidad o iniciar una carrera profesional y explorar nuevos hobbies o pasatiempos son algunas actividades que podr\u00edan ser comunes.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "20",
+        "rationale": [
+          "value:20"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "20",
+        "rationale": [
+          "value:20"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "La persona de 20 a\u00f1os deber\u00eda plantarse \"\u00bfpor qu\u00e9 no quiero hacer nada?\". La respuesta a esa pregunta le ayudar\u00e1 a identificar el factor limitante que le podr\u00eda ayudar a solucionar el problema. Adem\u00e1s, las ganas de no hacer nada puede ser el resultado de un problema m\u00e1s grave relacionado a su salud mental, en ese caso, deber\u00eda consultar con un especialista.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "20",
+        "rationale": [
+          "value:20"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 207,
+    "comp_total_toks": 207,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "What is the electrostatic potential between two charged bodies of 1e-9 and 2e-9 of distance 0.05?",
+      "tok_count": 29,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the calculate_electrostatic_potential function to handle this request. {\"args\": {}, \"name\": \"calculate_electrostatic_potential\"}",
+      "tok_count": 33,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "What is the electrostatic potential between two charged bodies of 1e-9 and 2e-9 of distance 0.05?",
+      "tok_count": 29
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the calculate_electrostatic_potential function to handle this request. {\"args\": {}, \"name\": \"calculate_electrostatic_potential\"}",
+      "tok_count": 33
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 29,
+      "retained_tokens": 29,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 33,
+      "retained_tokens": 33,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "calculate_electrostatic_potential",
+        "target": "calculate electrostatic potential function",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I'll use the calculate_electrostatic_potential function to handle this request. {\"args\": {}, \"name\": \"calculate_electrostatic_potential\"}",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "calculate_electrostatic_potential",
+        "target": "calculate electrostatic potential function",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 74,
+    "comp_total_toks": 74,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

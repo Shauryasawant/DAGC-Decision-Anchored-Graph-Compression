@@ -1,0 +1,223 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "What does it feel like to ride on a rollercoaster with a nosedive?",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "As an AI language model, I don't have feelings, but I can provide you with a description of the experience. Riding a roller coaster with a nosedive can be a thrilling, heart-pumping experience. As the",
+      "tok_count": 120,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "What is a graviton?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "A graviton is a hypothetical elementary particle in the Standard Model of particle physics. It is the theoretical quantum particle that mediates the force of gravity, similar to how the photon mediate",
+      "tok_count": 113,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "What is a gravitational ride?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "A gravitational ride is a type of amusement ride that uses the force of gravity to provide thrills for riders. These rides use a variety of mechanisms to create different experiences, but they all rel",
+      "tok_count": 131,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "heart-pumping experience.",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "A graviton is a hypothetical elementary particle in the Standard Model of particle physics.",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "What is a gravitational ride?",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "A gravitational ride is a type of amusement ride that uses the force of gravity to provide thrills for riders. These rides use a variety of mechanisms to create different experiences",
+      "tok_count": 33
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 18,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 120,
+      "retained_tokens": 5,
+      "retention_frac": 0.041666666666666664
+    },
+    "2": {
+      "orig_tokens": 6,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 113,
+      "retained_tokens": 16,
+      "retention_frac": 0.1415929203539823
+    },
+    "4": {
+      "orig_tokens": 6,
+      "retained_tokens": 6,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 131,
+      "retained_tokens": 33,
+      "retention_frac": 0.25190839694656486
+    }
+  },
+  "removed_message_indices": [
+    0,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "heart-pumping",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I don't have feelings, but I can provide you with a description of the experience. Riding a roller coaster with a nosedive can be a thrilling, heart-pumping experience. As the coaster car reaches the top of the hill and starts to descend, it suddenly drops straight down, causing a rush of adrenaline and a feeling of weightlessness in your stomach. The speed of the descent can create a sense of panic, but at the same time, it can be incredibly exhilarating, leaving you breathless and with a sense of accomplishment once the ride is over.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "heart-pumping",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "confirmed",
+        "target": "Standard",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "A graviton is a hypothetical elementary particle in the Standard Model of particle physics. It is the theoretical quantum particle that mediates the force of gravity, similar to how the photon mediates the electromagnetic force. The graviton is predicted by the theory of quantum gravity, which attempts to describe the universe at the smallest scales and unify the theories of general relativity and quantum mechanics. The existence of gravitons has not been experimentally confirmed yet, but scientists continue to study and search for them as it could provide important insights into the nature of gravity and the universe.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Standard",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.94,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "gravitational ride",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "A gravitational ride is a type of amusement ride that uses the force of gravity to provide thrills for riders. These rides use a variety of mechanisms to create different experiences, but they all rely on the force of gravity to generate speed and acceleration. Examples of gravitational rides include roller coasters, drop towers, and spinning rides. Gravity plays a crucial role in these rides, providing the necessary force to propel the vehicle or the rider downward, creating feelings of weightlessness, and inducing exciting accelerations and twists. These rides are popular with thrill-seekers and amusement park enthusiasts, who enjoy the thrill of being propelled through space by the fundamental force of gravity.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "gravitational ride",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 394,
+    "comp_total_toks": 60,
+    "reduction": 84.77157360406092,
+    "DRR_soft": 0.98,
+    "RCI": 1.0
+  }
+}

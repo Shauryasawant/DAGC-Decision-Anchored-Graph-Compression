@@ -1,0 +1,257 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 724,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out to reschedule our wedding ceremony start time. My Client ID is C6061, and the event is scheduled for November 17, 2025. Could you confirm if adjustments to the timeline are s",
+      "tok_count": 84,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"client_id\": \"C6061\", \"event_date\": \"2025-11-17\", \"last_4_digits\": \"3355\"}, \"name\": \"authenticate_client\"}",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"client_id\": \"C6061\"}, \"name\": \"get_client_profile\"}",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"profile_id\": \"C6061\"}, \"name\": \"get_wedding_profile\"}",
+      "tok_count": 22,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 724
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"profile_id\": \"C6061\"}, \"name\": \"get_wedding_profile\"}",
+      "tok_count": 22
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 724,
+      "retained_tokens": 724,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 84,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 41,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 20,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 22,
+      "retained_tokens": 22,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_client",
+        "target": "C6061",
+        "rationale": [
+          "id:last_4_digits",
+          "value:C6061"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "last_4_digits"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"client_id\": \"C6061\", \"event_date\": \"2025-11-17\", \"last_4_digits\": \"3355\"}, \"name\": \"authenticate_client\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_client_profile",
+        "target": "C6061",
+        "rationale": [
+          "value:C6061"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"client_id\": \"C6061\"}, \"name\": \"get_client_profile\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_wedding_profile",
+        "target": "C6061",
+        "rationale": [
+          "value:C6061"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"profile_id\": \"C6061\"}, \"name\": \"get_wedding_profile\"}",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": "get_wedding_profile",
+        "target": "C6061",
+        "rationale": [
+          "value:C6061"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 891,
+    "comp_total_toks": 746,
+    "reduction": 16.273849607182946,
+    "DRR_soft": 0.3333333333333333,
+    "RCI": 1.0
+  }
+}

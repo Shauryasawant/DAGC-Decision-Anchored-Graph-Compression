@@ -1,0 +1,276 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Can you write an instagram caption for a hotel called Semiramis InterContinental that are hosting a an easter lunch on April 16th in their Night and Day restaurant from 2:30 to 4 pm with an all inclus",
+      "tok_count": 63,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "\"Indulge in an egg-cellent Easter feast at Semiramis InterContinental's Night and Day restaurant! Join us on April 16th from 2:30 to 4 pm for a delectable holiday lunch experience. With an all inclusi",
+      "tok_count": 141,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Can you rewrite that without the word induldge and less easter wordplay",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "\"Join us for an exquisite holiday feast at Semiramis InterContinental's Night and Day restaurant! On April 16th from 2:30 to 4 pm, savor a delicious lunch experience specially curated for the occasion",
+      "tok_count": 142,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Can you answer questions?",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Yes, I can try my best to answer your questions.",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Do you know about aderall or concerta ?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Yes, I am aware of Adderall and Concerta. They are prescription medications used to treat ADHD (Attention Deficit Hyperactivity Disorder) and narcolepsy. They are both stimulant medications that affec",
+      "tok_count": 96,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Does smoking weed effect concerta?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "The effects of smoking weed (cannabis) can interact differently with Concerta for different people. Some people may experience a positive effect while others may have negative reactions. Therefore, it",
+      "tok_count": 124,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Can you write an instagram caption for a hotel called Semiramis InterContinental that are hosting a an easter lunch on April 16th in their Night and Day restaurant from 2:30 to 4 pm with an all inclus",
+      "tok_count": 63
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "\"Indulge in an egg-cellent Easter feast at Semiramis InterContinental's Night and Day restaurant!",
+      "tok_count": 24
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Can you rewrite that without the word induldge and less easter wordplay",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "\"Join us for an exquisite holiday feast at Semiramis InterContinental's Night and Day restaurant!",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Can you answer questions?",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Yes, I can try my best to answer your questions.",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "Do you know about aderall or concerta ?",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "Yes, I am aware of Adderall and Concerta.",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "Does smoking weed effect concerta?",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "The effects of smoking weed (cannabis) can interact differently with Concerta for different people. Some people may experience a positive effect while others may have negative reactions. Therefore, it",
+      "tok_count": 124
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 63,
+      "retained_tokens": 63,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 141,
+      "retained_tokens": 24,
+      "retention_frac": 0.1702127659574468
+    },
+    "2": {
+      "orig_tokens": 16,
+      "retained_tokens": 16,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 142,
+      "retained_tokens": 21,
+      "retention_frac": 0.14788732394366197
+    },
+    "4": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "6": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 96,
+      "retained_tokens": 13,
+      "retention_frac": 0.13541666666666666
+    },
+    "8": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 124,
+      "retained_tokens": 124,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "ADHD",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Yes, I am aware of Adderall and Concerta. They are prescription medications used to treat ADHD (Attention Deficit Hyperactivity Disorder) and narcolepsy. They are both stimulant medications that affect chemicals in the brain and nerves that contribute to hyperactivity and impulse control. Adderall is a combination of amphetamine and dextroamphetamine, while Concerta contains methylphenidate. These medications should only be used under the supervision of a qualified healthcare provider.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Adderall",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "healthcare provider",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The effects of smoking weed (cannabis) can interact differently with Concerta for different people. Some people may experience a positive effect while others may have negative reactions. Therefore, it is not safe to mix marijuana with Concerta or any other prescribed medication without a doctor's recommendation or guidance. Additionally, mixing marijuana with Concerta may lead to increased side effects such as dry mouth, dizziness, anxiety, and an increased heart rate, among others. It is always best to talk to a healthcare provider about the potential risks and benefits of using any type of medication, including Concerta, in combination with other substances.",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "best",
+        "target": "healthcare provider",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 617,
+    "comp_total_toks": 296,
+    "reduction": 52.0259319286872,
+    "DRR_soft": 0.6,
+    "RCI": 1.0
+  }
+}

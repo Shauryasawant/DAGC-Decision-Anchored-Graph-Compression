@@ -1,0 +1,276 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "the following contains aothors, year and abstrsct of papers create alitrature review for Predictive Data analytics for Supply chain demand forecasting\n\nPu C.; Ren J.; Xue B.\t2021\tA predictive control ",
+      "tok_count": 938,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "In recent years, the application of predictive data analytics in supply chain and demand forecasting has garnered significant interest. This literature review aims to highlight some noteworthy studies",
+      "tok_count": 498,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Predictive data analytics has become increasingly important in supply chain demand forecasting, as it offers various benefits such as improved operational efficiency, cost reduction, and enhanced deci",
+      "tok_count": 2720,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "This literature review examines recent research on Predictive Data Analytics applied to Supply Chain Demand Forecasting, focusing on the utilization of Big Data in Supply Chain Management.\n\nPu et al. ",
+      "tok_count": 539,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Predictive data analytics has become increasingly important in supply chain demand forecasting, as it offers various benefits such as improved operational efficiency, cost reduction, and enhanced deci",
+      "tok_count": 2743,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "This literature review examines recent research on Predictive Data Analytics applied to Supply Chain Demand Forecasting, focusing on the utilization of Big Data, Data Analytics, and Machine Learning i",
+      "tok_count": 547,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "expand above to include all papers",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "This literature review examines recent research on Predictive Data Analytics applied to Supply Chain Demand Forecasting, focusing on the utilization of Big Data, Data Analytics, and Machine Learning i",
+      "tok_count": 170,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "This literature review examines recent research on Predictive Data Analytics applied to Supply Chain Demand Forecasting, focusing on the utilization of Big Data, Data Analytics, and Machine Learning i",
+      "tok_count": 547
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "expand above to include all papers",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "This literature review examines recent research on Predictive Data Analytics applied to Supply Chain Demand Forecasting, focusing on the utilization of Big Data, Data Analytics, and Machine Learning i",
+      "tok_count": 170
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 938,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 498,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 2720,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 539,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 2743,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 547,
+      "retained_tokens": 547,
+      "retention_frac": 1.0
+    },
+    "6": {
+      "orig_tokens": 6,
+      "retained_tokens": 6,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 170,
+      "retained_tokens": 170,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "select",
+        "target": "selected feature spaces",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In recent years, the application of predictive data analytics in supply chain and demand forecasting has garnered significant interest. This literature review aims to highlight some noteworthy studies in this field, specifically focused on predictive control strategies, challenges in transport logistics organizations, and the practical application of data analytics in predicting first-tier supply chain disruptions.\n\nPu et al. (2021) propose a predictive control strategy based on a fuzzy neural network (FNN) for baking furnace control. The authors use the temperature control system of an anode baking furnace as their simulation and predictive modeling subject, employing a T-S fuzzy RBF neural network (T-SFRBFNN) for offline predictive control. The FNN-based predictive control algorithm provides an accurate multi-step predictive control model with self-compensating feedback correction for real-time control. This approach is reported to be simple, real-time, effective, and adaptable, and it provides a theoretical basis for producing high-quality carbon anodes.\n\nBirkel et al. (2020) focus on the challenges faced by transport logistics organizations in adopting predictive analytics. They present a multiple case study approach covering six cases related to freight forwarders, ocean carriers, and air carriers. The study uncovers various internal and external challenges, such as technical implementation, data acquisition and harmonization, stakeholder management, and external conditions affecting the adoption of predictive analytics in transport logistics. The authors emphasize the need for actions by third-party institutions to address issues like standardization and security enhancements.\n\nBrintrup et al. (2020) present a practical case study on using data analytics for predicting first-tier supply chain disruptions in an Original Equipment Manufacturer (OEM). They outline a three-phase methodology, including exploratory data analysis to select and engineer potential features, development of performance metrics for evaluating success, and experimental design to analyze the success rate of various algorithms and parameters on selected feature spaces. The study reports an 80% accuracy in predicting late orders by adding engineered features, particularly \"agility,\" to the data. The authors highlight the importance of domain knowledge for successfully engineering features and the novel application of machine learning in predicting supply disruptions.\n\nOverall, these recent studies emphasize the importance and potential of predictive data analytics in supply chain and demand forecasting. They highlight key challenges faced by organizations in implementing these methods while also showcasing the practicality of analytical techniques in real-world scenarios. The findings underscore the need for continuous development and research in this field to improve efficiency, accuracy, and overall performance in supply chain management.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "2020",
+        "rationale": [
+          "beats:which",
+          "value:2020"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "This literature review examines recent research on Predictive Data Analytics applied to Supply Chain Demand Forecasting, focusing on the utilization of Big Data in Supply Chain Management.\n\nPu et al. (2021) proposed a predictive control strategy based on a fuzzy neural network (FNN) for anode baking furnace control. The method offers simplicity, real-time effectiveness, and adaptability, providing a theoretical foundation for producing high-quality carbon anodes.\n\nBirkel et al. (2020) investigated the challenges faced by transport logistics organizations in adopting predictive analytics. Technical implementation, data acquisition and harmonization, stakeholder management, and external conditions were identified as major obstacles, emphasizing the need for actions from third-party institutions to address standardization and security enhancements.\n\nBrintrup et al. (2020) conducted a practical case study on using data analytics to predict first-tier supply chain disruptions in an Original Equipment Manufacturer (OEM). They reported an 80% accuracy in forecasting late orders by incorporating engineered features, particularly \"agility,\" underscoring the importance of domain knowledge in engineering features and applying machine learning to predict supply disruptions.\n\nNumerous other studies have focused on the impact of predictive data analytics and big data in enhancing various aspects of supply chain management. Dubey et al. (2019) explored the role of big data analytics in improving the social and environmental sustainability of supply chains, while Dev et al. (2019) demonstrated the benefits of using real-time KPIs to evaluate supply chain operations within a dynamic system.\n\nAhmed et al. (2022) introduced a novel deep learning-based model, PLR-ALSTM-NN, which outperformed traditional neural networks and machine learning tools in predicting future financial market trends. Sorceries et al. (2019) examined the social process of big data and predictive analytics (BDPA) use for logistics and supply chain management (LSCM). They found that user involvement shapes BDPA to fit organizational structures.\n\nShrivastava and Pal (2019) proposed an integrated framework combining ICT, big data analytics, and blockchain technologies to create next-generation agricultural marketing systems in India. Wang (2021) also investigated the use of machine learning algorithms such as auto-ARIMA, Prophet, and LSTM for stock price prediction.\n\nIn summary, recent research on predictive data analytics in supply chain demand forecasting emphasizes the potential of big data and machine learning in improving supply chain management processes. Challenges remain in implementing these methods, but emerging technologies and innovative approaches continue to drive advancement in this field. As a result, predictive data analytics is increasingly vital to enhancing supply chain performance, enabling organizations to better anticipate and react to changes in market dynamics.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "practical case study showcasing",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "This literature review examines recent research on Predictive Data Analytics applied to Supply Chain Demand Forecasting, focusing on the utilization of Big Data, Data Analytics, and Machine Learning in Supply Chain Management.\n\nPu et al. (2021) proposed a predictive control strategy built on a fuzzy neural network (FNN) for baking furnace control, proving to be an effective and adaptable method for producing high-quality carbon anodes. Meanwhile, Birkel et al. (2020) concentrated on the challenges faced by transport logistics organizations in adopting predictive analytics. They highlighted the need for actions by third-party institutions to address issues like standardization and security enhancements. Brintrup et al. (2020) used a practical case study showcasing data analytics for predicting first-tier supply chain disruptions, emphasizing the importance of domain knowledge for successfully engineering features.\n\nSeveral studies have explored the potential of big data and predictive analytics in supply chain management. Dubey et al. (2019) described their positive impacts on the social and environmental sustainability of supply chains, while Dev et al. (2019) demonstrated how real-time KPIs enable companies to evaluate their operations within a dynamic system. On the other hand, Ahmed et al. (2022) developed a deep learning-based model (PLR-ALSTM-NN), which proved more effective in predicting financial market trends. Shrivastava and Pal (2019) investigated utilizing ICT, big data analytics, and blockchain technologies to improve agricultural marketing systems in India.\n\nWang (2021) examined the use of high-level machine learning algorithms \u2013 like auto-ARIMA, Prophet, and LSTM \u2013 for stock price prediction. Kula\u00e7 et al. (2022) analyzed the implementation of digital twins in supply chain networks for data-driven, real-time decision-making, and improved resilience.\n\nGalli et al. (2019) highlighted the critical role of predictive analytics tools in continuous improvement initiatives, whereas Gong et al. (2021) proposed a parameter selection auto-encoder neural network predictor to extract important processes in industrial steelmaking. Lee and Mangalaraj (2022) conducted a systematic review on big data analytics in the supply chain, stressing the importance of big data analytics in enhancing supply chain functions, while Sodero et al. (2019) explored the social process of big data and predictive analytics use for logistics and supply chain management.\n\nOverall, recent research on predictive data analytics in supply chain demand forecasting emphasizes the potential of big data, data analytics, and machine learning in improving supply chain management processes. However, implementation challenges still exist, but emerging technologies and innovative approaches continue to advance the field, making predictive data analytics increasingly vital to enhance supply chain performance and adapt to market dynamics.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "practical case study showcasing",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "practical case study showcasing",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "This literature review examines recent research on Predictive Data Analytics applied to Supply Chain Demand Forecasting, focusing on the utilization of Big Data, Data Analytics, and Machine Learning in Supply Chain Management.\n\nPu et al. (2021) proposed a predictive control strategy built on a fuzzy neural network (FNN) for baking furnace control, proving to be an effective and adaptable approach for producing high-quality carbon anodes. Meanwhile, Birkel et al. (2020) concentrated on the challenges faced by transport logistics organizations in adopting predictive analytics. They highlighted the need for actions by third-party institutions to address issues like standardization and security enhancements. Brintrup et al. (2020) used a practical case study showcasing data analytics for predicting first-tier supply chain disruptions, emphasizing the importance of domain knowledge for successfully engineering features.\n\nSeveral studies have explored the",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "practical case study showcasing",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 8161,
+    "comp_total_toks": 723,
+    "reduction": 91.14079156966058,
+    "DRR_soft": 0.5,
+    "RCI": 1.0
+  }
+}

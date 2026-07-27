@@ -1,0 +1,238 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "what is wo dong le",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "As an AI language model, I am not certain what context or language \"wo dong le\" originates from. However, \"wo dong le\" can translate to \"I understand\" in Mandarin Chinese.",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "im referring to chinese",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "In Mandarin Chinese, \"wo dong le\" (\u6211\u61c2\u4e86) is a phrase that can be translated to \"I understand\" in English.",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "what about haoxing",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "In Mandarin Chinese, \"haoxing\" (\u597d\u884c) can have various meanings depending on the context. It could mean \"good luck\", \"may it go well\", or \"have a good trip.\"",
+      "tok_count": 42,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "how about houxu",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "In Mandarin Chinese, \"houxu\" (\u540e\u7eed) means \"follow-up\" or \"subsequent\". It refers to something that comes after an initial event or action is taken. For example, when making plans, you may discuss the \"h",
+      "tok_count": 69,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "what is wo dong le",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "As an AI language model, I am not certain what context or language \"wo dong le\" originates from.",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "im referring to chinese",
+      "tok_count": 4
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "In Mandarin Chinese, \"wo dong le\" (\u6211\u61c2\u4e86) is a phrase that can be translated to \"I understand\" in English.",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "what about haoxing",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "In Mandarin Chinese, \"haoxing\" (\u597d\u884c) can have various meanings depending on the context.",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "how about houxu",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "In Mandarin Chinese, \"houxu\" (\u540e\u7eed) means \"follow-up\" or \"subsequent\". It refers to something that comes after an initial event or action is taken. For example, when making plans, you may discuss the \"h",
+      "tok_count": 69
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 40,
+      "retained_tokens": 22,
+      "retention_frac": 0.55
+    },
+    "2": {
+      "orig_tokens": 4,
+      "retained_tokens": 4,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 31,
+      "retained_tokens": 31,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 42,
+      "retained_tokens": 22,
+      "retention_frac": 0.5238095238095238
+    },
+    "6": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 69,
+      "retained_tokens": 69,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Mandarin",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In Mandarin Chinese, \"haoxing\" (\u597d\u884c) can have various meanings depending on the context. It could mean \"good luck\", \"may it go well\", or \"have a good trip.\"",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Mandarin",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "follow-up",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In Mandarin Chinese, \"houxu\" (\u540e\u7eed) means \"follow-up\" or \"subsequent\". It refers to something that comes after an initial event or action is taken. For example, when making plans, you may discuss the \"houxu,\" or the follow-up details that need to be considered and addressed later.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "follow-up",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 201,
+    "comp_total_toks": 163,
+    "reduction": 18.905472636815922,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

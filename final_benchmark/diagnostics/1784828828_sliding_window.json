@@ -1,0 +1,153 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "My mobile phone Has b\u0119d\u0119.",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "I'm sorry, but I cannot understand your message clearly. Please make sure your question or statement is clear and coherent, and I'll be happy to help.",
+      "tok_count": 32,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "My mobile phone Has been stolen, what should I do now?",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "I'm not an expert on this subject, but if your mobile phone has been stolen, you could consider doing the following:\n\n1. Report the theft to the police: Contact your local police department and provid",
+      "tok_count": 242,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Should I change my job?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "As an AI language model, I cannot provide personalized advice, but I can give you some general guidelines to help you decide whether changing your job is the right decision for you.\n\n1. Assess your jo",
+      "tok_count": 275,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "My mobile phone Has b\u0119d\u0119.",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "I'm sorry, but I cannot understand your message clearly. Please make sure your question or statement is clear and coherent, and I'll be happy to help.",
+      "tok_count": 32
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "My mobile phone Has been stolen, what should I do now?",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Should I change my job?",
+      "tok_count": 6
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 32,
+      "retained_tokens": 32,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 242,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 6,
+      "retained_tokens": 6,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 275,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    3,
+    5
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "whether changing",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I cannot provide personalized advice, but I can give you some general guidelines to help you decide whether changing your job is the right decision for you.\n\n1. Assess your job satisfaction: Evaluate how satisfied you are with your current job, taking into consideration factors like work-life balance, salary, growth prospects, and your relationship with coworkers and management.\n\n2. Consider your career goals: Reflect on whether your current position aligns with your long-term career aspirations or if a new job could help you achieve those goals faster.\n\n3. Evaluate the job market: Research the job market to determine if there are opportunities that better align with your skills, interests, and goals. Consider if the current job market is favorable for making a switch.\n\n4. Weigh the risks and benefits: Analyzing the potential risks (e.g., job instability, financial concerns) and benefits (e.g., higher salary, better work culture) of changing your job can help inform your decision.\n\n5. Plan for the transition: If you do decide to change jobs, develop a plan for the transition, including updating your resume, learning new skills if necessary, and building a network of contacts in your desired field.\n\nRemember that only you can make the final decision about changing your job. Consider talking to a career counselor, mentor, or professional in your field to get more personalized advice.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 575,
+    "comp_total_toks": 58,
+    "reduction": 89.91304347826087,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

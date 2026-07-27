@@ -1,0 +1,230 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI, you may use extremely long chains of thought to deeply consider the problem and deliberate with yourself via systematic reasoning processes to help come to a correct soluti",
+      "tok_count": 394,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Hi, I need to know the distance between New York and Los Angeles.",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "<think>\nOkay, the user wants the distance between New York and Los Angeles. Let me think about the tools available. The tools provided are calculate_distance and calculate_age. The calculate_distance ",
+      "tok_count": 131,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "<think>\nThe user wants to calculate the distance between New York and Los Angeles. The system used the calculate_distance tool and provided the result of 2448.2 miles. The assistant should reply with ",
+      "tok_count": 62,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "That's quite far. What about the distance from New York to Chicago?",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "<think>\nThe user wants the distance from New York to Chicago after seeing the previous response. I should use the calculate_distance tool again with New York as the origin and Chicago as the destinati",
+      "tok_count": 67,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "<think>\nThe user wants to calculate the distance between New York and Chicago. The system used the calculate_distance tool and provided the result of 791.8 miles. The assistant should reply with this ",
+      "tok_count": 58,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI, you may use extremely long chains of thought to deeply consider the problem and deliberate with yourself via systematic reasoning processes to help come to a correct soluti",
+      "tok_count": 394
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "<think>\nThe user wants to calculate the distance between New York and Chicago. The system used the calculate_distance tool and provided the result of 791.8 miles. The assistant should reply with this ",
+      "tok_count": 58
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 394,
+      "retained_tokens": 394,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 15,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 131,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 62,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 15,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 67,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 58,
+      "retained_tokens": 58,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "2448.2",
+        "rationale": [
+          "value:2448.2"
+        ],
+        "artifacts": {
+          "paths": [
+            "2448.2"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>\nThe user wants to calculate the distance between New York and Los Angeles. The system used the calculate_distance tool and provided the result of 2448.2 miles. The assistant should reply with this information.\n</think>The distance between New York and Los Angeles is 2448.2 miles.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "calculate distance tool again",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>\nThe user wants the distance from New York to Chicago after seeing the previous response. I should use the calculate_distance tool again with New York as the origin and Chicago as the destination.\n</think>\n<tool_call>\n{\"name\":\"calculate_distance\",\"arguments\":{\"origin\":\"New York\",\"destination\":\"Chicago\"}}\n</tool_call>",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "791.8",
+        "rationale": [
+          "value:791.8"
+        ],
+        "artifacts": {
+          "paths": [
+            "791.8"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>\nThe user wants to calculate the distance between New York and Chicago. The system used the calculate_distance tool and provided the result of 791.8 miles. The assistant should reply with this information.\n</think>The distance between New York and Chicago is 791.8 miles.",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "791.8",
+        "rationale": [
+          "value:791.8"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 742,
+    "comp_total_toks": 452,
+    "reduction": 39.08355795148248,
+    "DRR_soft": 0.3333333333333333,
+    "RCI": 1.0
+  }
+}

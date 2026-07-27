@@ -1,0 +1,83 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "What are some rhetorical devices to convice someone that I'm sick via text?",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "1. Hyperbole: Use exaggerated language to emphasize your symptoms. For example, \"I feel like I'm dying.\"\n\n2. Metaphor: Compare your symptoms to something else to emphasize their severity. For example,",
+      "tok_count": 323,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "What are some rhetorical devices to convice someone that I'm sick via text?",
+      "tok_count": 16
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 16,
+      "retained_tokens": 16,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 323,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "exaggerated language",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. Hyperbole: Use exaggerated language to emphasize your symptoms. For example, \"I feel like I'm dying.\"\n\n2. Metaphor: Compare your symptoms to something else to emphasize their severity. For example, \"My body is a furnace, burning up with fever.\"\n\n3. Anaphora: Repeat key phrases to emphasize your symptoms. For example, \"My head is pounding, my throat is sore, and my nose won't stop running.\"\n\n4. Euphemism: Use a mild or indirect term to describe something unpleasant. For example, \"I've got a bit of a bug.\"\n\n5. Irony: Use sarcasm to emphasize your symptoms. For example, \"Oh, I'm just loving this constant cough and headache.\"\n\n6. Ellipsis: Use pauses or incomplete sentences to emphasize your symptoms. For example, \"I can barely breathe...throat feels like sandpaper...eyes raw from sneezing...pray for me.\"\n\n7. Pathos: Appeal to the reader's emotions by describing how miserable you feel. For example, \"I feel so terrible, I haven't been able to sleep or eat anything all day.\"\n\n8. Simile: Use a comparison to emphasize your symptoms. For example, \"My stomach is in knots like a bunched up sheet.\"\n\n9. Alliteration: Repeat consonant sounds for emphasis. For example, \"My head is throbbing and my nose is running rivers.\"\n\n10. Personification: Give human characteristics to your symptoms. For example, \"This fever is relentless, it's like a monster that won't let me rest.\"",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 339,
+    "comp_total_toks": 16,
+    "reduction": 95.28023598820059,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

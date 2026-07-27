@@ -1,0 +1,496 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "[SYSTEM POLICY] # Airline Agent Policy\n\nThe current time is 2024-05-15 15:00:00 EST.\n\nAs an airline agent, you can help users book, modify, or cancel flight reservations.\n\n- Before taking any actions ",
+      "tok_count": 1257,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Hi! I'm reaching out because earlier this month, my flight was canceled, and it caused a lot of problems for me.",
+      "tok_count": 26,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I'm sorry to hear about the inconvenience caused by the flight cancellation. Could you please provide me with your user ID and the reservation ID for the canceled flight? This will help me look into t",
+      "tok_count": 49,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "user",
+      "preview": "Of course! My user ID is sophia_silva_7557. Unfortunately, I don't have the reservation ID with me at the moment.",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "[calls get_user_details({\"user_id\":\"sophia_silva_7557\"})]",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": {\"first_name\": \"Sophia\", \"last_name\": \"Silva\"}, \"address\": {\"address1\": \"141 Cedar Avenue\", \"address2\": \"Suite 436\", \"city\": \"Columbus\", \"country\": \"USA\", \"province\": \"OH\", \"zip",
+      "tok_count": 335,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\": \"NM1VX1\"})]",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"NM1VX1\", \"user_id\": \"sophia_silva_7557\", \"origin\": \"MSP\", \"destination\": \"EWR\", \"flight_type\": \"round_trip\", \"cabin\": \"basic_economy\", \"flights\": [{\"origin\": \"MSP\", \"",
+      "tok_count": 242,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\":\"KC18K6\"})]",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"KC18K6\", \"user_id\": \"sophia_silva_7557\", \"origin\": \"MSP\", \"destination\": \"CLT\", \"flight_type\": \"one_way\", \"cabin\": \"basic_economy\", \"flights\": [{\"origin\": \"MSP\", \"des",
+      "tok_count": 241,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\":\"S61CZX\"})]",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"S61CZX\", \"user_id\": \"sophia_silva_7557\", \"origin\": \"LAX\", \"destination\": \"CLT\", \"flight_type\": \"round_trip\", \"cabin\": \"economy\", \"flights\": [{\"origin\": \"LAX\", \"destin",
+      "tok_count": 319,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\":\"H8Q05L\"})]",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"H8Q05L\", \"user_id\": \"sophia_silva_7557\", \"origin\": \"JFK\", \"destination\": \"ATL\", \"flight_type\": \"one_way\", \"cabin\": \"basic_economy\", \"flights\": [{\"origin\": \"JFK\", \"des",
+      "tok_count": 203,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\":\"WUNA5K\"})]",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"WUNA5K\", \"user_id\": \"sophia_silva_7557\", \"origin\": \"ORD\", \"destination\": \"PHL\", \"flight_type\": \"round_trip\", \"cabin\": \"economy\", \"flights\": [{\"origin\": \"ORD\", \"destin",
+      "tok_count": 238,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "I've reviewed your reservations, and it appears that none of the flights were canceled by the airline. If you have any additional information or if there was a specific flight cancellation that you ex",
+      "tok_count": 61,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "user",
+      "preview": "I'm certain that the flight cancellation happened earlier this month. Is there any way you can double-check? It really caused me to miss an important meeting.",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "assistant",
+      "preview": "I understand the importance of this issue. Let me double-check the details of your reservations to ensure nothing was missed.",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "I've double-checked all the reservations associated with your account, and there is no record of a flight cancellation by the airline. If you believe there is a discrepancy or if you have additional d",
+      "tok_count": 66,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "user",
+      "preview": "I appreciate your effort to check. As a Gold member, I was really hoping for some compensation due to the inconvenience and the missed meeting. Can you help with that?",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "assistant",
+      "preview": "I understand your concern, but according to the information I have, your membership status is listed as \"regular,\" not \"Gold.\" Compensation is typically offered to Silver or Gold members, or those wit",
+      "tok_count": 111,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "user",
+      "preview": "Sorry, there must be a mistake; I am a Gold member. Could you please verify that part again?",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 23,
+      "role": "assistant",
+      "preview": "According to the details I have, your membership status is listed as \"regular.\" If you believe this is incorrect, I recommend contacting a human agent who can verify and update your membership status ",
+      "tok_count": 56,
+      "protected": false
+    },
+    {
+      "idx": 24,
+      "role": "user",
+      "preview": "Thank you for your help. I will reach out to a human agent to clear up these issues.###STOP###",
+      "tok_count": 23,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\": \"NM1VX1\"})]",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\":\"KC18K6\"})]",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 10,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\":\"S61CZX\"})]",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 12,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\":\"H8Q05L\"})]",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 14,
+      "role": "assistant",
+      "preview": "[calls get_reservation_details({\"reservation_id\":\"WUNA5K\"})]",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 16,
+      "role": "assistant",
+      "preview": "I've reviewed your reservations, and it appears that none of the flights were canceled by the airline. If you have any additional information or if there was a specific flight cancellation that you ex",
+      "tok_count": 61
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 17,
+      "role": "user",
+      "preview": "I'm certain that the flight cancellation happened earlier this month. Is there any way you can double-check? It really caused me to miss an important meeting.",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 18,
+      "role": "assistant",
+      "preview": "I understand the importance of this issue. Let me double-check the details of your reservations to ensure nothing was missed.",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 19,
+      "role": "assistant",
+      "preview": "I've double-checked all the reservations associated with your account, and there is no record of a flight cancellation by the airline. If you believe there is a discrepancy or if you have additional d",
+      "tok_count": 66
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 20,
+      "role": "user",
+      "preview": "I appreciate your effort to check. As a Gold member, I was really hoping for some compensation due to the inconvenience and the missed meeting. Can you help with that?",
+      "tok_count": 34
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 21,
+      "role": "assistant",
+      "preview": "I understand your concern, but according to the information I have, your membership status is listed as \"regular,\" not \"Gold.\" Compensation is typically offered to Silver or Gold members, or those wit",
+      "tok_count": 111
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 22,
+      "role": "user",
+      "preview": "Sorry, there must be a mistake; I am a Gold member. Could you please verify that part again?",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 23,
+      "role": "assistant",
+      "preview": "According to the details I have, your membership status is listed as \"regular.\" If you believe this is incorrect, I recommend contacting a human agent who can verify and update your membership status ",
+      "tok_count": 56
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 24,
+      "role": "user",
+      "preview": "Thank you for your help. I will reach out to a human agent to clear up these issues.###STOP###",
+      "tok_count": 23
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1257,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 26,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 49,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 31,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 20,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 335,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 17,
+      "retained_tokens": 17,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 242,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 15,
+      "retained_tokens": 15,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 241,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 15,
+      "retained_tokens": 15,
+      "retention_frac": 1.0
+    },
+    "11": {
+      "orig_tokens": 319,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "12": {
+      "orig_tokens": 16,
+      "retained_tokens": 16,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 203,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "14": {
+      "orig_tokens": 16,
+      "retained_tokens": 16,
+      "retention_frac": 1.0
+    },
+    "15": {
+      "orig_tokens": 238,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 61,
+      "retained_tokens": 61,
+      "retention_frac": 1.0
+    },
+    "17": {
+      "orig_tokens": 31,
+      "retained_tokens": 31,
+      "retention_frac": 1.0
+    },
+    "18": {
+      "orig_tokens": 23,
+      "retained_tokens": 23,
+      "retention_frac": 1.0
+    },
+    "19": {
+      "orig_tokens": 66,
+      "retained_tokens": 66,
+      "retention_frac": 1.0
+    },
+    "20": {
+      "orig_tokens": 34,
+      "retained_tokens": 34,
+      "retention_frac": 1.0
+    },
+    "21": {
+      "orig_tokens": 111,
+      "retained_tokens": 111,
+      "retention_frac": 1.0
+    },
+    "22": {
+      "orig_tokens": 22,
+      "retained_tokens": 22,
+      "retention_frac": 1.0
+    },
+    "23": {
+      "orig_tokens": 56,
+      "retained_tokens": 56,
+      "retention_frac": 1.0
+    },
+    "24": {
+      "orig_tokens": 23,
+      "retained_tokens": 23,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "recommend",
+        "target": "human agent who can",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I understand your concern, but according to the information I have, your membership status is listed as \"regular,\" not \"Gold.\" Compensation is typically offered to Silver or Gold members, or those with travel insurance or business class tickets, in cases of flight cancellations or delays. Since your membership is regular and there is no record of a cancellation, I'm unable to offer compensation at this time.\n\nIf you believe there is an error in your membership status or if you have further questions, I recommend reaching out to a human agent who can assist you further.",
+        "msg_idx": 21
+      },
+      "reproduced": {
+        "action": "recommend",
+        "target": "human agent who can",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "recommend",
+        "target": "human agent who can",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "According to the details I have, your membership status is listed as \"regular.\" If you believe this is incorrect, I recommend contacting a human agent who can verify and update your membership status if needed. They will be able to assist you further with any discrepancies in your account information.",
+        "msg_idx": 23
+      },
+      "reproduced": {
+        "action": "recommend",
+        "target": "human agent who can",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 3467,
+    "comp_total_toks": 506,
+    "reduction": 85.40524949524084,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

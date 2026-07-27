@@ -1,0 +1,495 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 957,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out about my recent order #ACB999 to Canada. There's an unexpected $15 charge listed on my invoice. Can you clarify what this fee is for? I didn't see any customs charges mention",
+      "tok_count": 50,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you understand the charge on your order #ACB999. First, I need to verify your identity to access your order details for",
+      "tok_count": 111,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Sure, my verified email is sarah.johnson@example.com. Please proceed with the verification.",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"email\": \"sarah.johnson@example.com\"}, \"name\": \"get_user_id_by_email\"}",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"order_id\": \"ACB999\"}, \"name\": \"get_order_details\"}",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": " {\"args\": {\"order_id\": \"ACB999\"}, \"name\": \"get_order_status\"}",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": " {\"args\": {\"user_id\": \"U123456\"}, \"name\": \"get_user_profile\"}",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": " {\"args\": {\"product_id\": \"P456\"}, \"name\": \"get_product_details\"}",
+      "tok_count": 19,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 957
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Hello, I'm reaching out about my recent order #ACB999 to Canada.",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello!",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Sure, my verified email is sarah.johnson@example.com.",
+      "tok_count": 14
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "{\"args\": {\"email\": \"sarah.johnson@example.com\"}, \"name\": \"get_user_id_by_email\"} {\"args\": {\"email\": \"sarah.johnson@example.com\"}, \"name\": \"get_user_id_by_email\"}",
+      "tok_count": 50
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "{\"args\": {\"order_id\": \"ACB999\"}, \"name\": \"get_order_details\"} {\"args\": {\"order_id\": \"ACB999\"}, \"name\": \"get_order_details\"}",
+      "tok_count": 40
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 12,
+      "role": "assistant",
+      "preview": "{\"args\": {\"order_id\": \"ACB999\"}, \"name\": \"get_order_status\"} {\"args\": {\"order_id\": \"ACB999\"}, \"name\": \"get_order_status\"}",
+      "tok_count": 40
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 15,
+      "role": "assistant",
+      "preview": "{\"args\": {\"user_id\": \"U123456\"}, \"name\": \"get_user_profile\"} {\"args\": {\"user_id\": \"U123456\"}, \"name\": \"get_user_profile\"}",
+      "tok_count": 40
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": " {\"args\": {\"product_id\": \"P456\"}, \"name\": \"get_product_details\"}",
+      "tok_count": 19
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 957,
+      "retained_tokens": 957,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 50,
+      "retained_tokens": 17,
+      "retention_frac": 0.34
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 111,
+      "retained_tokens": 18,
+      "retention_frac": 0.16216216216216217
+    },
+    "4": {
+      "orig_tokens": 20,
+      "retained_tokens": 14,
+      "retention_frac": 0.7
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 25,
+      "retained_tokens": 50,
+      "retention_frac": 2.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 20,
+      "retained_tokens": 40,
+      "retention_frac": 2.0
+    },
+    "10": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "11": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "12": {
+      "orig_tokens": 20,
+      "retained_tokens": 40,
+      "retention_frac": 2.0
+    },
+    "13": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "14": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "15": {
+      "orig_tokens": 20,
+      "retained_tokens": 40,
+      "retention_frac": 2.0
+    },
+    "16": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "17": {
+      "orig_tokens": 19,
+      "retained_tokens": 19,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    5,
+    7,
+    8,
+    10,
+    11,
+    13,
+    14,
+    16
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "get_user_id_by_email",
+        "target": "sarah.johnson@example.com",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "example.com"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"email\": \"sarah.johnson@example.com\"}, \"name\": \"get_user_id_by_email\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "get_user_id_by_email",
+        "target": "sarah.johnson@example.com",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_order_details",
+        "target": "ACB999",
+        "rationale": [
+          "value:ACB999"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"order_id\": \"ACB999\"}, \"name\": \"get_order_details\"}",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "get_order_details",
+        "target": "ACB999",
+        "rationale": [
+          "value:ACB999"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_order_status",
+        "target": "ACB999",
+        "rationale": [
+          "value:ACB999"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"order_id\": \"ACB999\"}, \"name\": \"get_order_status\"}",
+        "msg_idx": 12
+      },
+      "reproduced": {
+        "action": "get_order_status",
+        "target": "ACB999",
+        "rationale": [
+          "value:ACB999"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_user_profile",
+        "target": "U123456",
+        "rationale": [
+          "value:U123456"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"user_id\": \"U123456\"}, \"name\": \"get_user_profile\"}",
+        "msg_idx": 15
+      },
+      "reproduced": {
+        "action": "get_user_profile",
+        "target": "U123456",
+        "rationale": [
+          "value:U123456"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_product_details",
+        "target": "P456",
+        "rationale": [
+          "value:P456"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"product_id\": \"P456\"}, \"name\": \"get_product_details\"}",
+        "msg_idx": 17
+      },
+      "reproduced": {
+        "action": "get_product_details",
+        "target": "P456",
+        "rationale": [
+          "value:P456"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1242,
+    "comp_total_toks": 1195,
+    "reduction": 3.7842190016103006,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

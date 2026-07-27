@@ -1,0 +1,192 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "What does it feel like to ride on a rollercoaster with a nosedive?",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "As an AI language model, I don't have feelings, but I can provide you with a description of the experience. Riding a roller coaster with a nosedive can be a thrilling, heart-pumping experience. As the",
+      "tok_count": 120,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "What is a graviton?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "A graviton is a hypothetical elementary particle in the Standard Model of particle physics. It is the theoretical quantum particle that mediates the force of gravity, similar to how the photon mediate",
+      "tok_count": 113,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "What is a gravitational ride?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "A gravitational ride is a type of amusement ride that uses the force of gravity to provide thrills for riders. These rides use a variety of mechanisms to create different experiences, but they all rel",
+      "tok_count": 131,
+      "protected": true
+    }
+  ],
+  "trace_post": [],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 18,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 120,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 6,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 113,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 6,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 131,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "heart-pumping",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I don't have feelings, but I can provide you with a description of the experience. Riding a roller coaster with a nosedive can be a thrilling, heart-pumping experience. As the coaster car reaches the top of the hill and starts to descend, it suddenly drops straight down, causing a rush of adrenaline and a feeling of weightlessness in your stomach. The speed of the descent can create a sense of panic, but at the same time, it can be incredibly exhilarating, leaving you breathless and with a sense of accomplishment once the ride is over.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "confirmed",
+        "target": "Standard",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "A graviton is a hypothetical elementary particle in the Standard Model of particle physics. It is the theoretical quantum particle that mediates the force of gravity, similar to how the photon mediates the electromagnetic force. The graviton is predicted by the theory of quantum gravity, which attempts to describe the universe at the smallest scales and unify the theories of general relativity and quantum mechanics. The existence of gravitons has not been experimentally confirmed yet, but scientists continue to study and search for them as it could provide important insights into the nature of gravity and the universe.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "gravitational ride",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "A gravitational ride is a type of amusement ride that uses the force of gravity to provide thrills for riders. These rides use a variety of mechanisms to create different experiences, but they all rely on the force of gravity to generate speed and acceleration. Examples of gravitational rides include roller coasters, drop towers, and spinning rides. Gravity plays a crucial role in these rides, providing the necessary force to propel the vehicle or the rider downward, creating feelings of weightlessness, and inducing exciting accelerations and twists. These rides are popular with thrill-seekers and amusement park enthusiasts, who enjoy the thrill of being propelled through space by the fundamental force of gravity.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 394,
+    "comp_total_toks": 0,
+    "reduction": 100.0,
+    "DRR_soft": 0.0,
+    "RCI": 0.0
+  }
+}

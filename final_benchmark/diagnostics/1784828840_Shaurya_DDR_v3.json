@@ -1,0 +1,533 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Write the objective for a Work Immersion course as an engineering intern for a hotel.",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "The objective of the Work Immersion course for an engineering intern at a hotel is to provide hands-on experience and exposure to the engineering aspects of hotel maintenance and management. Through t",
+      "tok_count": 104,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Write the objective for a Work Immersion course as an engineering intern for a hotel working 80 hours as a Grade 12 student.",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The objective of the Work Immersion course for a Grade 12 engineering student interning at a hotel for 80 hours is to provide a hands-on learning experience that exposes the student to the various eng",
+      "tok_count": 155,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Write the objective for a Work Immersion course working 80 hours as a Grade 12 student. Emphasize on applying skills learnt in school.",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "The objective of the Work Immersion course for a Grade 12 student working 80 hours is to provide them with practical experience that allows them to apply the skills, knowledge, and theoretical concept",
+      "tok_count": 145,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Write a bulleted list of these statements but paraphrased and with correct grammar: 1. For employment simulation;\n2. To become familiar with the workplace;\n3. To   apply   their   competencies   in   ",
+      "tok_count": 105,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "1. The objective is to simulate employment scenarios.\n2. The goal is for the student to become acquainted with the workplace.\n3. The course aims to allow students to apply their competencies in areas ",
+      "tok_count": 102,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Write a behavioral expectation of grooming with the following statements: - Hair and face must be neat and clean. Light make-up and simple hairstyles are advised. Excessive jewelry should also be avoi",
+      "tok_count": 107,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "The behavioral expectations for grooming in the workplace include:\n\n- Hair and face should be groomed to be neat and clean. Women are advised to wear light makeup and simple hairstyles, and excessive ",
+      "tok_count": 162,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "Write a paragraph of behavioral expectation of grooming with the following statements: - Hair and face must be neat and clean. Light make-up and simple hairstyles are advised. Excessive jewelry should",
+      "tok_count": 108,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "Having proper grooming is essential in creating a professional and positive image for oneself and a company. The following are behavioral expectations for grooming in the workplace. Students are expec",
+      "tok_count": 172,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "Write a paragraph of behavioral expectation of behavior with the following statements: - To exercise proper ethics is expected of the students. One must consider attendance & punctuality, character, t",
+      "tok_count": 109,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "In the workplace, having proper behavior and ethics is crucial to ensure a positive and productive environment. As such, students are expected to exercise proper ethics in their conduct. This includes",
+      "tok_count": 154,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "user",
+      "preview": "Write a paragraph of behavioral expectation of credentials with the following statements: - Credentials presented to the company must truthful and carefully curated to be suited for the job position o",
+      "tok_count": 56,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "In applying for job positions, it is essential to have the appropriate credentials that truthfully reflect your skills and qualifications. Students are expected to curate their credentials carefully, ",
+      "tok_count": 161,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "user",
+      "preview": "Write a paragraph of behavioral expectations during orientation and introduction to management processes.",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "In orientation and introduction to management processes, students are expected to be engaged, proactive and to demonstrate a positive attitude towards learning. Orientation provides an opportunity for",
+      "tok_count": 195,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "user",
+      "preview": "Write a paragraph of behavioral expectations during the work immersion and accomplishing training plan and daily logs or journals.",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "During the work immersion period, students are expected to demonstrate professional behavior and adhere to the company's operations and regulations. Completing a training plan and daily logs or journa",
+      "tok_count": 198,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "user",
+      "preview": "Write a paragraph of behavioral expectations post-work immersion in creating a portfolio.",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "assistant",
+      "preview": "After completing the work immersion, students are expected to create a portfolio that reflects the skills, knowledge, and experience gained during their time in the workforce. The portfolio should sho",
+      "tok_count": 180,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "user",
+      "preview": "Write a paragraph of behavioral expectations post-work immersion in evaluation and feedback",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 23,
+      "role": "assistant",
+      "preview": "After the work immersion, students are expected to accept evaluation and feedback given to them by their supervisor or mentors. Being evaluated is a part of the learning process that allows students t",
+      "tok_count": 179,
+      "protected": false
+    },
+    {
+      "idx": 24,
+      "role": "user",
+      "preview": "Write a paragraph of behavioral expectations post-work immersion in reflection and insights",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 25,
+      "role": "assistant",
+      "preview": "Post-work immersion, students are expected to conduct an individual reflection and consolidate their insights and learning from the entire immersion program. They must engage in deep reflection and an",
+      "tok_count": 176,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "the intern should have a basic understanding of the engineering principles and practices used in a hotel setting and have a sense of how they can apply their skills in future work environments.",
+      "tok_count": 34
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "Confidentiality is another highly-valuable trait Alongside that they must prioritize their safety in the workplace by being aware of safety protocols and best practices.",
+      "tok_count": 30
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": "In orientation and introduction to management processes Lastly students should understand that orientation and introduction to management processes is an essential part of their learning and growth so",
+      "tok_count": 45
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 23,
+      "role": "assistant",
+      "preview": "as they can be used as a reference to evaluate one's progress and develop future plans for learning and development.",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 24,
+      "role": "user",
+      "preview": "Write a paragraph of behavioral expectations post-work immersion in reflection and insights",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 25,
+      "role": "assistant",
+      "preview": "Students are encouraged to make use of the insights they gained to create more challenges and experiences that will enable them to expand their knowledge and enhance their abilities. they should make ",
+      "tok_count": 45
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 17,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 104,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 27,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 155,
+      "retained_tokens": 34,
+      "retention_frac": 0.21935483870967742
+    },
+    "4": {
+      "orig_tokens": 30,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 145,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 105,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 102,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 107,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 162,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 108,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 172,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "12": {
+      "orig_tokens": 109,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 154,
+      "retained_tokens": 30,
+      "retention_frac": 0.19480519480519481
+    },
+    "14": {
+      "orig_tokens": 56,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "15": {
+      "orig_tokens": 161,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 14,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "17": {
+      "orig_tokens": 195,
+      "retained_tokens": 45,
+      "retention_frac": 0.23076923076923078
+    },
+    "18": {
+      "orig_tokens": 21,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "19": {
+      "orig_tokens": 198,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "20": {
+      "orig_tokens": 14,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "21": {
+      "orig_tokens": 180,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "22": {
+      "orig_tokens": 13,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "23": {
+      "orig_tokens": 179,
+      "retained_tokens": 22,
+      "retention_frac": 0.12290502793296089
+    },
+    "24": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    },
+    "25": {
+      "orig_tokens": 176,
+      "retained_tokens": 45,
+      "retention_frac": 0.2556818181818182
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    15,
+    16,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "engineering principles",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The objective of the Work Immersion course for a Grade 12 engineering student interning at a hotel for 80 hours is to provide a hands-on learning experience that exposes the student to the various engineering aspects of hotel maintenance and management. Through this course, the intern will gain an understanding of the inner workings of a hotel and the essential role that engineers play in ensuring safe and comfortable accommodations for guests. The goal is for the intern to gain practical skills in maintaining electrical, plumbing, HVAC systems, and other mechanical and engineering equipment necessary for the smooth operation of the hotel. By the end of the course, the intern should have a basic understanding of the engineering principles and practices used in a hotel setting and have a sense of how they can apply their skills in future work environments.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "engineering principles",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "practices",
+        "rationale": [
+          "winner:practices"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In the workplace, having proper behavior and ethics is crucial to ensure a positive and productive environment. As such, students are expected to exercise proper ethics in their conduct. This includes prioritizing attendance, punctuality, character, teamwork, attitude, productivity, organizational and communication skills, and respect towards colleagues, clients, and supervisors. Confidentiality is another highly-valuable trait, and students must always exercise discretion in all their work endeavors to maintain sensitive information's integrity. Alongside that, they must prioritize their safety in the workplace by being aware of safety protocols and best practices. Additionally, students must employ conflict resolution and people skills to navigate challenging situations and people effectively. By upholding these expectations, students can foster a professional work environment that promotes collaboration, trust, and productivity.",
+        "msg_idx": 13
+      },
+      "reproduced": {
+        "action": "best",
+        "target": "practices",
+        "rationale": [
+          "winner:practices"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "management processes",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In orientation and introduction to management processes, students are expected to be engaged, proactive and to demonstrate a positive attitude towards learning. Orientation provides an opportunity for students to learn about the company's core values, mission, and vision, and its management processes. It also allows them to internalize the company's culture and build a sense of belongingness. In this process, students should be attentive, ask relevant questions, and seek clarification when unsure. They should also be open-minded and receptive to feedback, criticisms, and different viewpoints. It's crucial to respect the hierarchy of the workplace, so when dealing with managers, students must be professional and courteous in their communication and actions. Lastly, students should understand that orientation and introduction to management processes is an essential part of their learning and growth, so it's important to take it seriously and put the skills and knowledge acquired to use. By demonstrating these expectations, students can lay a foundation of success and establish a positive impression within the company.",
+        "msg_idx": 17
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "management processes",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "evaluate one s progress",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "After the work immersion, students are expected to accept evaluation and feedback given to them by their supervisor or mentors. Being evaluated is a part of the learning process that allows students to identify areas of strength and areas of improvement. They should take feedback constructively, as it is designed to help them grow and improve their skills. It's essential to document these feedbacks, as they can be used as a reference to evaluate one's progress and develop future plans for learning and development. Students should ask questions as needed and seek additional clarification if needed to properly understand the critiquing of their performance. It's critical to respond positively to feedback, to make the necessary improvements and to demonstrate willingness to learn more. In summary, taking evaluations and feedbacks graciously is key to making the most out of the learning experience in the work immersion program, and will ultimately help them succeed in their future career endeavors.",
+        "msg_idx": 23
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "evaluate one s progress",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2717,
+    "comp_total_toks": 189,
+    "reduction": 93.0437983069562,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

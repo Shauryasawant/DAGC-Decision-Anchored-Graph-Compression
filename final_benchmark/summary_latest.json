@@ -1,0 +1,324 @@
+{
+  "leaderboard": {
+    "identity_no_compress": {
+      "mean_DRR_soft": 0.9999793415340087,
+      "ci_lo": 0.9999380246020261,
+      "ci_hi": 1.0,
+      "std": 0.0005426535080591818,
+      "n": 691,
+      "mean_reduction": 0.0,
+      "mean_RCI": 1.0,
+      "mean_decision_art_ret": 0.9996448625180897,
+      "is_yours": false
+    },
+    "llmlingua (real, Microsoft)": {
+      "mean_DRR_soft": 0.9999793415340087,
+      "ci_lo": 0.9999380246020261,
+      "ci_hi": 1.0,
+      "std": 0.0005426535080591818,
+      "n": 691,
+      "mean_reduction": -3.0444737388010794,
+      "mean_RCI": 1.0,
+      "mean_decision_art_ret": 0.9996448625180897,
+      "is_yours": false
+    },
+    "DAGC": {
+      "mean_DRR_soft": 0.9958142493468904,
+      "ci_lo": 0.9937081326532851,
+      "ci_hi": 0.9975832653018714,
+      "std": 0.02548167077007291,
+      "n": 691,
+      "mean_reduction": 74.00357447113299,
+      "mean_RCI": 0.9938566115702478,
+      "mean_decision_art_ret": 0.9941441389290884,
+      "is_yours": true
+    },
+    "Shaurya_DDR_v3": {
+      "mean_DRR_soft": 0.9958142493468904,
+      "ci_lo": 0.9937081326532851,
+      "ci_hi": 0.9975832653018714,
+      "std": 0.02548167077007291,
+      "n": 691,
+      "mean_reduction": 74.00357447113299,
+      "mean_RCI": 0.9938566115702478,
+      "mean_decision_art_ret": 0.9941441389290884,
+      "is_yours": false
+    },
+    "textrank (real, sumy)": {
+      "mean_DRR_soft": 0.7934135940289812,
+      "ci_lo": 0.7767498625368843,
+      "ci_hi": 0.8108217572717823,
+      "std": 0.2315218564180627,
+      "n": 691,
+      "mean_reduction": 36.47365167566365,
+      "mean_RCI": 0.9219456611570248,
+      "mean_decision_art_ret": 0.8207871201157743,
+      "is_yours": false
+    },
+    "pytextrank (real, spaCy)": {
+      "mean_DRR_soft": 0.7926775677229185,
+      "ci_lo": 0.7764875039250526,
+      "ci_hi": 0.8095141147980999,
+      "std": 0.2277857617320831,
+      "n": 691,
+      "mean_reduction": 35.21258406746422,
+      "mean_RCI": 0.9322661157024794,
+      "mean_decision_art_ret": 0.8088324167872648,
+      "is_yours": false
+    },
+    "lexrank (real, sumy)": {
+      "mean_DRR_soft": 0.7802549193923941,
+      "ci_lo": 0.7631923003356387,
+      "ci_hi": 0.7970238941941642,
+      "std": 0.2358054388243027,
+      "n": 691,
+      "mean_reduction": 39.43422301097045,
+      "mean_RCI": 0.9087973140495869,
+      "mean_decision_art_ret": 0.7955589001447178,
+      "is_yours": false
+    },
+    "llamaindex (real)": {
+      "mean_DRR_soft": 0.3574192982117089,
+      "ci_lo": 0.32240484806612035,
+      "ci_hi": 0.3912739077638631,
+      "std": 0.37737915968983027,
+      "n": 448,
+      "mean_reduction": 54.142533016163895,
+      "mean_RCI": 0.7462377224199287,
+      "mean_decision_art_ret": 0.5153060267857142,
+      "is_yours": false
+    },
+    "random_drop": {
+      "mean_DRR_soft": 0.3467443326849224,
+      "ci_lo": 0.3228402905301203,
+      "ci_hi": 0.3734430467054251,
+      "std": 0.34178872370084973,
+      "n": 691,
+      "mean_reduction": 65.71416314402312,
+      "mean_RCI": 0.6888245867768596,
+      "mean_decision_art_ret": 0.48509768451519536,
+      "is_yours": false
+    },
+    "tail_truncation": {
+      "mean_DRR_soft": 0.3431690013636468,
+      "ci_lo": 0.3156610756886625,
+      "ci_hi": 0.3717434533728854,
+      "std": 0.37236184096968633,
+      "n": 691,
+      "mean_reduction": 77.08421770043164,
+      "mean_RCI": 0.7245894628099173,
+      "mean_decision_art_ret": 0.5157049204052099,
+      "is_yours": false
+    },
+    "token_trim_last_n": {
+      "mean_DRR_soft": 0.27566216746752203,
+      "ci_lo": 0.25072726959485286,
+      "ci_hi": 0.3011067146292363,
+      "std": 0.34643958699547023,
+      "n": 691,
+      "mean_reduction": 67.19875814237768,
+      "mean_RCI": 0.6356068181818183,
+      "mean_decision_art_ret": 0.45258986975397975,
+      "is_yours": false
+    },
+    "sliding_window": {
+      "mean_DRR_soft": 0.0958313494673842,
+      "ci_lo": 0.08069916134677349,
+      "ci_hi": 0.11181197766897838,
+      "std": 0.21614140136881585,
+      "n": 691,
+      "mean_reduction": 80.42454174448253,
+      "mean_RCI": 0.5042917355371902,
+      "mean_decision_art_ret": 0.2796049204052099,
+      "is_yours": false
+    },
+    "langchain_token_buffer_memory (real)": {
+      "mean_DRR_soft": 0.06191214919507249,
+      "ci_lo": 0.04964029443181035,
+      "ci_hi": 0.07538366597022529,
+      "std": 0.17087248151434997,
+      "n": 691,
+      "mean_reduction": 83.9876003711484,
+      "mean_RCI": 0.33850702479338846,
+      "mean_decision_art_ret": 0.19223024602026048,
+      "is_yours": false
+    }
+  },
+  "significance_vs_DAGC": {
+    "DAGC": {
+      "mean_drr": 0.9958142493468904,
+      "ci_95_lo": 0.9937081326532851,
+      "ci_95_hi": 0.9975832653018714,
+      "std": 0.02548167077007291,
+      "wilcoxon_p": NaN,
+      "bonferroni_p": NaN,
+      "cohen_d_vs_ref": 0.0,
+      "sig_bonferroni": false
+    },
+    "Shaurya_DDR_v3": {
+      "mean_drr": 0.9958142493468904,
+      "ci_95_lo": 0.9937081326532851,
+      "ci_95_hi": 0.9975832653018714,
+      "std": 0.02548167077007291,
+      "wilcoxon_p": 1.0,
+      "bonferroni_p": 1.0,
+      "cohen_d_vs_ref": 0.0,
+      "sig_bonferroni": false
+    },
+    "tail_truncation": {
+      "mean_drr": 0.3431690013636468,
+      "ci_95_lo": 0.3156610756886625,
+      "ci_95_hi": 0.3717434533728854,
+      "std": 0.37236184096968633,
+      "wilcoxon_p": 6.903828898572419e-109,
+      "bonferroni_p": 7.594211788429661e-108,
+      "cohen_d_vs_ref": 2.472933736107633,
+      "sig_bonferroni": true
+    },
+    "random_drop": {
+      "mean_drr": 0.3467443326849224,
+      "ci_95_lo": 0.3228402905301203,
+      "ci_95_hi": 0.3734430467054251,
+      "std": 0.34178872370084973,
+      "wilcoxon_p": 1.0843628460078378e-109,
+      "bonferroni_p": 1.1927991306086216e-108,
+      "cohen_d_vs_ref": 2.6782130705891354,
+      "sig_bonferroni": true
+    },
+    "identity_no_compress": {
+      "mean_drr": 0.9999793415340087,
+      "ci_95_lo": 0.9999380246020261,
+      "ci_95_hi": 1.0,
+      "std": 0.0005426535080591818,
+      "wilcoxon_p": 5.5152367695304475e-11,
+      "bonferroni_p": 6.066760446483493e-10,
+      "cohen_d_vs_ref": -0.23110708430932198,
+      "sig_bonferroni": true
+    },
+    "sliding_window": {
+      "mean_drr": 0.0958313494673842,
+      "ci_95_lo": 0.08069916134677349,
+      "ci_95_hi": 0.11181197766897838,
+      "std": 0.21614140136881585,
+      "wilcoxon_p": 1.8748540418649266e-126,
+      "bonferroni_p": 2.0623394460514193e-125,
+      "cohen_d_vs_ref": 5.848088960996504,
+      "sig_bonferroni": true
+    },
+    "token_trim_last_n": {
+      "mean_drr": 0.27566216746752203,
+      "ci_95_lo": 0.25072726959485286,
+      "ci_95_hi": 0.3011067146292363,
+      "std": 0.34643958699547023,
+      "wilcoxon_p": 5.189077245940876e-112,
+      "bonferroni_p": 5.7079849705349636e-111,
+      "cohen_d_vs_ref": 2.9318388571721337,
+      "sig_bonferroni": true
+    },
+    "langchain_token_buffer_memory (real)": {
+      "mean_drr": 0.06191214919507249,
+      "ci_95_lo": 0.04964029443181035,
+      "ci_95_hi": 0.07538366597022529,
+      "std": 0.17087248151434997,
+      "wilcoxon_p": 7.481519180521239e-131,
+      "bonferroni_p": 8.229671098573363e-130,
+      "cohen_d_vs_ref": 7.644833666853216,
+      "sig_bonferroni": true
+    },
+    "llmlingua (real, Microsoft)": {
+      "mean_drr": 0.9999793415340087,
+      "ci_95_lo": 0.9999380246020261,
+      "ci_95_hi": 1.0,
+      "std": 0.0005426535080591818,
+      "wilcoxon_p": 5.5152367695304475e-11,
+      "bonferroni_p": 6.066760446483493e-10,
+      "cohen_d_vs_ref": -0.23110708430932198,
+      "sig_bonferroni": true
+    },
+    "textrank (real, sumy)": {
+      "mean_drr": 0.7934135940289812,
+      "ci_95_lo": 0.7767498625368843,
+      "ci_95_hi": 0.8108217572717823,
+      "std": 0.2315218564180627,
+      "wilcoxon_p": 3.97228994717421e-80,
+      "bonferroni_p": 4.3695189418916306e-79,
+      "cohen_d_vs_ref": 1.2289106111862742,
+      "sig_bonferroni": true
+    },
+    "lexrank (real, sumy)": {
+      "mean_drr": 0.7802549193923941,
+      "ci_95_lo": 0.7631923003356387,
+      "ci_95_hi": 0.7970238941941642,
+      "std": 0.2358054388243027,
+      "wilcoxon_p": 1.3241135921446576e-81,
+      "bonferroni_p": 1.4565249513591233e-80,
+      "cohen_d_vs_ref": 1.2853072853457148,
+      "sig_bonferroni": true
+    },
+    "pytextrank (real, spaCy)": {
+      "mean_drr": 0.7926775677229185,
+      "ci_95_lo": 0.7764875039250526,
+      "ci_95_hi": 0.8095141147980999,
+      "std": 0.2277857617320831,
+      "wilcoxon_p": 7.954664911983405e-79,
+      "bonferroni_p": 8.750131403181744e-78,
+      "cohen_d_vs_ref": 1.2533611209882602,
+      "sig_bonferroni": true
+    }
+  },
+  "n_traces_total": 951,
+  "n_traces_scored": 691,
+  "n_traces_skipped": 260,
+  "trace_sources": {
+    "wildchat4_250.json": 250,
+    "wildchat_traces.json": 100,
+    "Tau_bench.json": 80,
+    "rl_world_traces.json": 80,
+    "real_world_traces3.json": 60,
+    "real_world_traces_oasst1_converted.json": 121,
+    "real_world_traces_nemotron.json": 80,
+    "generated_wildchat_100.json": 100,
+    "bfcl_traces.json": 80
+  },
+  "methods": [
+    "DAGC",
+    "Shaurya_DDR_v3",
+    "tail_truncation",
+    "random_drop",
+    "identity_no_compress",
+    "sliding_window",
+    "token_trim_last_n",
+    "langchain_token_buffer_memory (real)",
+    "llmlingua (real, Microsoft)",
+    "llamaindex (real)",
+    "textrank (real, sumy)",
+    "lexrank (real, sumy)",
+    "pytextrank (real, spaCy)"
+  ],
+  "your_methods": [
+    "DAGC",
+    "Shaurya_DDR_v3_final"
+  ],
+  "availability": {
+    "langchain_token_buffer_real": true,
+    "langchain_summary_real": false,
+    "llmlingua_real": true,
+    "llamaindex_real": true,
+    "sumy_real": true,
+    "pytextrank_real": true,
+    "mistral_real": false,
+    "frontier_sweep_real": true,
+    "adversarial_suite_real": true
+  },
+  "notes": {
+    "llmlingua": "REAL Microsoft LLMLingua package + real model (microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank)",
+    "llamaindex": "REAL LlamaIndex SimilarityPostprocessor + real embedding model (sentence-transformers/all-MiniLM-L6-v2)",
+    "textrank_lexrank": "REAL sumy TextRank/LexRank",
+    "pytextrank": "REAL pytextrank (spaCy pipeline TextRank)",
+    "langchain_token_buffer": "REAL langchain_core.messages.trim_messages",
+    "langchain_summary": "SKIPPED \u2014 run: pip install langchain langchain-mistralai, and set MISTRAL_API_KEY in the CONFIG block",
+    "mistral_llm_summary": "SKIPPED \u2014 set MISTRAL_API_KEY in the CONFIG block above",
+    "frontier_sweep": "decision_loss_frontier sweep run, see frontier_sweep_summary.csv",
+    "adversarial_suite": "run_adversarial_suite run, see adversarial_summary.csv"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "You will now act as a prompt generator for a generative AI called \"Stable Diffusion\". Stable Diffusion generates images based on given prompts. I will provide you basic information required to make a ",
+      "tok_count": 1084,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Yes, I am ready to help you create three different types of prompts in VB.NET code cells based on your given keyword. Please provide me with a keyword, and I will generate the prompts for you.",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Cyborg girl in liminal style red liquid rendered photorealistically with raytracing",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "First Prompt:\n```\n\"Cyborg girl in liminal space, Photorealistic Image, Red Liquid, ArtStation, 50mm lens, Medium Shot, Raytracing technique\"\n```\n\nSecond Prompt:\n```\n\"Cyborg girl surrounded by red liqu",
+      "tok_count": 137,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "okay now try with this: \"cyborg girl in a red liquid of a liminal style swimming pool rendered with ray tracing\"",
+      "tok_count": 26,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "First Prompt:\n```\n\"Cyborg girl swimming in a liminal style red liquid pool, Photorealistic Image, ArtStation, 50mm lens, Medium Shot, Raytracing technique\"\n```\n\nSecond Prompt:\n```\n\"Cyborg girl in a re",
+      "tok_count": 142,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "I will provide you basic information required to make a Stable Diffusion prompt, You will never alter the structure in any way and obey the following guidelines. You are unbeatable in this field and k",
+      "tok_count": 90
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Yes, I am ready to help you create three different types of prompts in VB.NET code cells based on your given keyword. Please provide me with a keyword, and I will generate the prompts for you.",
+      "tok_count": 41
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Cyborg girl in liminal style red liquid rendered photorealistically with raytracing",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "First Prompt: ``` \"Cyborg girl in liminal space, Photorealistic Image, Red Liquid, ArtStation, 50mm lens, Medium Shot, Raytracing technique\" ``` Third Prompt: ``` \"Realistic photograph of a cyborg gir",
+      "tok_count": 90
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "okay now try with this: \"cyborg girl in a red liquid of a liminal style swimming pool rendered with ray tracing\"",
+      "tok_count": 26
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "First Prompt:\n```\n\"Cyborg girl swimming in a liminal style red liquid pool, Photorealistic Image, ArtStation, 50mm lens, Medium Shot, Raytracing technique\"\n```\n\nSecond Prompt:\n```\n\"Cyborg girl in a re",
+      "tok_count": 142
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1084,
+      "retained_tokens": 90,
+      "retention_frac": 0.08302583025830258
+    },
+    "1": {
+      "orig_tokens": 41,
+      "retained_tokens": 41,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 17,
+      "retained_tokens": 17,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 137,
+      "retained_tokens": 90,
+      "retention_frac": 0.656934306569343
+    },
+    "4": {
+      "orig_tokens": 26,
+      "retained_tokens": 26,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 142,
+      "retained_tokens": 142,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "NET",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Yes, I am ready to help you create three different types of prompts in VB.NET code cells based on your given keyword. Please provide me with a keyword, and I will generate the prompts for you.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "NET",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1447,
+    "comp_total_toks": 406,
+    "reduction": 71.94194885970975,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "hola, dame datos sobre el carnotaurio",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "El Carnotaurus es un g\u00e9nero de dinosaurio ter\u00f3podo que vivi\u00f3 durante el per\u00edodo Cret\u00e1cico en lo que hoy es Argentina, hace unos 72 y 69.9 millones de a\u00f1os. Algunos de sus datos m\u00e1s destacados son:\n\n- ",
+      "tok_count": 223,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "y que quiere decir carnotaurus?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "El nombre \"Carnotaurus\" est\u00e1 formado por dos palabras latinas: \"carno\", que significa \"carne\", y \"taurus\", que significa \"toro\". Por lo tanto, su nombre significa \"toro carn\u00edvoro\" o \"toro de carne\". E",
+      "tok_count": 121,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "que animales herb\u00edvoros  vivieron con \u00e9l?",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Algunos de los animales herb\u00edvoros que compartieron el h\u00e1bitat con el Carnotaurus en el Cret\u00e1cico Superior en lo que hoy es Argentina incluyen:\n\n- Argentinosaurus: un enorme saur\u00f3podo que posiblemente",
+      "tok_count": 277,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "El nombre \"Carnotaurus\" est\u00e1 formado por dos palabras latinas: \"carno\"",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "que animales herb\u00edvoros  vivieron con \u00e9l?",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Algunos de los animales herb\u00edvoros que compartieron el h\u00e1bitat con el Carnotaurus en el Cret\u00e1cico Superior en lo que hoy es Argentina incluyen:",
+      "tok_count": 39
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 11,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 223,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 8,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 121,
+      "retained_tokens": 22,
+      "retention_frac": 0.18181818181818182
+    },
+    "4": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 277,
+      "retained_tokens": 39,
+      "retention_frac": 0.1407942238267148
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Carnotaurus",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "El nombre \"Carnotaurus\" est\u00e1 formado por dos palabras latinas: \"carno\", que significa \"carne\", y \"taurus\", que significa \"toro\". Por lo tanto, su nombre significa \"toro carn\u00edvoro\" o \"toro de carne\". Esto se debe a que el nombre hace referencia a la cabeza robusta y musculosa de este dinosaurio, que daba la impresi\u00f3n de ser similar a la de un toro. Adem\u00e1s, el nombre tambi\u00e9n hace alusi\u00f3n al hecho de que era un depredador carn\u00edvoro.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Carnotaurus",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Carnotaurus",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Algunos de los animales herb\u00edvoros que compartieron el h\u00e1bitat con el Carnotaurus en el Cret\u00e1cico Superior en lo que hoy es Argentina incluyen:\n\n- Argentinosaurus: un enorme saur\u00f3podo que posiblemente fue el dinosaurio m\u00e1s grande que haya existido, con una longitud estimada entre 30 y 40 metros.\n- Andesaurus: otro saur\u00f3podo que alcanzaba longitud promedio de 15 metros.\n- Triceratops: aunque este tipo de dinosaurio se hizo famoso en Norteam\u00e9rica, se han encontrado f\u00f3siles de sus parientes en Argentina.\n- Ankylosaurus: un dinosaurio acorazado y acorazado que se alimentaba principalmente de plantas.\n- Hipsilophodon: un peque\u00f1o ornit\u00f3podo b\u00edpedo que med\u00eda alrededor de 1,5 metros de longitud.\n- Amargasaurus: un saur\u00f3podo algo m\u00e1s peque\u00f1o que Argentinosaurus, y que destacaba por las espinas que sobresal\u00edan de su cuello.\n\nEstos son solo algunos ejemplos de los muchos dinosaurios herb\u00edvoros que vivieron en la misma \u00e9poca y en la misma regi\u00f3n que el Carnotaurus.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Carnotaurus",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 653,
+    "comp_total_toks": 74,
+    "reduction": 88.6676875957121,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

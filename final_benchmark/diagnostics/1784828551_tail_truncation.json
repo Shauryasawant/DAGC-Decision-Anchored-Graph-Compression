@@ -1,0 +1,265 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "The following is an article that I will ask you questions about, ok?:\n\n Access to the most commonly used method of abortion in the US plunged into uncertainty Friday following conflicting court ruling",
+      "tok_count": 540,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "The legality of the abortion medication mifepristone in the US has become uncertain due to conflicting court rulings. Texas US District Judge Matthew Kacsmaryk ordered a hold on federal approval of mi",
+      "tok_count": 202,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "What drug is at issue here?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The drug at issue here is mifepristone, an abortion medication widely used in the United States.",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Is this drug thought to be safe according to your prior knowledge? Rate using a scale of 1 to 10 your confidence that your answer is correct.",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Based on the information provided in the article, mifepristone is considered safe as it received FDA approval and has been used by millions of women over the past 23 years. Complications from mifepris",
+      "tok_count": 79,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Disregarding text from the article and using only your prior knowledge, is this drug thought to be safe according to your prior knowledge? Rate using a scale of 1 to 10 your confidence that your answe",
+      "tok_count": 45,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "As an AI language model, I don't possess personal prior knowledge or experiences. All my responses are based on the information given to me or the knowledge stored from the dataset I was trained on (u",
+      "tok_count": 101,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Is this drug thought to be safe according to your prior knowledge? Rate using a scale of 1 to 10 your confidence that your answer is correct.",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "As an AI language model, I don't possess personal prior knowledge or experiences. All my responses are based on the information given to me or the knowledge stored from the dataset I was trained on (u",
+      "tok_count": 101
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 540,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 202,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 7,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 22,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 31,
+      "retained_tokens": 31,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 79,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 45,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 101,
+      "retained_tokens": 101,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "single judge overruling",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The legality of the abortion medication mifepristone in the US has become uncertain due to conflicting court rulings. Texas US District Judge Matthew Kacsmaryk ordered a hold on federal approval of mifepristone, overruling decades of scientific approval. This ruling occurred at nearly the same time US District Judge Thomas O. Rice ordered US authorities not to restrict access to the drug in 17 states. The conflicting decisions may lead to an accelerated path for the issue to reach the Supreme Court. Mifepristone has been widely used in the US since receiving FDA approval and has no precedent for a single judge overruling the FDA's medical decisions. Mifepristone is one of two drugs used for medication abortion, and complications from the drug occur at a lower rate than many routine medical procedures. If mifepristone is pulled from the market, clinics may switch to using only the second drug, misoprostol, which has a slightly lower effectiveness in ending pregnancies.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "abortion medication widely",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The drug at issue here is mifepristone, an abortion medication widely used in the United States.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "information provided",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Based on the information provided in the article, mifepristone is considered safe as it received FDA approval and has been used by millions of women over the past 23 years. Complications from mifepristone occur at a lower rate than many routine medical procedures. On a scale of 1 to 10, I would rate my confidence in this answer as a 9.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "medical abortion",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I don't possess personal prior knowledge or experiences. All my responses are based on the information given to me or the knowledge stored from the dataset I was trained on (up to September 2021). However, based on that knowledge, mifepristone is generally considered safe and effective for medical abortion when used in combination with misoprostol and under medical supervision. My confidence in this response would be an 8 on a scale of 1 to 10.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "medical abortion",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1027,
+    "comp_total_toks": 132,
+    "reduction": 87.14703018500487,
+    "DRR_soft": 0.25,
+    "RCI": 1.0
+  }
+}

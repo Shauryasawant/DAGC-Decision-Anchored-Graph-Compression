@@ -1,0 +1,92 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Write a 4chan style greentext about someone who loves the new romantic comedy movie, with an ironic twist that re-contextualizes the story at the end.. It should start with '>be me'",
+      "tok_count": 42,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": ">be me\n>sister wants to watch the new hit romcom\n>not a fan, but what the hell, its got a fantasy theme\n>we're watching, but a sex scene comes up\n>then another\n>i keep looking away from the screen\n>lo",
+      "tok_count": 83,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "It should start with '>be me'",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": ">i keep looking away from the screen >lotsofsex.jpg",
+      "tok_count": 13
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 42,
+      "retained_tokens": 8,
+      "retention_frac": 0.19047619047619047
+    },
+    "1": {
+      "orig_tokens": 83,
+      "retained_tokens": 13,
+      "retention_frac": 0.1566265060240964
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "keep",
+        "target": "lotsofsex.jpg",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "lotsofsex.jpg"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": ">be me\n>sister wants to watch the new hit romcom\n>not a fan, but what the hell, its got a fantasy theme\n>we're watching, but a sex scene comes up\n>then another\n>i keep looking away from the screen\n>lotsofsex.jpg\n>sister starts teasing me for my discomfort \n\nSo anyway, how did you get into Game of Thrones?",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "keep",
+        "target": "lotsofsex.jpg",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 125,
+    "comp_total_toks": 21,
+    "reduction": 83.2,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

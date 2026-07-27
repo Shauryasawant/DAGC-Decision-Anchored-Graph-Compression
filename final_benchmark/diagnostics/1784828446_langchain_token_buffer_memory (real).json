@@ -1,0 +1,160 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "hi",
+      "tok_count": 1,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hi! How can I assist you today?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "What is your purpose?",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "As an AI language model, my purpose is to assist and communicate with users, help with tasks such as answering questions, completing simple tasks and performing specific functions such as translation,",
+      "tok_count": 66,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Are you capable of simulations roleplaying and so on?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "As an AI language model, I don't have an independent will to simulate a character from a specific role-playing game, but I can respond to prompts based on predetermined scripts or rulesets provided by",
+      "tok_count": 90,
+      "protected": true
+    }
+  ],
+  "trace_post": [],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 66,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 11,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 90,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "purpose is",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, my purpose is to assist and communicate with users, help with tasks such as answering questions, completing simple tasks and performing specific functions such as translation, summarization, and more. Additionally, my purpose is to continuously learn and improve from user interactions in order to provide more accurate and helpful responses over time.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "role-playing",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I don't have an independent will to simulate a character from a specific role-playing game, but I can respond to prompts based on predetermined scripts or rulesets provided by the user. Essentially, I can role-play as long as the chat is kept within the limits of the natural language processing capabilities that I have been programmed with. However, my real strength lies in understanding and providing relevant information to assist users in their queries.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 182,
+    "comp_total_toks": 0,
+    "reduction": 100.0,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

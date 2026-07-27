@@ -1,0 +1,109 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI, you may use extremely long chains of thought to deeply consider the problem and deliberate with yourself via systematic reasoning processes to help come to a correct soluti",
+      "tok_count": 435,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Hi, I need to convert a temperature from Celsius to Fahrenheit. The temperature is 30 degrees Celsius.",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "<think>\nOkay, the user wants to convert 30 degrees Celsius to Fahrenheit. I should use the convert_temperature function from the available tools. I need to check the parameters required for that funct",
+      "tok_count": 162,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "<think>\nOkay, the tool_response shows the converted temperature is 86. I need to present that as the result to the user. The user asked for 30 degrees Celsius converted to Fahrenheit, which is a strai",
+      "tok_count": 70,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI, you may use extremely long chains of thought to deeply consider the problem and deliberate with yourself via systematic reasoning processes to help come to a correct soluti",
+      "tok_count": 435
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 435,
+      "retained_tokens": 435,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 21,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 162,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 70,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "available tools",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>\nOkay, the user wants to convert 30 degrees Celsius to Fahrenheit. I should use the convert_temperature function from the available tools. I need to check the parameters required for that function. The parameters are temperature, from_unit, and to_unit. The temperature is 30, from_unit is Celsius, and to_unit is Fahrenheit. So putting that together, the function call would be convert_temperature with those values. Let me make sure I pass the correct data types, but the tool's documentation mentions that temperature is a number, which 30 is. The units are strings. So I should format the function call correctly.\n</think>\n<tool_call>\n{\"name\":\"convert_temperature\",\"arguments\":{\"temperature\":30,\"from_unit\":\"Celsius\",\"to_unit\":\"Fahrenheit\"}}\n</tool_call>",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 688,
+    "comp_total_toks": 435,
+    "reduction": 36.77325581395349,
+    "DRR_soft": 0.0,
+    "RCI": 1.0
+  }
+}

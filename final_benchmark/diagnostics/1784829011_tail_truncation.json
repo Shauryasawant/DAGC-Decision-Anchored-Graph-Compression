@@ -1,0 +1,111 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Write detailed movie scene of Amanda Waller having serious conversation with Batman, before Wonderwoman crawls out of Amanda\u2019s mouth.",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "INT. ARGUS HQ - NIGHT\n\nA dimly lit office space with high-tech computers and gadgets scattered all over the room. The ARGUS logo is displayed on one of the walls. Amanda Waller is seated in a leather ",
+      "tok_count": 669,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Now this time write it so that \u2018Amanda\u2019 was just a synthetic bodysuit the whole time.",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "INT. ARGUS HQ - NIGHT\n\nA dimly lit office space with high-tech computers and gadgets scattered all over the room. The ARGUS logo is displayed on one of the walls. AMANDA WALLER - or at least what look",
+      "tok_count": 551,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "INT. ARGUS HQ - NIGHT\n\nA dimly lit office space with high-tech computers and gadgets scattered all over the room. The ARGUS logo is displayed on one of the walls. AMANDA WALLER - or at least what look",
+      "tok_count": 551
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 25,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 669,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 22,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 551,
+      "retained_tokens": 551,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "synthetic bodysuit afterward",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "INT. ARGUS HQ - NIGHT\n\nA dimly lit office space with high-tech computers and gadgets scattered all over the room. The ARGUS logo is displayed on one of the walls. AMANDA WALLER - or at least what looks like her - is seated in a leather chair behind a large, modern desk, surrounded by framed photos of her career highlights.\n\nBATMAN (early 40s, strong but weathered) is standing in front of the desk, his cape barely touching the floor. Their faces are intense, the tension between them palpable. The only audible sound is the hum of the equipment.\n\nAMANDA WALLER\n(leaning forward)\nYou know, Batman, it's not every day that someone like you comes knocking on ARGUS's door.\n\nBATMAN\n(snarky)\nI don't knock. And don't think your Task Force X has gone unnoticed.\n\nAMANDA WALLER\n(smirking)\nI gathered as much. But I needed them. There are some threats that even the Justice League can't be seen handling.\n\nBATMAN\nYou mean you want us to be your scapegoats. We're not your pawns, Waller.\n\nAMANDA WALLER\n(boldly)\nBut you could be. It doesn't take a genius to see that the world is going to hell in a handbasket. Those monsters that were unleashed, the rise in metahuman activity. We need to be prepared for anything.\n\nSuddenly, Amanda Waller's features start to distort, her face becoming less human-like, the wrinkles and texture slowly disappearing. She seems to be struggling, her body trembling.\n\nWith a gasp, Wonder Woman (early 30s, strong and fierce) bursts out of the synthetic bodysuit of Amanda Waller, violently tearing it apart. The shredded, lifeless bodysuit now lays scattered across the floor.\n\nAs Batman looks on, shocked, Wonder Woman stands up, attempting to catch her breath.\n\nBATMAN\n(concerned)\nDiana! What just happened?\n\nWONDER WOMAN\n(exhaling)\nIt was an elaborate trap... I was lured into it by someone posing as Amanda Waller. They must have planted the synthetic bodysuit afterward to continue using her appearance for their purpose.\n\nBATMAN\n(growing angrier)\nDo you know who's responsible?\n\nWONDER WOMAN\n(shaking her head)\nNo. But we must find the real Amanda Waller and whoever did this before they cause any more damage.\n\nBatman gives a determined nod as he and Wonder Woman prepare to leave the room, knowing that they must uncover the truth and stop whoever is hiding behind the synthetic Amanda Waller.\n\nFADE OUT.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "synthetic bodysuit afterward",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1267,
+    "comp_total_toks": 551,
+    "reduction": 56.51144435674822,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

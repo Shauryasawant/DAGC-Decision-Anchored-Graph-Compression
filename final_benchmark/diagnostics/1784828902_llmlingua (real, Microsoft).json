@@ -1,0 +1,162 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Write a \u2018Simple minded\u2019 speech of Gendry telling Arya about his regrets for leaving her in king\u2019s road instead of going with her to winterfell.",
+      "tok_count": 33,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Arya, I've been wanting to tell you something important since we met again. Something that's been on my mind for a long time. Remember when we were both traveling down the King's Road, a long time ago",
+      "tok_count": 387,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "No turn this into a conversation with Arya, with Arya responding to each sentence he says, with a \u2018I don\u2019t know what to think\u2019 type tone.",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Gendry: Arya, I've been wanting to tell you something important since we met again. Something that's been on my mind for a long time. Remember when we were both traveling down the King's Road, a long ",
+      "tok_count": 637,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Write a \u2018Simple minded\u2019 speech of Gendry telling Arya about his regrets for leaving her in king\u2019s road instead of going with her to winterfell.",
+      "tok_count": 33
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Arya, I've been wanting to tell you something important since we met again. Something that's been on my mind for a long time. Remember when we were both traveling down the King's Road, a long time ago",
+      "tok_count": 387
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "No turn this into a conversation with Arya, with Arya responding to each sentence he says, with a \u2018I don\u2019t know what to think\u2019 type tone.",
+      "tok_count": 34
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Gendry: Arya, I've been wanting to tell you something important since we met again. Something that's been on my mind for a long time. Remember when we were both traveling down the King's Road, a long ",
+      "tok_count": 637
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 33,
+      "retained_tokens": 33,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 387,
+      "retained_tokens": 387,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 34,
+      "retained_tokens": 34,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 637,
+      "retained_tokens": 637,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "keep",
+        "target": "King",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Arya, I've been wanting to tell you something important since we met again. Something that's been on my mind for a long time. Remember when we were both traveling down the King's Road, a long time ago?\n\nI want to be honest with you, Arya. I wish I hadn't left you on that day. I wish I had gone with you all the way to Winterfell. I feel terrible about it, and it's been weighing me down ever since.\n\nYou see, at the time, I was scared of what might happen to us. I didn't know much about anything, really. But looking back, I've realized how brave you were, and I should have been brave, too. We could have looked after each other, and I could have protected you if anything bad had happened.\n\nI wish I had made the choice to stand by you that day. I know I can't change the past, but I want you to know that I regret it. And I would understand if you felt like you couldn't trust me anymore.\n\nBut now, we're here together in Winterfell. I want to be there for you, like I should have been back then. I want to help you with whatever you need, Arya. I want to keep you safe, just as I wish I had been able to on the King's Road.\n\nI hope you can forgive me for not going with you, Arya. I want you to know that moving forward; I'll be there for you. We've both grown and changed, and I hope we can face whatever challenges come our way together.\n\nSo, Arya, I'm sorry. I made a mistake back on the King's Road, and I'll do everything I can to make it right from now on. I hope you can trust me again, and know that I'll always be here for you - no matter what.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "keep",
+        "target": "King",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "keep",
+        "target": "King",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Gendry: Arya, I've been wanting to tell you something important since we met again. Something that's been on my mind for a long time. Remember when we were both traveling down the King's Road, a long time ago?\n\nArya: Yes, I remember. It feels like a lifetime ago, though.\n\nGendry: I want to be honest with you, Arya. I wish I hadn't left you on that day. I wish I had gone with you all the way to Winterfell. I feel terrible about it, and it's been weighing me down ever since.\n\nArya: I... I don't know, Gendry. How am I supposed to know what would have happened if you had come with me?\n\nGendry: You see, at the time, I was scared of what might happen to us. I didn't know much about anything, really. But looking back, I've realized how brave you were, and I should have been brave, too. We could have looked after each other, and I could have protected you if anything bad had happened.\n\nArya: It's hard for me to know what to think. But I guess it's true that we've both been through so much since then.\n\nGendry: I wish I had made the choice to stand by you that day. I know I can't change the past, but I want you to know that I regret it. And I would understand if you felt like you couldn't trust me anymore.\n\nArya: I don't know, Gendry. I've had to learn to trust very few people since then. It's not easy.\n\nGendry: But now, we're here together in Winterfell. I want to be there for you, like I should have been back then. I want to help you with whatever you need, Arya. I want to keep you safe, just as I wish I had been able to on the King's Road.\n\nArya: I appreciate that, Gendry. But I don't know if I can rely on someone else to keep me safe. I've had to depend on myself for so long.\n\nGendry: I hope you can forgive me for not going with you, Arya. I want you to know that moving forward; I'll be there for you. We've both grown and changed, and I hope we can face whatever challenges come our way together.\n\nArya: I just... I don't know what to think, Gendry. It's hard for me to process everything you're saying.\n\nGendry: So, Arya, I'm sorry. I made a mistake back on the King's Road, and I'll do everything I can to make it right from now on. I hope you can trust me again, and know that I'll always be here for you - no matter what.\n\nArya: I'll try, Gendry. I'll try to trust you. But it's not something that can happen overnight. We'll just have to see how it goes.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "keep",
+        "target": "King",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1091,
+    "comp_total_toks": 1091,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

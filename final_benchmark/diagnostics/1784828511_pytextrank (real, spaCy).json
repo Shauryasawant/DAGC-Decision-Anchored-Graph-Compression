@@ -1,0 +1,349 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "can you tell a story",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Once upon a time in a quaint little village called Brookfield, there lived a boy named Jack who possessed a heart full of dreams and a soul filled with curiosity. Jack was known throughout the village",
+      "tok_count": 675,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "write a story of two boys who grow up together and when they reached 21, one of them discovers the power to shapeshift into different female forms.",
+      "tok_count": 32,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Once upon a time in a small, serene town called Newgrove, two families lived side by side, bound together by the blessings of friendship. In each family, a son was born: the first family named their b",
+      "tok_count": 631,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Max feelings for Sam grows when in a female form",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "As Max continued to explore different female forms, he became more in touch with the colorful spectrum of human emotions. It was during these transformations that he began to notice a new feeling blos",
+      "tok_count": 410,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Sam asks Max's who would you like to spend with in bed tonight?",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Sam, who had become more comfortable discussing relationships with Max, one day playfully asked, \"So, Max, who would you like to spend the night with in bed tonight?\" They were sitting on the porch of",
+      "tok_count": 395,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "sam transforms. describe the appearance of the form sam changes into",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "It was several weeks after their heartfelt conversation when they encountered a curious situation. The two young men stumbled upon another ancient amulet in the woods while exploring the enchanted for",
+      "tok_count": 422,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "can you tell a story",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "The villagers would often share stories of the forest's enchantments; tales of mystical creatures and hidden treasures that piqued Jack's interest.\n\n",
+      "tok_count": 28
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "write a story of two boys who grow up together and when they reached 21, one of them discovers the power to shapeshift into different female forms.",
+      "tok_count": 32
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Driven by curiosity and the desire to make positive changes in the world, Sam and Max decided to use Max's unique gift to shed light on the injustices many women face.",
+      "tok_count": 35
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Max feelings for Sam grows when in a female form",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Sam began to understand that love can take many forms, and he came to appreciate Max's unique love, even though it didn't fit within conventional norms.",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "Sam asks Max's who would you like to spend with in bed tonight?",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "Sam, who had become more comfortable discussing relationships with Max, one day playfully asked, \"So, Max, who would you like to spend the night with in bed tonight?\"",
+      "tok_count": 36
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "sam transforms.",
+      "tok_count": 3
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "It was several weeks after their heartfelt conversation when they encountered a curious situation. The two young men stumbled upon another ancient amulet in the woods while exploring the enchanted for",
+      "tok_count": 422
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 675,
+      "retained_tokens": 28,
+      "retention_frac": 0.04148148148148148
+    },
+    "2": {
+      "orig_tokens": 32,
+      "retained_tokens": 32,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 631,
+      "retained_tokens": 35,
+      "retention_frac": 0.0554675118858954
+    },
+    "4": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 410,
+      "retained_tokens": 31,
+      "retention_frac": 0.07560975609756097
+    },
+    "6": {
+      "orig_tokens": 15,
+      "retained_tokens": 15,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 395,
+      "retained_tokens": 36,
+      "retention_frac": 0.09113924050632911
+    },
+    "8": {
+      "orig_tokens": 12,
+      "retained_tokens": 3,
+      "retention_frac": 0.25
+    },
+    "9": {
+      "orig_tokens": 422,
+      "retained_tokens": 422,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "large chamber filled",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Once upon a time in a quaint little village called Brookfield, there lived a boy named Jack who possessed a heart full of dreams and a soul filled with curiosity. Jack was known throughout the village for his unwavering desire to seek adventure and explore new places.\n\nEvery day, after completing his chores, Jack would wander through the woods that encircled the village, always managing to find new paths to explore. The villagers would often share stories of the forest's enchantments; tales of mystical creatures and hidden treasures that piqued Jack's interest.\n\nOne day, as Jack was wandering through the woods, he stumbled upon a peculiar tree marked with an intricate symbol. It was nothing like he had ever seen before, and he was convinced that it held a secret. With eagerness, he followed the symbol's arrow, which pointed him toward an unmarked path.\n\nAs he ventured deeper into the woods, Jack noticed a warm, glowing light emerging from the distance. He curiously followed the light and found himself before an old, moss-covered cottage that sparkled with magic. The door creaked as he pushed it open, revealing a large chamber filled with enchanted objects and plants that seemed to hum with life.\n\nIn the center of the room stood a beautiful woman with a welcoming smile. She introduced herself as Luna, the Guardian of the Enchanted Forest. Luna explained that not everyone could see the cottage, and it only appeared to kind-hearted souls who possessed a strong sense of curiosity.\n\nImpressed with Jack's adventurous spirit, Luna offered him a magical gift: a tiny, shimmering crystal vial containing a potion that had the power to grant the drinker unparalleled wisdom and intelligence. However, she warned him that he must use this gift wisely and only when it was most needed.\n\nJack graciously accepted the gift and promised to use it for good. He returned to the village and shared stories of his adventure with his family and friends who listened in awe. As the years passed, Jack never forgot Luna's advice and kept the magical potion safe, waiting for the right moment to use it.\n\nOne fateful day, the village faced a terrible drought that threatened to ruin their crops and leave everyone starving. Desperate for a solution, Jack remembered the potion Luna had given him. Trusting his instincts, he knew that the time had come to use it, and so he took a deep breath and drank the potion.\n\nImmediately, his mind became crystal clear, and brilliant ideas filled his head. He quickly gathered the villagers and shared his plan - they would construct a complex irrigation system that could bring water from a distant river to nourish their fields.\n\nTogether, the villagers worked tirelessly, following Jack's ingenious plans. Slowly but surely, they built a series of canals and aqueducts, bringing life-saving water to their village. The crops began to flourish again, and the village was saved from the devastating drought.\n\nJack became a hero in the village, and Luna's wisdom and his own curiosity had shaped him into a wise and ever-inquisitive leader. In the years that followed, he continued to guide the village with his brilliant ideas, and the enchanted forest flourished.\n\nAnd so, the story of Jack and his adventures lived on, inspiring generations after him to follow their dreams and seek out the beauty and wonders of the world around them.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Jack",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "choose",
+        "target": "supernatural but rather",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Once upon a time in a small, serene town called Newgrove, two families lived side by side, bound together by the blessings of friendship. In each family, a son was born: the first family named their boy Sam, and the second family christened their child Max. Fate had a plan for these boys, weaving their destinies together so tightly that neither ever saw themselves as separate beings.\n\nGrowing up together, Sam and Max shared every aspect of life. They laughed, cried, and learned life's ups and downs side by side, as brothers from different mothers. Their boundless friendship was well-known throughout the town.\n\nAs years passed, the boys grew into young men, each marking their 21st birthdays with immense excitement. It was during Max's birthday celebration that something extraordinary happened. Max noticed a gift wrapped in an ornate cloth, sitting all by itself away from the others.\n\nDrawn by his curiosity, Max opened the gift to reveal a beautiful, ancient amulet. The moment he touched it, an electrifying energy coursed through his veins, igniting a hidden power within him. Confused and amazed, Max realized that he had gained the power to shapeshift into different female forms.\n\nInitially terrified by this newfound ability, Max confided in his childhood friend Sam, for he knew that Sam would never betray his trust. Together, they experimented with Max's newfound power, exploring endless possibilities and continuously redefining their understanding of human nature.\n\nDriven by curiosity and the desire to make positive changes in the world, Sam and Max decided to use Max's unique gift to shed light on the injustices many women face. Max transformed into various female avatars, becoming the voice of those who couldn't express their sufferings or demand equality.\n\nMax's transformations became a source of empowerment for women, highlighting the strength that women possess, even in the most adverse circumstances. As Max projected the female experience into their own environment, significant change began to ripple through society. Empathy grew, and bullying declined, replaced by understanding and genuine camaraderie among the people of Newgrove.\n\nSam, the ever-loyal friend, never grew jealous of Max's newfound abilities. Instead, he worked diligently to support Max through each transformation, becoming his anchor and ensuring that Max would never be crushed by the weight of this great responsibility.\n\nWith Sam by his side, Max played a pivotal role in redefining societal standards, becoming a symbol of unity between genders. The town of Newgrove prospered, bathed in newfound harmony.\n\nTheir friendship, forged in the most ordinary of circumstances, had brought about an extraordinary change in the lives of countless people. It stood as a testament to the power of friendship and the human capacity to achieve the impossible.\n\nIn their journey together, Sam and Max had discovered that true power lies not in the supernatural but rather in the strength of the bonds we choose to create with those around us. Fueled by the love and trust between two friends, even the most unfathomable of abilities could be harnessed for good, creating a warm and bright world where everyone could thrive.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "injustices many women face",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.7,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.48,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "new feeling blossoming inside",
+        "rationale": [
+          "winner:friend",
+          "winner:friends"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As Max continued to explore different female forms, he became more in touch with the colorful spectrum of human emotions. It was during these transformations that he began to notice a new feeling blossoming inside of him, a powerful and overwhelming affection towards his best friend, Sam. \n\nEvery time Max transformed and they spent time together, this newfound love seemed to intensify. With each laugh, shared secret, and tender moment between them, Max's heart swelled, and he found himself longing for Sam's embrace. \n\nThese feelings were unexpected for Max, as he had never seen Sam in a romantic light before. Confused about how his new power might be connecting with these growing feelings, Max confided this revelation to the person he trusted most, Sam. \n\nInitially, Sam was both surprised and unsure of how to respond to Max's confession. However, their bond was so robust that Sam decided to journey alongside Max as they delved into the complexities of these newfound feelings to better understand them.\n\nTaking time and exploring their limits sensitively, they discovered that Max's ability to transform into different female forms had unlocked an emotional depth that allowed him to defy society's traditional understanding of love. He found that love could transcend physical appearances, allowing them to connect with Sam's soul more deeply than ever before.\n\nSam began to understand that love can take many forms, and he came to appreciate Max's unique love, even though it didn't fit within conventional norms. Their journey redefined their relationship, but it only served to strengthen the unbreakable bond that had been forged throughout their lives.\n\nTogether, they faced new challenges and adventures, embracing each other as romantic partners and remaining best friends. They had proven that love, just like friendship, could defy expectations, and it was this powerful emotional connection that continued to guide them through life's journey.\n\nSam and Max's love story became a symbol of hope and a reminder to the citizens of Newgrove that love transcends all labels, fostering compassion, understanding, and the celebration of even the most unconventional relationships.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Max",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.34,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "someone who understands",
+        "rationale": [
+          "winner:friend"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Sam, who had become more comfortable discussing relationships with Max, one day playfully asked, \"So, Max, who would you like to spend the night with in bed tonight?\" They were sitting on the porch of Max's house, enjoying the warm evening breeze and reminiscing about old times.\n\nMax chuckled at Sam's question, appreciating their newfound openness with each other. \"You know, Sam,\" he replied thoughtfully, \"with my ability to shapeshift, I could become anyone I wanted. But what I've learned from our journey together is that it's not about the form, but the connection we have with someone that matters most.\"\n\nSam nodded in agreement, touched by Max's revelation. He had come a long way in understanding the complexities of emotions and the diverse beauty that love could take beyond physical appearances.\n\n\"Being with you, in whatever form or shape,\" Max continued, \"has shown me that a deep emotional connection is more beautiful than any superficial traits. Ultimately, it's being with someone who understands me and accepts me for who I am - the person who's not only my lover but also my soulmate and best friend. And, Sam, that's you.\"\n\nSam felt a warm glow in his chest as he listened to Max's sincere words. These were feelings he had discovered within himself too. \"I feel the same way, Max,\" Sam admitted, \"and I'm grateful for the love and bond we share, regardless of how it manifests.\"\n\nThat night, as they retired to their respective homes, they lay in their beds, thinking about the profound love and journey they shared. A love that was sincere, transcending the physical world, and an unbreakable bond that provided comfort and solace.\n\nAnd so, Sam's playful question had revealed a beautiful truth about their relationship: that the most profound love cherishes the essence of a person's soul and the connection they share, regardless of any external features or societal expectations.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Max",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.34,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2607,
+    "comp_total_toks": 617,
+    "reduction": 76.33294975067126,
+    "DRR_soft": 0.42500000000000004,
+    "RCI": 0.75
+  }
+}

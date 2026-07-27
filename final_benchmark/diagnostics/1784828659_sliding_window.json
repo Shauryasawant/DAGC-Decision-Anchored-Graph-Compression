@@ -1,0 +1,469 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\uc784\uc9c4\uc65c\ub780\uc774 \uc77c\uc5b4\ub09c \uc5f0\ub3c4\ub294?",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "1592\ub144.",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "\ud55c\uad6d\uc758 \ub300\ud1b5\ub839\uc740 \ub204\uad6c?",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "2021\ub144 \uae30\uc900, \ud55c\uad6d\uc758 \ub300\ud1b5\ub839\uc740 \ubb38\uc7ac\uc778\uc785\ub2c8\ub2e4.",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "What's your name?",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "I am an AI language model created by OpenAI, so I don't have a personal name. You can call me OpenAI or simply AI. How can I assist you today?",
+      "tok_count": 37,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "'\ubbf8\uc548\ud569\ub2c8\ub2e4'\ub97c \uc77c\ubcf8\uc5b4\ub85c \ud558\uba74?",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "\"\ubbf8\uc548\ud569\ub2c8\ub2e4\"\ub294 \uc77c\ubcf8\uc5b4\ub85c \"\u3054\u3081\u3093\u306a\u3055\u3044\" \ub610\ub294 \"\u8b1d\uff08\u3042\u3084\u307e\uff09\u308a\u307e\u3059\"\ub85c \ud45c\ud604\ud569\ub2c8\ub2e4.",
+      "tok_count": 42,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Who is the president of korea?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "As of 2021, the current President of Korea is Moon Jae-in.",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "'\uac11\ubd84\uc2f8'\uc758 \ub73b\uc744 \ub9de\ucd94\uc2dc\uc624",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "'\uac11\ubd84\uc2f8'\ub294 \uc778\ud130\ub137\uc5d0\uc11c \uc0ac\uc6a9\ub418\ub294 \uc2e0\uc870\uc5b4\ub85c, \uc5b4\ub5a4 \uc0c1\ud669\uc5d0\uc11c \uac11\uc790\uae30 \uac08\ub4f1\uc774 \uc77c\uc5b4\ub098\uac70\ub098 \uc0ac\ub78c\ub4e4\uc774 \ub9d0\ub2e4\ud23c\uc744 \ud558\ub294 \uc0c1\ud669\uc744 \ube44\uc720\uc801\uc73c\ub85c \ud45c\ud604\ud558\ub294 \ub2e8\uc5b4\uc785\ub2c8\ub2e4. \uc989, \uac11\uc791\uc2a4\ub7ec\uc6b4 \ubd84\uc704\uae30\uc758 \uc7c1\uc810\uc744 \ub2e4\ub8e8\ub294 \uc0c1\ud669\uc744 \ub73b\ud569\ub2c8\ub2e4.",
+      "tok_count": 112,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "\uc9c0\uad6c\uc758 \ub458\ub808 \uae38\uc774\ub294 \uc5bc\ub9c8\uc77c\uae4c\uc694?",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "\uc9c0\uad6c\uc758 \ud3c9\uade0 \uc9c0\ub984\uc740 \uc57d 12,742km\uc774\ubbc0\ub85c, \uc9c0\uad6c\uc758 \ub458\ub808 \uae38\uc774\ub294 \uc57d 40,075km \uc815\ub3c4\uc785\ub2c8\ub2e4.",
+      "tok_count": 45,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "user",
+      "preview": "4+7=?",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "4 + 7 = 11\uc785\ub2c8\ub2e4.",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "user",
+      "preview": "24/8=?",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "24\ub97c 8\ub85c \ub098\ub204\uba74, 3\uc774 \ub429\ub2c8\ub2e4. \ub530\ub77c\uc11c 24/8 = 3\uc785\ub2c8\ub2e4.",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "user",
+      "preview": "257\uc758 \uc57d\uc218\ub97c \ubaa8\ub450 \ub9d0\ud558\uc2dc\uc624",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "257\uc740 \uc18c\uc218\uc774\ubbc0\ub85c, 1\uacfc \uc790\uae30 \uc790\uc2e0\uc778 257\uc744 \uc57d\uc218\ub85c \uac00\uc9d1\ub2c8\ub2e4. \ub530\ub77c\uc11c 257\uc758 \uc57d\uc218\ub294 1\uacfc 257\uc785\ub2c8\ub2e4.",
+      "tok_count": 48,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 14,
+      "role": "user",
+      "preview": "4+7=?",
+      "tok_count": 4
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 16,
+      "role": "user",
+      "preview": "24/8=?",
+      "tok_count": 4
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 18,
+      "role": "user",
+      "preview": "257\uc758 \uc57d\uc218\ub97c \ubaa8\ub450 \ub9d0\ud558\uc2dc\uc624",
+      "tok_count": 14
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 19,
+      "role": "assistant",
+      "preview": "257\uc740 \uc18c\uc218\uc774\ubbc0\ub85c, 1\uacfc \uc790\uae30 \uc790\uc2e0\uc778 257\uc744 \uc57d\uc218\ub85c \uac00\uc9d1\ub2c8\ub2e4. \ub530\ub77c\uc11c 257\uc758 \uc57d\uc218\ub294 1\uacfc 257\uc785\ub2c8\ub2e4.",
+      "tok_count": 48
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 15,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 15,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 23,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 37,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 15,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 42,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 8,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 16,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 18,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 112,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "12": {
+      "orig_tokens": 21,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 45,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "14": {
+      "orig_tokens": 4,
+      "retained_tokens": 4,
+      "retention_frac": 1.0
+    },
+    "15": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 4,
+      "retained_tokens": 4,
+      "retention_frac": 1.0
+    },
+    "17": {
+      "orig_tokens": 30,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "18": {
+      "orig_tokens": 14,
+      "retained_tokens": 14,
+      "retention_frac": 1.0
+    },
+    "19": {
+      "orig_tokens": 48,
+      "retained_tokens": 48,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    15,
+    17
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "OpenAI",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I am an AI language model created by OpenAI, so I don't have a personal name. You can call me OpenAI or simply AI. How can I assist you today?",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "2021",
+        "rationale": [
+          "value:2021"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As of 2021, the current President of Korea is Moon Jae-in.",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "12",
+        "rationale": [
+          "value:12"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\uc9c0\uad6c\uc758 \ud3c9\uade0 \uc9c0\ub984\uc740 \uc57d 12,742km\uc774\ubbc0\ub85c, \uc9c0\uad6c\uc758 \ub458\ub808 \uae38\uc774\ub294 \uc57d 40,075km \uc815\ub3c4\uc785\ub2c8\ub2e4.",
+        "msg_idx": 13
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "4 + 7 = 11\uc785\ub2c8\ub2e4.",
+        "msg_idx": 15
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": false
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "24",
+        "rationale": [
+          "value:24"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "24\ub97c 8\ub85c \ub098\ub204\uba74, 3\uc774 \ub429\ub2c8\ub2e4. \ub530\ub77c\uc11c 24/8 = 3\uc785\ub2c8\ub2e4.",
+        "msg_idx": 17
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 486,
+    "comp_total_toks": 70,
+    "reduction": 85.59670781893004,
+    "DRR_soft": 0.0,
+    "RCI": 0.5
+  }
+}

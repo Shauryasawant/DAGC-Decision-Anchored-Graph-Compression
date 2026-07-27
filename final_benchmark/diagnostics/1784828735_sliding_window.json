@@ -1,0 +1,269 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "In the style of an A.P.Herbet \"Misleading Case\",  write a comedic summary in suitable legal language sounding account in the hypothetical case of \"Smith v.  Seed: Defamation by flowerbed\"",
+      "tok_count": 44,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "The hypothetical case of Smith v. Seed regards a charge of defamation by flowerbed, brought by the plaintiff, Smith, against the defendant, Seed. The plaintiff claims that the defendant is the proprie",
+      "tok_count": 343,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "In the style of an A.P.Herbet \u201cMisleading Case\u201d, write a comedic summary in suitable legal language sounding account in the hypothetical case of \u201cSmith v.  Starlight lounge:  Air in pints \u201d",
+      "tok_count": 45,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The hypothetical case of Smith v. Starlight Lounge involves a claim of air in pints brought by the plaintiff, Smith, against the defendant, Starlight Lounge. The plaintiff alleges that the defendant, ",
+      "tok_count": 314,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "In the style of an A.P.Herbet \u201cMisleading Case\u201d, write a comedic summary in suitable legal language sounding account in the hypothetical case of \u201cSmith v.  Gardner: Are rats wild?\u201d",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "The hypothetical case of Smith v. Gardner involves a claim of liability arising from a rat infestation, brought by the plaintiff, Smith, against the defendant, Gardner. The plaintiff alleges that the ",
+      "tok_count": 373,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "In the style of an A.P.Herbet \u201cMisleading Case\u201d, write a summary in suitably (comedic) legal language sounding account in the hypothetical case of \u201cSmith v. Songster:  Filked of Filtched?\u201d",
+      "tok_count": 49,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "The hypothetical case of Smith v. Songster involves a claim of theft of intellectual property, brought by the plaintiff, Smith, against the defendant, Songster. The plaintiff alleges that the defendan",
+      "tok_count": 423,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Maybe there's an argument in there about defendant's arguments whilst sharp in places fall flat in defending the action?",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "Absolutely! The defendant's arguments may have been sharp and clever in places, but ultimately they fell flat in defending the action. This highlights the importance of having solid evidence and clear",
+      "tok_count": 136,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "It was also a pun on the musical nature of the songs involved .",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "Ah, I see! The pun on the musical nature of the case is certainly a clever one. The defendant's arguments may have sounded sharp and on-key, but ultimately they were unable to hit the right notes in d",
+      "tok_count": 167,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "Excellent comedic word use.  :) Thanks.",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "You're welcome! I'm glad you enjoyed it!",
+      "tok_count": 11,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "In the style of an A.P.Herbet \u201cMisleading Case\u201d, write a summary in suitably (comedic) legal language sounding account in the hypothetical case of \u201cSmith v. Songster:  Filked of Filtched?\u201d",
+      "tok_count": 49
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "Maybe there's an argument in there about defendant's arguments whilst sharp in places fall flat in defending the action?",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 10,
+      "role": "user",
+      "preview": "It was also a pun on the musical nature of the songs involved .",
+      "tok_count": 14
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "Ah, I see! The pun on the musical nature of the case is certainly a clever one. The defendant's arguments may have sounded sharp and on-key, but ultimately they were unable to hit the right notes in d",
+      "tok_count": 167
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 12,
+      "role": "user",
+      "preview": "Excellent comedic word use.  :) Thanks.",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "You're welcome! I'm glad you enjoyed it!",
+      "tok_count": 11
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 44,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 343,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 45,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 314,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 41,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 373,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 49,
+      "retained_tokens": 49,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 423,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 22,
+      "retained_tokens": 22,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 136,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 14,
+      "retained_tokens": 14,
+      "retention_frac": 1.0
+    },
+    "11": {
+      "orig_tokens": 167,
+      "retained_tokens": 167,
+      "retention_frac": 1.0
+    },
+    "12": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    9
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Smith",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Absolutely! The defendant's arguments may have been sharp and clever in places, but ultimately they fell flat in defending the action. This highlights the importance of having solid evidence and clear legal arguments to support one's case, rather than relying solely on clever wordplay and rhetorical flourishes. In the case of Smith v. Songster, the defendant's denials lacked substance and coherence, whereas the plaintiff's evidence was clear and concrete. As a result, the defendant was found liable for copyright infringement and forced to pay damages to the plaintiff. It just goes to show that while wit and charm may be useful in certain situations, they are no substitute for a well-constructed legal argument.",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1991,
+    "comp_total_toks": 272,
+    "reduction": 86.33852335509793,
+    "DRR_soft": 0.0,
+    "RCI": 1.0
+  }
+}

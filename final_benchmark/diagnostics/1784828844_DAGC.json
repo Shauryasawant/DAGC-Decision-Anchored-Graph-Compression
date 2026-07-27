@@ -1,0 +1,189 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "what is your token limit?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "As an AI language model, I do not have a token limit. I can generate responses to any number of inputs, as long as they are within my training data and capacity.",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "what is your maximum words output?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "As an AI language model, I don't have a specific maximum word limit. I can generate responses of varying lengths, ranging from a few words to hundreds of words, based on the context and input provided",
+      "tok_count": 81,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "what is your model's context length?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "As an AI language model, my context length is the number of previous words or tokens that I consider when generating a response. This context length is typically fixed and depends on the specific pre-",
+      "tok_count": 131,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "These limits may vary depending on the platform and computational resources used to run the model.",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "what is your model's context length?",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "This context length is typically fixed and depends on the specific pre-trained model that is being used. the OpenAI GPT-3 model the actual context length is determined by the limit set by the API or p",
+      "tok_count": 48
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 6,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 36,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 7,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 81,
+      "retained_tokens": 17,
+      "retention_frac": 0.20987654320987653
+    },
+    "4": {
+      "orig_tokens": 8,
+      "retained_tokens": 8,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 131,
+      "retained_tokens": 48,
+      "retention_frac": 0.366412213740458
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "limits may vary depending",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I don't have a specific maximum word limit. I can generate responses of varying lengths, ranging from a few words to hundreds of words, based on the context and input provided to me. However, there are limits to the length of the sequence that can be processed at any given time. These limits may vary depending on the platform and computational resources used to run the model.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "limits may vary depending",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "GPT-3",
+        "rationale": [
+          "id:GPT-3"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "GPT-3"
+          ],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, my context length is the number of previous words or tokens that I consider when generating a response. This context length is typically fixed and depends on the specific pre-trained model that is being used.\n\nFor instance, the OpenAI GPT-3 model, which I am based on, has different context lengths depending on the prompt type and API configuration. The maximum context length for the GPT-3 model is 2048 tokens, which is quite long and allows for generating responses with a lot of contextual information. However, the actual context length is determined by the limit set by the API or platform used to run the model.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "GPT-3",
+        "rationale": [
+          "id:GPT-3"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 269,
+    "comp_total_toks": 73,
+    "reduction": 72.86245353159852,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

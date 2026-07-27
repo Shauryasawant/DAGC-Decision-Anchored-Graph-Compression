@@ -1,0 +1,149 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "id like a week long combination of a meal plan and rigorous workout plan to lose weight quickly and burn belly fat, add a heathy juice that will help soften my stool and make going to the bathroom eas",
+      "tok_count": 60,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "| Day | Meal Plan | Calories | Workout Plan | Calories Burned | Healthy Juice |\n|-----|-----------|----------|--------------|----------------|--------------|\n| Mon | Breakfast: Scrambled eggs, whole w",
+      "tok_count": 1025,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "can you find an ab ripper x workout plan",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Yes, I can provide you with an Ab Ripper X workout plan which is a popular core workout program developed by fitness trainer Tony Horton. It consists of intense abdominal exercises that target the ent",
+      "tok_count": 663,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "is there a free video online of ab ripper x or something similar",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Yes, there are free videos online of Ab Ripper X and similar workouts that you can follow along with. Some popular options include:\n\n1. The official Ab Ripper X video on YouTube: Tony Horton and his t",
+      "tok_count": 280,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "It consists of intense abdominal exercises that target the entire core area Below is a sample Ab Ripper X workout plan: Week 1: Day 1: Reverse Bicycle - 25 reps",
+      "tok_count": 37
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "is there a free video online of ab ripper x or something similar",
+      "tok_count": 14
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Yes, there are free videos online of Ab Ripper X and similar workouts that you can follow along with. Some popular options include: https://www.youtube.com/watch?v=1919eTCoESo",
+      "tok_count": 42
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 60,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 1025,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 10,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 663,
+      "retained_tokens": 37,
+      "retention_frac": 0.05580693815987934
+    },
+    "4": {
+      "orig_tokens": 14,
+      "retained_tokens": 14,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 280,
+      "retained_tokens": 42,
+      "retention_frac": 0.15
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "target",
+        "target": "entire core area",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Yes, I can provide you with an Ab Ripper X workout plan which is a popular core workout program developed by fitness trainer Tony Horton. It consists of intense abdominal exercises that target the entire core area, including the abs, obliques, and lower back. Below is a sample Ab Ripper X workout plan:\n\nWeek 1:\n\nDay 1:\n1. In and Outs - 25 reps\n2. Seated Bicycle - 25 reps\n3. Reverse Bicycle - 25 reps\n4. Crunchy Frog - 25 reps\n5. Wide Leg Sit-ups - 25 reps\n6. Fifer Scissors - 25 reps\n7. Hip Rock and Raise - 25 reps\n8. Pulse Ups - 25 reps\n\nDay 2:\n1. Mason Twist - 25 reps\n2. Corkscrew - 25 reps\n3. Oblique V-ups - 25 reps (per side)\n4. Leg Climbs - 25 reps\n5. Crunchy Cross - 25 reps\n6. Pulse Crunch - 25 reps\n7. V-up Roll-up Combo - 25 reps\n8. Russian Twists - 25 reps\n\nDay 3:\n1. The Crunchy - 25 reps\n2. Fifer Scissors - 25 reps\n3. Hip Rock and Raise - 25 reps\n4. Pulse Ups - 25 reps\n5. Seated Bicycle - 25 reps\n6. Heels to the Heavens - 25 reps\n7. Oblique V-ups - 25 reps (per side)\n8. Mason Twist - 25 reps\n\nWeek 2:\n\nDay 1:\n1. In and Outs - 25 reps\n2. Seated Bicycle - 25 reps\n3. Reverse Bicycle - 25 reps\n4. Crunchy Frog - 25 reps\n5. Wide Leg Sit-ups - 25 reps\n6. Fifer Scissors - 25 reps\n7. Hip Rock and Raise - 25 reps\n8. Pulse Ups - 25 reps\n9. V-up Roll-up Combo - 25 reps\n\nDay 2:\n1. Mason Twist - 25 reps\n2. Corkscrew - 25 reps\n3. Oblique V-ups - 25 reps (per side)\n4. Leg Climbs - 25 reps\n5. Crunchy Cross - 25 reps\n6. Pulse Crunch - 25 reps\n7. Russian Twists - 25 reps\n8. Heels to the Heavens - 25 reps\n\nDay 3:\n1. The Crunchy - 25 reps\n2. Fifer Scissors - 25 reps\n3. Hip Rock and Raise - 25 reps\n4. Pulse Ups - 25 reps\n5. Seated Bicycle - 25 reps\n6. V-up Roll-up Combo - 25 reps\n7. Heels to the Heavens - 25 reps\n8. Oblique V-ups - 25 reps (per side)\n\nNote: It is important to warm up with some light cardio before starting the Ab Ripper X workout to prevent injury. Also, make sure to rest for at least a day between workouts to allow your muscles to recover.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "target",
+        "target": "entire core area",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2052,
+    "comp_total_toks": 93,
+    "reduction": 95.46783625730994,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

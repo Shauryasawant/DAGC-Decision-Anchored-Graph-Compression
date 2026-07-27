@@ -1,0 +1,725 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 732,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out because my public transportation account balance recently dropped to $9, but the auto-reload feature didn't activate as expected. Could you please investigate this issue? I\u2019d",
+      "tok_count": 69,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you investigate the auto-reload issue. First, I'll need your passenger ID to check your wallet balance and payment meth",
+      "tok_count": 125,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "My passenger ID is [123456789]. The balance dropped to $9 on [specific date if known], but no auto-reload occurred. Could you verify if my payment method is still valid and check the system logs for a",
+      "tok_count": 67,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"get_wallet_balance\"}",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"list_payment_methods\"}",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": " {\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"get_passenger_profile\"}",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Now I have the information. The wallet balance is $9.50, which is indeed below the $10 threshold that should trigger auto-reload. However, I can se",
+      "tok_count": 312,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "user",
+      "preview": "I see, that explains why the auto-reload didn\u2019t work. Let\u2019s add a payment method. I\u2019d like to use my credit card ending in **4567**. Could you also set the auto-reload threshold to $12 this time to gi",
+      "tok_count": 77,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"I understand you'd like to add a payment method and set up auto-reload. However, I need to clarify that I don't have a tool to directly register ne",
+      "tok_count": 314,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "user",
+      "preview": "I need guidance on how to add my credit card through the app. Could you walk me through the steps to register the payment method? Once that's done, I'll let you know so we can proceed with adding fund",
+      "tok_count": 52,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': 'I\\'ll guide you through the typical steps to add a payment method in the CityBus Network app. Here\\'s the general process:\\n\\n**To add your credit ",
+      "tok_count": 423,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "user",
+      "preview": "I've successfully added my credit card ending in 4567 through the app. It's now listed under my payment methods. Can we proceed with adding $20 to my wallet and setting the auto-reload threshold to $1",
+      "tok_count": 48,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 23,
+      "role": "assistant",
+      "preview": " {\"args\": {\"amount\": 20, \"auto_reload_threshold\": 12, \"passenger_id\": \"123456789\"}, \"name\": \"add_wallet_funds\"}",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 24,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 25,
+      "role": "assistant",
+      "preview": "Great! I've successfully added $20 to your wallet and set up the auto-reload feature. Here's what was completed:\n\n1. **Funds Added**: $20 was added to your wallet\n2. **New Balance**: Your current wall",
+      "tok_count": 222,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 732
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "I\u2019d like to ensure my payment method is valid and check the system logs to see why the reload didn\u2019t go through.",
+      "tok_count": 25
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "First, I'll need your passenger ID to check your wallet balance and payment methods.\\n\\nCould you please provide your passenger ID?",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Could you verify if my payment method is still valid and check the system logs for any errors?",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "{\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"get_wallet_balance\"} {\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"get_wallet_balance\"}",
+      "tok_count": 42
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "{\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"list_payment_methods\"} {\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"list_payment_methods\"}",
+      "tok_count": 42
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 12,
+      "role": "assistant",
+      "preview": "{\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"get_passenger_profile\"} {\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"get_passenger_profile\"}",
+      "tok_count": 44
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 14,
+      "role": "assistant",
+      "preview": "Once you have a payment method registered, I can also help you add funds to your wallet and set up the auto-reload feature with your preferred threshold.\"}]",
+      "tok_count": 32
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 15,
+      "role": "user",
+      "preview": "After that, I\u2019d appreciate adding $20 to my wallet manually to cover my upcoming trips.",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": "Once that's done, let me know and I'll help you:\\n   - Add $20 to your wallet\\n   - Set the auto-reload threshold to $12\\n\\nWould you like me to guide you through where to find the payment method sett",
+      "tok_count": 70
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 18,
+      "role": "user",
+      "preview": "Could you walk me through the steps to register the payment method?",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 20,
+      "role": "assistant",
+      "preview": "**Set as default payment method** (optional but recommended for auto-reload)\\n\\n**Important notes**:\\n- Make sure the card is not expired and has sufficient funds\\n- The app may require you to enable ",
+      "tok_count": 139
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 21,
+      "role": "user",
+      "preview": "Can we proceed with adding $20 to my wallet and setting the auto-reload threshold to $12 as discussed?",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 23,
+      "role": "assistant",
+      "preview": "{\"args\": {\"amount\": 20, \"auto_reload_threshold\": 12, \"passenger_id\": \"123456789\"}, \"name\": \"add_wallet_funds\"} {\"args\": {\"amount\": 20, \"auto_reload_threshold\": 12, \"passenger_id\": \"123456789\"}, \"name\"",
+      "tok_count": 72
+    },
+    {
+      "c_idx": 14,
+      "orig_idx": 25,
+      "role": "assistant",
+      "preview": "Great! I've successfully added $20 to your wallet and set up the auto-reload feature. Here's what was completed:\n\n1. **Funds Added**: $20 was added to your wallet\n2. **New Balance**: Your current wall",
+      "tok_count": 222
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 732,
+      "retained_tokens": 732,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 69,
+      "retained_tokens": 25,
+      "retention_frac": 0.36231884057971014
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 125,
+      "retained_tokens": 27,
+      "retention_frac": 0.216
+    },
+    "4": {
+      "orig_tokens": 67,
+      "retained_tokens": 19,
+      "retention_frac": 0.2835820895522388
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 21,
+      "retained_tokens": 42,
+      "retention_frac": 2.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 21,
+      "retained_tokens": 42,
+      "retention_frac": 2.0
+    },
+    "10": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "11": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "12": {
+      "orig_tokens": 22,
+      "retained_tokens": 44,
+      "retention_frac": 2.0
+    },
+    "13": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "14": {
+      "orig_tokens": 312,
+      "retained_tokens": 32,
+      "retention_frac": 0.10256410256410256
+    },
+    "15": {
+      "orig_tokens": 77,
+      "retained_tokens": 19,
+      "retention_frac": 0.24675324675324675
+    },
+    "16": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "17": {
+      "orig_tokens": 314,
+      "retained_tokens": 70,
+      "retention_frac": 0.2229299363057325
+    },
+    "18": {
+      "orig_tokens": 52,
+      "retained_tokens": 13,
+      "retention_frac": 0.25
+    },
+    "19": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "20": {
+      "orig_tokens": 423,
+      "retained_tokens": 139,
+      "retention_frac": 0.32860520094562645
+    },
+    "21": {
+      "orig_tokens": 48,
+      "retained_tokens": 23,
+      "retention_frac": 0.4791666666666667
+    },
+    "22": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "23": {
+      "orig_tokens": 36,
+      "retained_tokens": 72,
+      "retention_frac": 2.0
+    },
+    "24": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "25": {
+      "orig_tokens": 222,
+      "retained_tokens": 222,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    5,
+    7,
+    8,
+    10,
+    11,
+    13,
+    16,
+    19,
+    22,
+    24
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "get_wallet_balance",
+        "target": "123456789",
+        "rationale": [
+          "id:123456789"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "123456789"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"get_wallet_balance\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "get_wallet_balance",
+        "target": "123456789",
+        "rationale": [
+          "id:123456789"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "list_payment_methods",
+        "target": "123456789",
+        "rationale": [
+          "id:123456789"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "123456789"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"list_payment_methods\"}",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "list_payment_methods",
+        "target": "123456789",
+        "rationale": [
+          "id:123456789"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_passenger_profile",
+        "target": "123456789",
+        "rationale": [
+          "id:123456789"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "123456789"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"passenger_id\": \"123456789\"}, \"name\": \"get_passenger_profile\"}",
+        "msg_idx": 12
+      },
+      "reproduced": {
+        "action": "get_passenger_profile",
+        "target": "123456789",
+        "rationale": [
+          "id:123456789"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "9.50",
+        "rationale": [
+          "value:9.50"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "[{'annotations': [], 'type': 'output_text', 'text': \"I understand you'd like to add a payment method and set up auto-reload. However, I need to clarify that I don't have a tool to directly register new payment methods to your account. Payment method registration typically needs to be done through your CityBus Network account settings, mobile app, or website.\\n\\nHere's what I can help you with:\\n\\n1. **Payment Method Registration**: You'll need to add your credit card (ending in 4567) through your account settings first. Once it's registered, the system will be able to use it for auto-reload transactions.\\n\\n2. **Adding Funds & Setting Auto-Reload**: Once you have a payment method registered, I can help you add $20 to your wallet and set the auto-reload threshold to $12 using the `add_wallet_funds` tool.\\n\\n3. **Current Status**: Your wallet balance is $9.50, and you currently have no registered payment methods.\\n\\n**Next Steps**:\\n1. Please add your credit card to your account through the CityBus Network app or website\\n2. Once that's done, let me know and I'll help you:\\n   - Add $20 to your wallet\\n   - Set the auto-reload threshold to $12\\n\\nWould you like me to guide you through where to find the payment method settings in the app, or do you need any other assistance while you set this up?\"}]",
+        "msg_idx": 17
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Add",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.34,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "select",
+        "target": "fingerprint/face",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "fingerprint/face"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "[{'annotations': [], 'type': 'output_text', 'text': 'I\\'ll guide you through the typical steps to add a payment method in the CityBus Network app. Here\\'s the general process:\\n\\n**To add your credit card in the CityBus Network app:**\\n\\n1. **Open the CityBus Network app** on your mobile device\\n2. **Log in** to your account using your passenger ID and password\\n3. **Navigate to the \"Account\" or \"Profile\" section** (usually found in the bottom navigation or menu)\\n4. **Look for \"Payment Methods\" or \"Wallet\"** in the account settings\\n5. **Select \"Add Payment Method\" or \"Add Card\"**\\n6. **Enter your credit card details**:\\n   - Card number (including the 4567 ending)\\n   - Expiration date\\n   - CVV security code\\n   - Billing address\\n7. **Save the payment method** - you may need to verify the card through a small temporary charge\\n8. **Set as default payment method** (optional but recommended for auto-reload)\\n\\n**Important notes**:\\n- Make sure the card is not expired and has sufficient funds\\n- The app may require you to enable biometric authentication (fingerprint/face ID) for security\\n- Some banks may send a verification code via text or email\\n\\n**Once your payment method is registered**:\\n- The system will show it in your payment methods list\\n- You should receive a confirmation notification\\n- Auto-reload will then be able to use this payment method\\n\\n**After you\\'ve successfully added your card**, please let me know and I\\'ll:\\n1. Add $20 to your wallet using the `add_wallet_funds` tool\\n2. Set the auto-reload threshold to $12 (which will trigger when your balance drops below $12)\\n\\nDo you need any clarification on these steps, or are you experiencing any specific issues with the app?'}]",
+        "msg_idx": 20
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "fingerprint/face",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.7,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.88,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "add_wallet_funds",
+        "target": "123456789",
+        "rationale": [
+          "id:123456789"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "123456789"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"amount\": 20, \"auto_reload_threshold\": 12, \"passenger_id\": \"123456789\"}, \"name\": \"add_wallet_funds\"}",
+        "msg_idx": 23
+      },
+      "reproduced": {
+        "action": "add_wallet_funds",
+        "target": "123456789",
+        "rationale": [
+          "id:123456789"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "29.50",
+        "rationale": [
+          "balance=$9.50",
+          "Added=$20.00",
+          "balance=$29.50",
+          "threshold=$12",
+          "value:29.50"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Great! I've successfully added $20 to your wallet and set up the auto-reload feature. Here's what was completed:\n\n1. **Funds Added**: $20 was added to your wallet\n2. **New Balance**: Your current wallet balance is now $29.50\n3. **Auto-Reload Configured**: Auto-reload is now active and will trigger when your balance drops below $12\n4. **Payment Method**: Since the transaction succeeded, your credit card (ending in 4567) is now properly registered and working\n\n**Summary**:\n- Previous balance: $9.50\n- Added: $20.00\n- New balance: $29.50\n- Auto-reload threshold: $12 (will trigger when balance < $12)\n\nYour auto-reload feature is now properly configured with a $12 threshold, giving you a buffer before needing to reload. The system will automatically add funds when your balance drops below $12, using your registered credit card.\n\nIs there anything else you'd like me to help you with regarding your CityBus Network account?",
+        "msg_idx": 25
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "29.50",
+        "rationale": [
+          "balance=$9.50",
+          "Added=$20.00",
+          "balance=$29.50",
+          "threshold=$12",
+          "value:29.50"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2541,
+    "comp_total_toks": 1521,
+    "reduction": 40.14167650531287,
+    "DRR_soft": 0.8885714285714286,
+    "RCI": 1.0
+  }
+}

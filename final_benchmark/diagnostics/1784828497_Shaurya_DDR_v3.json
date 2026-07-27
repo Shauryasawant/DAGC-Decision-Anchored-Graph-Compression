@@ -1,0 +1,196 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "name current finance minister of pakistan",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "As of my last knowledge update in September 2021, the current Finance Minister of Pakistan is Shaukat Tarin. However, this information might have changed, and I recommend checking the latest informati",
+      "tok_count": 45,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "are you GPT3 or GPT4",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "I am an AI language model based on OpenAI's GPT-3. GPT-4 has not been released as of my last knowledge update in September 2021.",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Are you using GPT-4",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "I am an AI language model based on OpenAI's GPT-3. As of my last knowledge update in September 2021, GPT-4 has not been released.",
+      "tok_count": 37,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Are you using OpenAI\u2019s GPT-4?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "As of my last knowledge update in September 2021, I am an AI language model based on OpenAI's GPT-3. At that time, GPT-4 had not been released. Please note that my knowledge might be outdated, and I r",
+      "tok_count": 71,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "I am an AI language model based on OpenAI's GPT-3.",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Are you using GPT-4",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "[dropped \u2014 contained: GPT-3, GPT-4]",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "[dropped \u2014 contained: GPT-4]",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "As of my last knowledge update in September 2021 I am an AI language model based on OpenAI's GPT-3. GPT-4 had not been released. and I recommend checking the latest information from OpenAI or other re",
+      "tok_count": 57
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 6,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 45,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 36,
+      "retained_tokens": 16,
+      "retention_frac": 0.4444444444444444
+    },
+    "4": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 37,
+      "retained_tokens": 16,
+      "retention_frac": 0.43243243243243246
+    },
+    "6": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 71,
+      "retained_tokens": 57,
+      "retention_frac": 0.8028169014084507
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "recommend",
+        "target": "GPT-3",
+        "rationale": [
+          "id:GPT-3",
+          "id:GPT-4"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "GPT-3",
+            "GPT-4"
+          ],
+          "errors": []
+        },
+        "verbatim": "As of my last knowledge update in September 2021, I am an AI language model based on OpenAI's GPT-3. At that time, GPT-4 had not been released. Please note that my knowledge might be outdated, and I recommend checking the latest information from OpenAI or other reliable sources for updates on their AI models.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "recommend",
+        "target": "GPT-3",
+        "rationale": [
+          "id:GPT-3",
+          "id:GPT-4"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 222,
+    "comp_total_toks": 107,
+    "reduction": 51.80180180180181,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 957,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out regarding a bulk order for product TEXT-202. I'd like to place an order for 75 units and need to discuss a discount for wholesale quantities. I have a business license ready ",
+      "tok_count": 64,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"product_id\": \"TEXT-202\"}, \"name\": \"get_product_details\"}",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer requesting wholesale/bulk order for 75 units of product TEXT-202. Has business license ready for verification. Needs guidance to wholesale portal and clarification on b",
+      "tok_count": 65,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 957
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out regarding a bulk order for product TEXT-202. I'd like to place an order for 75 units and need to discuss a discount for wholesale quantities. I have a business license ready ",
+      "tok_count": 64
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"product_id\": \"TEXT-202\"}, \"name\": \"get_product_details\"} {\"args\": {\"product_id\": \"TEXT-202\"}, \"name\": \"get_product_details\"}",
+      "tok_count": 40
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer requesting wholesale/bulk order for 75 units of product TEXT-202. Has business license ready for verification. Needs guidance to wholesale portal and clarification on b",
+      "tok_count": 65
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 957,
+      "retained_tokens": 957,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 64,
+      "retained_tokens": 64,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 20,
+      "retained_tokens": 40,
+      "retention_frac": 2.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 65,
+      "retained_tokens": 65,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    4
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "get_product_details",
+        "target": "TEXT-202",
+        "rationale": [
+          "id:TEXT-202"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "TEXT-202"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"product_id\": \"TEXT-202\"}, \"name\": \"get_product_details\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "get_product_details",
+        "target": "TEXT-202",
+        "rationale": [
+          "id:TEXT-202"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "transfer_to_human_agents",
+        "target": "TEXT-202",
+        "rationale": [
+          "id:TEXT-202"
+        ],
+        "artifacts": {
+          "paths": [
+            "wholesale/bulk"
+          ],
+          "ids": [
+            "TEXT-202"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"Customer requesting wholesale/bulk order for 75 units of product TEXT-202. Has business license ready for verification. Needs guidance to wholesale portal and clarification on bulk order terms. Product is made-to-order textile with 14-day production time.\"}, \"name\": \"transfer_to_human_agents\"}",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "transfer_to_human_agents",
+        "target": "TEXT-202",
+        "rationale": [
+          "id:TEXT-202"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1106,
+    "comp_total_toks": 1126,
+    "reduction": -1.8083182640144635,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

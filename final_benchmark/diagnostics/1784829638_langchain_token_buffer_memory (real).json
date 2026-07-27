@@ -1,0 +1,134 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "How much tea does the average person drink each year? I think that my usual three to five cups per day is healthy, but I am not sure. I have recently started to drink an average of five to seven cups,",
+      "tok_count": 68,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "The standard amount of tea that an individual drinks annually, as it can vary greatly based on factors such as cultural background, location, and personal preference. As as a rough estimation, it's be",
+      "tok_count": 105,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "How does the amount of tea drunk per day per person vary across the main continents of the world?  Which countries have the highest consumption of cups per day?",
+      "tok_count": 32,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The Turks like tea the most, as reigning world champions they drink an average of 4 glasses a day. This is more than the Irish who love a cup of tea even more than Brits. At the other end of the scale",
+      "tok_count": 123,
+      "protected": true
+    }
+  ],
+  "trace_post": [],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 68,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 105,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 32,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 123,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "such as",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The standard amount of tea that an individual drinks annually, as it can vary greatly based on factors such as cultural background, location, and personal preference. As as a rough estimation, it's believed that people drink approximately 3 cups of tea daily.\n\nIf you have recently increased your tea intake to five to seven cups per day and are experiencing symptoms such as nausea and bloating, it is advisable to see a doctor for guidance. Excessive tea consumption can lead to side effects such as dehydration, nausea, and bloating.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "prefer",
+        "target": "prefer coffee",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Turks like tea the most, as reigning world champions they drink an average of 4 glasses a day. This is more than the Irish who love a cup of tea even more than Brits. At the other end of the scale Mexicans don't even know what a teapot looks like, and almost everyone south of them prefers coffee.\n\nThe preference for tea is both cultural and historical. Countries that had empires in or are linked to Asia generally prefer tea, and to South America tend to prefer coffee. US cultural domination has had quite an effect too, media influence has seen gradual shift from tea towards coffee.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 328,
+    "comp_total_toks": 0,
+    "reduction": 100.0,
+    "DRR_soft": 0.0,
+    "RCI": 0.0
+  }
+}

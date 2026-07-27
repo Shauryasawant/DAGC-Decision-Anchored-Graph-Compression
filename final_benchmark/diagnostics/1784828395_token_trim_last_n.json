@@ -1,0 +1,531 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Write me a short book aimed at young children, it should be 8 pages long and be about animals. It must also be unique and not done before.",
+      "tok_count": 32,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Title: The Parade of Animal Friends\n\nPage 1:\nOnce upon a time in Mr. Farmer's barnyard, the animals decided to hold a grand parade to celebrate the beauty of friendship. Each animal practiced their sp",
+      "tok_count": 463,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "write me another one but make it rhyme and make it shorter. I want it to be fun and colourful",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Title: The Whimsical World of Willow Woods\n\nPage 1:\nIn the whimsical world of Willow Woods,\nLived vibrant creatures, up to no good!\n\nPage 2:\nMerry Mouse wore a hat that gleamed,\nShe darted and dashed,",
+      "tok_count": 180,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "thats great, can you replace page 6 with something else?",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Of course! I'll replace page 6 with a new one:\n\nPage 6:\nFluttering Flora, the butterfly queen,\nSpread her vibrant wings, a dazzling scene.",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "thats good can you replace number 1 for me",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Certainly! I'll replace page 1 with a new one:\n\nPage 1:\nIn a land full of color, where dreams truly stood,\nLay the marvelous place known as Willow Woods.",
+      "tok_count": 39,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "not good, do another",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "I apologize for that. Here's a new page 1:\n\nPage 1:\nIn a magical kingdom, where rainbows took flight,\nWas the wondrous realm called Willow Woods' delight.",
+      "tok_count": 39,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "change the name please",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "Here's a revised page 1 with a new name for the magical kingdom:\n\nPage 1:\nIn a magical kingdom, where rainbows took flight,\nWas the wondrous realm called Wuzzle Woods' delight.",
+      "tok_count": 43,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "change wuzzle woods delight",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "Here's another revised page 1 with a new name and phrase for the magical kingdom:\n\nPage 1:\nIn a magical kingdom, where rainbows unfurled,\nWas the wondrous realm called Whimsy Woods' world.",
+      "tok_count": 47,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "user",
+      "preview": "change the second sentence",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "Here's a revised page 1 with a new second sentence:\n\nPage 1:\nIn a magical kingdom, where rainbows unfurled,\nLay the enchanting haven called Whimsy Woods' world.",
+      "tok_count": 43,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "user",
+      "preview": "different page 1 please",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "Here's a completely new page 1 for the story:\n\nPage 1:\nBeneath the cascading colors of a sky so bright,\nStood the mesmerizing land known as Whimsy Woods' delight.",
+      "tok_count": 44,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "user",
+      "preview": "i dont like whimsy woods delight",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "I apologize for that. Here's a different page 1 with a new name for the kingdom:\n\nPage 1:\nUnder the arch of a vibrant rainbow's light,\nStood the captivating land known as Whimsy Woods' sight.",
+      "tok_count": 48,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "user",
+      "preview": "again but no more whimsy woods what so ever",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "assistant",
+      "preview": "I apologize for the confusion. Here's a new page 1 without Whimsy Woods:\n\nPage 1:\nUnder a sky painted with colors so bold,\nLay the magical land of the Rainbow Grove untold.",
+      "tok_count": 44,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "user",
+      "preview": "again",
+      "tok_count": 1,
+      "protected": false
+    },
+    {
+      "idx": 23,
+      "role": "assistant",
+      "preview": "I apologize for any confusion. Here's another new page 1:\n\nPage 1:\nWhere the sun shone bright and colors twirled,\nThere blossomed the enchanted land of Chroma's World.",
+      "tok_count": 42,
+      "protected": false
+    },
+    {
+      "idx": 24,
+      "role": "user",
+      "preview": "make it related to cheeky animals",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 25,
+      "role": "assistant",
+      "preview": "Here's a revised page 1 with a focus on cheeky animals:\n\nPage 1:\nIn a sunlit land where colors swirled,\nCheeky animals played in Chroma's World.",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 26,
+      "role": "user",
+      "preview": "ok now put it all together and if you think any changes need doing to make it more appealing and happy to children then you are welcome to do so",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 27,
+      "role": "assistant",
+      "preview": "Title: Chroma's World: A Cheeky Animal Adventure\n\nPage 1:\nIn a sunlit land where colors swirled,\nCheeky animals played in Chroma's World.\n\nPage 2:\nMerry Mouse wore a hat that gleamed,\nShe darted and d",
+      "tok_count": 217,
+      "protected": false
+    },
+    {
+      "idx": 28,
+      "role": "user",
+      "preview": "change page 8 completely",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 29,
+      "role": "assistant",
+      "preview": "Here's a brand new page 8 for the story:\n\nPage 8:\nTogether with glee, tails twirling and curling,\nThe cheeky friends cherished their life in Chroma's World's whirling.",
+      "tok_count": 44,
+      "protected": false
+    },
+    {
+      "idx": 30,
+      "role": "user",
+      "preview": "how to become a social media manager",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 31,
+      "role": "assistant",
+      "preview": "Becoming a social media manager involves a combination of education, skills, and experience in the world of social media marketing. Here are the steps to help you become a successful social media mana",
+      "tok_count": 525,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 28,
+      "role": "user",
+      "preview": "change page 8 completely",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 29,
+      "role": "assistant",
+      "preview": "Here's a brand new page 8 for the story:\n\nPage 8:\nTogether with glee, tails twirling and curling,\nThe cheeky friends cherished their life in Chroma's World's whirling.",
+      "tok_count": 44
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 30,
+      "role": "user",
+      "preview": "how to become a social media manager",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 31,
+      "role": "assistant",
+      "preview": "Becoming a social media manager involves a combination of education, skills, and experience in the world of social media marketing. Here are the steps to help you become a successful social media mana",
+      "tok_count": 525
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 32,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 463,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 21,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 180,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 14,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 36,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 11,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 39,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 39,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 4,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 43,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "12": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 47,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "14": {
+      "orig_tokens": 4,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "15": {
+      "orig_tokens": 43,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "17": {
+      "orig_tokens": 44,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "18": {
+      "orig_tokens": 7,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "19": {
+      "orig_tokens": 48,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "20": {
+      "orig_tokens": 10,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "21": {
+      "orig_tokens": 44,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "22": {
+      "orig_tokens": 1,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "23": {
+      "orig_tokens": 42,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "24": {
+      "orig_tokens": 7,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "25": {
+      "orig_tokens": 41,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "26": {
+      "orig_tokens": 30,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "27": {
+      "orig_tokens": 217,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "28": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "29": {
+      "orig_tokens": 44,
+      "retained_tokens": 44,
+      "retention_frac": 1.0
+    },
+    "30": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "31": {
+      "orig_tokens": 525,
+      "retained_tokens": 525,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Flora",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Of course! I'll replace page 6 with a new one:\n\nPage 6:\nFluttering Flora, the butterfly queen,\nSpread her vibrant wings, a dazzling scene.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "analytics platforms such as",
+        "rationale": [
+          "winner:practices"
+        ],
+        "artifacts": {
+          "paths": [
+            "photo/video"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Becoming a social media manager involves a combination of education, skills, and experience in the world of social media marketing. Here are the steps to help you become a successful social media manager:\n\n1. Learn the basics of social media platforms: Gain an understanding of the various social media platforms such as Facebook, Instagram, Twitter, LinkedIn, and YouTube, as well as how they operate, their unique features, and user demographics.\n\n2. Develop your communication skills: A social media manager should have excellent written and verbal communication skills, as they will be responsible for creating engaging content and responding to users' comments and messages.\n\n3. Gain experience: Start by managing your personal social media accounts, volunteering for non-profit organizations, or working on small-scale projects to build your portfolio. You can also take on internships or entry-level social media roles to gain professional experience.\n\n4. Obtain education and certifications: While formal education is not always required, it can help you stand out from the competition. A degree in marketing, communications, or a related field is beneficial. There are also various certifications and online courses available from organizations like HubSpot, Hootsuite, and Facebook Blueprint.\n\n5. Learn relevant tools and technologies: Master the use of social media management tools, such as Hootsuite, Buffer, and Sprout Social, along with analytics platforms such as Google Analytics. Having knowledge of graphic design and photo/video editing tools like Canva or Adobe Creative Cloud is also advantageous.\n\n6. Develop your content strategy and storytelling skills: An essential skill for a social media manager is the ability to create engaging and shareable content. Develop your storytelling skills by crafting posts that evoke emotion, entertain or educate, and encourage user engagement.\n\n7. Build a personal brand: Showcase your expertise and personality by developing a solid personal brand on social media. Regularly share relevant industry news, your insights, and your work, while engaging with other professionals in the field.\n\n8. Network: Attend industry events, join online communities, and use social media platforms to connect with other professionals in the field. Networking can lead to potential job opportunities or collaborations.\n\n9. Stay informed about industry trends: Social media is constantly evolving, so it is essential to stay up-to-date with trends, platform updates, and best practices.\n\n10. Apply for jobs: Once you have gained the skills, education, and experience, start applying for social media manager positions. Tailor your resume and cover letter for each position, emphasizing your skills and experience in social media management.\n\nBy following these steps, you'll be well on your way to becoming a successful social media manager.",
+        "msg_idx": 31
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "analytics platforms such as",
+        "rationale": [
+          "winner:practices"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2063,
+    "comp_total_toks": 581,
+    "reduction": 71.83713039263209,
+    "DRR_soft": 0.5,
+    "RCI": 1.0
+  }
+}

@@ -1,0 +1,404 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 678,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm having trouble activating my satellite service after installation. My Subscriber ID is GS-66542, and the installation was done on October 10, 2023. My Receiver ID is RX-99102, and the Sma",
+      "tok_count": 100,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"device_id\": \"RX-99102\"}, \"name\": \"get_device_status\"}",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"device_id\": \"RX-99102\"}, \"name\": \"get_signal_metrics\"}",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"device_id\": \"RX-99102\"}, \"name\": \"perform_tier1_resolution\"}",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": " {\"args\": {\"subscriber_id\": \"GS-66542\"}, \"name\": \"check_line_of_sight\"}",
+      "tok_count": 23,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how yo[\u2026]",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"device_id\": \"RX-99102\"}, \"name\": \"get_device_status\"}",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"device_id\": \"RX-99102\"}, \"name\": \"get_signal_metrics\"}",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"device_id\": \"RX-99102\"}, \"name\": \"perform_tier1_resolution\"}",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": " {\"args\": {\"subscriber_id\": \"GS-66542\"}, \"name\": \"check_line_of_sight\"}",
+      "tok_count": 23
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 678,
+      "retained_tokens": 19,
+      "retention_frac": 0.028023598820058997
+    },
+    "1": {
+      "orig_tokens": 100,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 21,
+      "retained_tokens": 21,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 21,
+      "retained_tokens": 21,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 23,
+      "retained_tokens": 23,
+      "retention_frac": 1.0
+    },
+    "10": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "11": {
+      "orig_tokens": 23,
+      "retained_tokens": 23,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "get_device_status",
+        "target": "RX-99102",
+        "rationale": [
+          "id:RX-99102"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "RX-99102"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"device_id\": \"RX-99102\"}, \"name\": \"get_device_status\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "get_device_status",
+        "target": "RX-99102",
+        "rationale": [
+          "id:RX-99102"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_signal_metrics",
+        "target": "RX-99102",
+        "rationale": [
+          "id:RX-99102"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "RX-99102"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"device_id\": \"RX-99102\"}, \"name\": \"get_signal_metrics\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "get_signal_metrics",
+        "target": "RX-99102",
+        "rationale": [
+          "id:RX-99102"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "perform_tier1_resolution",
+        "target": "RX-99102",
+        "rationale": [
+          "id:RX-99102",
+          "id:perform_tier1_resolution"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "RX-99102",
+            "perform_tier1_resolution"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"device_id\": \"RX-99102\"}, \"name\": \"perform_tier1_resolution\"}",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "perform_tier1_resolution",
+        "target": "RX-99102",
+        "rationale": [
+          "id:RX-99102",
+          "id:perform_tier1_resolution"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "check_line_of_sight",
+        "target": "GS-66542",
+        "rationale": [
+          "id:GS-66542"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "GS-66542"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"subscriber_id\": \"GS-66542\"}, \"name\": \"check_line_of_sight\"}",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "check_line_of_sight",
+        "target": "GS-66542",
+        "rationale": [
+          "id:GS-66542"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 866,
+    "comp_total_toks": 107,
+    "reduction": 87.64434180138568,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

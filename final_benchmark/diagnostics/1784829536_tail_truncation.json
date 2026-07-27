@@ -1,0 +1,576 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are an intelligent data science assistant with access to an stateful jupyter notebook environment you can interact with it using tool calling. For example, you have access to the add_and_execute_j",
+      "tok_count": 841,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Which season had the highest number of matches played, and how many matches were played in that season?",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "<think>I'm starting by loading the matches.csv file into a pandas DataFrame. My goal is to understand the structure of this dataset, including its shape (number of rows and columns), column names, and",
+      "tok_count": 111,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "<tool_call>\n{\"name\": \"add_and_execute_jupyter_code_cell\", \"arguments\": {\"answer\": null, \"code\": \"import pandas as pd\\n\\n# Load the matches dataset\\nmatches_df = pd.read_csv('/home/user/input/matches.c",
+      "tok_count": 141,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "<tool_response>\nMatches Dataset Info:\nShape: (636, 18)\nColumns: ['id', 'season', 'city', 'date', 'team1', 'team2', 'toss_winner', 'toss_decision', 'result', 'dl_applied', 'winner', 'win_by_runs', 'win",
+      "tok_count": 136,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "<think>I'm loading the matches.csv file into a pandas DataFrame to explore its structure. I want to understand the shape of the data, column names, and data types. This will help me identify which col",
+      "tok_count": 96,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "<tool_call>\n{\"name\": \"add_and_execute_jupyter_code_cell\", \"arguments\": {\"answer\": null, \"code\": \"import pandas as pd\\n\\n# Load the matches dataset\\nmatches_df = pd.read_csv('/home/user/input/matches.c",
+      "tok_count": 139,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "<tool_response>\nid  season       city        date                        team1  \\\n0   1    2017  Hyderabad  2017-04-05          Sunrisers Hyderabad   \n1   2    2017       Pune  2017-04-06             ",
+      "tok_count": 574,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "<think>I'm loading the matches.csv file into a pandas DataFrame to explore its structure. I want to understand the shape of the data, column names, and data types. This will help me identify which col",
+      "tok_count": 135,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "<tool_call>\n{\"name\": \"add_and_execute_jupyter_code_cell\", \"arguments\": {\"answer\": null, \"code\": \"import pandas as pd\\n\\n# Load the matches dataset\\nmatches_df = pd.read_csv('/home/user/input/matches.c",
+      "tok_count": 110,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "<tool_response>\nid  season       city        date                        team1  \\\n0   1    2017  Hyderabad  2017-04-05          Sunrisers Hyderabad   \n1   2    2017       Pune  2017-04-06             ",
+      "tok_count": 532,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "<think>I'm now performing a focused analysis to answer the question about which season had the highest number of matches. First, I'm loading the matches.csv file into a pandas DataFrame. Then I'm exam",
+      "tok_count": 159,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": "<tool_call>\n{\"name\": \"add_and_execute_jupyter_code_cell\", \"arguments\": {\"answer\": null, \"code\": \"import pandas as pd\\n\\n# Load the matches dataset\\nmatches_df = pd.read_csv('/home/user/input/matches.c",
+      "tok_count": 182,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "<tool_response>\nDataset shape: (636, 18)\nColumns: ['id', 'season', 'city', 'date', 'team1', 'team2', 'toss_winner', 'toss_decision', 'result', 'dl_applied', 'winner', 'win_by_runs', 'win_by_wickets', ",
+      "tok_count": 138,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "<think>I'm now analyzing the matches data to determine which season had the highest number of matches. First, I'm loading the matches.csv file into a pandas DataFrame. Then I'm identifying all unique ",
+      "tok_count": 138,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "<tool_call>\n{\"name\": \"add_and_execute_jupyter_code_cell\", \"arguments\": {\"answer\": null, \"code\": \"import pandas as pd\\n\\n# Load the matches dataset\\nmatches_df = pd.read_csv('/home/user/input/matches.c",
+      "tok_count": 208,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "<tool_response>\nUnique seasons in the dataset: [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017]\n\nMatches per season:\nseason\n2008    58\n2009    57\n2010    60\n2011    73\n2012    74\n2013    7",
+      "tok_count": 109,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "<think>I've analyzed the matches data to determine which season had the highest number of matches. First, I loaded the matches.csv file into a pandas DataFrame and identified all unique seasons in the",
+      "tok_count": 151,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "answer",
+      "preview": "<answer>The season with the highest number of matches was 2013 with 76 matches played.</answer>",
+      "tok_count": 22,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are an intelligent data science assistant with access to an stateful jupyter noteboo[\u2026]",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 15,
+      "role": "assistant",
+      "preview": "<tool_call>\n{\"name\": \"add_and_execute_jupyter_code_cell\", \"arguments\": {\"answer\": null, \"code\": \"import pandas as pd\\n\\n# Load the matches dataset\\nmatches_df = pd.read_csv('/home/user/input/matches.c",
+      "tok_count": 208
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 16,
+      "role": "assistant",
+      "preview": "<tool_response>\nUnique seasons in the dataset: [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017]\n\nMatches per season:\nseason\n2008    58\n2009    57\n2010    60\n2011    73\n2012    74\n2013    7",
+      "tok_count": 109
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": "<think>I've analyzed the matches data to determine which season had the highest number of matches. First, I loaded the matches.csv file into a pandas DataFrame and identified all unique seasons in the",
+      "tok_count": 151
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 18,
+      "role": "answer",
+      "preview": "<answer>The season with the highest number of matches was 2013 with 76 matches played.</answer>",
+      "tok_count": 22
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 841,
+      "retained_tokens": 18,
+      "retention_frac": 0.02140309155766944
+    },
+    "1": {
+      "orig_tokens": 20,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 111,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 141,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 136,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 96,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 139,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 574,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 135,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 110,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 532,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 159,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "12": {
+      "orig_tokens": 182,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 138,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "14": {
+      "orig_tokens": 138,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "15": {
+      "orig_tokens": 208,
+      "retained_tokens": 208,
+      "retention_frac": 1.0
+    },
+    "16": {
+      "orig_tokens": 109,
+      "retained_tokens": 109,
+      "retention_frac": 1.0
+    },
+    "17": {
+      "orig_tokens": 151,
+      "retained_tokens": 151,
+      "retention_frac": 1.0
+    },
+    "18": {
+      "orig_tokens": 22,
+      "retained_tokens": 22,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "matches.csv",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "matches.csv"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>I'm starting by loading the matches.csv file into a pandas DataFrame. My goal is to understand the structure of this dataset, including its shape (number of rows and columns), column names, and data types. I'll also display the first 5 rows to get a sense of the actual data. This is crucial for identifying which columns are relevant for answering the question about seasons with the highest number of matches. I'm particularly interested in columns that might indicate the season or year of matches, as well as any unique identifiers for matches.</think>",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "winner",
+        "target": "win_by_runs",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<tool_response>\nMatches Dataset Info:\nShape: (636, 18)\nColumns: ['id', 'season', 'city', 'date', 'team1', 'team2', 'toss_winner', 'toss_decision', 'result', 'dl_applied', 'winner', 'win_by_runs', 'win_by_wickets', 'player_of_match', 'venue', 'umpire1', 'umpire2', 'umpire3']\n\nData Types:\nid                   int64\nseason               int64\ncity                object\ndate                object\nteam1               object\n[Output is truncated as it is more than 10 lines]\n</tool_response>",
+        "msg_idx": 4
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "winner",
+        "target": "/usr/local/lib/python3.12/site-packages/jupyter_client/session.py",
+        "rationale": [
+          "py=721",
+          "winner:win_by_runs",
+          "value:/usr/local/lib/python3.12/site-packages/jupyter_client/session.py"
+        ],
+        "artifacts": {
+          "paths": [
+            "/usr/local/lib/python3.12/site-packages/jupyter_client/session.py",
+            "self.pack"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<tool_response>\nid  season       city        date                        team1  \\\n0   1    2017  Hyderabad  2017-04-05          Sunrisers Hyderabad   \n1   2    2017       Pune  2017-04-06               Mumbai Indians   \n2   3    2017     Rajkot  2017-04-07                Gujarat Lions   \n3   4    2017     Indore  2017-04-08       Rising Pune Supergiant   \n4   5    2017  Bangalore  2017-04-08  Royal Challengers Bangalore   \n\n                         team2                  toss_winner toss_decision  \\\n0  Royal Challengers Bangalore  Royal Challengers Bangalore         field   \n1       Rising Pune Supergiant       Rising Pune Supergiant         field   \n2        Kolkata Knight Riders        Kolkata Knight Riders         field   \n3              Kings XI Punjab              Kings XI Punjab         field   \n4             Delhi Daredevils  Royal Challengers Bangalore           bat   \n\n   result  dl_applied                       winner  win_by_runs  \\\n0  normal           0          Sunrisers Hyderabad           35   \n1  normal           0       Rising Pune Supergiant            0   \n2  normal           0        Kolkata Knight Riders            0   \n3  normal           0              Kings XI Punjab            0   \n4  normal           0  Royal Challengers Bangalore           15   \n\n   win_by_wickets player_of_match                                      venue  \\\n0               0    Yuvraj Singh  Rajiv Gandhi International Stadium, Uppal   \n1               7       SPD Smith    Maharashtra Cricket Association Stadium   \n2              10         CA Lynn     Saurashtra Cricket Association Stadium   \n[Output is truncated as it is more than 25 lines]\nMatches Dataset Info:\nShape: (636, 18)\nColumns: ['id', 'season', 'city', 'date', 'team1', 'team2', 'toss_winner', 'toss_decision', 'result', 'dl_applied', 'winner', 'win_by_runs', 'win_by_wickets', 'player_of_match', 'venue', 'umpire1', 'umpire2', 'umpire3']\n\nData Types:\nid                   int64\nseason               int64\ncity                object\ndate                object\nteam1               object\n[Output is truncated as it is more than 10 lines]\n/usr/local/lib/python3.12/site-packages/jupyter_client/session.py:721: UserWarning: Message serialization failed with:\nOut of range float values are not JSON compliant: nan\nSupporting this message is deprecated in jupyter-client 7, please make sure your message is JSON-compliant\n  content = self.pack(content)\n</tool_response>",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "winner",
+        "target": "/usr/local/lib/python3.12/site-packages/jupyter_client/session.py",
+        "rationale": [
+          "py=721",
+          "winner:win_by_runs",
+          "value:/usr/local/lib/python3.12/site-packages/jupyter_client/session.py"
+        ],
+        "artifacts": {
+          "paths": [
+            "/usr/local/lib/python3.12/site-packages/jupyter_client/session.py",
+            "self.pack"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<tool_response>\nid  season       city        date                        team1  \\\n0   1    2017  Hyderabad  2017-04-05          Sunrisers Hyderabad   \n1   2    2017       Pune  2017-04-06               Mumbai Indians   \n2   3    2017     Rajkot  2017-04-07                Gujarat Lions   \n3   4    2017     Indore  2017-04-08       Rising Pune Supergiant   \n4   5    2017  Bangalore  2017-04-08  Royal Challengers Bangalore   \n\n                         team2                  toss_winner toss_decision  \\\n0  Royal Challengers Bangalore  Royal Challengers Bangalore         field   \n1       Rising Pune Supergiant       Rising Pune Supergiant         field   \n2        Kolkata Knight Riders        Kolkata Knight Riders         field   \n3              Kings XI Punjab              Kings XI Punjab         field   \n4             Delhi Daredevils  Royal Challengers Bangalore           bat   \n\n   result  dl_applied                       winner  win_by_runs  \\\n0  normal           0          Sunrisers Hyderabad           35   \n1  normal           0       Rising Pune Supergiant            0   \n2  normal           0        Kolkata Knight Riders            0   \n3  normal           0              Kings XI Punjab            0   \n4  normal           0  Royal Challengers Bangalore           15   \n\n   win_by_wickets player_of_match                                      venue  \\\n0               0    Yuvraj Singh  Rajiv Gandhi International Stadium, Uppal   \n1               7       SPD Smith    Maharashtra Cricket Association Stadium   \n2              10         CA Lynn     Saurashtra Cricket Association Stadium   \n[Output is truncated as it is more than 25 lines]\nDataset shape: (636, 18)\nColumns: ['id', 'season', 'city', 'date', 'team1', 'team2', 'toss_winner', 'toss_decision', 'result', 'dl_applied', 'winner', 'win_by_runs', 'win_by_wickets', 'player_of_match', 'venue', 'umpire1', 'umpire2', 'umpire3']\n\n/usr/local/lib/python3.12/site-packages/jupyter_client/session.py:721: UserWarning: Message serialization failed with:\nOut of range float values are not JSON compliant: nan\nSupporting this message is deprecated in jupyter-client 7, please make sure your message is JSON-compliant\n  content = self.pack(content)\n</tool_response>",
+        "msg_idx": 10
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "highest number",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "matches.csv"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>I'm now performing a focused analysis to answer the question about which season had the highest number of matches. First, I'm loading the matches.csv file into a pandas DataFrame. Then I'm examining the basic structure of the dataset including its shape and column names. I'm particularly interested in the 'season' column since that's directly related to our question. I'll check the data types to ensure the season column is in the correct format. Next, I'll identify all unique seasons in the dataset to understand the range of data we're working with. Finally, I'll count the number of matches played in each season by using value_counts() on the 'season' column and sort the results by season to make it easier to identify the season with the highest number of matches.</think>",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "winner",
+        "target": "win_by_runs",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<tool_response>\nDataset shape: (636, 18)\nColumns: ['id', 'season', 'city', 'date', 'team1', 'team2', 'toss_winner', 'toss_decision', 'result', 'dl_applied', 'winner', 'win_by_runs', 'win_by_wickets', 'player_of_match', 'venue', 'umpire1', 'umpire2', 'umpire3']\n\nData types:\nid                   int64\nseason               int64\ncity                object\ndate                object\nteam1               object\nteam2               object\n[Output is truncated as it is more than 10 lines]\n</tool_response>",
+        "msg_idx": 13
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "identify trends",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "matches.csv"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>I'm now analyzing the matches data to determine which season had the highest number of matches. First, I'm loading the matches.csv file into a pandas DataFrame. Then I'm identifying all unique seasons in the dataset to understand the range of data we're working with. Next, I'm counting the number of matches played in each season by using value_counts() on the 'season' column and sorting the results by season index to make it easier to identify trends. Finally, I'll find the season with the maximum number of matches by using idxmax() to get the season and max() to get the count. This approach will give us a clear answer to the question.</think>",
+        "msg_idx": 14
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "matches.csv",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "matches.csv"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>I've analyzed the matches data to determine which season had the highest number of matches. First, I loaded the matches.csv file into a pandas DataFrame and identified all unique seasons in the dataset, which ranged from 2008 to 2017. Then, I counted the number of matches played in each season using value_counts() on the 'season' column. After examining the results, I found that 2013 had the highest number of matches with 76 matches played. This was determined by using idxmax() to find the season with the maximum count and max() to get the actual count value. The analysis shows a general trend of increasing matches over the years until 2013, followed by a slight decrease in subsequent seasons.</think>",
+        "msg_idx": 17
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "matches.csv",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 3942,
+    "comp_total_toks": 508,
+    "reduction": 87.11314053779807,
+    "DRR_soft": 0.125,
+    "RCI": 0.4706
+  }
+}

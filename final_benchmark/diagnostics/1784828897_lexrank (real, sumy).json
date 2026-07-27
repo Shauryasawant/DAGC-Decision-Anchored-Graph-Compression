@@ -1,0 +1,424 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "write set optimized text for photography prints for sale website",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Welcome to Our Premium Photography Print Store: A Treasure Trove of Visual Delights\n\nDiscover an exquisite collection of stunning photography prints that not only capture the beauty of our world, but ",
+      "tok_count": 454,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "write set optimized catchy title for photography prints for sale website",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "1. \"Captivating Clicks: Unveil a World of Breathtaking Photography Prints\"\n2. \"Picture Perfect Prints: Transform Your Space with Stunning Visual Masterpieces\"\n3. \"Lens to Living: Finely Curated Photog",
+      "tok_count": 194,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "write more seo optimized titles",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "1. \"Photography Print Paradise: Impeccable Quality and Unmatched Visual Appeal\"\n2. \"Picture-Perfect Moments: Unique and Eye-Catching Prints for Sale Online\"\n3. \"Artful Snapshots: Transform Your Space ",
+      "tok_count": 185,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "write set optimized text for framed photography prints for sale website",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Welcome to Our Framed Photography Print Emporium: Where Exceptional Artistry Meets Timeless Elegance\n\nElevate your interiors and showcase your exquisite taste with our impeccable collection of framed ",
+      "tok_count": 420,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "write SEO optimized text for framed photography prints for sale website",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "Introducing our Exquisite Collection of Framed Photography Prints: Timeless Visual Masterpieces for the Modern Home\n\nTransform your living spaces with the breathtaking beauty of our skillfully curated",
+      "tok_count": 480,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "write more seo optimized titles for photography prints for sale online",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "1. \"Photography Print Panorama: Enter the World of Exceptional Visual Art for Sale Online\"\n2. \"Masterful Moments: Buy Stunning Photography Prints from Our Exclusive Collection\"\n3. \"Visual Enchantment ",
+      "tok_count": 190,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "write about photographer who lives by the beach and takes photos of lighthouses, ocean and beach scenes",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "Meet Our Oceanic Enthusiast: Capturing the Mesmerizing Beauty of Coastal Life\n\nAllow us to introduce you to a gifted photographer whose passion for the sea, the shore, and the ethereal beauty of light",
+      "tok_count": 495,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "user",
+      "preview": "write about me the photographer who lives by the beach and takes photos of lighthouses, ocean and beach scenes",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "About Me: The Coastal Explorer and Passionate Photographer\n\nEver since I shook hands with the dreamy world of photography, the siren's song of the sea has beckoned me, shaping my passion for capturing",
+      "tok_count": 520,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "write set optimized text for photography prints for sale website",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Your print will not just be a visual delight, it will be a timeless treasure that brings joy to your space for years to come.",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "write set optimized catchy title for photography prints for sale website",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "\"Frame Your World: Unravel the Magic of Our Premium Photography Print Collection\" 6.",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "write more seo optimized titles",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "\"Inspirational Snapshots: A Showcase of Unique Photography Prints for Your Home\"",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "write set optimized text for framed photography prints for sale website",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "Indulge in the lasting beauty of our framed photography prints, crafted using only the finest materials and techniques.",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "write SEO optimized text for framed photography prints for sale website",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "Specially designed for the discerning eye, our online gallery features a diverse range of compelling subjects and themes, expertly paired with luxurious frames that elevate your home's d\u00e9cor and make ",
+      "tok_count": 41
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "user",
+      "preview": "write more seo optimized titles for photography prints for sale online",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "\"Photography Print Panorama: Enter the World of Exceptional Visual Art for Sale Online\" 2.",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 12,
+      "role": "user",
+      "preview": "write about photographer who lives by the beach and takes photos of lighthouses, ocean and beach scenes",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "Allow us to introduce you to a gifted photographer whose passion for the sea, the shore, and the ethereal beauty of lighthouses has led to the creation of a mesmerizing body of work.",
+      "tok_count": 40
+    },
+    {
+      "c_idx": 14,
+      "orig_idx": 14,
+      "role": "user",
+      "preview": "write about me the photographer who lives by the beach and takes photos of lighthouses, ocean and beach scenes",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 15,
+      "orig_idx": 15,
+      "role": "assistant",
+      "preview": "About Me: The Coastal Explorer and Passionate Photographer\n\nEver since I shook hands with the dreamy world of photography, the siren's song of the sea has beckoned me, shaping my passion for capturing",
+      "tok_count": 520
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 454,
+      "retained_tokens": 27,
+      "retention_frac": 0.05947136563876652
+    },
+    "2": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 194,
+      "retained_tokens": 20,
+      "retention_frac": 0.10309278350515463
+    },
+    "4": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 185,
+      "retained_tokens": 16,
+      "retention_frac": 0.08648648648648649
+    },
+    "6": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 420,
+      "retained_tokens": 22,
+      "retention_frac": 0.05238095238095238
+    },
+    "8": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 480,
+      "retained_tokens": 41,
+      "retention_frac": 0.08541666666666667
+    },
+    "10": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "11": {
+      "orig_tokens": 190,
+      "retained_tokens": 22,
+      "retention_frac": 0.11578947368421053
+    },
+    "12": {
+      "orig_tokens": 20,
+      "retained_tokens": 20,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 495,
+      "retained_tokens": 40,
+      "retention_frac": 0.08080808080808081
+    },
+    "14": {
+      "orig_tokens": 22,
+      "retained_tokens": 22,
+      "retention_frac": 1.0
+    },
+    "15": {
+      "orig_tokens": 520,
+      "retained_tokens": 520,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "choose",
+        "target": "Experience",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Welcome to Our Premium Photography Print Store: A Treasure Trove of Visual Delights\n\nDiscover an exquisite collection of stunning photography prints that not only capture the beauty of our world, but also elevate it. Our masterfully crafted visual offerings are designed to awaken your senses, ignite your imagination, and infuse your space with an air of sophistication.\n\nFind Your Perfect Print: An Array of Dazzling Subjects, Styles, and Sizes\n\nExplore our captivating range of subjects - from breathtaking landscapes and serene seascapes to mesmerizing wildlife, and from enchanting cityscapes to spectacular natural wonders. Our prints feature an enviable fusion of diverse styles to suit your personal taste, whether you're seeking the classic elegance of black and white, the dynamic vibrancy of color, or the ethereal beauty of abstract compositions.\n\nSavor the Superior Quality: The Finest Materials and Professional-Grade Inks\n\nWe take immense pride in our commitment to excellence. That's why we utilize only the finest materials to create our prints, including premium-grade photographic paper or canvas, and museum-quality inks that ensure outstanding durability and color fidelity. Your print will not just be a visual delight, it will be a timeless treasure that brings joy to your space for years to come.\n\nCustomize Your Experience: Choose the Presentation that Aligns with Your Vision\n\nTailor your print to your unique aesthetic preferences with our array of customization options. Decide on the perfect size for your space, pick from a range of elegant framing choices, or opt for a sleek and contemporary canvas gallery wrap. No matter your choice, we guarantee a flawless finished product that seamlessly blends with your individual style and d\u00e9cor.\n\nEnjoy a Secure and Effortless Shopping Experience: Fast Shipping and 100% Satisfaction Guarantee\n\nEmbrace a seamless and secure shopping experience with us. We're dedicated to delivering the ultimate in customer service, offering fast and reliable shipping to bring your beautiful print straight to your doorstep. To ensure your complete satisfaction, we also provide a hassle-free return policy if your print doesn't live up to your expectations.\n\nGather your loved ones, explore our collection, and choose the perfect photography prints that breathe life into your interiors today. Don't miss your chance to own enchanting works of art that will treasure forever.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "choose",
+        "target": "diverse palette",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Welcome to Our Framed Photography Print Emporium: Where Exceptional Artistry Meets Timeless Elegance\n\nElevate your interiors and showcase your exquisite taste with our impeccable collection of framed photography prints. We invite you to delve into a world of captivating subjects, skillful compositions, and luxurious frames that seamlessly blend beauty and sophistication, weaving visual narratives into your spaces.\n\nDiscover Stunning Subjects: Captivating Imagery for Every Aesthetic\n\nOur carefully curated collection offers photography prints that cater to a diverse array of personal styles and preferences. Browse through enchanting landscapes, mesmerizing wildlife, serene seascapes, alluring cityscapes, and more. Each framed print is masterfully composed to capture the very essence of its subject, telling a story that sparkles with emotion and human connection.\n\nExperience Quality Craftsmanship: Premium Materials and Superior Techniques\n\nIndulge in the lasting beauty of our framed photography prints, crafted using only the finest materials and techniques. Meticulously printed on high-grade photographic paper with professional-grade inks for exceptional color accuracy and longevity, each print is further enhanced by our exquisite collection of frames, chosen to complement the visual splendor of the artwork.\n\nFind your Perfect Frame: Tailored Design to Accentuate the Art\n\nOur sumptuous selection of premium frames is designed to enhance not only the beauty of the prints but also the ambiance of your space. With a diverse palette of materials, colors, and styles to choose from, you'll find the ideal frame to encapsulate your chosen print and harmonize with your interior d\u00e9cor.\n\nShop with Confidence: Secure, Fast Shipping and 100% Satisfaction Guarantee\n\nEnjoy a stress-free shopping experience with the assurance of secure transactions, and delight in our fast shipping service to have your framed print delivered right to your doorstep. Our commitment to excellence includes a hassle-free return policy to guarantee your complete satisfaction with your purchase.\n\nEmbrace the fusion of artistry and elegance with framed photography prints that captivate, inspire and elevate your interiors. Explore our collection today and find the perfect piece to transform your space into a visual masterpiece.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "finest materials and techniques",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "finest materials and state",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Introducing our Exquisite Collection of Framed Photography Prints: Timeless Visual Masterpieces for the Modern Home\n\nTransform your living spaces with the breathtaking beauty of our skillfully curated selection of framed photography prints. Specially designed for the discerning eye, our online gallery features a diverse range of compelling subjects and themes, expertly paired with luxurious frames that elevate your home's d\u00e9cor and make a style statement effortlessly.\n\nUnravel the Art of Framing: An Enchanting Array of Subjects and Styles\n\nExplore our striking collection, showcasing vivid landscapes, enchanting wildlife, serene seascapes, bustling cityscapes, and beyond. With our extensive online catalog, you'll find the perfect framed photography print to complement your unique aesthetic and vision effortlessly. Our versatile offerings ensure there's something for everyone, whether you're a minimalist seeking a touch of elegance or a maximalist craving a visual feast.\n\nCrafted with Precision: Premium Materials and Meticulous Techniques\n\nExperience the unparalleled quality and craftsmanship of our framed photography prints, made using the finest materials and state-of-the-art techniques. Our experts use high-grade photographic paper and archival inks to create stunning, long-lasting prints that maintain their vibrant colors and details for years to come. The crowning glory of our exquisite prints is the superbly crafted frames, meticulously chosen to enhance the beauty of the artwork.\n\nCustom Framing Solutions: Enhancing and Elevating Your Art\n\nDiscover the visual harmony that our tailored framing solutions can bring to your chosen print and your interiors alike. With a vast range of materials, colors, and styles on offer, our collection has the perfect framing match for your new favorite piece of art - giving it the refinement it deserves while seamlessly blending with your existing d\u00e9cor.\n\nSeamless Online Shopping: Secure Transactions, Fast Shipping, and Satisfaction Guarantee\n\nUnwind and enjoy a seamless online shopping experience with our secure platform, designed to protect the privacy of your transactions. Our framed photography prints come with fast, reliable shipping that ensures you receive your masterpiece in perfect condition. Moreover, our satisfaction guarantee and hassle-free return policy demonstrate our unwavering commitment to keeping our customers happy.\n\nExplore our one-of-a-kind collection of framed photography prints today, and unlock the key to transforming your home into a curated art space that reflects your personality and style. Your journey to the ultimate visual paradise begins here \u2013 don't miss out on this artistic opportunity!",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 3039,
+    "comp_total_toks": 809,
+    "reduction": 73.37940111878906,
+    "DRR_soft": 0.4266666666666667,
+    "RCI": 0.5
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "In the context of a hypothetical phrase book,  generate an entirely fictional language,  and then give a sample dialouge of ordering a meal in a cafe.  The dialouge should make logical sense. You can ",
+      "tok_count": 60,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Welcome to the fictional world of Kynsra! This is a completely made-up language, and any resemblance to any real language is purely coincidental. Let\u2019s imagine you are in a cafe and want to order a me",
+      "tok_count": 379,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Another sample dialouge.  \"What time does the bus depart for the museum?\"",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Certainly, here's a hypothetical dialogue in the fictional language of Arvada for asking about the time of the bus departure:\n\nYou: Olaq tiqumeta yuqnosua vosminad axmuseova?\n(What time does the bus d",
+      "tok_count": 249,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Using the examples above , following the grammar and vocabluary constructed for Kynsra,  Book a holiday to Arvada and purchase a language course for that language.",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Sure, here's a sample conversation in Kynsra for booking a holiday to Arvada and purchasing a language course for learning Arvadan:\n\nYou: Fyoq naqikin rygtalva Arvada?\n(Can I book a holiday to Arvada?",
+      "tok_count": 631,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Not a constructed language, but explain how well a business deal went in 'Strine (Broad Australian English).",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "G'day mate! So, to answer your question, I'll explain how a business deal went in 'Strine (Broad Australian English).\n\nWell, let me tell you, the deal was pretty bonza! It all started with a fair dink",
+      "tok_count": 214,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Thanks.",
+      "tok_count": 2,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "No worries, mate! If you have any further questions, feel free to ask!",
+      "tok_count": 17,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "In the context of a hypothetical phrase book,  generate an entirely fictional language,  and then give a sample dialouge of ordering a meal in a cafe.  The dialouge should make logical sense. You can ",
+      "tok_count": 60
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Welcome to the fictional world of Kynsra! This is a completely made-up language, and any resemblance to any real language is purely coincidental. Let\u2019s imagine you are in a cafe and want to order a me",
+      "tok_count": 379
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Another sample dialouge.  \"What time does the bus depart for the museum?\"",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Certainly, here's a hypothetical dialogue in the fictional language of Arvada for asking about the time of the bus departure:\n\nYou: Olaq tiqumeta yuqnosua vosminad axmuseova?\n(What time does the bus d",
+      "tok_count": 249
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Using the examples above , following the grammar and vocabluary constructed for Kynsra,  Book a holiday to Arvada and purchase a language course for that language.",
+      "tok_count": 36
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Sure, here's a sample conversation in Kynsra for booking a holiday to Arvada and purchasing a language course for learning Arvadan:\n\nYou: Fyoq naqikin rygtalva Arvada?\n(Can I book a holiday to Arvada?",
+      "tok_count": 631
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "Not a constructed language, but explain how well a business deal went in 'Strine (Broad Australian English).",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "G'day mate! So, to answer your question, I'll explain how a business deal went in 'Strine (Broad Australian English).\n\nWell, let me tell you, the deal was pretty bonza! It all started with a fair dink",
+      "tok_count": 214
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "Thanks.",
+      "tok_count": 2
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "No worries, mate! If you have any further questions, feel free to ask!",
+      "tok_count": 17
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 60,
+      "retained_tokens": 60,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 379,
+      "retained_tokens": 379,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 18,
+      "retained_tokens": 18,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 249,
+      "retained_tokens": 249,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 36,
+      "retained_tokens": 36,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 631,
+      "retained_tokens": 631,
+      "retention_frac": 1.0
+    },
+    "6": {
+      "orig_tokens": 22,
+      "retained_tokens": 22,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 214,
+      "retained_tokens": 214,
+      "retention_frac": 1.0
+    },
+    "8": {
+      "orig_tokens": 2,
+      "retained_tokens": 2,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 17,
+      "retained_tokens": 17,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "Rax",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Welcome to the fictional world of Kynsra! This is a completely made-up language, and any resemblance to any real language is purely coincidental. Let\u2019s imagine you are in a cafe and want to order a meal.\n\nServer: Vytha qixen fa rosyn? (What would you like to eat?)\nYou: Ki jomzan mifal. (I would like the soup.)\nServer: Ki vymet dor kopza? (Would you like bread with that?)\nYou: Ni, ki sifud ryndir. (No, just water.)\nServer: Hal vytha qixen hyn mifal? (Would you like the soup now?)\nYou: Ah, hyne ron (Yes, please)\nServer: Rax, ki jomzan werio. (Okay, the soup is coming.)\nYou: Rin, fa elltam. (Thank you, have a good day.)\n\nIn Kynsran grammar, verbs generally come at the beginning of the sentence. \u201cVytha\u201d means \u201cwould you like,\u201d \u201cki\u201d is the subject pronoun for \u201cI,\u201d \u201cjomzan\u201d means \u201cto eat,\u201d and \u201cmifal\u201d is \u201cthe soup.\u201d \u201cNi\u201d means \u201cno,\u201d \u201csifud\u201d means \u201cwater,\u201d \u201cryndir\u201d means \u201cjust,\u201d and \u201cdor kopza\u201d means \u201cbread with that.\u201d \n\nTo express a question in Kynsra, you can indicate it either with word order or by adding \u201chal\u201d at the beginning of the sentence. \u201cRax\u201d means \u201cokay,\u201d \u201chyne\u201d means \u201cyes,\u201d \u201chin\u201d means \u201cno,\u201d \u201cfa\u201d is a preposition used to indicate the purpose of the verb, \u201celltam\u201d means \u201cgood day.\u201d\n\nHope you enjoyed a little taste of Kynsra!",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "Rax",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "subject pronoun",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Sure, here's a sample conversation in Kynsra for booking a holiday to Arvada and purchasing a language course for learning Arvadan:\n\nYou: Fyoq naqikin rygtalva Arvada?\n(Can I book a holiday to Arvada?)\nTravel Agent: Ah, rygtalva Arvada. Es ani arynavon laquomu, tozha ki tytza elegon. (Ah, a holiday to Arvada. It's a beautiful place, and you will enjoy it a lot.)\nYou: Rin, ki te tilysto livo vana es efa?\n(Yes, can you tell me about the available flights there?)\nTravel Agent: Es ferlaqa oquixan mikuzox yador. Ki te ti orvoro legiz hynge livon. (There are direct flights on Fridays. I can book one for you today.)\nYou: Rax, ki fevymon. Ni tynzalza lymaq tytza, ki talmunahan yadynad Arvada.\n(Okay, let's do it. I want to learn Arvadan, can I purchase a language course for that?)\nTravel Agent: Ah, ki orvoro oqozto Arvada! Es tilysto melzor. Ya talthoza ki vidazon namas goqstar. (Ah, you want to learn Arvadan! That's great. We have a very good language course here.)\nYou: Rin, fa qalmaquom.\n(Yes, please.)\n\nIn Kynsra, \"fyoq\" means \"can I,\" \"naqikin\" means \"to book,\" \"rygtalva\" means \"holiday,\" and \"Arvada\" means \"Arvada.\" \"Es\" means \"it is,\" \"ani\" means \"beautiful,\" \"arynavon\" means \"place,\" \"laquomu\" means \"you will enjoy it,\" \"tozha\" means \"and.\"\n\n\"Tilysto\" means \"available,\" \"livo vana\" means \"flights there,\" \"te\" is used as a subject pronoun for \"can you tell me.\" \"Ferlaqa\" means \"direct,\" \"oquixan\" means \"on,\" \"mikuzox\" means \"Fridays,\" \"orvoro legiz\" means \"book one today.\"\n\n\"Fevymon\" means \"let's do it,\" \"tynzalza\" means \"to learn,\" \"lymaq\" means \"language,\" \"talmunahan\" means \"I want,\" and \"yadynad\" means \"Arvadan.\"\n\n\"Tilysto\" means \"available,\" \"melzor\" means \"good,\" \"talthoza\" means \"we have,\" \"vidazon\" means \"course,\" and \"namas goqstar\" means \"very good.\" \"Qalmaquom\" means \"please.\"",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "subject pronoun",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1628,
+    "comp_total_toks": 1628,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

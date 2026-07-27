@@ -1,0 +1,1009 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "We are setting up the world for a fantasy story.\n\n1. The tiny utopian country, named Harmonis, has a population of fewer than 20,000 people, governed by a theocratic benign dictatorship under a Godkin",
+      "tok_count": 596,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "1. What is the main source of income or resources for the utopian country of Harmonis? \n\n2. Are there any magical or supernatural elements in the world beyond Harmonis? If so, how does that affect Har",
+      "tok_count": 126,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Can you give suggestions for these?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "1. The main source of income and resources for Harmonis could be derived from a combination of agriculture, specialized handicrafts, and well-developed magical or technological advancements. Their agr",
+      "tok_count": 427,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Mostly sounds good. Let us make a few corrections.\n* There is mostly no hindering of \"freedom or individuality\". People are free to pursue whatever endeavors they desire, and excellence is rewarded wi",
+      "tok_count": 91,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "1. How does education work in Harmonis? Is there a public education system, or is it the responsibility of families to educate their children?\n\n2. How does religion in Harmonis relate to other religio",
+      "tok_count": 165,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "There is public education and healthcare. The religion is based on \"willing submission to the sovereign\" hence why anyone (except criminals) are allowed to leave and so they will not seek conversion. ",
+      "tok_count": 126,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "1. The public education system in Harmonis is supported by the state and provides accessible learning opportunities to all citizens. Education could be overseen by the League of Masters, where skilled",
+      "tok_count": 341,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Summarize everything so far in prose and ask any more question you have.",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "In the magical medieval world of Harmonis, a tiny utopian country exists, sheltered under the divine protection of The Absolute Sovereign. With a population of fewer than 20,000, the country is govern",
+      "tok_count": 435,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "The summary is incomplete.\n3. No, because anyone can simply leave if they disagree. Why anger the sovereign and potentially destroy the defense and prosperity for others?\nGive your suggestions for the",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "1. Families and interpersonal relationships in Harmonis might carry a strong emphasis on supporting one another in individual growth while respecting the class-based structure. This could foster a sen",
+      "tok_count": 373,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "Summarize everything so far in prose. Do not miss anything.",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "In the enchanting, medieval world of Harmonis, a tiny utopian country of fewer than 20,000 people exists, thriving under the divine protection of The Absolute Sovereign. Governed by the wise and benev",
+      "tok_count": 603,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "user",
+      "preview": "What are some points the summary missed?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "The summary might have missed a few minor details:\n\n1. The ceremonial aspect of collaring and the specific rituals performed during the ceremony, such as individuals kneeling before the Godking, bowin",
+      "tok_count": 235,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "user",
+      "preview": "You also missed the actual classes, the judicial system, economy, (trade) relationship with other countries\n\nRewrite the summary adding these 10 new points.",
+      "tok_count": 32,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "In the enchanting, medieval world of Harmonis, a tiny utopian country of fewer than 20,000 people flourishes, safely nestled under the divine protection of The Absolute Sovereign. Governed by the wise",
+      "tok_count": 649,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "user",
+      "preview": "What are the social classes?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "The social classes in Harmonis, signified by the type of collar worn by each individual, are as follows:\n\n1. Godking: Uncollared\n2. The Divine Harem: Platinum collar with celestial symbols\n3. The Favo",
+      "tok_count": 155,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "user",
+      "preview": "Do you have any more questions? Is there anything we missed? For example, the sexual culture which we will explore later.",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "assistant",
+      "preview": "At the moment, there are no further questions regarding the information provided so far. However, there are some topics we could explore further, such as:\n\n1. Sexual culture, social norms, and attitud",
+      "tok_count": 140,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "user",
+      "preview": "We will explore sexual culture, romantic relationships and marriage later. Give suggestions for everything else.",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 23,
+      "role": "assistant",
+      "preview": "Customs and traditions observed during significant life events in Harmonis:\n\n1. Births: Upon the birth of a child, a special ceremony could be held to welcome the newborn into the community. The cerem",
+      "tok_count": 429,
+      "protected": false
+    },
+    {
+      "idx": 24,
+      "role": "user",
+      "preview": "We need to add some way to immortalize the dead people's collars, while also not letting it becoming a resource sink (Remember that some collars contains precious metals). Any ideas?",
+      "tok_count": 38,
+      "protected": false
+    },
+    {
+      "idx": 25,
+      "role": "assistant",
+      "preview": "One way to immortalize the dead people's collars without creating a resource sink is by creating a memorial registry system within Harmonis. Upon the death of an individual, their collar would be remo",
+      "tok_count": 237,
+      "protected": false
+    },
+    {
+      "idx": 26,
+      "role": "user",
+      "preview": "That sounds great. Let's also add that people's achievements are engraved on their collars while alive, giving more meaning to it's images being added to the registry.\n\nAnything else we need to consid",
+      "tok_count": 46,
+      "protected": false
+    },
+    {
+      "idx": 27,
+      "role": "assistant",
+      "preview": "Incorporating engraved achievements on the collars during a person's life adds significant personal meaning and value to the memorial registry, creating a more profound connection to the deceased and ",
+      "tok_count": 314,
+      "protected": false
+    },
+    {
+      "idx": 28,
+      "role": "user",
+      "preview": "1. There will be a festival for celebrating sexuality which we will explore later. Suggest other festivals.\n2. That would be interesting, considering people of the same family can be in different clas",
+      "tok_count": 52,
+      "protected": false
+    },
+    {
+      "idx": 29,
+      "role": "assistant",
+      "preview": "1. Additional festivals and holidays in Harmonis:\n\n- Sovereign's Day: This annual celebration honors The Absolute Sovereign, with ceremonies, prayer sessions, and offerings to express gratitude for th",
+      "tok_count": 430,
+      "protected": false
+    },
+    {
+      "idx": 30,
+      "role": "user",
+      "preview": "What about the rest?",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 31,
+      "role": "assistant",
+      "preview": "3. Responsible resource management in Harmonis:\n\nHarmonis could maintain a strong focus on sustainable practices and responsible stewardship of natural resources. Some examples of responsible resource",
+      "tok_count": 575,
+      "protected": false
+    },
+    {
+      "idx": 32,
+      "role": "user",
+      "preview": "Make this change - Harmonians' unique style of magic is derived from the Sovereign and cannot be used by outsiders. However, other styles of magic does exist in the outside world.\n\nWith that, summariz",
+      "tok_count": 63,
+      "protected": false
+    },
+    {
+      "idx": 33,
+      "role": "assistant",
+      "preview": "In the enchanting, medieval world of Harmonis, a tiny utopian country of fewer than 20,000 people thrives under the divine protection of The Absolute Sovereign. Governed by the wise and benevolent God",
+      "tok_count": 475,
+      "protected": false
+    },
+    {
+      "idx": 34,
+      "role": "user",
+      "preview": "That is a bad summary. You missed so much.",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 35,
+      "role": "assistant",
+      "preview": "I apologize for the omission of some important details. Here's an attempt to summarize the information more comprehensively:\n\nIn the enchanting, medieval world, the utopian country of Harmonis flouris",
+      "tok_count": 482,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "The classes are as follows: The Subservient: Thin leather collar The Bound: Barbed wire collar (prisoners) In this process, potential successors are assessed based on their achievements and loyalty to",
+      "tok_count": 46
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Is there a legal and judicial system in place?",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Any more questions?",
+      "tok_count": 4
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "Elaborate and graceful dances performed during rituals and ceremonies Cultural, artistic, and entertainment forms unique to Harmonis may include:",
+      "tok_count": 25
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "Severe crimes may warrant harsher punishment, while violations of the Godking's mandates are dealt with on a case-by-case basis. Despite the strict adherence to the Godking's principles, individuality",
+      "tok_count": 67
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "This could foster a sense of unity and cooperation within families, which in turn would contribute to the overall harmony of the nation.",
+      "tok_count": 25
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "Education and healthcare are of utmost importance and are provided freely to all citizens. Although citizens are devoted to their Godking and The Absolute Sovereign, they are afforded much personal fr",
+      "tok_count": 97
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 16,
+      "role": "user",
+      "preview": "Rewrite the summary adding these 10 new points.",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": "They are afforded much freedom, with the ability to leave the country and relinquish their collar, should they desire to do so.",
+      "tok_count": 26
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 19,
+      "role": "assistant",
+      "preview": "The League of Masters: Silver collar with intricate engravings The Bound: Barbed wire collar (prisoners) The Subservient: Thin leather collar",
+      "tok_count": 32
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 20,
+      "role": "user",
+      "preview": "For example, the sexual culture which we will explore later.",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 21,
+      "role": "assistant",
+      "preview": "The outside world's perceptions and attitudes towards Harmonis, and any impacts these might have on international relations or diplomacy. Sexual culture, social norms, and attitudes toward romantic re",
+      "tok_count": 38
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 22,
+      "role": "user",
+      "preview": "Give suggestions for everything else.",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 23,
+      "role": "assistant",
+      "preview": "Various nations might seek to establish diplomatic ties and participate in trade with Harmonis, benefiting from its unique resources and knowledge.",
+      "tok_count": 24
+    },
+    {
+      "c_idx": 14,
+      "orig_idx": 27,
+      "role": "assistant",
+      "preview": "Incorporating engraved achievements on the collars during a person's life adds significant personal meaning and value to the memorial registry, creating a more profound connection to the deceased and ",
+      "tok_count": 42
+    },
+    {
+      "c_idx": 15,
+      "orig_idx": 31,
+      "role": "assistant",
+      "preview": "Harmonis could seamlessly blend magical techniques with technology to drive its progress and prosperity. Harmonis could maintain a strong focus on sustainable practices and responsible stewardship of ",
+      "tok_count": 35
+    },
+    {
+      "c_idx": 16,
+      "orig_idx": 33,
+      "role": "assistant",
+      "preview": "Education and healthcare are provided freely to all, under the guidance of the dedicated League of Masters.",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 17,
+      "orig_idx": 34,
+      "role": "user",
+      "preview": "That is a bad summary.",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 18,
+      "orig_idx": 35,
+      "role": "assistant",
+      "preview": "I apologize for the omission of some important details. Here's an attempt to summarize the information more comprehensively:\n\nIn the enchanting, medieval world, the utopian country of Harmonis flouris",
+      "tok_count": 482
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 596,
+      "retained_tokens": 46,
+      "retention_frac": 0.07718120805369127
+    },
+    "1": {
+      "orig_tokens": 126,
+      "retained_tokens": 10,
+      "retention_frac": 0.07936507936507936
+    },
+    "2": {
+      "orig_tokens": 7,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 427,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 91,
+      "retained_tokens": 4,
+      "retention_frac": 0.04395604395604396
+    },
+    "5": {
+      "orig_tokens": 165,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 126,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 341,
+      "retained_tokens": 25,
+      "retention_frac": 0.07331378299120235
+    },
+    "8": {
+      "orig_tokens": 16,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 435,
+      "retained_tokens": 67,
+      "retention_frac": 0.15402298850574714
+    },
+    "10": {
+      "orig_tokens": 40,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 373,
+      "retained_tokens": 25,
+      "retention_frac": 0.06702412868632708
+    },
+    "12": {
+      "orig_tokens": 14,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 603,
+      "retained_tokens": 97,
+      "retention_frac": 0.16086235489220563
+    },
+    "14": {
+      "orig_tokens": 8,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "15": {
+      "orig_tokens": 235,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 32,
+      "retained_tokens": 11,
+      "retention_frac": 0.34375
+    },
+    "17": {
+      "orig_tokens": 649,
+      "retained_tokens": 26,
+      "retention_frac": 0.040061633281972264
+    },
+    "18": {
+      "orig_tokens": 6,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "19": {
+      "orig_tokens": 155,
+      "retained_tokens": 32,
+      "retention_frac": 0.2064516129032258
+    },
+    "20": {
+      "orig_tokens": 25,
+      "retained_tokens": 12,
+      "retention_frac": 0.48
+    },
+    "21": {
+      "orig_tokens": 140,
+      "retained_tokens": 38,
+      "retention_frac": 0.2714285714285714
+    },
+    "22": {
+      "orig_tokens": 18,
+      "retained_tokens": 6,
+      "retention_frac": 0.3333333333333333
+    },
+    "23": {
+      "orig_tokens": 429,
+      "retained_tokens": 24,
+      "retention_frac": 0.055944055944055944
+    },
+    "24": {
+      "orig_tokens": 38,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "25": {
+      "orig_tokens": 237,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "26": {
+      "orig_tokens": 46,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "27": {
+      "orig_tokens": 314,
+      "retained_tokens": 42,
+      "retention_frac": 0.1337579617834395
+    },
+    "28": {
+      "orig_tokens": 52,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "29": {
+      "orig_tokens": 430,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "30": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "31": {
+      "orig_tokens": 575,
+      "retained_tokens": 35,
+      "retention_frac": 0.06086956521739131
+    },
+    "32": {
+      "orig_tokens": 63,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "33": {
+      "orig_tokens": 475,
+      "retained_tokens": 19,
+      "retention_frac": 0.04
+    },
+    "34": {
+      "orig_tokens": 11,
+      "retained_tokens": 6,
+      "retention_frac": 0.5454545454545454
+    },
+    "35": {
+      "orig_tokens": 482,
+      "retained_tokens": 482,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    3,
+    5,
+    6,
+    8,
+    10,
+    12,
+    14,
+    15,
+    18,
+    24,
+    25,
+    26,
+    28,
+    29,
+    30,
+    32
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Harmonis",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. What is the main source of income or resources for the utopian country of Harmonis? \n\n2. Are there any magical or supernatural elements in the world beyond Harmonis? If so, how does that affect Harmonis and its citizens? \n\n3. Do Harmonis citizens ever face any consequences or negative implications resulting from their strict loyalty to the state and the Godking?\n\n4. How are disputes and conflicts resolved in Harmonis? Is there a legal and judicial system in place?\n\n5. How do the other nations in the outside world view Harmonis? Do they interact with or have any relations with Harmonis?",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.6,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Harmonis",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. How does education work in Harmonis? Is there a public education system, or is it the responsibility of families to educate their children?\n\n2. How does religion in Harmonis relate to other religions or belief systems in the outside world? Do they practice tolerance or actively seek to convert others to the worship of The Absolute Sovereign?\n\n3. Are there any cultural, artistic, or entertainment forms unique to Harmonis? How do the people of Harmonis express themselves creatively?\n\n4. How does Harmonis handle healthcare, particularly in regards to both physical and mental well-being? Is there a developed medical system that takes care of its citizens?\n\n5. Since crime is likely rare in Harmonis, how does the judicial system deal with those who break the law? Are punishments severe or focused more on rehabilitation and penance?",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.6,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "illuminated magical sources",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. The public education system in Harmonis is supported by the state and provides accessible learning opportunities to all citizens. Education could be overseen by the League of Masters, where skilled teachers share their knowledge in various fields, such as history, religion, magic, language, arts, and basic sciences. Since the society values merit and personal growth, students are encouraged to excel and pursue their interests, which may lead to higher class placements in the future.\n\n2. Cultural, artistic, and entertainment forms unique to Harmonis may include:\n\n- Elaborate and graceful dances performed during rituals and ceremonies\n- Intricate and symbolic sand mandalas or tapestries, telling the stories of Harmonis and the Godking\n- Shadow puppetry using illuminated magical sources for light, depicting myths and legends\n- Traditional music based on the use of enchanting melodies and mystical instruments\n- Poetry and storytelling, with skilled bards recounting the valor of the Godking and the divine protection granted to Harmonis\n\n3. Healthcare in Harmonis seamlessly combines conventional and magical healing techniques. The state ensures that all citizens receive adequate physical and mental care, with The League of Masters doubling as skilled healers and apothecaries. They use their knowledge of magical herbal remedies and enchantments to treat various ailments, ensuring a mostly healthy and happy population. Mental well-being is also considered important, and healers may provide guidance and support to citizens experiencing emotional or psychological distress.\n\nGiven the unique aspects of Harmonis, its cultural practices, and the importance of personal growth, the citizens enjoy a mostly stable, secure, and harmonious life under the protection of The Absolute Sovereign and the wise rule of the Godking.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Cultural",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "removing",
+        "target": "collar within",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The summary might have missed a few minor details:\n\n1. The ceremonial aspect of collaring and the specific rituals performed during the ceremony, such as individuals kneeling before the Godking, bowing their heads in respect and submission, saying their vows, obeying a menial order given by the Godking, and finally being collared.\n\n2. The freedom for citizens to leave the country at any time and the ceremonial removal of their collar during this process, which renounces the Godking's protection and the country's way of life. Conversely, removing the collar within the country results in exile.\n\n3. The presence of magical and supernatural elements in the world beyond Harmonis, which could potentially impact Harmonis and its citizens, both in their daily lives and in the wider context of international relations.\n\n4. The unique method by which a new Godking is chosen, which involves a merit-based selection process set by The Absolute Sovereign, followed by divine intervention, whereby the chosen successor receives a sign confirming their selection.\n\n5. The complexities of Harmonis citizens leaving or reintegrating into the outside world and the challenges they may face in adapting to different environments and societal values.",
+        "msg_idx": 15
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "selecting",
+        "target": "unique method",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In the enchanting, medieval world of Harmonis, a tiny utopian country of fewer than 20,000 people flourishes, safely nestled under the divine protection of The Absolute Sovereign. Governed by the wise and benevolent theocratic dictatorship of the Godking Primoris, the nation is a beacon of harmony and prosperity amidst a chaotic world filled with corruption, inequality, and strife.\n\nWithin the secure boundaries of Harmonis, a unique class system based on meritocracy and personal growth exists, symbolized by different collars worn by its citizens. Progression and social mobility within this framework are both achievable and celebrated. The various classes, ranging from the uncollared Godking to the Bound with their barbed wire collars, represent the diverse roles and functions within society.\n\nThe public education system, overseen by the League of Masters, imparts knowledge in a myriad of subjects, such as history, magic, and language. These same esteemed individuals also function as skilled healers, providing both physical and mental care to the population, free of charge.\n\nHarmonians celebrate their heritage through an array of rich artistic and cultural forms, including their distinct styles of dance, music, visual art, and storytelling, all of which praise their divine protector, The Absolute Sovereign, and the admired rule of the Godking.\n\nFamily and interpersonal relationships emphasize supporting one another's individual growth while respecting the societal structure. This unity within families and the broader community contributes to the overall harmony and success of the nation.\n\nCitizens enjoy a harmonious and prosperous existence, willingly adhering to the guiding principles of their Godking and divine protector. They are afforded much freedom, with the ability to leave the country and relinquish their collar, should they desire to do so.\n\nCrime in Harmonis is exceedingly rare, with a judicial system that focuses on rehabilitation and penance for all but the gravest offenses. The Bound, with their barbed wire collars, signify the lowest social status, while severe violations of the Godking's mandates are dealt with on a case-by-case basis, reflecting his wisdom and compassion.\n\nThe economy benefits from valuable trade partnerships forged with surrounding nations, solidifying their crucial role as a key economic and diplomatic player in the region. These relationships extend to include magical, supernatural elements found in the world beyond Harmonis, which could impact the citizens and their daily lives.\n\nThe ceremonial aspect of collaring embodies the essence of devotion to the Godking and The Absolute Sovereign, where individuals participate in specific rituals, such as kneeling before the Godking, bowing their heads, declaring their vows, and ultimately being collared by the supreme authority.\n\nLastly, the unique method for selecting a new Godking involves a merit-based selection process established by The Absolute Sovereign. The chosen successor receives a divine sign, confirming their appointment as the next Godking of Harmonis.\n\nIn summary, the magical nation of Harmonis exemplifies utopia, where its citizens live in harmony and prosperity under divine protection and the wise rule of the Godking. The nation embraces personal growth, education, healthcare, and a deep sense of unity while maintaining trade relationships with other countries, all contributing to the remarkable society that thrives in an otherwise turbulent world.",
+        "msg_idx": 17
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Harmonis",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The social classes in Harmonis, signified by the type of collar worn by each individual, are as follows:\n\n1. Godking: Uncollared\n2. The Divine Harem: Platinum collar with celestial symbols\n3. The Favored: White thread collar (children below 12 years of age)\n4. The Trial: Red thread collar (individuals aged 12-18 years old)\n5. The Council of the Wise: Gold collar with ornate patterns\n6. The League of Masters: Silver collar with intricate engravings\n7. The Zealous: Copper collar\n8. The Industrious: Iron collar\n9. The Subservient: Thin leather collar\n10. The Bound: Barbed wire collar (prisoners)",
+        "msg_idx": 19
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.6,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "removed",
+        "target": "procession may take place",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Customs and traditions observed during significant life events in Harmonis:\n\n1. Births: Upon the birth of a child, a special ceremony could be held to welcome the newborn into the community. The ceremony might involve blessings from the Godking, and the gifting of a white thread collar to symbolize the beginning of the child's life under the protection of The Absolute Sovereign. The family and community members could gather to celebrate the new life with feasts, music, and dance.\n\n2. Funerals: Funerals in Harmonis might hold a mix of solemn condolences and reverence to the life of the deceased. Loved ones would gather to share memories, while a member of the Council of the Wise or the League of Masters may perform a eulogy highlighting the individual's contributions to the community. Following the funeral, a procession may take place, where the deceased's collar is removed and offered back to the Godking or the deity, signifying the end of their life's journey within Harmonis.\n\n3. The role of magic in everyday life: Magic may be seamlessly integrated into various aspects of Harmonis society. Common uses might include enhancing agricultural yields, improving transportation and communication, and making daily tasks more efficient. Additionally, magical techniques could be utilized in healing, strengthening defenses against external threats, and maintaining the infrastructure and cleanliness of the nation.\n\n4. Perceptions and attitudes of the outside world: The outside world might hold mixed opinions about Harmonis. Some may view the utopian country with admiration and aspire to follow its example, while others might perceive Harmonis as aloof or self-righteous, harboring distrust or suspicion. Various nations might seek to establish diplomatic ties and participate in trade with Harmonis, benefiting from its unique resources and knowledge. However, nations with conflicting ideologies or practices could challenge or criticize Harmonis, potentially leading to tensions or conflicts that need to be resolved diplomatically or through divine intervention.\n\nBy understanding traditions surrounding significant life events, the integration of magic in daily life, and the dynamics of international relations, the depth and complexities of Harmonis and its influence in the greater world become richer and more intricate.",
+        "msg_idx": 23
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Harmonis",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "removed",
+        "target": "Harmonis",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "One way to immortalize the dead people's collars without creating a resource sink is by creating a memorial registry system within Harmonis. Upon the death of an individual, their collar would be removed, and their name inscribed in the registry, which could be kept in a sacred location or temple dedicated to The Absolute Sovereign. An accompanying ceremony could involve a high-resolution etching or painting of the collar, capturing the intricate designs and symbols unique to each individual collar. These artistic representations would be displayed alongside the name of the deceased as a tribute to their life, thus preserving their memory within the community.\n\nMeanwhile, to prevent the waste of precious materials from the collars, they could be melted down and repurposed for the creation of new collars or other significant items, such as sacred objects or embellishments for the temple. This recycling and repurposing process would symbolize the continuation of life and the eternal cycle of growth and transition in Harmonis while preserving valuable resources. The artistic renditions of the deceased's collar in the memorial registry will serve as a reminder of the person's life and social class, while the reclaimed materials will continue to serve and benefit the society.",
+        "msg_idx": 25
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Harmonis",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Incorporating engraved achievements on the collars during a person's life adds significant personal meaning and value to the memorial registry, creating a more profound connection to the deceased and their contributions to Harmonis society.\n\nTo further flesh out the setting, consider exploring:\n\n1. Festivals and holidays: Create unique festivals and holidays celebrated by the people of Harmonis, such as an annual commemoration of the divine protection from The Absolute Sovereign or a harvest festival celebrating the nation's bountiful agricultural resources.\n\n2. Economic structure: Dive deeper into the trade relations, currency system, taxation, and how wealth is distributed among the population in Harmonis. Consider the balance between economic prosperity and income equality among different social classes.\n\n3. Responsible resource management: Understanding how Harmonis manages its natural resources, such as food, water, and energy, can reflect its commitment to sustainability and responsible growth while maintaining a utopian society.\n\n4. Role of technology and innovation: Explore the relationship between magic and technology in Harmonis, and how innovations in both areas contribute to the advancement and prosperity of the nation.\n\n5. Cultural exchange: Investigate the interactions and influences between Harmonis and the outside world in terms of arts, literature, magic, and other cultural aspects. These exchanges might lead to a rich tapestry of traditions, knowledge, and creativity, both within Harmonis and beyond.\n\nBy delving into these topics, the setting of Harmonis will gain further depth and complexity, providing a vibrant backdrop for the stories, characters, and adventures that unfold within this utopian nation.",
+        "msg_idx": 27
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.6,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "minimize pollution",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "3. Responsible resource management in Harmonis:\n\nHarmonis could maintain a strong focus on sustainable practices and responsible stewardship of natural resources. Some examples of responsible resource management initiatives include:\n\n- Efficient water management: Harvesting rainwater, preserving wetlands, and utilizing magical techniques to ensure clean and plentiful water supply for agriculture and daily consumption.\n- Sustainable agriculture: Implementing crop rotation, organic farming methods, and magical enhancements to improve soil fertility and maintain ecosystem balance.\n- Energy conservation: Incorporating energy-efficient designs into buildings, harnessing renewable energy sources (wind, solar, or magically generated power), and promoting resource-conscious behaviors among citizens.\n- Waste management: Encouraging recycling, repurposing, and composting of materials, while using magical solutions to minimize pollution and maintain cleanliness within the nation.\n\n4. The role of technology and innovation in Harmonis:\n\nHarmonis could seamlessly blend magical techniques with technology to drive its progress and prosperity. Some examples of how technology and innovation might manifest in this society include:\n\n- Magical transportation: Utilizing mystical enchantments or technological advancements to improve transportation infrastructure \u2013 such as magically powered carriages or ships, teleportation networks, or magically strengthened bridges.\n- Enchanted communication: Developing magical artifacts or devices that facilitate long-distance communication, enabling efficient trade and diplomacy with other nations and fostering interconnectedness within Harmonis itself.\n- Medical advancements: Incorporating magical potions and enchantments alongside conventional medicine to provide comprehensive healthcare solutions for both physical and mental well-being.\n- Protective measures: Enhancing the nation's defenses against external threats using magical barriers, runes, or wards, while respecting the peaceful nature of Harmonis and avoiding offensive military advancements.\n\n5. Cultural exchange between Harmonis and the outside world:\n\nInteractions between Harmonis and other nations could lead to a vibrant exchange of arts, literature, magic, and tradition. Some examples of cultural exchange opportunities include:\n\n- Collaborative artistic programs: Joint exhibitions, performances, and workshops featuring Harmonis's unique cultural expressions alongside those of other nations, fostering mutual appreciation and understanding.\n- Magical knowledge sharing: Establishing magical academies or symposiums to exchange ideas, innovations, and research in the field of magic, facilitating collaboration between Harmonis's magical practitioners and those from the outside world.\n- Trade fairs and exchanges: Organizing events where merchants and artisans from Harmonis and other countries showcase and trade their goods, with a focus on sharing distinctive resources, handicrafts, and technologies.\n- Scholarly exchanges: Offering exchange programs or joint educational initiatives for students and scholars from Harmonis and other nations, allowing them to learn from each other's knowledge systems, cultural perspectives, and innovative approaches.\n\nBy actively engaging in cultural exchange and fostering connections with the outside world, Harmonis enriches its own society while simultaneously sharing the wisdom and unique aspects that make it a thriving utopian nation.",
+        "msg_idx": 31
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Harmonis",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "economy benefits",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In the enchanting, medieval world of Harmonis, a tiny utopian country of fewer than 20,000 people thrives under the divine protection of The Absolute Sovereign. Governed by the wise and benevolent Godking Primoris, the society flourishes amidst a world plagued by corruption, inequality, and strife.\n\nA unique class system, distinguished by different collars, honors meritocracy and personal growth. The classes are:\n1. Godking: Uncollared\n2. The Divine Harem: Platinum collar with celestial symbols\n3. The Favored: White thread collar (children below 12 years of age)\n4. The Trial: Red thread collar (individuals aged 12-18 years old)\n5. The Council of the Wise: Gold collar with ornate patterns\n6. The League of Masters: Silver collar with intricate engravings\n7. The Zealous: Copper collar\n8. The Industrious: Iron collar\n9. The Subservient: Thin leather collar\n10. The Bound: Barbed wire collar (prisoners)\n\nEducation and healthcare are provided freely to all, under the guidance of the dedicated League of Masters. Rich artistic and cultural expressions celebrate the nation's heritage, divine protection, and the Godking's reign.\n\nFamily and interpersonal relationships place emphasis on supporting personal growth while respecting the societal structure. Citizens are free to leave the country and relinquish their collar, emphasizing the voluntary nature of their devotion to the Godking and The Absolute Sovereign.\n\nCrime in Harmonis is rare, with a judicial system focusing on rehabilitation and penance. Severe crimes warrant harsher punishment, and violations of the Godking's mandates are handled on a case-by-case basis.\n\nThe economy benefits from valuable trade partnerships and responsible resource management, including efficient water use, sustainable agriculture, energy conservation, and waste management. Technology and innovation play essential roles, blending magical techniques from The Absolute Sovereign with conventional advancements. As these magical techniques are unique to Harmonis, they cannot be utilized by outsiders; however, different styles of magic do exist in the outside world.\n\nHarmonis engages in cultural exchanges through collaborative artistic programs, magical knowledge sharing, trade fairs, and scholarly exchanges. The harmonious nation stands as a beacon of hope and prosperity, providing a fertile ground for stories and adventures within its utopian society.",
+        "msg_idx": 33
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "League",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "removing",
+        "target": "000",
+        "rationale": [
+          "value:000"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I apologize for the omission of some important details. Here's an attempt to summarize the information more comprehensively:\n\nIn the enchanting, medieval world, the utopian country of Harmonis flourishes under the divine protection of The Absolute Sovereign, with a population of fewer than 20,000 people. Governed by the wise and benevolent theocratic dictatorship of Godking Primoris, the nation is a beacon of harmony and prosperity.\n\nA unique class system, based on merit and personal growth, is signified by different collars worn by the citizens. The classes are as follows:\n\n1. Godking: Uncollared\n2. The Divine Harem: Platinum collar with celestial symbols\n3. The Favored: White thread collar (children below 12 years of age)\n4. The Trial: Red thread collar (individuals aged 12-18 years old)\n5. The Council of the Wise: Gold collar with ornate patterns\n6. The League of Masters: Silver collar with intricate engravings\n7. The Zealous: Copper collar\n8. The Industrious: Iron collar\n9. The Subservient: Thin leather collar\n10. The Bound: Barbed wire collar (prisoners)\n\nPublic education and healthcare are provided by the proficient League of Masters. The nation boasts a rich artistic culture exemplified by unique forms of dance, music, and visual arts.\n\nFamilial and interpersonal relationships emphasize unity and individual growth. Citizens are free to leave Harmonis and are subject to ceremonial collar removal upon departure. Conversely, removing one's collar within the nation results in exile.\n\nCrime is rare, and the judicial system focuses on rehabilitation and penance. Harsher punishments are reserved for grave crimes, while Godking's mandate violations are addressed case-by-case.\n\nHarmonis invigorates its economy by forging valuable trade partnerships and practicing conscientious resource management. Magical techniques, granted by The Absolute Sovereign, are unique to Harmonis, but alternative styles of magic exist in the outside world. Magic intertwines with technology and innovation to improve daily life.\n\nThe nation partakes in cultural exchanges beyond its borders through artistic collaborations, magical knowledge sharing, trade fairs, and scholarly programs.\n\nThis summary encapsulates the key features of the utopian nation of Harmonis, highlighting its distinctive class system, dedication to personal growth, cultural richness, and harmonious existence.",
+        "msg_idx": 35
+      },
+      "reproduced": {
+        "action": "removing",
+        "target": "000",
+        "rationale": [
+          "value:000"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 7785,
+    "comp_total_toks": 1007,
+    "reduction": 87.06486833654463,
+    "DRR_soft": 0.45166666666666666,
+    "RCI": 0.7333
+  }
+}

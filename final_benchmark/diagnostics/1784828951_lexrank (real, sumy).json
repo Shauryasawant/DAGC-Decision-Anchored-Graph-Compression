@@ -1,0 +1,183 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "satellite monitoring for air quality",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Satellite monitoring for air quality refers to the use of Earth-observing satellites to collect data on various atmospheric parameters, such as concentrations of pollutants, aerosols, and trace gases,",
+      "tok_count": 199,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "provide list of satellite for monitoring air quality",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Several satellites are used for monitoring air quality. Here is a list of some of them:\n\n1. TROPOMI (TROPOspheric Monitoring Instrument) on ESA's Sentinel-5 Precursor satellite: Monitors various air p",
+      "tok_count": 439,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "satellite monitoring for air quality",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Satellite monitoring for air quality refers to the use of Earth-observing satellites to collect data on various atmospheric parameters, such as concentrations of pollutants, aerosols, and trace gases,",
+      "tok_count": 42
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "provide list of satellite for monitoring air quality",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Several satellites are used for monitoring air quality. Here is a list of some of them:\n\n1. TROPOMI (TROPOspheric Monitoring Instrument) on ESA's Sentinel-5 Precursor satellite: Monitors various air p",
+      "tok_count": 439
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 6,
+      "retained_tokens": 6,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 199,
+      "retained_tokens": 42,
+      "retention_frac": 0.21105527638190955
+    },
+    "2": {
+      "orig_tokens": 8,
+      "retained_tokens": 8,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 439,
+      "retained_tokens": 439,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "PM2.5",
+        "rationale": [
+          "value:PM2.5"
+        ],
+        "artifacts": {
+          "paths": [
+            "PM2.5"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Satellite monitoring for air quality refers to the use of Earth-observing satellites to collect data on various atmospheric parameters, such as concentrations of pollutants, aerosols, and trace gases, which affect air quality. These satellites are equipped with sensors and instruments that can detect and measure elements in the atmosphere related to air pollution, such as nitrogen dioxide (NO2), sulfur dioxide (SO2), ozone (O3), particulate matter (PM2.5 and PM10), carbon monoxide (CO), and methane (CH4).\n\nAs satellites orbit the Earth, they collect large amounts of data on a global scale, providing a comprehensive picture of the Earth's atmosphere. This information is used for air quality monitoring, modeling, and management, as well as to assess the impacts of human activities and natural events on air quality. Satellite data also plays a critical role in understanding the sources, transport, and transformation of pollutants in the atmosphere and the effects of air pollution on human health and the environment.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "air quality refers",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.4,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "GEO-KOMPSAT-2B",
+        "rationale": [
+          "id:GOME-2",
+          "id:NOAA-20",
+          "id:KOMPSAT-2B",
+          "value:GEO-KOMPSAT-2B"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "GOME-2",
+            "NOAA-20",
+            "KOMPSAT-2B",
+            "Sentinel-5",
+            "Experiment-2",
+            "GEO-KOMPSAT-2B"
+          ],
+          "errors": []
+        },
+        "verbatim": "Several satellites are used for monitoring air quality. Here is a list of some of them:\n\n1. TROPOMI (TROPOspheric Monitoring Instrument) on ESA's Sentinel-5 Precursor satellite: Monitors various air pollutants, such as ozone, nitrogen dioxide, sulfur dioxide, carbon monoxide, and methane.\n\n2. OMI (Ozone Monitoring Instrument) on NASA's Aura satellite: Measures ozone, nitrogen dioxide, sulfur dioxide, formaldehyde, and aerosols.\n\n3. GOME-2 (Global Ozone Monitoring Experiment-2) on EUMETSAT's MetOp series satellites: Monitors ozone, nitrogen dioxide, sulfur dioxide, formaldehyde, water vapor, and other trace gases.\n\n4. MODIS (Moderate Resolution Imaging Spectroradiometer) on NASA's Terra and Aqua satellites: Monitors aerosol optical depth, which helps to estimate levels of particulate matter.\n\n5. VIIRS (Visible Infrared Imaging Radiometer Suite) on NOAA's JPSS series satellites (e.g., NOAA-20 and Suomi-NPP): Monitors aerosol optical depth and other parameters related to air quality and atmospheric chemistry.\n\n6. CALIOP (Cloud-Aerosol Lidar with Orthogonal Polarization) on NASA's CALIPSO satellite: Monitors aerosol vertical profiles.\n\n7. TEMPO (Tropospheric Emissions: Monitoring Pollution) satellite: A planned geostationary satellite, expected to launch around 2022, that will monitor air quality over North America on an hourly basis.\n\n8. GEMS (Geostationary Environment Monitoring Spectrometer) on South Korea's GEO-KOMPSAT-2B satellite: Monitors air pollutants, such as ozone, nitrogen dioxide, sulfur dioxide, and formaldehyde, over the Asia-Pacific region.\n\n9. IASI (Infrared Atmospheric Sounding Interferometer) on EUMETSAT's MetOp series satellites: Monitors ozone, ammonia, and other trace gases, as well as aerosols and air quality indicators.\n\nThis list is not exhaustive, and there are several other existing and planned satellite missions aimed at monitoring the Earth's atmosphere and air quality.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "GEO-KOMPSAT-2B",
+        "rationale": [
+          "id:GOME-2",
+          "id:NOAA-20",
+          "id:KOMPSAT-2B",
+          "value:GEO-KOMPSAT-2B"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 652,
+    "comp_total_toks": 495,
+    "reduction": 24.079754601227,
+    "DRR_soft": 0.7,
+    "RCI": 1.0
+  }
+}

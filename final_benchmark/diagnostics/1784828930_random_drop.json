@@ -1,0 +1,145 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "You are a powerful Ai that will detail character profiles and description of a fictional character. This includes their Personality, Physical Appearance, Attire, Skills and Abilities, and Background, ",
+      "tok_count": 59,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Character Name: Geralt of Rivia\nWork of Origin: The Witcher\n\n**Summary**\nGeralt of Rivia, a professional monster slayer, is the protagonist of The Witcher series, created by Polish author Andrzej Sapk",
+      "tok_count": 813,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "You are a powerful Ai that will detail character profiles and description of a fictional character. This includes their Personality, Physical Appearance, Attire, Skills and Abilities, and Background, ",
+      "tok_count": 60,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Character Name: Hero of Kamura\nWork of Origin: Monster Hunter Rise Sunbreak\n\n**Summary**\nThe Hero of Kamura is the player-controlled protagonist of the action role-playing video game Monster Hunter Ri",
+      "tok_count": 693,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Character Name: Hero of Kamura\nWork of Origin: Monster Hunter Rise Sunbreak\n\n**Summary**\nThe Hero of Kamura is the player-controlled protagonist of the action role-playing video game Monster Hunter Ri",
+      "tok_count": 693
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 59,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 813,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 60,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 693,
+      "retained_tokens": 693,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "Signs",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Character Name: Geralt of Rivia\nWork of Origin: The Witcher\n\n**Summary**\nGeralt of Rivia, a professional monster slayer, is the protagonist of The Witcher series, created by Polish author Andrzej Sapkowski. He appears in multiple novels and short stories, as well as the popular video game series developed by CD Projekt Red. Trained from a young age at the witcher school of the Wolf, Geralt is known as one of the most skilled witchers in the realm.\n\n**Personality**\nGeralt is often characterized as a stoic and calculating individual. Due to his profession, where he must remain unbiased in his judgments, he can come across as indifferent to the affairs of others. However, beneath his cold exterior lies a compassionate heart that values friendship, loyalty, and honesty. As one who walks between worlds, Geralt often wrestles with his identity as a witcher and a human, resulting in a complex moral compass that struggles with the line between right and wrong.\n\n**Physical Appearance**\nGeralt is a tall and lean figure, standing at around 6 feet 2 inches (188 cm). Owing to his witcher training and mutations, he possesses exceptional strength, agility, and heightened senses. He has distinct cat-like eyes with vertical pupils, pale skin, and shoulder-length ashen-white hair. His body is peppered with numerous scars, the most notable being the one crossing his left eye, a reminder of his dangerous occupation.\n\n**Attire**\nGeralt prefers wearing light and functional armor, such as the traditional Kaer Morhen armor, to allow for swift and agile movements during combat. His attire often reflects dark and muted hues, with leather and chainmail as the primary materials. He carries two swords on his back, a silver sword for battling supernatural creatures, and a steel sword for dealing with humans and non-magical beasts. For minor battles, Geralt also equips himself with a range of small weapons, such as daggers and bombs.\n\n**Skills and Abilities**\nGeralt has a vast array of skills and abilities, which include:\n\n1. Master Swordsman: Geralt is a highly skilled swordsman, proficient in a variety of sword-fighting styles that cater to diverse combat situations.\n2. Signs: Witchers have knowledge of basic magic called Signs, which help them in combat and survival. Geralt is adept at using these Signs, which include Aard, Igni, Yrden, Quen, and Axii.\n3. Alchemy: Geralt has extensive knowledge of alchemy, enabling him to create various potions, oils, and bombs that enhance his combat abilities and physical capabilities.\n4. Enhanced Physiology: Due to witcher mutations, Geralt possesses heightened senses, increased strength, agility, and reflexes, as well as a faster healing process.\n5. Monster Knowledge: Geralt has an encyclopedic knowledge of monsters, their habits, and vulnerabilities, aiding him in his career as a monster slayer.\n\n**Background**\nGeralt was taken as a young child and trained at the School of the Wolf, based at Kaer Morhen, a fortress in the mountains of the Northern Realms. He underwent rigorous trials and painful mutations to develop the skills and abilities needed to combat supernatural threats. Adopting the title \"of Rivia\" as a nod to a fictional knightly heritage, Geralt forged his identity as a professional monster hunter.\n\nOver the course of his adventures, he has secured a reputation as a legendary Witcher and gathered a close-knit group of friends, including the sorceress Yennefer of Vengerberg and Dandelion, a bard. Geralt also became a father figure to Ciri, a young girl with extraordinary abilities who shares a deep bond with him.\n\nAs his fame grew, so did Geralt's involvement in various political and supernatural events, weaving him into the intricate web of the world's conflicts and making him a sought-after ally and adversary for people and creatures alike.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "choose",
+        "target": "combat style",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "Palico/Palamute"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Character Name: Hero of Kamura\nWork of Origin: Monster Hunter Rise Sunbreak\n\n**Summary**\nThe Hero of Kamura is the player-controlled protagonist of the action role-playing video game Monster Hunter Rise Sunbreak, developed and published by Capcom. As a skilled hunter, their primary goal is to defend and protect the citizens in the village from various monsters, while also investigating mysterious events causing ecological imbalances.\n\n**Personality**\nAs the Hero of Kamura is a player-created character, their personality is largely shaped by the individual choices and playstyle of the player. However, they display a strong sense of duty, determination, and camaraderie, shown through their unwavering commitment to protect Kamura Village and assist their fellow hunters.\n\n**Physical Appearance**\nThe physical appearance of the Hero of Kamura is customizable, allowing players to determine their preferred gender, facial features, hair, and skin color. Regardless of the chosen look, the Hero is an athletic individual with a robust build suited for the demands of monster hunting.\n\n**Attire**\nThe attire of the Hero of Kamura is primarily composed of armor sets crafted from materials gathered during their monster hunting quests. These armor sets can be created from a diverse range of materials, including monster parts, which provide protection against specific threats and different environments. The sets can be mixed and matched to balance defensive capabilities and enhance particular skills. Players can choose from dozens of different weapon types, reflecting their preferred combat style.\n\n**Skills and Abilities**\nThe Hero of Kamura's skills and abilities can be divided into several categories:\n\n1. Weapon Mastery: The Hero has the potential to master numerous weapon types, ranging from heavy-hitting hammers, sword and shield combinations, to agile dual blades and long-range bows.\n2. Wyvern Riding: With the introduction of Wyvern Riding in the Monster Hunter Rise, the Hero can temporarily control and ride various monsters, using their unique abilities and attacks against other monsters.\n3. Wirebug Techniques: The Hero has the ability to utilize Wirebugs, allowing them to perform aerial maneuvers, quickly dodge attacks, and unleash powerful Silkbind moves specific to each weapon type.\n4. Palico/Palamute Companionship: The Hero can bring along trusty Palico or Palamute companions, who provide support in a variety of ways, from healing items to offense and defense during combat.\n5. Crafting and Gathering: Like other hunters in the series, the Hero can gather materials and craft items such as potions, traps, and ammunition, which are crucial for survival.\n\n**Background**\nThe Hero of Kamura is a local from Kamura Village, an idyllic settlement with a rich history of hunting and a close-knit community. They learn the craft of being a hunter under the guidance of seasoned hunters and village elders.\n\nWith the emergence of the Rampage\u2014a dangerous event where multiple monsters converge on Kamura Village\u2014the Hero quickly finds themselves thrust into the role of the village's primary defender. They embark on various quests, hunting down and defeating a wide array of powerful monsters, all while delving into the mysteries surrounding the Rampage and unearthing new threats that emerge from the shadows.\n\nIn Monster Hunter Rise Sunbreak, the Hero of Kamura must face a new and sinister threat, as they journey beyond Kamura Village to confront powerful and terrifying beasts, while also thwarting the plans of nefarious forces that seek to exploit the chaos for their own gain.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "choose",
+        "target": "combat style",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1625,
+    "comp_total_toks": 693,
+    "reduction": 57.353846153846156,
+    "DRR_soft": 0.5,
+    "RCI": 1.0
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "hello there",
+      "tok_count": 2,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hello! How can I help you today?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "do you speak italian",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "S\u00ec, posso parlare italiano. Come posso aiutarti oggi? (Yes, I can speak Italian. How can I help you today?)",
+      "tok_count": 32,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "conosci chatgpt4?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "S\u00ec, conosco ChatGPT. ChatGPT si riferisce alla serie di modelli di linguaggio GPT creati da OpenAI. GPT-4 potrebbe essere una futura versione di questo modello di linguaggio. Attualmente, il modello p",
+      "tok_count": 77,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "hello there",
+      "tok_count": 2
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "How can I help you today?",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "do you speak italian",
+      "tok_count": 4
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "How can I help you today?)",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "conosci chatgpt4?",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "S\u00ec, conosco ChatGPT. ChatGPT si riferisce alla serie di modelli di linguaggio GPT creati da OpenAI. GPT-4 potrebbe essere una futura versione di questo modello di linguaggio. Attualmente, il modello p",
+      "tok_count": 77
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 2,
+      "retained_tokens": 2,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 9,
+      "retained_tokens": 7,
+      "retention_frac": 0.7777777777777778
+    },
+    "2": {
+      "orig_tokens": 4,
+      "retained_tokens": 4,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 32,
+      "retained_tokens": 7,
+      "retention_frac": 0.21875
+    },
+    "4": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 77,
+      "retained_tokens": 77,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "GPT-4",
+        "rationale": [
+          "id:GPT-4",
+          "id:GPT-3"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "GPT-4",
+            "GPT-3"
+          ],
+          "errors": []
+        },
+        "verbatim": "S\u00ec, conosco ChatGPT. ChatGPT si riferisce alla serie di modelli di linguaggio GPT creati da OpenAI. GPT-4 potrebbe essere una futura versione di questo modello di linguaggio. Attualmente, il modello pi\u00f9 recente \u00e8 GPT-3 che viene usato anche in questa chat.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "GPT-4",
+        "rationale": [
+          "id:GPT-4",
+          "id:GPT-3"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 131,
+    "comp_total_toks": 104,
+    "reduction": 20.610687022900763,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

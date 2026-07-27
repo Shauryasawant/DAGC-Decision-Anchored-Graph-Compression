@@ -1,0 +1,604 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Who are you?",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "I am an AI language model created by OpenAI called ChatGPT. I am here to assist and provide you with relevant information, answer questions, or have a conversation.",
+      "tok_count": 35,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "What are the contents of the book Trekonomics?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Trekonomics: The Economics of Star Trek, written by Manu Saadia, is a book that explores the economic principles and social implications behind the beloved science fiction series Star Trek. The book d",
+      "tok_count": 336,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "What are the contents of the book Conversation with God?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "\"Conversations with God\" is a series of books written by Neale Donald Walsch, which present a dialogue between Walsch and \"God\" as he asks various questions about life, spirituality, and human existen",
+      "tok_count": 456,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "How did you know that? No other language model has been able to access such niche data.",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "As an AI language model created by OpenAI, I have been trained on a diverse range of text from the internet, including articles, books, web pages, and other written content. This allows me to provide ",
+      "tok_count": 137,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "What do you know of the indie RPG Omori?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "OMORI is an indie role-playing game (RPG) developed by Omocat, an artist, and their team. The game was initially funded through a successful Kickstarter campaign in 2014, and it was released on Decemb",
+      "tok_count": 241,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "Now, here's a hard one. Who are Kel and Basil in Omori?",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "In Omori, Kel and Basil are two important characters who have relationships with the protagonist, Omori.\n\nKel is one of Omori's friends within the dreamlike world of the game. Kel is an upbeat, extrov",
+      "tok_count": 255,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "Ha, I have found a seam. Hero is actually a guy and Mari's boyfriend at that.",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "Apologies for the confusion in my previous response. You are correct.\n\nIn Omori, Hero is indeed a male character and is the older brother of Kel. He is a caring, supportive, and responsible figure wit",
+      "tok_count": 119,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "user",
+      "preview": "Still, pretty impressive. Here's another one; What's 17776 by Jon Bois?",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "\"17776: What Football Will Look Like in the Future\", commonly referred to as \"17776\", is an experimental multimedia narrative work created by Jon Bois, a writer for SB Nation. It was originally publis",
+      "tok_count": 305,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "user",
+      "preview": "*Jupiter's Icy Moons Explorer instead of Voyager 2",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "Apologies for the error in my previous response. You're correct.\n\nIn \"17776: What Football Will Look Like in the Future,\" the space probe characters are Pioneer 10, Pioneer 11, and the Jupiter Icy Moo",
+      "tok_count": 154,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Who are you?",
+      "tok_count": 4
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "I am an AI language model created by OpenAI called ChatGPT.",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "What are the contents of the book Trekonomics?",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "The book discusses how the Star Trek universe envisions a future where scarcity is overcome, and people can focus on self-improvement and societal progress rather than solely on material wealth.",
+      "tok_count": 36
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "What are the contents of the book Conversation with God?",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "The Conversations with God series serves as an invitation for readers to examine their personal spirituality and beliefs, as well as to consider more inclusive and universal approaches to understandin",
+      "tok_count": 39
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "How did you know that?",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "As an AI language model created by OpenAI, I have been trained on a diverse range of text from the internet, including articles, books, web pages, and other written content.",
+      "tok_count": 37
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "What do you know of the indie RPG Omori?",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "It tells the story of a character named Omori, who lives in a strange, colorful world called the \"white space,\" which is an imaginary realm inhabited by him and his friends.",
+      "tok_count": 37
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "user",
+      "preview": "Now, here's a hard one.",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "Both Kel and Basil are integral to the game's narrative and contribute to the themes of friendship, growth, and the struggles of the characters as they embark on their journey.",
+      "tok_count": 34
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 12,
+      "role": "user",
+      "preview": "Ha, I have found a seam.",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "Thank you for pointing out the mistake, and I apologize for any confusion.",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 14,
+      "orig_idx": 14,
+      "role": "user",
+      "preview": "Still, pretty impressive.",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 15,
+      "orig_idx": 15,
+      "role": "assistant",
+      "preview": "\"17776: What Football Will Look Like in the Future\", commonly referred to as \"17776\", is an experimental multimedia narrative work created by Jon Bois, a writer for SB Nation.",
+      "tok_count": 39
+    },
+    {
+      "c_idx": 16,
+      "orig_idx": 16,
+      "role": "user",
+      "preview": "*Jupiter's Icy Moons Explorer instead of Voyager 2",
+      "tok_count": 14
+    },
+    {
+      "c_idx": 17,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": "Apologies for the error in my previous response. You're correct.\n\nIn \"17776: What Football Will Look Like in the Future,\" the space probe characters are Pioneer 10, Pioneer 11, and the Jupiter Icy Moo",
+      "tok_count": 154
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 4,
+      "retained_tokens": 4,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 35,
+      "retained_tokens": 15,
+      "retention_frac": 0.42857142857142855
+    },
+    "2": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 336,
+      "retained_tokens": 36,
+      "retention_frac": 0.10714285714285714
+    },
+    "4": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 456,
+      "retained_tokens": 39,
+      "retention_frac": 0.08552631578947369
+    },
+    "6": {
+      "orig_tokens": 19,
+      "retained_tokens": 6,
+      "retention_frac": 0.3157894736842105
+    },
+    "7": {
+      "orig_tokens": 137,
+      "retained_tokens": 37,
+      "retention_frac": 0.27007299270072993
+    },
+    "8": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 241,
+      "retained_tokens": 37,
+      "retention_frac": 0.15352697095435686
+    },
+    "10": {
+      "orig_tokens": 17,
+      "retained_tokens": 8,
+      "retention_frac": 0.47058823529411764
+    },
+    "11": {
+      "orig_tokens": 255,
+      "retained_tokens": 34,
+      "retention_frac": 0.13333333333333333
+    },
+    "12": {
+      "orig_tokens": 20,
+      "retained_tokens": 8,
+      "retention_frac": 0.4
+    },
+    "13": {
+      "orig_tokens": 119,
+      "retained_tokens": 15,
+      "retention_frac": 0.12605042016806722
+    },
+    "14": {
+      "orig_tokens": 20,
+      "retained_tokens": 5,
+      "retention_frac": 0.25
+    },
+    "15": {
+      "orig_tokens": 305,
+      "retained_tokens": 39,
+      "retention_frac": 0.12786885245901639
+    },
+    "16": {
+      "orig_tokens": 14,
+      "retained_tokens": 14,
+      "retention_frac": 1.0
+    },
+    "17": {
+      "orig_tokens": 154,
+      "retained_tokens": 154,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "OpenAI",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I am an AI language model created by OpenAI called ChatGPT. I am here to assist and provide you with relevant information, answer questions, or have a conversation.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "OpenAI",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Star",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Trekonomics: The Economics of Star Trek, written by Manu Saadia, is a book that explores the economic principles and social implications behind the beloved science fiction series Star Trek. The book discusses how the Star Trek universe envisions a future where scarcity is overcome, and people can focus on self-improvement and societal progress rather than solely on material wealth. Some key contents and themes from the book include:\n\n1. Post-scarcity economy: The book looks at how the introduction of replicators, advanced technology that can create virtually anything, has led to a world where basic needs are easily met, and many traditional economic principles no longer apply.\n\n2. Elimination of money: In the Star Trek universe, the need for currency has largely disappeared due to the abundance of resources, fundamentally changing economic interactions and leading to a more egalitarian society.\n\n3. Focus on self-improvement and societal progress: With basic needs met, the characters in Star Trek are free to pursue personal growth, exploration, and the betterment of society as a whole. This reveals the shift towards a culture valuing intrinsic motivations.\n\n4. The Prime Directive: The book examines the non-interference principle guiding interactions between the United Federation of Planets and less technologically advanced civilizations, which reflects an ethical and philosophical commitment to respect and protect other cultures.\n\n5. An optimistic view of the future: The Star Trek universe presents a hopeful vision of humanity's future, with humanity having overcome many contemporary issues like poverty, war, disease, and prejudice.\n\nTrekonomics provides an entertaining and thought-provoking analysis of the intersection between Star Trek's fictional universe and real-world economic concepts.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Star",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "God",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\"Conversations with God\" is a series of books written by Neale Donald Walsch, which present a dialogue between Walsch and \"God\" as he asks various questions about life, spirituality, and human existence. The series tackles a wide range of topics, such as the nature of God, life purpose, relationships, good and evil, and many others. Some key contents and themes from the books include:\n\n1. The nature of God: Walsch's conversations present a non-traditional and pantheistic view of God. According to the dialogues, God is in everything and everyone, and all life forms are interconnected and integral aspects of God's existence.\n\n2. The purpose of life: The books discuss that the purpose of life is to evolve spiritually and remember our true divine nature. Through diverse life experiences, humans have the opportunity to learn, grow, and ultimately embrace their inherent connection with God.\n\n3. Co-creation and manifestation: People are portrayed as co-creators of their reality, as their thoughts, beliefs, and actions shape the circumstances they encounter in life. By understanding this principle, individuals can take more responsibility for their lives and intentionally create the experiences they desire.\n\n4. God's communication: Walsch writes that God always communicates with humans, be it through emotions or intuition, and that people sometimes fail to recognize or heed the messages.\n\n5. Unconditional love: According to the books, God loves unconditionally, and humans should strive to emulate this quality. By practicing forgiveness and non judgement, we foster harmonious relationships and deeper connections with others.\n\n6. Religions and spiritual beliefs: The series offers unique perspectives on established religious doctrines, challenging many traditional beliefs in the process. Walsch proposes a more inclusive and universally applicable spirituality that transcends conventional religious barriers.\n\n7. Karma and reincarnation: Walsch explores ideas of karma, reincarnation, and the soul's evolution across multiple lifetimes, attributing hardships and difficult relationships to lessons that the soul seeks to learn in order to attain spiritual growth.\n\nThe Conversations with God series serves as an invitation for readers to examine their personal spirituality and beliefs, as well as to consider more inclusive and universal approaches to understanding the nature of life and God.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "God",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "OpenAI",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model created by OpenAI, I have been trained on a diverse range of text from the internet, including articles, books, web pages, and other written content. This allows me to provide information on a wide variety of topics, both popular and niche.\n\nMy training data has been constantly updated and improved over time, giving me access to a vast amount of information. While some language models might not be able to access niche data, my capabilities are the result of the advanced training techniques, large-scale data, and the efforts of the researchers and engineers involved in my development. This enables me to assist you with many topics, even those that are not as widely known.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "OpenAI",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "switch",
+        "target": "2014",
+        "rationale": [
+          "value:2014"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "OMORI is an indie role-playing game (RPG) developed by Omocat, an artist, and their team. The game was initially funded through a successful Kickstarter campaign in 2014, and it was released on December 25, 2020, for PC and Mac on Steam, with plans for a release on Nintendo Switch, PlayStation, and Xbox.\n\nThe game is styled with nostalgic, pixelated art reminiscent of RPGs from the 90s and features turn-based combat, puzzles, and exploration. It tells the story of a character named Omori, who lives in a strange, colorful world called the \"white space,\" which is an imaginary realm inhabited by him and his friends. The game takes players on a journey between the dream world and reality as Omori uncovers the truth about himself, his past, and the nature of the world he inhabits. The game's narrative focuses on themes of mental health, depression, and self-discovery.\n\nOMORI has a unique hand-drawn art style and an atmospheric soundtrack, which sets it apart from many other indie RPGs. The game has received positive reviews for its storytelling, characters, music, and emotional impact.",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Omori",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "uses",
+        "target": "annoy enemies which inflicts",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In Omori, Kel and Basil are two important characters who have relationships with the protagonist, Omori.\n\nKel is one of Omori's friends within the dreamlike world of the game. Kel is an upbeat, extroverted, and energetic character who often brings humor and fun to the group. He has a close relationship with his in-game sister, Hero, and can be quite protective of her. In battle, Kel uses a variety of ball-based attacks and has the ability to \"Annoy\" enemies, which inflicts the Angry status on them. Kel's character often provides a balance to Omori's introverted nature and helps tie the group of friends together.\n\nBasil is another friend of Omori within the dream world. He is a gentle, sensitive, and artistic character who loves taking care of plants and flowers. Basil has an important connection to Omori's journey of self-discovery and the game's central story. The relationship between Omori and Basil unfolds as the game progresses, and the player learns more about their shared past and the significance it has on the present events.\n\nBoth Kel and Basil are integral to the game's narrative and contribute to the themes of friendship, growth, and the struggles of the characters as they embark on their journey.",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Kel",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "17776",
+        "rationale": [
+          "value:17776"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\"17776: What Football Will Look Like in the Future\", commonly referred to as \"17776\", is an experimental multimedia narrative work created by Jon Bois, a writer for SB Nation. It was originally published as a series of installments in July 2017. Combining video, graphics, text, and interactive elements, the story explores a speculative and existential future of American football and human society.\n\nSet in the year 17776, in this future, humans no longer need to eat, sleep or work, and they have essentially become immortal due to advanced technology. However, with a halt in births, the human population remains static, and most worldly problems like poverty and war have been resolved. In this strange and timeless scenario, people find their solace in playing incredibly complex and creative variations of American football.\n\nThe tale is told through the eyes of three \"awake\" space probes from the 20th century: Pioneer 10, Pioneer 11, and Voyager 2, who serve as the main characters. They observe human activities on Earth, communicate with each other, and become emotionally invested in the various football games that they witness throughout the narrative.\n\n\"17776\" is recognized for its distinctive fusion of storytelling, multimedia, and sports, as well as its thought-provoking examination of the nature of human existence, progress, and the search for purpose in immortality. Jon Bois has been praised for the imaginative and thought-provoking approach he took to tackle this experimental form of narrative.",
+        "msg_idx": 15
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "17776",
+        "rationale": [
+          "value:17776"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2165,
+    "comp_total_toks": 484,
+    "reduction": 77.64434180138568,
+    "DRR_soft": 0.7914285714285715,
+    "RCI": 0.75
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "hi",
+      "tok_count": 1,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hello! How can I help you today?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "write 10 interesting intros to backrooms story that involves average people going about their life and unexpectedly enter the backrooms. don't suggest something like like a simple door or portal. some",
+      "tok_count": 46,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "1. Kristen was rummaging through the cluttered storage room in her office building when she accidentally hit a hidden lever on a dusty shelf. The floor beneath her shifted, and in seconds she found he",
+      "tok_count": 571,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "As of 2019, what was the fifth best-selling video game of all time?",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "As of 2019, the fifth best-selling video game of all time was \"PlayerUnknown's Battlegrounds\" (PUBG) with over 50 million copies sold across various platforms. Please note that this information might ",
+      "tok_count": 62,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "what are the 5 best ways to go from having a fulltime job that pays $60k per year to making at least $20k per month doing something besides that fulltime job?",
+      "tok_count": 39,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "1. Freelance or Consulting Business: Leverage your existing skills, knowledge, or expertise to offer services to clients as a freelancer or consultant. This can be done part-time alongside your full-t",
+      "tok_count": 339,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "which gpt version are you using or made from?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "I am based on OpenAI's GPT-3 (third-generation Generative Pre-trained Transformer). GPT-3 is currently the latest version of the model, and it provides improved capabilities in natural language unders",
+      "tok_count": 53,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "hi",
+      "tok_count": 1
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Hello! How can I help you today?",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "As of 2019, what was the fifth best-selling video game of all time?",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "what are the 5 best ways to go from having a fulltime job that pays $60k per year to making at least $20k per month doing something besides that fulltime job?",
+      "tok_count": 39
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "which gpt version are you using or made from?",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "I am based on OpenAI's GPT-3 (third-generation Generative Pre-trained Transformer). GPT-3 is currently the latest version of the model, and it provides improved capabilities in natural language unders",
+      "tok_count": 53
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1,
+      "retained_tokens": 1,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 46,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 571,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 18,
+      "retained_tokens": 18,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 62,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 39,
+      "retained_tokens": 39,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 339,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 53,
+      "retained_tokens": 53,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    3,
+    5,
+    7
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "pushed",
+        "target": "curiously hidden flight",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. Kristen was rummaging through the cluttered storage room in her office building when she accidentally hit a hidden lever on a dusty shelf. The floor beneath her shifted, and in seconds she found herself standing in the dimly lit, unsettling corridors of the backrooms.\n\n2. As Mark was lying in bed, drifting slowly to sleep, his mattress suddenly gave way and sucked him into the underside of the bed. He woke up in the twisted, unsettling backrooms, unsure if he was dreaming or facing a nightmareish reality.\n\n3. Crouched in the crawl space under their family home, Kelly began feeling the air thicken and the walls close in. Terrified, they started crawling faster, which led them straight into the disorienting realm known as the backrooms.\n\n4. While cleaning an old mirror in her new apartment, Rachel noticed a subtle, almost unnoticeable difference in her reflection. Curiosity getting the better of her, she reached out and touched the glass, only to find herself pulled into the eerie corridors of the backrooms.\n\n5. While waiting for a friend at a crowded train station, Clay followed a mysterious figure through the cacophony of people, only to find himself wandering into a tunnel he'd never seen before. As soon as he stepped in, the noise disappeared, replaced by the ominous atmosphere of the backrooms.\n\n6. During a family camping trip, Jenny found herself exploring a cave hidden in the woods. As she ventured deeper into the cave, she suddenly emerged into the unnatural, labyrinthine structure of the backrooms.\n\n7. Attending an escape room experience event, Devin and his friends worked on solving the puzzles to leave the room. A series of strange occurrences led to them accidentally discovering a secret passage, and as they ventured through it, they ended up lost in the vast backrooms - a challenge far more real than they had ever bargained for.\n\n8. Waking up in the middle of the night disoriented, Amy went to the kitchen for a glass of water. Half-asleep and in the dark, she opened a door she thought led to the bathroom, only to be faced with the gloomy, twisted reality of the backrooms.\n\n9. Caught in a sudden downpour on his way home from work, Carter took shelter in a phone booth to stay momentarily dry. The moment the door closed behind him, the fluorescent lights above flickered, the rain outside ceased, and he found himself in the unnervingly silent backrooms.\n\n10. Sarah accidentally dropped her keys while walking her dog, and as she bent down to pick them up, a gust of wind pushed her down a curiously hidden flight of stairs. At the bottom, she discovered the endless maze of rooms and hallways known as the backrooms, unsure how to return to the world above.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "2019",
+        "rationale": [
+          "winner:selling",
+          "value:2019"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As of 2019, the fifth best-selling video game of all time was \"PlayerUnknown's Battlegrounds\" (PUBG) with over 50 million copies sold across various platforms. Please note that this information might have changed since 2019, and newer data might show a different ranking.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "Create",
+        "rationale": [
+          "id:part-time"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "part-time"
+          ],
+          "errors": []
+        },
+        "verbatim": "1. Freelance or Consulting Business: Leverage your existing skills, knowledge, or expertise to offer services to clients as a freelancer or consultant. This can be done part-time alongside your full-time job until it generates enough income to replace your current salary and eventually surpass it.\n\n2. Start an Online Business: Create an online business, such as an e-commerce store or content-based website, that generates revenue through advertising, affiliate marketing, or selling physical or digital products. This usually requires time and effort to grow but can bring substantial, scalable income once it takes off.\n\n3. Real Estate Investing: Invest in rental properties, either residential or commercial, and earn income from the monthly rent payments. This may involve leveraging your current income or savings to acquire properties, but the passive income generated can eventually surpass your full-time job's income.\n\n4. Stock Market and Dividend Investing: Learn about the stock market and develop a solid investment strategy focused on dividend-paying stocks, mutual funds, or exchange-traded funds (ETFs). Consistently investing and reinvesting your dividends can help you grow your portfolio over time and eventually generate substantial monthly income from your investments.\n\n5. Create and Sell Digital Products: Develop digital products like online courses, ebooks, or mobile apps, using your expertise in a particular field. Market your product online and generate income from sales. As digital products can be sold indefinitely without additional production costs, this business model can have great potential to grow and provide substantial income over time.\n\nRemember, achieving a $20k per month income may take time and a significant amount of effort across these strategies. It's important to be patient, committed, and consistently work towards your goals.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "GPT-3",
+        "rationale": [
+          "id:GPT-3"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "GPT-3"
+          ],
+          "errors": []
+        },
+        "verbatim": "I am based on OpenAI's GPT-3 (third-generation Generative Pre-trained Transformer). GPT-3 is currently the latest version of the model, and it provides improved capabilities in natural language understanding, generation, and context sensitivity compared to its predecessors.",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "GPT-3",
+        "rationale": [
+          "id:GPT-3"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1149,
+    "comp_total_toks": 131,
+    "reduction": 88.5987815491732,
+    "DRR_soft": 0.25,
+    "RCI": 1.0
+  }
+}

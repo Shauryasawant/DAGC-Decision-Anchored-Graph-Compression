@@ -1,0 +1,234 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "We are setting up the world for a fantasy story.\n\nThe tiny utopian country, named Harmonis, has a population of fewer than 20,000 people, governed by a theocratic government under a Godking, the curre",
+      "tok_count": 5343,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "In the utopian country of Harmonis, Godking Primoris rules under the guidance of The Absolute Sovereign, a god embodying absolute power, authority, and loyalty. The society is structured around a meri",
+      "tok_count": 291,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "> At age 12, his first ceremony as Godking\n\nThis is wrong. His first ceremony was at her birth",
+      "tok_count": 24,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "In the utopian country of Harmonis, Godking Primoris rules under the guidance of The Absolute Sovereign, a god embodying absolute power, authority, and loyalty. The society is structured around a meri",
+      "tok_count": 319,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Wrong again. Can you see what?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "My apologies for the confusion in my previous summaries. Here is the corrected version:\n\nIn the utopian country of Harmonis, Godking Primoris rules under the guidance of The Absolute Sovereign, a god ",
+      "tok_count": 320,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "We are setting up the world for a fantasy story.\n\nThe tiny utopian country, named Harmonis, has a population of fewer than 20,000 people, governed by a theocratic government under a Godking, the curre",
+      "tok_count": 5343
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "In the utopian country of Harmonis, Godking Primoris rules under the guidance of The Absolute Sovereign, a god embodying absolute power, authority, and loyalty. The society is structured around a meri",
+      "tok_count": 291
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "> At age 12, his first ceremony as Godking\n\nThis is wrong. His first ceremony was at her birth",
+      "tok_count": 24
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "In the utopian country of Harmonis, Godking Primoris rules under the guidance of The Absolute Sovereign, a god embodying absolute power, authority, and loyalty. The society is structured around a meri",
+      "tok_count": 319
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Wrong again. Can you see what?",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "My apologies for the confusion in my previous summaries. Here is the corrected version:\n\nIn the utopian country of Harmonis, Godking Primoris rules under the guidance of The Absolute Sovereign, a god ",
+      "tok_count": 320
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 5343,
+      "retained_tokens": 5343,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 291,
+      "retained_tokens": 291,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 24,
+      "retained_tokens": 24,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 319,
+      "retained_tokens": 319,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 8,
+      "retained_tokens": 8,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 320,
+      "retained_tokens": 320,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "unique aspect",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In the utopian country of Harmonis, Godking Primoris rules under the guidance of The Absolute Sovereign, a god embodying absolute power, authority, and loyalty. The society is structured around a meritocracy-based class system with ten classes, signified by the type of collar worn by each individual. A unique aspect of Harmonis romantic culture is the use of colored pendants attached to the citizens' collars signifying different aspects of their romantic and sexual experiences.\n\nThe story follows Celestria, a young girl who goes through her collaring ceremonies at ages 6, 12, and 18. Godking Primoris, who is marked as the new ruler after the passing of the previous Godking at the beginning of the story, bestows the pendants on Celestria in each ceremony. At age 12, his first ceremony as Godking, Primoris gives Celestria the Sovereign's Chalice, signifying his special interest in her and marking her as one of his favorites.\n\nOver the next six years, Celestria dedicates herself to her studies to become worthy of the King while refraining from pursuing any romantic relationships. The story explores the reverence and awe that the citizens hold for their Godking, the implications of the unique pendants and collars, and the personal growth and commitment of Celestria as she navigates her future under the guidance of her loving family and Godking Primoris.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "unique aspect",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "unique aspect",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In the utopian country of Harmonis, Godking Primoris rules under the guidance of The Absolute Sovereign, a god embodying absolute power, authority, and loyalty. The society is structured around a meritocracy-based class system with ten classes, signified by the type of collar worn by each individual. A unique aspect of Harmonis romantic culture is the use of colored pendants attached to the citizens' collars signifying different aspects of their romantic and sexual experiences.\n\nThe story follows Celestria, a young girl who goes through her collaring ceremonies at ages 6, 12, and 18. Godking Primoris, who is marked as the new ruler after the passing of the previous Godking at the beginning of the story, bestows the pendants on Celestria in each ceremony. At age 6, in his first ceremony as Godking, Primoris gives Celestria the Dragon's Tear pendant. Six years later, during Celestria's 12th birthday ceremony, Primoris gives Celestria the Sovereign's Chalice, signifying his special interest in her and marking her as one of his favorites.\n\nOver the next six years, Celestria dedicates herself to her studies to become worthy of the King while refraining from pursuing any romantic relationships. The story explores the reverence and awe that the citizens hold for their Godking, the implications of the unique pendants and collars, and the personal growth and commitment of Celestria as she navigates her future under the guidance of her loving family and Godking Primoris.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "unique aspect",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "unique aspect",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "My apologies for the confusion in my previous summaries. Here is the corrected version:\n\nIn the utopian country of Harmonis, Godking Primoris rules under the guidance of The Absolute Sovereign, a god embodying absolute power, authority, and loyalty. The society is structured around a meritocracy-based class system with ten classes, signified by the type of collar worn by each individual. A unique aspect of Harmonis romantic culture is the use of colored pendants attached to the citizens' collars, signifying different aspects of their romantic and sexual experiences.\n\nThe story follows Celestria, a young girl who goes through her collaring ceremonies at ages 6, 12, and 18. Godking Primoris becomes the new ruler after the passing of the previous Godking at the beginning of the story. During Celestria's birth ceremony, Primoris, who was not yet the Godking, gives her the Dragon's Tear pendant. Six years later, as Godking, he gives Celestria the Sovereign's Chalice during her 12th birthday ceremony, signifying his special interest in her and marking her as one of his favorites.\n\nOver the next six years, Celestria dedicates herself to her studies to become worthy of the King while refraining from pursuing any romantic relationships. The story explores the reverence and awe that the citizens hold for their Godking, the implications of the unique pendants and collars, and the personal growth and commitment of Celestria as she navigates her future under the guidance of her loving family and Godking Primoris.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "unique aspect",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 6305,
+    "comp_total_toks": 6305,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "In the context of hypothetical US-style soap called \"Ties that Bind\", what are some more fantastical storylines it could have featured, without them being completely implausible?  What might a generic",
+      "tok_count": 44,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hypothetical storylines for \"Ties that Bind\" could include:\n\n1. Parallel universes: Characters could find themselves in alternate realities, where things are slightly different from their world. They ",
+      "tok_count": 260,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Wasn't Glenwood already used for Dark Shadows?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "I apologize for my mistake. Yes, you are correct that Glenwood was already used as the name of a fictional town in the TV show \"Dark Shadows.\" As an AI Language model, my responses are based on my pro",
+      "tok_count": 154,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "I was thinking of some more down to earth but still mildly fnatastical element ( examples being  a medium appears , evil twin or masonic lodge type scenario)",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Thank you for providing me with more information. Given the context you mentioned, here are some additional storylines for \"Ties That Bind\":\n\n1. The discovery of a family curse: A family in Millfield ",
+      "tok_count": 237,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "The way I'd write it,  the 'lodge' is actually protecting the town from something never actually mentioned in the show ?",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Interesting idea! Here's an updated narration that incorporates your suggestion:\n\n\"Welcome to the charming town of Millfield, where the community is tightly-knit and life seems idyllic. But beneath th",
+      "tok_count": 210,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Thanks :)",
+      "tok_count": 2,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "You're welcome! It was a pleasure assisting you. If you have any more questions, feel free to ask!",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "My opening narration :-   \"  We all have a place we call homes,  and in such place the links of family and friendship.  Community is built upon these, and so are 'The Ties that Bind'..\"  which sounds ",
+      "tok_count": 62,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "That's a great opening narration! It captures the essential themes of family, friendship, and community that are central to a soap opera like \"Ties That Bind.\" It also sets an introspective and contem",
+      "tok_count": 71,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "Thanks :)",
+      "tok_count": 2,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "You're welcome! If you have any other questions or if there's anything else I can do for you, just let me know!",
+      "tok_count": 27,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "In the context of hypothetical US-style soap called \"Ties that Bind\", what are some more fantastical storylines it could have featured, without them being completely implausible?",
+      "tok_count": 35
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Alien invasion: The town where the show is set could be invaded by aliens, and the characters would have to band together to fight off the attack and save their loved ones.",
+      "tok_count": 36
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Wasn't Glenwood already used for Dark Shadows?",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Join us as we follow the lives of the families of Millfield, as they navigate the challenges of life, love, and the ties that bind us all together.\"",
+      "tok_count": 33
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "I was thinking of some more down to earth but still mildly fnatastical element ( examples being  a medium appears , evil twin or masonic lodge type scenario)",
+      "tok_count": 34
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Some characters join the society but soon realize that they are involved in a dangerous conspiracy that threatens the town and the people they love.",
+      "tok_count": 26
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "The way I'd write it,  the 'lodge' is actually protecting the town from something never actually mentioned in the show ?",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "But as events begin to unfold in Millfield, it becomes clear that the lodge is hiding a deep and powerful secret - one that's been passed down through generations of its members.",
+      "tok_count": 36
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "Thanks :)",
+      "tok_count": 2
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "If you have any more questions, feel free to ask!",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "user",
+      "preview": "My opening narration :-   \"  We all have a place we call homes,  and in such place the links of family and friendship.",
+      "tok_count": 28
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "It also sets an introspective and contemplative tone, hinting at the struggles and challenges that the families of Millfield will face as they navigate the ties that bind them.",
+      "tok_count": 35
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 12,
+      "role": "user",
+      "preview": "Thanks :)",
+      "tok_count": 2
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "You're welcome! If you have any other questions or if there's anything else I can do for you, just let me know!",
+      "tok_count": 27
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 44,
+      "retained_tokens": 35,
+      "retention_frac": 0.7954545454545454
+    },
+    "1": {
+      "orig_tokens": 260,
+      "retained_tokens": 36,
+      "retention_frac": 0.13846153846153847
+    },
+    "2": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 154,
+      "retained_tokens": 33,
+      "retention_frac": 0.21428571428571427
+    },
+    "4": {
+      "orig_tokens": 34,
+      "retained_tokens": 34,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 237,
+      "retained_tokens": 26,
+      "retention_frac": 0.10970464135021098
+    },
+    "6": {
+      "orig_tokens": 27,
+      "retained_tokens": 27,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 210,
+      "retained_tokens": 36,
+      "retention_frac": 0.17142857142857143
+    },
+    "8": {
+      "orig_tokens": 2,
+      "retained_tokens": 2,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 23,
+      "retained_tokens": 12,
+      "retention_frac": 0.5217391304347826
+    },
+    "10": {
+      "orig_tokens": 62,
+      "retained_tokens": 28,
+      "retention_frac": 0.45161290322580644
+    },
+    "11": {
+      "orig_tokens": 71,
+      "retained_tokens": 35,
+      "retention_frac": 0.49295774647887325
+    },
+    "12": {
+      "orig_tokens": 2,
+      "retained_tokens": 2,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 27,
+      "retained_tokens": 27,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "fictional town",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I apologize for my mistake. Yes, you are correct that Glenwood was already used as the name of a fictional town in the TV show \"Dark Shadows.\" As an AI Language model, my responses are based on my programming and data, and I am not always accurate. Thank you for pointing this out. Here's a revised version of the opening narration that does not use the name Glenwood:\n\n\"Welcome to the small, tight-knit town of Millfield, where family is everything. But in a world of secrets and betrayals, it's not always easy to keep your loved ones close. Join us as we follow the lives of the families of Millfield, as they navigate the challenges of life, love, and the ties that bind us all together.\"",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Millfield",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "keep",
+        "target": "unimaginable fate",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Interesting idea! Here's an updated narration that incorporates your suggestion:\n\n\"Welcome to the charming town of Millfield, where the community is tightly-knit and life seems idyllic. But beneath the surface, there are secrets and mysteries waiting to be uncovered. Join us as we follow the families of Millfield as they navigate the ties that bind their lives together.\n\nOne of the town's oldest and most prominent institutions is a Masonic lodge. The lodge has been a fixture in the community for generations, with a reputation for secrecy and exclusivity. But as events begin to unfold in Millfield, it becomes clear that the lodge is hiding a deep and powerful secret - one that's been passed down through generations of its members.\n\nAs the families of Millfield delve deeper into the mystery, they face shocking revelations and grave danger. The Masonic lodge may hold the key to protecting the town from something beyond anyone's imagination. Will its members be able to keep the dark forces at bay, or will the town succumb to an unimaginable fate?\"",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Millfield",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1164,
+    "comp_total_toks": 344,
+    "reduction": 70.446735395189,
+    "DRR_soft": 0.37,
+    "RCI": 0.5
+  }
+}

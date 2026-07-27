@@ -1,0 +1,206 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Please summary of this text: The coil designer is obliged to As the electromotive force in the secondary is proportional to the fall in the magnetic field the iron core from the experience of others ,",
+      "tok_count": 113,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "The coil designer needs to determine the length of the iron core for the transformer to work efficiently. If made too long, the primary magnetized current will be short and the secondary coils will ne",
+      "tok_count": 72,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "please explain with simple words this text:The coil designer is obliged to determine the length of the iron core from the experience of others, as the mathe- matics for calculating it is too complex, ",
+      "tok_count": 158,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The designer of a coil needs to figure out the length of the iron core it will use. However, the math involved is very hard. So, the designer must rely on the experience of others to figure out what l",
+      "tok_count": 112,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "explain this text with other words more simple: The coil designer is obliged to determine the length of the iron core from the experience of others, as the mathe- matics for calculating it is too comp",
+      "tok_count": 160,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "The person who designs the coil needs to figure out how long the iron core should be. But the math involved is too hard. So, they have to look at what other experts have learned to figure out the best",
+      "tok_count": 118,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Please summary of this text: The coil designer is obliged to As the electromotive force in the secondary is proportional to the fall in the magnetic field the iron core from the experience of others ,",
+      "tok_count": 113
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "The coil designer needs to determine the length of the iron core for the transformer to work efficiently.",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "please explain with simple words this text:The coil designer is obliged to determine the length of the iron core from the experience of others, as the mathe- matics for calculating it is too complex, ",
+      "tok_count": 52
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "This transformer was designed by looking at what other experts had learned about this kind of thing.",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "explain this text with other words more simple: The coil designer is obliged to determine the length of the iron core from the experience of others, as the mathe- matics for calculating it is too comp",
+      "tok_count": 54
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "The person who designs the coil needs to figure out how long the iron core should be. But the math involved is too hard. So, they have to look at what other experts have learned to figure out the best",
+      "tok_count": 118
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 113,
+      "retained_tokens": 113,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 72,
+      "retained_tokens": 19,
+      "retention_frac": 0.2638888888888889
+    },
+    "2": {
+      "orig_tokens": 158,
+      "retained_tokens": 52,
+      "retention_frac": 0.3291139240506329
+    },
+    "3": {
+      "orig_tokens": 112,
+      "retained_tokens": 18,
+      "retention_frac": 0.16071428571428573
+    },
+    "4": {
+      "orig_tokens": 160,
+      "retained_tokens": 54,
+      "retention_frac": 0.3375
+    },
+    "5": {
+      "orig_tokens": 118,
+      "retained_tokens": 118,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "coil needs",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The designer of a coil needs to figure out the length of the iron core it will use. However, the math involved is very hard. So, the designer must rely on the experience of others to figure out what length will work best. If the core is too long, the primary current will be too strong. If the core is too short, the secondary coils will need to be too big. So, the designer needs to pick a length that will work well. This transformer was designed by looking at what other experts had learned about this kind of thing.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "length for",
+        "rationale": [
+          "winner:length",
+          "winner:dimensions"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The person who designs the coil needs to figure out how long the iron core should be. But the math involved is too hard. So, they have to look at what other experts have learned to figure out the best length for the core. If it's too long, the primary current will be too strong. If it's too short, the secondary coils will need to be too big. So, they need to pick a length that works well. For this transformer, they asked really smart people who have studied this topic their whole life to help figure out the best dimensions for the transformer.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "best",
+        "target": "length for",
+        "rationale": [
+          "winner:length",
+          "winner:dimensions"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 733,
+    "comp_total_toks": 374,
+    "reduction": 48.97680763983628,
+    "DRR_soft": 0.77,
+    "RCI": 1.0
+  }
+}

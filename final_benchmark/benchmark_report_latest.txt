@@ -1,0 +1,53 @@
+COMPETITIVE BENCHMARK REPORT
+====================================================================================================
+   WildChat (100)                        Traces                                           
+1. wildchat4_.json                       Traces:   250  Messages:      0
+2. wildchat_.json                     Traces:   100  Messages:      0
+3. Tau_bench.json                           Traces:    80  Messages:      0
+4. BFCL_world_traces.json                     Traces:    80  Messages:      0
+5. Qwen.json                  Traces:    60  Messages:      0
+6. real_world_traces_oasst1_json  Traces:   121  Messages:      0
+7. real_world_traces_nemotron.json          Traces:    80  Messages:      0
+8.  wildchat_100.json              Traces:   100  Messages:      0
+9. bfcl_traces.json                         Traces:    80  Messages:      0
+
+
+===============================================================
+TOTAL TRACES   : 951
+
+File                                            Messages
+----------------------------------------------------------
+wildchat4_250.json                                 2,854
+wildchat_traces.json                                 682
+Tau_bench.json                                     2,240
+BFCL_world_traces.json                                 320
+Qwen.json                              690
+_world_traces_oasst1_converted.json              343
+_world_traces_nemotron.json                      938
+_wildchat_100.json                          748
+bfcl_traces.json                                      80
+----------------------------------------------------------
+TOTAL                                              8,895
+  Total: 951
+  Scored: 691
+  Skipped (no decisions/errors): 260
+  Total messages : 8895
+
+LEADERBOARD (mean DRR_soft across all scored traces)
+Rank  Method                                Mean DRR              95% CI   Reduct%     RCI
+----------------------------------------------------------------------------------------------------
+   1  identity_no_compress                    1.0000  [1.000,1.000]      0.0%   1.000
+   2  llmlingua (real, Microsoft)             1.0000  [1.000,1.000]     -3.0%   1.000
+   3  DAGC                                    0.9958  [0.994,0.998]     74.0%   0.994
+   4  Shaurya_DDR_v3                          0.9958  [0.994,0.998]     74.0%   0.994
+   5  textrank (real, sumy)                   0.7934  [0.777,0.811]     36.5%   0.922
+   6  pytextrank (real, spaCy)                0.7927  [0.776,0.810]     35.2%   0.932
+   7  lexrank (real, sumy)                    0.7803  [0.763,0.797]     39.4%   0.909
+   8  llamaindex (real)                       0.3574  [0.322,0.391]     54.1%   0.746
+   9  random_drop                             0.3467  [0.323,0.373]     65.7%   0.689
+  10  tail_truncation                         0.3432  [0.316,0.372]     77.1%   0.725
+  11  token_trim_last_n                       0.2757  [0.251,0.301]     67.2%   0.636
+  12  sliding_window                          0.0958  [0.081,0.112]     80.4%   0.504
+  13  langchain_token_buffer_memory (real)     0.0619  [0.050,0.075]     84.0%   0.339
+
+

@@ -1,0 +1,206 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 878,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I\u2019m calling to enroll my child, CH-789, in the Toddler-AM program starting next week. My child is 17 months old and very active\u2014would this program be a good fit?",
+      "tok_count": 45,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': 'Hello! I\\'d be happy to help you enroll your child CH-789 in the Toddler-AM program. First, I need to check a couple of important details:\\n\\n1. **",
+      "tok_count": 231,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Thank you for explaining. My child\u2019s 18th birthday is **2024-09-01** (March 1, 2024 + 9 months?), and I\u2019d like to start the program on **2024-08-06** (next Tuesday) if possible. I know it\u2019s just a few",
+      "tok_count": 106,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"age_months\": 17, \"desired_start\": \"2024-08-06\", \"program_id\": \"TODDLER-AM\"}, \"name\": \"check_availability\"}",
+      "tok_count": 42,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"age_months\": 18, \"desired_start\": \"2024-09-02\", \"program_id\": \"TODDLER-AM\"}, \"name\": \"check_availability\"}",
+      "tok_count": 42,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 878
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 878,
+      "retained_tokens": 878,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 45,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 231,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 106,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 42,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 42,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "check_availability",
+        "target": "TODDLER-AM",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"age_months\": 17, \"desired_start\": \"2024-08-06\", \"program_id\": \"TODDLER-AM\"}, \"name\": \"check_availability\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "check_availability",
+        "target": "TODDLER-AM",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"age_months\": 18, \"desired_start\": \"2024-09-02\", \"program_id\": \"TODDLER-AM\"}, \"name\": \"check_availability\"}",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1344,
+    "comp_total_toks": 878,
+    "reduction": 34.672619047619044,
+    "DRR_soft": 0.0,
+    "RCI": 1.0
+  }
+}

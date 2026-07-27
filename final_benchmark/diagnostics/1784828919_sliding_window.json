@@ -1,0 +1,115 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "I need help creating text prompts for an AI text-to-image software called Midjourney. Can you help me create good text prompts based on some ideas I have? Here is information about Midjourney as well ",
+      "tok_count": 1488,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Sure! Please let me know what ideas or concepts you have in mind and I will help you create the prompts for Midjourney.",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Be really really creative and use lots of references. I want various prompts depicting a Persian cat",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "1. Victorian-era Persian cat wearing an intricate lace collar, reminiscent of an artwork by John Tenniel, detailed etching style of Gustave Dor\u00e9, surrounded by classic baroque floral elements --v 5 --",
+      "tok_count": 408,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Sure! Please let me know what ideas or concepts you have in mind and I will help you create the prompts for Midjourney.",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Be really really creative and use lots of references. I want various prompts depicting a Persian cat",
+      "tok_count": 18
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1488,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 27,
+      "retained_tokens": 27,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 18,
+      "retained_tokens": 18,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 408,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    3
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "geometric shapes and primary colors",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. Victorian-era Persian cat wearing an intricate lace collar, reminiscent of an artwork by John Tenniel, detailed etching style of Gustave Dor\u00e9, surrounded by classic baroque floral elements --v 5 --s 850 --ar 5:4 --chaos 15\n\n2. A colorful Persian cat inspired by Pablo Picasso's Cubism, set against a Henri Matisse-inspired abstract background with bold shapes and colors, featuring elements from traditional Persian miniature paintings --v 5 --s 750 --ar 1:1 --chaos 30\n\n3. Persian cat exploring a fantastical forest in the style of a Studio Ghibli animation, with whimsical creatures from Hayao Miyazaki's films, soft watercolor textures like those found in My Neighbor Totoro --v 5 --s 650 --ar 16:9 --chaos 10\n\n4. Mondrian-inspired minimalistic artwork featuring a Persian cat depicted using geometric shapes and primary colors, flat design like De Stijl movement, incorporating Persian patterns within the shapes --v 5 --s 300 --ar 3:2 --chaos 5\n\n5. An art nouveau portrait of a Persian cat as a majestic queen, incorporating Alphonse Mucha's iconic decorative ornamentation and organic forms, intricate patterns and gold accents inspired by Persian textiles --v 5 --s 900 --ar 2:3 --chaos 20\n\n6. A surrealist-inspired persian cat set in a Salvador Dal\u00ed themed landscape, with melting clocks and distorted architecture, mysterious linear shadows reminiscent of Giorgio de Chirico --v 5 --s 800 --ar 9:16 --chaos 30\n\n7. Magical Persian cat in a medieval illuminated manuscript setting, with intricate designs and gilding inspired by the Book of Kells, surrounded by mythical beasts from illuminated bestiaries --v 5 --s 1000 --ar 1:1 --chaos 25",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1941,
+    "comp_total_toks": 45,
+    "reduction": 97.68160741885626,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

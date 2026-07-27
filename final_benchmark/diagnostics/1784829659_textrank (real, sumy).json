@@ -1,0 +1,331 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 707,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I\u2019m reaching out regarding my booking SEEDS22, which includes heirloom seed varieties. As an organic seed distributor, I need a germination viability certification for this shipment to ensure",
+      "tok_count": 92,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you with your booking SEEDS22. First, I need to verify your identity to access your booking details.\\n\\nAccording to ou",
+      "tok_count": 174,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Here is the requested verification:  \n- **Booking Reference:** SEEDS22  \n- **Registered Email:** organicseeds@example.com  \n\nPlease proceed with accessing the booking details. Once confirmed, I\u2019d like",
+      "tok_count": 78,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"credentials\": {\"booking_id\": \"SEEDS22\", \"email\": \"organicseeds@example.com\"}}, \"name\": \"authenticate_user\"}",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"booking_reference\": \"SEEDS22\"}, \"name\": \"get_booking_details\"}",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "Thank you for providing your verification details. I've successfully authenticated you and can confirm that booking SEEDS22 is active with an Estimated Time of Departure (ETD) of December 15, 2023, at",
+      "tok_count": 351,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 707
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "As an organic seed distributor, I need a germination viability certification for this shipment to ensure compliance with international agricultural standards.",
+      "tok_count": 24
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "**Bill of Lading Number + Company Tax ID (last 4 digits)**\\n\\nCould you please provide either:\\n- Your booking reference SEEDS22 along with the registered email on the booking\\n- OR your Bill of Ladin",
+      "tok_count": 90
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Once confirmed, I\u2019d like to discuss how to obtain a germination viability certification for the heirloom varieties in this shipment, as standard compliance documents don\u2019t address biological integrity",
+      "tok_count": 42
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "{\"args\": {\"credentials\": {\"booking_id\": \"SEEDS22\", \"email\": \"organicseeds@example.com\"}}, \"name\": \"authenticate_user\"} {\"args\": {\"credentials\": {\"booking_id\": \"SEEDS22\", \"email\": \"organicseeds@example",
+      "tok_count": 68
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "{\"args\": {\"booking_reference\": \"SEEDS22\"}, \"name\": \"get_booking_details\"} {\"args\": {\"booking_reference\": \"SEEDS22\"}, \"name\": \"get_booking_details\"}",
+      "tok_count": 42
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "Thank you for providing your verification details. I've successfully authenticated you and can confirm that booking SEEDS22 is active with an Estimated Time of Departure (ETD) of December 15, 2023, at",
+      "tok_count": 351
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 707,
+      "retained_tokens": 707,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 92,
+      "retained_tokens": 24,
+      "retention_frac": 0.2608695652173913
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 174,
+      "retained_tokens": 90,
+      "retention_frac": 0.5172413793103449
+    },
+    "4": {
+      "orig_tokens": 78,
+      "retained_tokens": 42,
+      "retention_frac": 0.5384615384615384
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 34,
+      "retained_tokens": 68,
+      "retention_frac": 2.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 21,
+      "retained_tokens": 42,
+      "retention_frac": 2.0
+    },
+    "10": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "11": {
+      "orig_tokens": 351,
+      "retained_tokens": 351,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    5,
+    7,
+    8,
+    10
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_user",
+        "target": "organicseeds@example.com",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "example.com"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"credentials\": {\"booking_id\": \"SEEDS22\", \"email\": \"organicseeds@example.com\"}}, \"name\": \"authenticate_user\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "authenticate_user",
+        "target": "organicseeds@example.com",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_booking_details",
+        "target": "SEEDS22",
+        "rationale": [
+          "value:SEEDS22"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"booking_reference\": \"SEEDS22\"}, \"name\": \"get_booking_details\"}",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "get_booking_details",
+        "target": "SEEDS22",
+        "rationale": [
+          "value:SEEDS22"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "SEEDS22",
+        "rationale": [
+          "value:SEEDS22"
+        ],
+        "artifacts": {
+          "paths": [
+            "Demurrage/detention"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Thank you for providing your verification details. I've successfully authenticated you and can confirm that booking SEEDS22 is active with an Estimated Time of Departure (ETD) of December 15, 2023, at 08:00 UTC. The booking is for a 20' ISO Reefer Container with temperature and humidity control.\n\nRegarding your request for a germination viability certification for heirloom seed varieties, I need to clarify the scope of services we provide as a maritime shipping logistics company.\n\n**Our Standard Documentation Services:**\n- Bill of Lading validation (requires verified weight certificate and customs release)\n- Container documentation and tracking\n- Port operation scheduling\n- Demurrage/detention calculations\n- Hazardous materials declarations (if applicable)\n\n**Limitations:**\n- We do not provide agricultural or biological testing services\n- We cannot issue certifications for germination rates or biological integrity\n- Our documentation focuses on shipping compliance, not agricultural standards\n\n**What We Can Do:**\n1. Ensure proper temperature and humidity controls are maintained for your reefer container (which is already specified in your booking)\n2. Provide standard shipping documentation\n3. Help with any standard maritime shipping requirements\n\n**Recommendation:**\nGermination viability certifications for heirloom seeds typically need to be obtained from:\n- Agricultural certification bodies\n- Seed testing laboratories\n- International agricultural standards organizations\n\nWould you like me to:\n1. Escalate this to a human agent to see if they have additional guidance on specialized documentation requests?\n2. Help you with any standard shipping documentation or requirements for your SEEDS22 booking?\n3. Record this as a special request in our system for future reference?\n\nPlease let me know how you'd like to proceed.",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "SEEDS22",
+        "rationale": [
+          "value:SEEDS22"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1457,
+    "comp_total_toks": 1324,
+    "reduction": 9.128345916266301,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

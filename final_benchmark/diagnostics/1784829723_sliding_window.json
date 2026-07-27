@@ -1,0 +1,214 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 958,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I need to reschedule my music lesson scheduled for in 10 hours due to a medical emergency. I have a doctor's note to confirm this situation. Could you please assist me with changing the appoi",
+      "tok_count": 45,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you reschedule your lesson. First, I need to verify your identity for security purposes.\\n\\n**Please provide:**\\n1. You",
+      "tok_count": 175,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "My User ID is MUSC123456, the last four digits of my payment method are 5678, and my lesson ID is LSN987654. I need to reschedule from tomorrow at 3 PM EST to as soon as possible, ideally the next ava",
+      "tok_count": 83,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"last_four_digits\": \"5678\", \"user_id\": \"MUSC123456\"}, \"name\": \"verify_user_identity\"}",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"user_id\": \"MUSC123456\"}, \"name\": \"validate_timezone\"}",
+      "tok_count": 21,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 958
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 958,
+      "retained_tokens": 958,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 45,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 175,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 83,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 31,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 21,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "verify_user_identity",
+        "target": "MUSC123456",
+        "rationale": [
+          "id:MUSC123456"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "MUSC123456"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"last_four_digits\": \"5678\", \"user_id\": \"MUSC123456\"}, \"name\": \"verify_user_identity\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "validate_timezone",
+        "target": "MUSC123456",
+        "rationale": [
+          "id:MUSC123456"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "MUSC123456"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"user_id\": \"MUSC123456\"}, \"name\": \"validate_timezone\"}",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1313,
+    "comp_total_toks": 958,
+    "reduction": 27.037319116527037,
+    "DRR_soft": 0.0,
+    "RCI": 0.0
+  }
+}

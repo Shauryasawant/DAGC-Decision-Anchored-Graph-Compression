@@ -1,0 +1,460 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "who are you",
+      "tok_count": 3,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "I am an AI digital assistant designed to help answer questions and provide information.",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "how does the 'share vesting' work?  Who will the share be entitled to during that period",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Share vesting is a process in which an employee or stakeholder gradually gains ownership rights to company shares or stock options over a period of time. The purpose of vesting is to incentivize emplo",
+      "tok_count": 404,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "what are the limited rights of the individuals concerning these shares ?",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "The specific limited rights of individuals concerning unvested shares can vary depending on the vesting agreement and company policies. However, some general rights limitations often apply to unvested",
+      "tok_count": 364,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Create a 'Memorandum of Association' in accordance with Company Act 2063 of Nepal for a private company called 'NepTrails' based on following detail : \n'We are incorporating a company with 4 partners.",
+      "tok_count": 198,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "[Please note that I am an AI language model and not an attorney. The following is a sample Memorandum of Association and should not be considered as legal advice. For legal advice or document preparat",
+      "tok_count": 666,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Introduction\n\n NepTrails is a startup which Is in the process of incorporation. This is an organization where the investors (stakeholders) will handle their respective ends as per the Mission Statemen",
+      "tok_count": 3254,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "Title: Agreement for the Incorporation of NepTrails\n\nAGREEMENT FOR THE INCORPORATION AND OPERATION OF NEPTRAILS\n\nThis Agreement for the Incorporation and Operation of \"NepTrails\" (\"Agreement\") is made",
+      "tok_count": 807,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "how would you rate the document I provided as an agreement paper",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "As an AI language model, I can provide a general assessment of your document based on common standards for an agreement paper.\n\nOverall, the document is informative but could benefit from some organiz",
+      "tok_count": 269,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "I want you to revise this documents based on the suggestion you gave",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "Title: Agreement for the Incorporation of NepTrails\n\nAGREEMENT FOR THE INCORPORATION AND OPERATION OF NEPTRAILS\n\nThis Agreement for the Incorporation and Operation of \"NepTrails\" (\"Agreement\") is made",
+      "tok_count": 1029,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "who are you",
+      "tok_count": 3
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "I am an AI digital assistant designed to help answer questions and provide information.",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Who will the share be entitled to during that period",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Share vesting is a process in which an employee or stakeholder gradually gains ownership rights to company shares or stock options over a period of time.",
+      "tok_count": 29
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "what are the limited rights of the individuals concerning these shares ?",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Limited information rights: Unvested shareholders may not have access to the same level of company information as vested shareholders.",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "Create a 'Memorandum of Association' in accordance with Company Act 2063 of Nepal for a private company called 'NepTrails' based on following detail : \n'We are incorporating a company with 4 partners.",
+      "tok_count": 46
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "2. Objective of the Company\nThe main objective of the Company is to engage in the business of providing tourism and adventure services to customers, including but not limited to, trekking, expeditions",
+      "tok_count": 46
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "The GIS part including mapping, surveying, creating a database for the NepTrails Map application; designing, producing physical sign post and trail maps, writing blog posts and contents for NepTrails ",
+      "tok_count": 102
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "Shares will be held in the name of one of the Partners who has fulfilled these requirements until other Partners meet the conditions for obtaining a shareholder certificate.\n\n",
+      "tok_count": 29
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "user",
+      "preview": "how would you rate the document I provided as an agreement paper",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "While it contains significant information about the company, financial plans, roles of partners, and operational details, the document would benefit from a more structured and formal format typically ",
+      "tok_count": 37
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 12,
+      "role": "user",
+      "preview": "I want you to revise this documents based on the suggestion you gave",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "Title: Agreement for the Incorporation of NepTrails\n\nAGREEMENT FOR THE INCORPORATION AND OPERATION OF NEPTRAILS\n\nThis Agreement for the Incorporation and Operation of \"NepTrails\" (\"Agreement\") is made",
+      "tok_count": 1029
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 15,
+      "retained_tokens": 15,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 21,
+      "retained_tokens": 10,
+      "retention_frac": 0.47619047619047616
+    },
+    "3": {
+      "orig_tokens": 404,
+      "retained_tokens": 29,
+      "retention_frac": 0.07178217821782178
+    },
+    "4": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 364,
+      "retained_tokens": 23,
+      "retention_frac": 0.06318681318681318
+    },
+    "6": {
+      "orig_tokens": 198,
+      "retained_tokens": 46,
+      "retention_frac": 0.23232323232323232
+    },
+    "7": {
+      "orig_tokens": 666,
+      "retained_tokens": 46,
+      "retention_frac": 0.06906906906906907
+    },
+    "8": {
+      "orig_tokens": 3254,
+      "retained_tokens": 102,
+      "retention_frac": 0.0313460356484327
+    },
+    "9": {
+      "orig_tokens": 807,
+      "retained_tokens": 29,
+      "retention_frac": 0.03593556381660471
+    },
+    "10": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "11": {
+      "orig_tokens": 269,
+      "retained_tokens": 37,
+      "retention_frac": 0.137546468401487
+    },
+    "12": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 1029,
+      "retained_tokens": 1029,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "shares/stock",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "shares/stock"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Share vesting is a process in which an employee or stakeholder gradually gains ownership rights to company shares or stock options over a period of time. The purpose of vesting is to incentivize employees to remain with the company and contribute to its success. \n\nDuring the vesting period, the shares are not fully owned by the employee or stakeholder. Instead, they are gradually earned based on meeting predetermined milestones, such as working for the company for a specific length of time or achieving specific performance goals.\n\nHere's how it typically works:\n\n1. A vesting schedule is set up, outlining the specific terms and conditions by which the shares will be vested to the individual. This schedule includes the vesting period (e.g., four years), vesting frequency (monthly, quarterly or annually), and any performance-based criteria.\n\n2. During the vesting period, the individual is entitled to a percentage of the total shares/stock options granted to them, based on the terms of the vesting schedule. These shares or stock options are known as \"unvested\" and cannot be sold or transferred.\n\n3. As the individual meets the milestones outlined in the vesting schedule, their ownership percentage increases, and shares become \"vested.\" Once vested, the shares or stock options are owned outright by the individual and can be sold, transferred, or exercised, subject to any company policies or applicable regulations.\n\n4. If the individual leaves the company before the end of the vesting period, they typically forfeit any unvested shares or stock options. Depending on the specific terms of the agreement, vested shares may also be subject to repurchase by the company.\n\nDuring the vesting period, the shares are usually held in a trust or controlled by the company. In most cases, the individual will have limited rights concerning these shares until they become vested. It's essential to understand the specific terms of any share vesting agreement you may have with a company, as these terms can vary based on individual negotiations and company policies.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.6,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Unvested",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The specific limited rights of individuals concerning unvested shares can vary depending on the vesting agreement and company policies. However, some general rights limitations often apply to unvested shares:\n\n1. No voting rights: Individuals typically do not have voting rights for unvested shares. Once shares become vested, they may be granted the right to vote on company matters, such as electing board members or approving significant corporate actions.\n\n2. No transfer or sale: Unvested shares usually cannot be transferred or sold by the individual. Once the shares are vested, transfer and sale restrictions might be lifted, subject to insider trading restrictions and company policies.\n\n3. Restricted dividends: Some companies may not pay dividends on unvested shares. If dividends are paid, they might be held in escrow or accumulate with the shares and only become available when the shares vest.\n\n4. Limited information rights: Unvested shareholders may not have access to the same level of company information as vested shareholders. This may include financial statements, operating results, and other company-related data.\n\n5. Limited liquidation rights: In the event of a company liquidation, unvested shareholders usually have fewer rights to proceeds compared to vested shareholders. They may receive a smaller portion of the liquidation proceeds or none at all.\n\n6. Forfeiture risk: Unvested shares may be subject to forfeiture if the individual leaves the company or does not meet the specific milestones outlined in the vesting schedule. Once shares vest, forfeiture risk is generally no longer a concern.\n\nIt's important to note that these limited rights are not universally applicable, as each company and vesting agreement may have its specific terms and conditions. Individuals should consult their vesting agreements and consult with legal or financial advisors to understand their particular rights and restrictions concerning unvested shares.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Unvested",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "provisions",
+        "target": "scheduled investments",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "[Please note that I am an AI language model and not an attorney. The following is a sample Memorandum of Association and should not be considered as legal advice. For legal advice or document preparation, please consult an attorney in Nepal specializing in company law.]\n\nMEMORANDUM OF ASSOCIATION OF NEPTRAILS PRIVATE LIMITED\n\n1. Name of the Company\nThe name of the company is \"NepTrails Private Limited\" (hereinafter referred to as the \"Company\").\n\n2. Objective of the Company\nThe main objective of the Company is to engage in the business of providing tourism and adventure services to customers, including but not limited to, trekking, expeditions, and cultural tours in Nepal.\n\n3. Registered Office\nThe registered office of the Company shall be situated at [Registered Office Address], Nepal.\n\n4. Authorized Capital\nThe authorized capital of the Company is NPR 7,000,000 (Seven Million Nepalese Rupees), divided into 7,000 (Seven Thousand) shares of NPR 1,000 (One Thousand Nepalese Rupees) each.\n\n5. Share Distribution\nThe subscribers to this Memorandum of Association have agreed to take the number of shares set opposite to their respective names. The shareholding of the Company is equally divided among the four partners, each holding 1,750 (One Thousand Seven Hundred and Fifty) shares.\n\n6. Investment and Financing\na) The partners agree to make investments in the Company every four months in accordance with the yearly budget mutually agreed upon by the partners.\n\nb) If a partner fails to make the scheduled investments, does not follow the investment schedule, or leaves the company midway, the Company shall take appropriate actions, as per the provisions mentioned in the Articles of Association.\n\n7. Share Vesting and Lock-in Period\na) For each partner, a share vesting period of 1.5 years shall apply, during which the shares shall be held in trust by the Company.\n\nb) A lock-in period of 1.5 years is applicable to the shares held by each partner. During the lock-in period, partners shall not sell, transfer, pledge, or otherwise dispose of their shares in the Company.\n\n8. Forfeiture of Shares\nIf a partner leaves the Company midway, stops investing midway, or doesn't follow the investment schedule, the unvested shares of that partner shall be subject to forfeiture as per the provisions mentioned in the Articles of Association of the Company.\n\n9. Alteration of Memorandum of Association\nThe Company reserves the right to alter this Memorandum of Association in accordance with the provisions of the Company Act 2063 of Nepal.\n\n10. Winding Up\nThe Company may be wound up in accordance with the provisions set forth in the Company Act 2063 of Nepal.\n\nWe, the subscribers to this Memorandum of Association, agree with and subscribe to the terms stated herein and affix our respective signatures hereto.\n\n1. [Name], [Address], [Signature]\n2. [Name], [Address], [Signature]\n3. [Name], [Address], [Signature]\n4. [Name], [Address], [Signature]\n\nDated this ___ day of ___________, 20__.\n\nWitnessed by:\n[Name]\n[Address]\n[Signature]",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Company",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "document easier",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I can provide a general assessment of your document based on common standards for an agreement paper.\n\nOverall, the document is informative but could benefit from some organization and structure improvements. While it contains significant information about the company, financial plans, roles of partners, and operational details, the document would benefit from a more structured and formal format typically found in legal documents.\n\nHere are some areas to consider for improvement:\n\n1. Structure and organization: The document would be more effective if it follows a well-organized structure, utilizing headings and subheadings to clarify different sections and topics.\n\n2. Clarity and conciseness: Some parts of the document are lengthy and could benefit from concise wording to improve readability and convey essential information more efficiently.\n\n3. Formatting and presentation: The use of a consistent font, spacing, and layout will make the document easier to read and more visually appealing.\n\n4. Legal language and completeness: You may want to ensure that the document thoroughly and accurately addresses all necessary legal and contractual aspects. Consulting a legal professional for advice would be beneficial in this regard.\n\nOverall, the document contains essential information about the company, its budget, and the partners' commitments. However, it would benefit from organization, clarity, and a more formal legal structure, which can be achieved with the help of a legal professional.",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "targets",
+        "target": "1.5",
+        "rationale": [
+          "value:1.5"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Title: Agreement for the Incorporation of NepTrails\n\nAGREEMENT FOR THE INCORPORATION AND OPERATION OF NEPTRAILS\n\nThis Agreement for the Incorporation and Operation of \"NepTrails\" (\"Agreement\") is made and entered into as of [Date] by and among the following partners (\"Partners\"):\n\n1. Ujjwal Basnet\n2. Bikash Chhetri\n3. Birat [Last Name]\n4. Nischal [Last Name]\n\nRECITALS\n\nWHEREAS, the Partners wish to incorporate the company \"NepTrails\" as a tourism and adventure services provider in Nepal;\n\nWHEREAS, the formation of the company and its operation will involve the commitment of resources, investments, and efforts of the Partners;\n\nWHEREAS, the Partners wish to establish the terms and conditions on which the company will be incorporated and operate, including the roles and responsibilities of the Partners, financing, share distribution, vesting periods, and the various operational activities of the company.\n\nNOW, THEREFORE, in consideration of the mutual covenants and agreements contained herein and for other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the Partners agree as follows:\n\n1. COMPANY FORMATION AND STRUCTURE\nThe Company will be named \"NepTrails\" and will be incorporated under the laws of Nepal. The company's primary objective is to engage in the business of providing travel and adventure services to customers, including, but not limited to, trekking, expeditions, and cultural tours in Nepal.\n\n2. OPERATIONAL RESPONSIBILITIES OF PARTNERS\nEach Partner will be responsible for the management of a specific aspect of the company's operations, as per the role distribution provided in this document's introduction.\n\n3. FINANCIAL COMMITMENTS AND INVESTMENTS\nThe Partners agree to finance the company for a minimum period of one year, adhering to the payment schedule and financial plan provided in this Agreement. Each Partner commits to paying their respective share of investments on the agreed-upon dates.\n\n4. SHARE DISTRIBUTION AND VESTING PERIOD\nThe Company's shares will be distributed equally among the four Partners, and a vesting period of 1.5 years will apply to the shares held by each Partner.\n\n5. LOCK-IN PERIOD\nA lock-in period of 1.5 years will apply to the shares held by each Partner, during which Partners are not allowed to sell, transfer, pledge or otherwise dispose of their shares.\n\n6. SHAREHOLDING CERTIFICATES AND CONDITIONS\nShareholder certificates will be issued to Partners who have met the financial commitment requirements and who commit to financing the company for a minimum of one year. Shares will be held in the name of one of the Partners who has fulfilled these requirements until other Partners meet the conditions for obtaining a shareholder certificate.\n\n7. TERMINATION OF PARTNERSHIP\nThis Agreement outlines terms and conditions for the termination of the partnership and the consequences of failing to meet financial commitments, including forfeiture of shares and potential reimbursement.\n\n8. FIRST TRIMESTER PLAN\nThe Company's priorities for the first trimester are detailed in this Agreement, including staffing, IT management, marketing, and operational goals. Partners are expected to contribute to achieving these goals.\n\n9. FORMS AND LEGAL DOCUMENTS\nPartners are required to sign the necessary legal forms and documents, including Financial Commitment Forms, Work Commitment Forms, Financial Declaration Forms, and the Partnership Agreement Form.\n\nIN WITNESS WHEREOF, the Partners have executed this Agreement as of the date first written above.\n\n1. ___________________________ Date: __________________\nUjjwal Basnet\n\n2. ___________________________ Date: __________________\nBikash Chhetri\n\n3. ___________________________ Date: __________________\nBirat [Last Name]\n\n4. ___________________________ Date: __________________\nNischal [Last Name]\n\n------------------------------------------------------------\n\nAPPENDIX A - DETAILED COMPANY PLANS\n\nIn this appendix, detailed information is provided about the Company's operational plan, financial plan, proposed budgeting, and other relevant information to assist the partners in maintaining the Company's priorities and commitments.\n\nI. Operational Plan\n  A. IT Management\n  B. App Development\n  C. Mapping and Surveying\n  D. Marketing and Promotion\n  E. Hiring and Staffing\n  F. Office Management\n\nII. Financial Plan and Budget\n  A. Proposed Budget\n  B. Annual and Trimester Targets\n  C. Shareholding and Investments\n\nIII. Forms and Legal Documents\n  A. Financial Commitment Forms\n  B. Work Commitment Forms\n  C. Financial Declaration Forms\n  D. Partnership Agreement Form\n  E. Schedules and Deadlines for Documents and Finances\n\nThe contents of this Appendix are intended to serve as a guideline for the Partners to direct the Company's activities, investments, and management during the first year of operation. The Partners will work together to achieve the outlined goals and objectives provided in this Agreement and the supporting documentation.",
+        "msg_idx": 13
+      },
+      "reproduced": {
+        "action": "targets",
+        "target": "1.5",
+        "rationale": [
+          "value:1.5"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 7067,
+    "comp_total_toks": 1406,
+    "reduction": 80.10471204188482,
+    "DRR_soft": 0.6679999999999999,
+    "RCI": 0.5
+  }
+}

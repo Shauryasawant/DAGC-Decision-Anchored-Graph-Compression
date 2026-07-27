@@ -1,0 +1,162 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Kannst du mir bitte beantworten, ob das rauchen von Cannabis sch\u00e4dlich ist?",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Von jugendlichen und jungen Erwachsenen wird der Cannabiskonsum gerne verharmlost, doch gerade im Jugendalter ist der Konsum mit besonderen Risiken verbunden. Weil sich das Gehirn noch im Auf- und Umb",
+      "tok_count": 220,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Kann es auch zu Angstzust\u00e4nden kommen?",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Ja, unter bestimmten Umst\u00e4nden kann es beim Konsum von Cannbisprodukten auch zu Angstzust\u00e4nden kommen.",
+      "tok_count": 28,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Kannst du mir bitte beantworten, ob das rauchen von Cannabis sch\u00e4dlich ist?",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Von jugendlichen und jungen Erwachsenen wird der Cannabiskonsum gerne verharmlost, doch gerade im Jugendalter ist der Konsum mit besonderen Risiken verbunden. Weil sich das Gehirn noch im Auf- und Umb",
+      "tok_count": 220
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Kann es auch zu Angstzust\u00e4nden kommen?",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Ja, unter bestimmten Umst\u00e4nden kann es beim Konsum von Cannbisprodukten auch zu Angstzust\u00e4nden kommen.",
+      "tok_count": 28
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 21,
+      "retained_tokens": 21,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 220,
+      "retained_tokens": 220,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 28,
+      "retained_tokens": 28,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Konsum",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Von jugendlichen und jungen Erwachsenen wird der Cannabiskonsum gerne verharmlost, doch gerade im Jugendalter ist der Konsum mit besonderen Risiken verbunden. Weil sich das Gehirn noch im Auf- und Umbau befindet, k\u00f6nnen langfristige Sch\u00e4digungen wie Psychosen, Depressionen und Intelligenzminderung auftreten. Studien zeigen, dass 9 % der Konsumenten Abh\u00e4ngigkeiten entwickeln. Bei einem regelm\u00e4\u00dfigen Konsum im Jugendalter kann diese Rate jedoch bis zu 50 % erreichen.\nIm Allgemeinen kann der Konsum jeglicher Droge als gef\u00e4hrlich eingestuft werden, jedoch ist auch zu bedenken, dass Drogenkonsum auch bei gef\u00e4hrlicheren Drogen wie Alkohol sozial akzeptiert ist. Um das Risiko des Cannabiskonsums zu minimieren, sollte dieser nicht vor dem 22. Lebensjahr und nicht regelm\u00e4\u00dfig stattfinden.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Konsum",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "immten Umst",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Ja, unter bestimmten Umst\u00e4nden kann es beim Konsum von Cannbisprodukten auch zu Angstzust\u00e4nden kommen.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "immten Umst",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 282,
+    "comp_total_toks": 282,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

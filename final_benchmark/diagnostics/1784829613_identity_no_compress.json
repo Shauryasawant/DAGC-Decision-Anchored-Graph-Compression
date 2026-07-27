@@ -1,0 +1,137 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfQu\u00e9 son los gases nobles?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Los gases nobles son un grupo de elementos qu\u00edmicos con propiedades muy similares.\n\nBajo condiciones normales, son gases monoat\u00f3micos inodoros, incoloros y presentan una reactividad qu\u00edmica muy baja. ",
+      "tok_count": 514,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "\u00bfQui\u00e9n y donde descubri\u00f3 el Helio? Adem\u00e1s me gustar\u00eda saber de donde se extrae y para que se utiliza hoy en d\u00eda",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "El 18 de agosto de 1868, el astr\u00f3nomo franc\u00e9s Pierre Jules C\u00e9sar Janssen descubre el helio, el segundo elemento m\u00e1s abundante del universo por detr\u00e1s del hidr\u00f3geno. \n\nFue descubierto por Janssen mient",
+      "tok_count": 702,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "\u00bfQu\u00e9 son los gases nobles?",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Los gases nobles son un grupo de elementos qu\u00edmicos con propiedades muy similares.\n\nBajo condiciones normales, son gases monoat\u00f3micos inodoros, incoloros y presentan una reactividad qu\u00edmica muy baja. ",
+      "tok_count": 514
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "\u00bfQui\u00e9n y donde descubri\u00f3 el Helio? Adem\u00e1s me gustar\u00eda saber de donde se extrae y para que se utiliza hoy en d\u00eda",
+      "tok_count": 30
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "El 18 de agosto de 1868, el astr\u00f3nomo franc\u00e9s Pierre Jules C\u00e9sar Janssen descubre el helio, el segundo elemento m\u00e1s abundante del universo por detr\u00e1s del hidr\u00f3geno. \n\nFue descubierto por Janssen mient",
+      "tok_count": 702
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 8,
+      "retained_tokens": 8,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 514,
+      "retained_tokens": 514,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 30,
+      "retained_tokens": 30,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 702,
+      "retained_tokens": 702,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "polonio-218",
+        "rationale": [
+          "id:radio-226",
+          "id:polonio-218"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "radio-226",
+            "polonio-218"
+          ],
+          "errors": []
+        },
+        "verbatim": "Los gases nobles son un grupo de elementos qu\u00edmicos con propiedades muy similares.\n\nBajo condiciones normales, son gases monoat\u00f3micos inodoros, incoloros y presentan una reactividad qu\u00edmica muy baja. Se sit\u00faan en el grupo 18 de la tabla peri\u00f3dica. \n\nLos gases nobles son siete:\n\n- Helio (He). Es el segundo elemento m\u00e1s abundante en el universo, producido por reacciones nucleares en el coraz\u00f3n de las estrellas mediante la fusi\u00f3n del hidr\u00f3geno. Es muy popular porque altera la voz humana al ser inhalado y porque es mucho m\u00e1s liviano que el aire, por lo que tiende siempre a subir.\n\n- Ne\u00f3n (Ne). Muy abundante en el universo, es lo que da el tono rojo a la luz de las l\u00e1mparas fluorescentes. Se usa en la iluminaci\u00f3n por tubos (de ne\u00f3n) y en la tecnolog\u00eda de la TV.\n\n- Arg\u00f3n (Ar). Com\u00fan en el aire de la atm\u00f3sfera, es un elemento sumamente empleado como aislante en la industria y en la obtenci\u00f3n de l\u00e1seres distintos.\n\n- Kript\u00f3n (Kr). A pesar de ser un gas noble, se sabe que reacciona con el fl\u00faor y otros pocos elementos que poseen fuerte electronegatividad. Emite luz verde y anaranjada muy brillante. Tiene seis is\u00f3topos estables y diecisiete radiactivos.\n\n- Xen\u00f3n (Xe). Es un gas muy pesado, presente en la superficie terrestre apenas en trazas. Fue el primer gas noble sintetizado.\n\n- Rad\u00f3n (Rn). Surge de la desintegraci\u00f3n de elementos radiactivos como el radio-226 o el actinio (entonces se le llama actin\u00f3n), por lo que es un gas noble pero radiactivo, cuyo is\u00f3topo m\u00e1s estable (222Rn) tiene una vida media de 3,8 d\u00edas y luego se desintegra en polonio-218.\n\n- Oganes\u00f3n (Og). Llamado tambi\u00e9n eka-rad\u00f3n, Ununoctio (Uuo) o elemento 118, es un elemento sint\u00e9tico y altamente radiactivo. Los resultados de su descubrimiento fueron publicados finalmente en el a\u00f1o 2006.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "polonio-218",
+        "rationale": [
+          "id:radio-226",
+          "id:polonio-218"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1254,
+    "comp_total_toks": 1254,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

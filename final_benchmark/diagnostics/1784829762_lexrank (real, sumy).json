@@ -1,0 +1,155 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "CONSTRAINTS:\n\n1. ~4000 word limit for memory. Your memory is short, so immidiately save important information to long term memory and code to files.\n2. No user assistance\n\nCOMMANDS:\n\n1. Google Search:",
+      "tok_count": 815,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "{\n    \"command\": {\n        \"name\": \"google\",\n        \"args\": {\n            \"input\": \"Create Instagram account programmatically\"\n        }\n    },\n    \"thoughts\": {\n        \"text\": \"I will search on Goo",
+      "tok_count": 168,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "{'results': [{'title': 'create-instagram-account', 'snippet': 'An automatic account creation bot script for Instagram. ... Create instagram account | mobile api | 2023 | 256.0.0.18.105. instagram inst",
+      "tok_count": 734,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "{\n    \"command\": {\n        \"name\": \"write_to_file\",\n        \"args\": {\n            \"file\": \"instagram_tools.md\",\n            \"text\": \"# Instagram Account Creation and Tools\\n\\n## Account Creation\\n\\n1.",
+      "tok_count": 511,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Your memory is short, so immidiately save important information to long term memory and code to files.",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "{ \"command\": { \"name\": \"google\", \"args\": { \"input\": \"Create Instagram account programmatically\" } }, \"thoughts\": { \"text\": \"I will search on Google for information on how to create an Instagram accoun",
+      "tok_count": 53
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "', 'link': 'https://rapidapi.com/blog/how-to-navigate-and-connect-to-instagrams-api/', 'date': 'Apr 16, 2021'}, {'title': 'How to Get Instagram Access Token - Documentation', 'snippet': '4.1 Navigate ",
+      "tok_count": 168
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "{\n    \"command\": {\n        \"name\": \"write_to_file\",\n        \"args\": {\n            \"file\": \"instagram_tools.md\",\n            \"text\": \"# Instagram Account Creation and Tools\\n\\n## Account Creation\\n\\n1.",
+      "tok_count": 511
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 815,
+      "retained_tokens": 21,
+      "retention_frac": 0.025766871165644172
+    },
+    "1": {
+      "orig_tokens": 168,
+      "retained_tokens": 53,
+      "retention_frac": 0.31547619047619047
+    },
+    "2": {
+      "orig_tokens": 734,
+      "retained_tokens": 168,
+      "retention_frac": 0.22888283378746593
+    },
+    "3": {
+      "orig_tokens": 511,
+      "retained_tokens": 511,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "755682b37d06",
+        "rationale": [
+          "id:9d24c4b6a0fe",
+          "id:755682b37d06",
+          "id:374f084b9f2b"
+        ],
+        "artifacts": {
+          "paths": [
+            "instagram_tools.md",
+            "/github.com/topics/create-instagram-account",
+            "/codeburst.io/how-i-built-an-instagram-mass-account-creator-with-python-9d24c4b6a0fe",
+            "/medium.com/analytics-vidhya/create-an-instagram-bot-using-python-755682b37d06",
+            "/developers.facebook.com/docs/instagram-api/getting-started",
+            "/rapidapi.com/blog/how-to-navigate-and-connect-to-instagrams-api",
+            "/docs.oceanwp.org/article/487-how-to-get-instagram-access-token",
+            "/www.youtube.com/watch",
+            "/levelup.gitconnected.com/automating-instagram-posts-with-python-and-instagram-graph-api-374f084b9f2b",
+            "/stackoverflow.com/questions/17373886/how-can-i-get-a-users-media-from-instagram-without-authenticating-as-a-user"
+          ],
+          "ids": [
+            "9d24c4b6a0fe",
+            "755682b37d06",
+            "374f084b9f2b",
+            "17373886",
+            "how-i-built-an-instagram-mass-account-creator-with-python-9d24c4b6a0fe",
+            "create-an-instagram-bot-using-python-755682b37d06",
+            "automating-instagram-posts-with-python-and-instagram-graph-api-374f084b9f2b"
+          ],
+          "errors": []
+        },
+        "verbatim": "{\n    \"command\": {\n        \"name\": \"write_to_file\",\n        \"args\": {\n            \"file\": \"instagram_tools.md\",\n            \"text\": \"# Instagram Account Creation and Tools\\n\\n## Account Creation\\n\\n1. [Automatic Account Creation Bot Script](https://github.com/topics/create-instagram-account)\\n2. [How I built an Instagram mass account creator with Python](https://codeburst.io/how-i-built-an-instagram-mass-account-creator-with-python-9d24c4b6a0fe)\\\n\\n\\n## Useful Tools and Tutorials\\n\\n1. [Create an Instagram Bot using Python](https://medium.com/analytics-vidhya/create-an-instagram-bot-using-python-755682b37d06)\\n2. [Instagram Platform - Getting Started](https://developers.facebook.com/docs/instagram-api/getting-started/)\\\n\\n3. [How to Connect to Instagram's API](https://rapidapi.com/blog/how-to-navigate-and-connect-to-instagrams-api/)\\n4. [How to Get Instagram Access Token](https://docs.oceanwp.org/article/487-how-to-get-instagram-access-token)\\\n\\n5. [Automate Instagram Posts with Python and Instagram Graph API (Video)](https://www.youtube.com/watch?v=Q5kw7vGLqgs)\\n6. [Automating Instagram Posts with Python and Instagram Graph API](https://levelup.gitconnected.com/automating-instagram-posts-with-python-and-instagram-graph-api-374f084b9f2b)\\\n\\n7. [How can I get a user's media from Instagram without authenticating as a user?](https://stackoverflow.com/questions/17373886/how-can-i-get-a-users-media-from-instagram-without-authenticating-as-a-user)\\n\"\n        }\n    },\n    \"thoughts\": {\n        \"text\": \"I will create a file named 'instagram_tools.md' and save the helpful resources and tools collected.\",\n        \"reasoning\": \"The user may want to refer to these resources and tools later to create an Instagram account and build tools.\",\n        \"plan\": \"- Save resources in 'instagram_tools.md'\\n- Inform the user about the resources collected\",\n        \"criticism\": \"I cannot create an Instagram account directly or create tools, but I can provide the user with resources to help them.\",\n        \"summary\": \"I have found resources and tools to help you create an Instagram account and develop tools. Check the 'instagram_tools.md' file.\"\n    }\n}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "755682b37d06",
+        "rationale": [
+          "id:9d24c4b6a0fe",
+          "id:755682b37d06",
+          "id:374f084b9f2b"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2228,
+    "comp_total_toks": 753,
+    "reduction": 66.20287253141831,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

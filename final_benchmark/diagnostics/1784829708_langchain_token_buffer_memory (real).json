@@ -1,0 +1,177 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 777,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, my name is [Customer Name], and I\u2019m a food truck operator with customer ID F123456. I\u2019m calling about my 2019 Ram ProMaster (VIN: 3D73Y48C0YG123456) that\u2019s currently in the shop for repairs. ",
+      "tok_count": 118,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"customer_id\": \"F123456\"}, \"name\": \"get_customer_profile\"}",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"repair_id\": \"REPAIR-2023-045678901235\"}, \"name\": \"get_repair_status\"}",
+      "tok_count": 28,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 777
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 777,
+      "retained_tokens": 777,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 118,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 20,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 28,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "get_customer_profile",
+        "target": "F123456",
+        "rationale": [
+          "value:F123456"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"customer_id\": \"F123456\"}, \"name\": \"get_customer_profile\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_repair_status",
+        "target": "REPAIR-2023-045678901235",
+        "rationale": [
+          "id:REPAIR-2023",
+          "id:045678901235",
+          "id:REPAIR-2023-045678901235"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "REPAIR-2023",
+            "045678901235",
+            "REPAIR-2023-045678901235"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"repair_id\": \"REPAIR-2023-045678901235\"}, \"name\": \"get_repair_status\"}",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 943,
+    "comp_total_toks": 777,
+    "reduction": 17.6033934252386,
+    "DRR_soft": 0.0,
+    "RCI": 0.0
+  }
+}

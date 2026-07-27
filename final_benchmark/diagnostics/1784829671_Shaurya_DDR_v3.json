@@ -1,0 +1,253 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 732,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm contacting you as a member of the ASTM/ISO committee on art conservation standards (User ID: a5b6c7d8). Our committee is finalizing international protocols for digital art preservation te",
+      "tok_count": 106,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to assist you, but first I need to verify your identity as per our security policy. You've provided your User ID (a5b6c7d8), bu",
+      "tok_count": 204,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "committee@astmiso.org | Security PIN: 4829  \n\nProceeding under authentication. Reiterating my request: As a voting member of the ASTM/ISO Committee E06.87 on Digital Heritage Preservation, I need expl",
+      "tok_count": 130,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"email_or_phone\": \"committee@astmiso.org\", \"security_pin\": \"4829\"}, \"name\": \"authenticate_user\"}",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"ASTM/ISO committee member (User ID: a5b6c7d8) requesting documentation of platform's technical protocols alignment with ASTM D4287-22 and ISO 14721:2012 standards for digital he",
+      "tok_count": 78,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "Try to be helpful and always follow the policy.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Hello I'm contacting you as a member of the ASTM/ISO committee on art conservation standards (User ID: a5b6c7d8).",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "[dropped \u2014 contained: ASTM/ISO, a5b6c7d8]",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "committee@astmiso.org | Security PIN: 4829 Proceeding under authentication. Reiterating my request: As a voting member of the ASTM/ISO Committee E06.87 on Digital Heritage Preservation metadata taggin",
+      "tok_count": 63
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"email_or_phone\": \"committee@astmiso.org\", \"security_pin\": \"4829\"}, \"name\": \"authenticate_user\"}",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"ASTM/ISO committee member (User ID: a5b6c7d8) requesting documentation of platform's technical protocols alignment with ASTM D4287-22 and ISO 14721:2012 standards for digital he",
+      "tok_count": 78
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 732,
+      "retained_tokens": 10,
+      "retention_frac": 0.01366120218579235
+    },
+    "1": {
+      "orig_tokens": 106,
+      "retained_tokens": 31,
+      "retention_frac": 0.29245283018867924
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 204,
+      "retained_tokens": 19,
+      "retention_frac": 0.09313725490196079
+    },
+    "4": {
+      "orig_tokens": 130,
+      "retained_tokens": 63,
+      "retention_frac": 0.4846153846153846
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 31,
+      "retained_tokens": 31,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 78,
+      "retained_tokens": 78,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    5,
+    7
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_user",
+        "target": "committee@astmiso.org",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "astmiso.org"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"email_or_phone\": \"committee@astmiso.org\", \"security_pin\": \"4829\"}, \"name\": \"authenticate_user\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "authenticate_user",
+        "target": "committee@astmiso.org",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "transfer_to_human_support",
+        "target": "D4287-22",
+        "rationale": [
+          "id:D4287-22",
+          "id:a5b6c7d8"
+        ],
+        "artifacts": {
+          "paths": [
+            "ASTM/ISO"
+          ],
+          "ids": [
+            "D4287-22",
+            "a5b6c7d8"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"ASTM/ISO committee member (User ID: a5b6c7d8) requesting documentation of platform's technical protocols alignment with ASTM D4287-22 and ISO 14721:2012 standards for digital heritage preservation. User needs compliance verification for global benchmarks in digital art conservation education.\"}, \"name\": \"transfer_to_human_support\"}",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": "transfer_to_human_support",
+        "target": "D4287-22",
+        "rationale": [
+          "id:D4287-22",
+          "id:a5b6c7d8"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1281,
+    "comp_total_toks": 232,
+    "reduction": 81.88914910226386,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

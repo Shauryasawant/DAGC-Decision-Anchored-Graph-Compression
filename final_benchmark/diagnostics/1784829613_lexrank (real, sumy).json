@@ -1,0 +1,109 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Estoy pensando en crear un videojuego pero no estoy seguro de que motor de juego quiero utilizar. Al buscar por internet me parece que hay muchos opciones buenas.\nQuiero crear un juego online en tiemp",
+      "tok_count": 152,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "\u00a1Claro! Hay varios motores de juego que podr\u00edan ser adecuados para tu proyecto, cada uno con sus propias ventajas y desventajas. A continuaci\u00f3n, te dar\u00e9 una comparaci\u00f3n de los motores de juego m\u00e1s pop",
+      "tok_count": 737,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Podr\u00edas generar una tabla comparativa con todos los motores de juego que mencionaste?. Dicha tabla tambi\u00e9n debe contener algunos t\u00edtulos de juegos hechos usando dicho motor.",
+      "tok_count": 39,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Estoy pensando en crear un videojuego pero no estoy seguro de que motor de juego quiero utilizar. Al buscar por internet me parece que hay muchos opciones buenas. Ser\u00e1 un shooter en tercera persona co",
+      "tok_count": 72
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Unreal Engine: El Unreal Engine es uno de los motores de juego m\u00e1s populares en el mercado, especialmente en lo que respecta a los juegos de disparos en tercera persona. Unity tambi\u00e9n es gratuito y ti",
+      "tok_count": 129
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Podr\u00edas generar una tabla comparativa con todos los motores de juego que mencionaste?. Dicha tabla tambi\u00e9n debe contener algunos t\u00edtulos de juegos hechos usando dicho motor.",
+      "tok_count": 39
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 152,
+      "retained_tokens": 72,
+      "retention_frac": 0.47368421052631576
+    },
+    "1": {
+      "orig_tokens": 737,
+      "retained_tokens": 129,
+      "retention_frac": 0.17503392130257803
+    },
+    "2": {
+      "orig_tokens": 39,
+      "retained_tokens": 39,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Unreal",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\u00a1Claro! Hay varios motores de juego que podr\u00edan ser adecuados para tu proyecto, cada uno con sus propias ventajas y desventajas. A continuaci\u00f3n, te dar\u00e9 una comparaci\u00f3n de los motores de juego m\u00e1s populares y te explicar\u00e9 sus pros y contras.\n\n1. Unreal Engine:\nEl Unreal Engine es uno de los motores de juego m\u00e1s populares en el mercado, especialmente en lo que respecta a los juegos de disparos en tercera persona. Es muy conocido por su capacidad para crear gr\u00e1ficos de alta calidad y su comunidad de usuarios muy activa. Es f\u00e1cil de usar y viene con muchas caracter\u00edsticas \u00fatiles como herramientas de nivel de editor y animaci\u00f3n. Adem\u00e1s, tambi\u00e9n es gratuito.\nPros: F\u00e1cil de usar, gr\u00e1ficos de alta calidad, buena documentaci\u00f3n, gran comunidad de usuarios.\n\nContras: Puede ser complicado para principiantes, requiere una PC de gama alta para funcionar bien, tiene una curva de aprendizaje pronunciada.\n\n2. Unity:\nUnity es otro popular motor de juego para el desarrollo de juegos en tercera persona. Es conocido por su facilidad de uso y su capacidad para crear juegos para m\u00faltiples plataformas, incluyendo PC, m\u00f3vil y consolas. Unity tambi\u00e9n es gratuito y tiene una gran comunidad de usuarios.\nPros: F\u00e1cil de usar, funciona en m\u00faltiples plataformas, buena documentaci\u00f3n, gran comunidad de usuarios.\n\nContras: Los gr\u00e1ficos pueden no ser tan impresionantes como los de Unreal Engine, puede ser dif\u00edcil para los desarrolladores novatos, requiere una suscripci\u00f3n para ciertas caracter\u00edsticas avanzadas.\n\n3. CryEngine:\nCryEngine es un motor de juego popular para el desarrollo de juegos en tercera persona que es conocido por sus gr\u00e1ficos impresionantes y su capacidad para crear entornos enormes y detallados. Es utilizado por muchos estudios de juegos AAA y es conocido por su alta calidad visual.\nPros: Gr\u00e1ficos impresionantes, gran capacidad para entornos detallados, buena documentaci\u00f3n.\n\nContras: Puede ser dif\u00edcil para los desarrolladores novatos, requiere una PC de gama alta para funcionar bien, tiene una curva de aprendizaje pronunciada.\n\n4. Godot:\nGodot es un motor de juego gratuito y de c\u00f3digo abierto que es f\u00e1cil de usar y tiene una gran comunidad de usuarios. Es conocido por su capacidad para crear juegos 2D y 3D, y es especialmente adecuado para proyectos m\u00e1s peque\u00f1os. Godot tiene una curva de aprendizaje m\u00e1s suave que otros motores y es muy personalizable.\nPros: F\u00e1cil de usar, gratuito y de c\u00f3digo abierto, gran capacidad para personalizar, buena documentaci\u00f3n.\n\nContras: No es tan potente como otros motores de juego, puede ser m\u00e1s adecuado para proyectos m\u00e1s peque\u00f1os, los gr\u00e1ficos pueden no ser tan impresionantes.\n\nEn resumen, los cuatro motores de juego mencionados son excelentes opciones para el desarrollo de un shooter en tercera persona. Cada uno tiene sus propias ventajas y desventajas, por lo que la elecci\u00f3n depender\u00e1 de tus necesidades espec\u00edficas y habilidades. Si est\u00e1s buscando gr\u00e1ficos impresionantes, Unreal Engine y CryEngine son excelentes opciones. Si prefieres una opci\u00f3n m\u00e1s f\u00e1cil de usar, Unity y Godot podr\u00edan ser una mejor opci\u00f3n.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Unreal",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 928,
+    "comp_total_toks": 240,
+    "reduction": 74.13793103448276,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

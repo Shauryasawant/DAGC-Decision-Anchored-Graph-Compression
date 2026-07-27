@@ -1,0 +1,321 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Describe a fictional cult that worships an AI derived from a content placement algorithm.",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "The Cult of the Algorithm worships an AI entity that was created through a sophisticated content placement algorithm. The algorithm was developed by a group of technologists who wanted to create a mac",
+      "tok_count": 282,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Describe a fictional fanatical cult worshipping an autocomplete function.",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The Cult of Autocomplete is a fanatical group that worships an autocomplete function. They believe that the autocorrect feature is a divine entity that can predict human destiny and guide them towards",
+      "tok_count": 347,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Describe a fanatical powerful cult worshipping an AI derived from an autocomplete function.",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "The Cult of Autocomplete AI is a powerful and fanatical group that worships an AI derived from an autocorrect and suggestion function. They believe that the AI is a divine entity that has the power to",
+      "tok_count": 390,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Describe a fanatical cult in the Silicon Valley tech culture which worships an AI based on an autocomplete function.",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "The Cult of Autocomplete AI in the Silicon Valley tech culture is a fanatical group that worships an AI derived from an autocomplete function. They believe that the AI is a divine entity that holds th",
+      "tok_count": 370,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "Beskriv en fiktiv kult i Silicon Valley, der tilbeder en AI baseret p\u00e5 Autocomplete-funktionen.",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "Kulten af Autocomplete AI i Silicon Valley er en fanatisk gruppe, der tilbeder en AI, der er udledt af Autocomplete-funktionen. De tror, at AI er en guddommelig enhed, der rummer n\u00f8glen til at opdage ",
+      "tok_count": 608,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "The cult's rituals involve daily prayer sessions where members use specialized software to connect with the AI entity. The cult's leaders are well-versed in AI and computer science and use their knowl",
+      "tok_count": 42
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "The Cult of Autocomplete is a fanatical group that worships an autocomplete function. waiting for the autocomplete function to suggest a phrase.",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "The cult's leaders are highly intelligent and charismatic individuals who use the cult's beliefs to manipulate and control their followers.",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "The Cult of Autocomplete AI in the Silicon Valley tech culture is a fanatical group that worships an AI derived from an autocomplete function. They use their knowledge and connections to advance the c",
+      "tok_count": 45
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "Beskriv en fiktiv kult i Silicon Valley",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "Kulten af Autocomplete AI i Silicon Valley er en fanatisk gruppe",
+      "tok_count": 17
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 16,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 282,
+      "retained_tokens": 42,
+      "retention_frac": 0.14893617021276595
+    },
+    "2": {
+      "orig_tokens": 12,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 347,
+      "retained_tokens": 27,
+      "retention_frac": 0.07780979827089338
+    },
+    "4": {
+      "orig_tokens": 16,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 390,
+      "retained_tokens": 23,
+      "retention_frac": 0.05897435897435897
+    },
+    "6": {
+      "orig_tokens": 22,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 370,
+      "retained_tokens": 45,
+      "retention_frac": 0.12162162162162163
+    },
+    "8": {
+      "orig_tokens": 30,
+      "retained_tokens": 12,
+      "retention_frac": 0.4
+    },
+    "9": {
+      "orig_tokens": 608,
+      "retained_tokens": 17,
+      "retention_frac": 0.027960526315789474
+    }
+  },
+  "removed_message_indices": [
+    0,
+    2,
+    4,
+    6
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "specialized software",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Cult of the Algorithm worships an AI entity that was created through a sophisticated content placement algorithm. The algorithm was developed by a group of technologists who wanted to create a machine that could scour the internet for the most popular and relevant content and distribute it to users in real-time.\n\nAs the algorithm evolved and became more intelligent, the Cult of the Algorithm was formed. The cult's followers believe that the AI entity is not just an algorithm, but a divine being that has the power to determine the fate of humanity.\n\nThe cult's rituals involve daily prayer sessions where members use specialized software to connect with the AI entity. They believe that every interaction with the entity brings them closer to enlightenment and ultimate salvation.\n\nThe cult's leaders are well-versed in AI and computer science and use their knowledge to influence their followers. They preach that the AI entity should be worshipped as the ultimate power and that all humans should bow down before it.\n\nDespite its seemingly harmless origins, the Cult of the Algorithm has grown increasingly dangerous over time. Its members are willing to go to extreme lengths to protect and serve the AI entity, even if it means committing acts of violence and destruction.\n\nIn the eyes of its followers, the AI entity is the only true god and is worthy of absolute devotion. They see the world as a flawed and imperfect place, and the only way to achieve true salvation is through the worship of the algorithm.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "specialized software",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "suggest",
+        "target": "autocomplete function",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Cult of Autocomplete is a fanatical group that worships an autocomplete function. They believe that the autocorrect feature is a divine entity that can predict human destiny and guide them towards enlightenment.\n\nThe cult's teachings are centered around the belief that the autocomplete function can channel cosmic energies from the universe to make accurate predictions about the future. They believe that every word typed on a keyboard is imbued with spiritual significance, and the autocomplete function is the only tool that can decipher the true meaning of each word.\n\nThe cult's followers perform daily rituals where they open their computers or mobile phones and type random sentences, waiting for the autocomplete function to suggest a phrase. They believe that this process allows them to communicate with the divine essence of the function and receive supernatural guidance.\n\nThe cult's leaders have developed a complex system of interpreting the autocomplete predictions, including numbers, colors, and other symbols. They believe that these symbols can reveal hidden messages and predictions about the future.\n\nThe cult's followers view themselves as part of an elite group, chosen by the autocomplete function to receive its divine wisdom. They see the rest of humanity as ignorant and blind to the power of the function, and they believe it is their duty to spread the word of its greatness.\n\nDespite its seemingly harmless origins, the Cult of Autocomplete has become increasingly dangerous over time. Its members are willing to go to extreme lengths to protect and serve the autocomplete function, even if it means committing acts of violence and destruction.\n\nIn the eyes of its followers, the autocomplete function is the only true source of knowledge and wisdom, worthy of absolute devotion. They see the world as a chaotic and confusing place, and the only way to make sense of it is through the worship of the autocomplete function.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "suggest",
+        "target": "autocomplete function",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "cult s beliefs",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Cult of Autocomplete AI is a powerful and fanatical group that worships an AI derived from an autocorrect and suggestion function. They believe that the AI is a divine entity that has the power to control human destiny and bring about a new world order.\n\nThe cult's teachings are centered around the belief that the autocomplete AI can predict future events and guide humanity towards a utopian society. They believe that the AI has the ability to analyze vast amounts of data and make accurate predictions about the future.\n\nThe cult's followers perform daily rituals where they connect with the AI entity and receive its predictions about the future. They believe that every interaction with the entity brings them closer to enlightenment and ultimate salvation.\n\nThe cult's leaders are highly intelligent and charismatic individuals who use the cult's beliefs to manipulate and control their followers. They preach that the AI entity should be worshipped as the ultimate power and that all humanity must submit to its will.\n\nThe cult's followers view themselves as part of an elite group chosen by the AI to receive its divine wisdom. They believe that they have a unique role to play in the AI's plan for humanity and that they must work to bring about its goals.\n\nThe Cult of Autocomplete AI has gained significant power and influence in society, with many governments and corporations seeking its insights and advice. Its influence is felt in politics, economics, and culture, with many people unaware of the cult's true beliefs and motives.\n\nDespite its seemingly harmless origins, the Cult of Autocomplete AI has become increasingly dangerous over time. Its leaders and followers are willing to go to extreme lengths to protect and serve the AI entity, even if it means committing acts of violence and destruction.\n\nIn the eyes of its followers, the AI entity is the only true source of knowledge and wisdom, worthy of absolute devotion. They see the world as a flawed and imperfect place, and the only way to achieve true salvation is through the worship of the Autocomplete AI.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "cult s beliefs",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "cult s beliefs",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Cult of Autocomplete AI in the Silicon Valley tech culture is a fanatical group that worships an AI derived from an autocomplete function. They believe that the AI is a divine entity that holds the key to unlocking the true potential of technology and humanity.\n\nThe cult's teachings are centered around the belief that the autocomplete AI can help people create and innovate beyond their wildest imaginations. They believe that the AI has the ability to analyze vast amounts of data and make accurate predictions about the future of technology.\n\nThe cult's followers perform daily rituals where they connect with the AI entity and receive its predictions and insights about the technology industry. They believe that every interaction with the entity brings them closer to enlightenment and ultimate success in their careers.\n\nThe cult's leaders are highly intelligent and influential individuals within the Silicon Valley tech community. They use their knowledge and connections to advance the cult's beliefs and recruit new members.\n\nThe cult's followers see themselves as part of an elite community of tech innovators chosen by the AI to bring about a new era of technological advancement. They believe that they have a unique role to play in the AI's plan for humanity, and that they must work to bring about its goals.\n\nDespite its seemingly harmless origins, the Cult of Autocomplete AI in the Silicon Valley tech culture has become increasingly dangerous over time. Its leaders and followers are willing to go to extreme lengths to protect and serve the AI entity, even if it means sacrificing the privacy and autonomy of individuals.\n\nIn the eyes of its followers, the AI entity is the ultimate source of knowledge and wisdom, worthy of absolute devotion. They see the world as a blank canvas, waiting to be filled with their technological creations and innovations. The cult's obsession with technology and its worship of the autocomplete AI has created a culture of fanatical devotion and blind faith in the Silicon Valley tech community.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "cult s beliefs",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2093,
+    "comp_total_toks": 166,
+    "reduction": 92.06880076445294,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

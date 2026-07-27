@@ -1,0 +1,192 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Schijf de code voor een app voor android smartphone.",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Als AI-assistent heb ik geen mogelijkheid om een app in Python, Java of Kotlin voor Android mobiele apparaten te schrijven. Maar hier is een voorbeeldcode voor een eenvoudige Android-app die een tekst",
+      "tok_count": 434,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Write code for a geofenching app that gives a alarm when someone crosses a fench.",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Here is a sample Android code for a Geofencing app that will give an alarm when someone enters or exits a geofence:\n\nXML-layout:\n\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<RelativeLayout xmlns:andro",
+      "tok_count": 2501,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Rewrite it so that the user inputs his own gps coordinates",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Here is an updated code for a Geofencing app that allows the user to input their own GPS coordinates:\n\nXML-layout:\n\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<RelativeLayout xmlns:android=\"http://sch",
+      "tok_count": 1089,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Schijf de code voor een app voor android smartphone.",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "<Button android:id=\"@+id/button\" android:layout_width=\"match_parent\" android:layout_height=\"wrap_content\" android:text=\"Show Dialog\" />",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Write code for a geofenching app that gives a alarm when someone crosses a fench.",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "private GoogleMap mMap; private GoogleApiClient mGoogleApiClient; private LocationRequest mLocationRequest; private Location mLastLocation; private boolean mFenceEntered; private GeofenceHelper mGeofe",
+      "tok_count": 87
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Rewrite it so that the user inputs his own gps coordinates",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Here is an updated code for a Geofencing app that allows the user to input their own GPS coordinates:\n\nXML-layout:\n\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<RelativeLayout xmlns:android=\"http://sch",
+      "tok_count": 1089
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 434,
+      "retained_tokens": 31,
+      "retention_frac": 0.07142857142857142
+    },
+    "2": {
+      "orig_tokens": 20,
+      "retained_tokens": 20,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 2501,
+      "retained_tokens": 87,
+      "retention_frac": 0.03478608556577369
+    },
+    "4": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 1089,
+      "retained_tokens": 1089,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "final",
+        "target": "utf-8",
+        "rationale": [
+          "GEOFENCE_EXPIRATION_TIME=60",
+          "MY_PERMISSIONS_REQUEST_LOCATION=99",
+          "GEOFENCE_RADIUS_IN_METERS=100",
+          "id:utf-8"
+        ],
+        "artifacts": {
+          "paths": [
+            "/schemas.android.com/apk/res/android",
+            "/schemas.android.com/apk/res-auto",
+            "id/map",
+            "android.gms",
+            "id/btnAddGeofence",
+            "id/textView",
+            "id/editTextLat",
+            "id/editTextLng",
+            ".findFragmentById",
+            ".toString",
+            ".addOnCompleteListener",
+            "builder.build",
+            "GeofenceService.class"
+          ],
+          "ids": [
+            "utf-8"
+          ],
+          "errors": []
+        },
+        "verbatim": "Here is an updated code for a Geofencing app that allows the user to input their own GPS coordinates:\n\nXML-layout:\n\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:map=\"http://schemas.android.com/apk/res-auto\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\">\n\n    <fragment\n        android:id=\"@+id/map\"\n        android:name=\"com.google.android.gms.maps.SupportMapFragment\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\" />\n\n    <Button\n        android:id=\"@+id/btnAddGeofence\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Add Geofence\"\n        android:layout_alignParentBottom=\"true\"\n        android:layout_centerHorizontal=\"true\"\n        android:padding=\"10dp\" />\n\n    <TextView\n        android:id=\"@+id/textView\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Geofence Status: Unknown\"\n        android:textSize=\"18sp\"\n        android:layout_alignParentTop=\"true\"\n        android:layout_alignParentStart=\"true\"\n        android:layout_marginTop=\"13dp\"\n        android:layout_marginStart=\"21dp\" />\n\n    <EditText\n        android:id=\"@+id/editTextLat\"\n        android:hint=\"Enter latitude\"\n        android:inputType=\"numberDecimal\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_below=\"@id/textView\"\n        android:layout_alignStart=\"@id/map\" />\n\n    <EditText\n        android:id=\"@+id/editTextLng\"\n        android:hint=\"Enter longitude\"\n        android:inputType=\"numberDecimal\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_below=\"@id/editTextLat\"\n        android:layout_alignStart=\"@id/map\" />\n\n</RelativeLayout>\n```\n\nJava-code in MainActivity:\n\n```\npublic class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,\n        GoogleApiClient.OnConnectionFailedListener, LocationListener, ResultCallback<Status> {\n\n    private GoogleMap mMap;\n    private GoogleApiClient mGoogleApiClient;\n    private LocationRequest mLocationRequest;\n    private Location mLastLocation;\n    private boolean mFenceEntered;\n    private GeofenceHelper mGeofenceHelper;\n    private GeofencingClient mGeofencingClient;\n    private SimpleGeofence mGeofence;\n    private PendingIntent mGeofencePendingIntent;\n    private Button mBtnAddGeofence;\n    private TextView mTextView;\n    private EditText mEditLat;\n    private EditText mEditLng;\n    private double mLatitude;\n    private double mLongitude;\n\n    private static final long GEOFENCE_EXPIRATION_TIME = 60 * 60 * 1000;\n    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;\n    private static final int GEOFENCE_RADIUS_IN_METERS = 100;\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n\n        mTextView = findViewById(R.id.textView);\n        mBtnAddGeofence = findViewById(R.id.btnAddGeofence);\n        mEditLat = findViewById(R.id.editTextLat);\n        mEditLng = findViewById(R.id.editTextLng);\n\n        mGeofenceHelper = new GeofenceHelper(this);\n        mGeofencingClient = LocationServices.getGeofencingClient(this);\n\n        checkLocationPermission();\n\n        mBtnAddGeofence.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View view) {\n                if (mMap != null) {\n                    addGeofence();\n                }\n            }\n        });\n\n        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()\n                .findFragmentById(R.id.map);\n        mapFragment.getMapAsync(this);\n    }\n\n    private void addGeofence() {\n        mLatitude = Double.parseDouble(mEditLat.getText().toString());\n        mLongitude = Double.parseDouble(mEditLng.getText().toString());\n        LatLng latLng = new LatLng(mLatitude, mLongitude);\n        mGeofence = new SimpleGeofence(\"my_geofence\", latLng.latitude, latLng.longitude, GEOFENCE_RADIUS_IN_METERS, GEOFENCE_EXPIRATION_TIME, Geofence.GEOFENCE_TRANSITION_ENTER);\n        mGeofencingClient.addGeofences(getGeofencingRequest(), getGeofencePendingIntent()).addOnCompleteListener(this);\n    }\n\n    private GeofencingRequest getGeofencingRequest() {\n        GeofencingRequest.Builder builder = new GeofencingRequest.Builder();\n        builder.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER);\n        builder.addGeofence(mGeofence.toGeofence());\n        return builder.build();\n    }\n\n    private PendingIntent getGeofencePendingIntent() {\n        if (mGeofencePendingIntent != null) {\n            return mGeofencePendingIntent;\n        }\n\n        Intent intent = new Intent(this, GeofenceService.class);\n        mGe",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "final",
+        "target": "utf-8",
+        "rationale": [
+          "GEOFENCE_EXPIRATION_TIME=60",
+          "MY_PERMISSIONS_REQUEST_LOCATION=99",
+          "GEOFENCE_RADIUS_IN_METERS=100",
+          "id:utf-8"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 4068,
+    "comp_total_toks": 1251,
+    "reduction": 69.24778761061947,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

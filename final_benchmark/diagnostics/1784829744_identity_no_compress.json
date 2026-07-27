@@ -1,0 +1,212 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 678,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm calling to request an additional 10 suspension days for my satellite service. My Subscriber ID is GS-741852, and I've already used 85 days this year. I'm reaching the limit and need a bit",
+      "tok_count": 57,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"subscriber_id\": \"GS-741852\"}, \"name\": \"get_suspension_usage\"}",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"subscriber_id\": \"GS-741852\"}, \"name\": \"get_billing_details\"}",
+      "tok_count": 21,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 678
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm calling to request an additional 10 suspension days for my satellite service. My Subscriber ID is GS-741852, and I've already used 85 days this year. I'm reaching the limit and need a bit",
+      "tok_count": 57
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"subscriber_id\": \"GS-741852\"}, \"name\": \"get_suspension_usage\"}",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"subscriber_id\": \"GS-741852\"}, \"name\": \"get_billing_details\"}",
+      "tok_count": 21
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 678,
+      "retained_tokens": 678,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 57,
+      "retained_tokens": 57,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 23,
+      "retained_tokens": 23,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 21,
+      "retained_tokens": 21,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "get_suspension_usage",
+        "target": "GS-741852",
+        "rationale": [
+          "id:GS-741852"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "GS-741852"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"subscriber_id\": \"GS-741852\"}, \"name\": \"get_suspension_usage\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "get_suspension_usage",
+        "target": "GS-741852",
+        "rationale": [
+          "id:GS-741852"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_billing_details",
+        "target": "GS-741852",
+        "rationale": [
+          "id:GS-741852"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "GS-741852"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"subscriber_id\": \"GS-741852\"}, \"name\": \"get_billing_details\"}",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "get_billing_details",
+        "target": "GS-741852",
+        "rationale": [
+          "id:GS-741852"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 779,
+    "comp_total_toks": 779,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

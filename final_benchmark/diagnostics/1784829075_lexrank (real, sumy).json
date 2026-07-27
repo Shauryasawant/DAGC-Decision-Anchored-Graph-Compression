@@ -1,0 +1,565 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "[SYSTEM POLICY] # Airline Agent Policy\n\nThe current time is 2024-05-15 15:00:00 EST.\n\nAs an airline agent, you can help users book, modify, or cancel flight reservations.\n\n- Before taking any actions ",
+      "tok_count": 1257,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Hi! I'm looking to book a flight from New York to Seattle on May 20th.",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "To assist you with booking a flight, I'll need your user ID. Could you please provide that?",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "user",
+      "preview": "Sure, my user ID is mia_li_3668.",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "Thank you, Mia. Could you please let me know the following details for your booking?\n\n1. Trip type: Is it a one-way or round-trip?\n2. Cabin class: Would you prefer basic economy, economy, or business?",
+      "tok_count": 108,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "user",
+      "preview": "1. It's a one-way trip.  \n2. I prefer economy class.  \n3. It's just me traveling. My details should be in my profile.  \n4. I'd like to use my two certificates to pay. If I can only use one, please use",
+      "tok_count": 83,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "[calls get_user_details({\"user_id\":\"mia_li_3668\"})]",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": {\"first_name\": \"Mia\", \"last_name\": \"Li\"}, \"address\": {\"address1\": \"975 Sunset Drive\", \"address2\": \"Suite 217\", \"city\": \"Austin\", \"country\": \"USA\", \"province\": \"TX\", \"zip\": \"7875",
+      "tok_count": 294,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "[calls search_direct_flight({\"origin\":\"JFK\",\"destination\":\"SEA\",\"date\":\"2024-05-20\"})]",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "[tool result] [{\"flight_number\": \"HAT069\", \"origin\": \"JFK\", \"destination\": \"SEA\", \"scheduled_departure_time_est\": \"06:00:00\", \"scheduled_arrival_time_est\": \"12:00:00\", \"status\": \"available\", \"availabl",
+      "tok_count": 217,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "Here are the available direct flights from New York (JFK) to Seattle (SEA) on May 20th in economy class:\n\n1. **Flight HAT069**\n   - Departure: 06:00 AM EST\n   - Arrival: 12:00 PM EST\n   - Price: $121\n",
+      "tok_count": 115,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "user",
+      "preview": "None of these options work for me since they fly before 11 AM EST. Do you have any flights that depart after 11 AM?",
+      "tok_count": 28,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": "[calls search_onestop_flight({\"origin\":\"JFK\",\"destination\":\"SEA\",\"date\":\"2024-05-20\"})]",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "[tool result] [[{\"flight_number\": \"HAT057\", \"origin\": \"JFK\", \"destination\": \"ATL\", \"scheduled_departure_time_est\": \"07:00:00\", \"scheduled_arrival_time_est\": \"09:30:00\", \"status\": \"available\", \"availab",
+      "tok_count": 957,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "Here are some one-stop flight options from New York (JFK) to Seattle (SEA) on May 20th, with departures after 11 AM EST:\n\n1. **Flight HAT136 & HAT039**\n   - JFK to ATL: Departure at 07:00 PM EST, Arri",
+      "tok_count": 192,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "user",
+      "preview": "I'll go with the first option, Flight HAT136 & HAT039.",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "[calls book_reservation({\"user_id\":\"mia_li_3668\",\"origin\":\"JFK\",\"destination\":\"SEA\",\"flight_type\":\"one_way\",\"cabin\":\"economy\",\"flights\":[{\"flight_number\":\"HAT136\",\"date\":\"2024-05-20\"},{\"flight_number\"",
+      "tok_count": 146,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "[tool result] Error: payment amount does not add up, total price is 305, but paid 255",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "assistant",
+      "preview": "[calls think({\"thought\":\"The total price for the selected flights is $305. Mia wants to use her $250 certificate and pay the remaining $55 with her credit card ending in 7447. I will adjust the paymen",
+      "tok_count": 51,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "[calls book_reservation({\"user_id\":\"mia_li_3668\",\"origin\":\"JFK\",\"destination\":\"SEA\",\"flight_type\":\"one_way\",\"cabin\":\"economy\",\"flights\":[{\"flight_number\":\"HAT136\",\"date\":\"2024-05-20\"},{\"flight_number\"",
+      "tok_count": 146,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"HATHAT\", \"user_id\": \"mia_li_3668\", \"origin\": \"JFK\", \"destination\": \"SEA\", \"flight_type\": \"one_way\", \"cabin\": \"economy\", \"flights\": [{\"flight_number\": \"HAT136\", \"date\"",
+      "tok_count": 250,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "assistant",
+      "preview": "Your flight from New York (JFK) to Seattle (SEA) has been successfully booked. Here are the details:\n\n- **Flight HAT136**: JFK to ATL\n  - Departure: 07:00 PM EST\n  - Arrival: 09:30 PM EST\n\n- **Flight ",
+      "tok_count": 174,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "user",
+      "preview": "Thank you! That all sounds good. ###STOP###",
+      "tok_count": 11,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "- If the user is silver/gold member or has travel insurance or flies business, and complains about cancelled flights in a reservation, the agent can offer a certificate as a gesture after confirming t",
+      "tok_count": 118
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Hi!",
+      "tok_count": 2
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "To assist you with booking a flight, I'll need your user ID. Could you please provide that?",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "user",
+      "preview": "Sure, my user ID is mia_li_3668.",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "Thank you, Mia. Payment method: Please confirm the payment method(s) you'd like to use from your profile.",
+      "tok_count": 24
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "user",
+      "preview": "It's a one-way trip. I prefer economy class.",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "[calls get_user_details({\"user_id\":\"mia_li_3668\"})]",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": {\"first_name\": \"Mia\", \"last_name\": \"Li\"}, \"address\": {\"address1\": \"975 Sunset Drive\", \"address2\": \"Suite 217\", \"city\": \"Austin\", \"country\": \"USA\", \"province\": \"TX\", \"zip\": \"7875",
+      "tok_count": 294
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": "[calls search_direct_flight({\"origin\":\"JFK\",\"destination\":\"SEA\",\"date\":\"2024-05-20\"})]",
+      "tok_count": 25
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "[tool result] [{\"flight_number\": \"HAT069\", \"origin\": \"JFK\", \"destination\": \"SEA\", \"scheduled_departure_time_est\": \"06:00:00\", \"scheduled_arrival_time_est\": \"12:00:00\", \"status\": \"available\", \"availabl",
+      "tok_count": 217
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "assistant",
+      "preview": "Here are the available direct flights from New York (JFK) to Seattle (SEA) on May 20th in economy class: **Flight HAT069** - Departure: 06:00 AM EST - Arrival: 12:00 PM EST - Price: $121",
+      "tok_count": 57
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "user",
+      "preview": "None of these options work for me since they fly before 11 AM EST. Do you have any flights that depart after 11 AM?",
+      "tok_count": 28
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 12,
+      "role": "assistant",
+      "preview": "[calls search_onestop_flight({\"origin\":\"JFK\",\"destination\":\"SEA\",\"date\":\"2024-05-20\"})]",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "[tool result] [[{\"flight_number\": \"HAT057\", \"origin\": \"JFK\", \"destination\": \"ATL\", \"scheduled_departure_time_est\": \"07:00:00\", \"scheduled_arrival_time_est\": \"09:30:00\", \"status\": \"available\", \"availab",
+      "tok_count": 957
+    },
+    {
+      "c_idx": 14,
+      "orig_idx": 14,
+      "role": "assistant",
+      "preview": "Here are some one-stop flight options from New York (JFK) to Seattle (SEA) on May 20th, with departures after 11 AM EST: **Flight HAT136 & HAT039** - JFK to ATL: Departure at 07:00 PM EST, Arrival at ",
+      "tok_count": 100
+    },
+    {
+      "c_idx": 15,
+      "orig_idx": 15,
+      "role": "user",
+      "preview": "I'll go with the first option, Flight HAT136 & HAT039.",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 16,
+      "orig_idx": 16,
+      "role": "assistant",
+      "preview": "[calls book_reservation({\"user_id\":\"mia_li_3668\",\"origin\":\"JFK\",\"destination\":\"SEA\",\"flight_type\":\"one_way\",\"cabin\":\"economy\",\"flights\":[{\"flight_number\":\"HAT136\",\"date\":\"2024-05-20\"},{\"flight_number\"",
+      "tok_count": 146
+    },
+    {
+      "c_idx": 17,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": "[tool result] Error: payment amount does not add up, total price is 305, but paid 255",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 18,
+      "orig_idx": 18,
+      "role": "assistant",
+      "preview": "[calls think({\"thought\":\"The total price for the selected flights is $305. Mia wants to use her $250 certificate and pay the remaining $55 with her credit card ending in 7447.",
+      "tok_count": 41
+    },
+    {
+      "c_idx": 19,
+      "orig_idx": 19,
+      "role": "assistant",
+      "preview": "[calls book_reservation({\"user_id\":\"mia_li_3668\",\"origin\":\"JFK\",\"destination\":\"SEA\",\"flight_type\":\"one_way\",\"cabin\":\"economy\",\"flights\":[{\"flight_number\":\"HAT136\",\"date\":\"2024-05-20\"},{\"flight_number\"",
+      "tok_count": 146
+    },
+    {
+      "c_idx": 20,
+      "orig_idx": 20,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"HATHAT\", \"user_id\": \"mia_li_3668\", \"origin\": \"JFK\", \"destination\": \"SEA\", \"flight_type\": \"one_way\", \"cabin\": \"economy\", \"flights\": [{\"flight_number\": \"HAT136\", \"date\"",
+      "tok_count": 250
+    },
+    {
+      "c_idx": 21,
+      "orig_idx": 21,
+      "role": "assistant",
+      "preview": "Here are the details: - **Flight HAT136**: JFK to ATL - Departure: 07:00 PM EST - Arrival: 09:30 PM EST",
+      "tok_count": 34
+    },
+    {
+      "c_idx": 22,
+      "orig_idx": 22,
+      "role": "user",
+      "preview": "Thank you! That all sounds good. ###STOP###",
+      "tok_count": 11
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1257,
+      "retained_tokens": 118,
+      "retention_frac": 0.09387430389817025
+    },
+    "1": {
+      "orig_tokens": 20,
+      "retained_tokens": 2,
+      "retention_frac": 0.1
+    },
+    "2": {
+      "orig_tokens": 21,
+      "retained_tokens": 21,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 108,
+      "retained_tokens": 24,
+      "retention_frac": 0.2222222222222222
+    },
+    "5": {
+      "orig_tokens": 83,
+      "retained_tokens": 12,
+      "retention_frac": 0.14457831325301204
+    },
+    "6": {
+      "orig_tokens": 16,
+      "retained_tokens": 16,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 294,
+      "retained_tokens": 294,
+      "retention_frac": 1.0
+    },
+    "8": {
+      "orig_tokens": 25,
+      "retained_tokens": 25,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 217,
+      "retained_tokens": 217,
+      "retention_frac": 1.0
+    },
+    "10": {
+      "orig_tokens": 115,
+      "retained_tokens": 57,
+      "retention_frac": 0.4956521739130435
+    },
+    "11": {
+      "orig_tokens": 28,
+      "retained_tokens": 28,
+      "retention_frac": 1.0
+    },
+    "12": {
+      "orig_tokens": 27,
+      "retained_tokens": 27,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 957,
+      "retained_tokens": 957,
+      "retention_frac": 1.0
+    },
+    "14": {
+      "orig_tokens": 192,
+      "retained_tokens": 100,
+      "retention_frac": 0.5208333333333334
+    },
+    "15": {
+      "orig_tokens": 17,
+      "retained_tokens": 17,
+      "retention_frac": 1.0
+    },
+    "16": {
+      "orig_tokens": 146,
+      "retained_tokens": 146,
+      "retention_frac": 1.0
+    },
+    "17": {
+      "orig_tokens": 23,
+      "retained_tokens": 23,
+      "retention_frac": 1.0
+    },
+    "18": {
+      "orig_tokens": 51,
+      "retained_tokens": 41,
+      "retention_frac": 0.803921568627451
+    },
+    "19": {
+      "orig_tokens": 146,
+      "retained_tokens": 146,
+      "retention_frac": 1.0
+    },
+    "20": {
+      "orig_tokens": 250,
+      "retained_tokens": 250,
+      "retention_frac": 1.0
+    },
+    "21": {
+      "orig_tokens": 174,
+      "retained_tokens": 34,
+      "retention_frac": 0.19540229885057472
+    },
+    "22": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "confirm",
+        "target": "Payment",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Thank you, Mia. Could you please let me know the following details for your booking?\n\n1. Trip type: Is it a one-way or round-trip?\n2. Cabin class: Would you prefer basic economy, economy, or business?\n3. Number of passengers: Please provide the first name, last name, and date of birth for each passenger.\n4. Payment method: Please confirm the payment method(s) you'd like to use from your profile.\n5. Would you like to purchase travel insurance for $30 per passenger?",
+        "msg_idx": 4
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "Payment",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "2024",
+        "rationale": [
+          "value:2024"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "[calls search_onestop_flight({\"origin\":\"JFK\",\"destination\":\"SEA\",\"date\":\"2024-05-20\"})]",
+        "msg_idx": 12
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "2024",
+        "rationale": [
+          "value:2024"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "7447",
+        "rationale": [
+          "value:7447"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "[calls think({\"thought\":\"The total price for the selected flights is $305. Mia wants to use her $250 certificate and pay the remaining $55 with her credit card ending in 7447. I will adjust the payment method accordingly.\"})]",
+        "msg_idx": 18
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "7447",
+        "rationale": [
+          "value:7447"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 4190,
+    "comp_total_toks": 2578,
+    "reduction": 38.472553699284006,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

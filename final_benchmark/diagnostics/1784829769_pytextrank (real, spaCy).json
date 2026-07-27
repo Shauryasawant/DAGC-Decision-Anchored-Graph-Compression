@@ -1,0 +1,166 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Hey there! Are you familiar with reality shifting? So, I\u2019m refining a foolproof method for reality shifting and want to pick a destination. Want to help me? I\u2019m thinking something pretty personalized.",
+      "tok_count": 345,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Title: \"Casino of Eternal Fortune\"\n\nWelcome to the \"Casino of Eternal Fortune\", a large and mysterious retro-futuristic casino situated on a seemingly remote island where technology and vintage charm ",
+      "tok_count": 572,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Where exactly do I appear when I first wake up?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "When you first wake up in the Casino of Eternal Fortune, you find yourself in a luxurious suite located on the highest floor of the casino's opulent hotel. The suite is bathed in the soft, golden glow",
+      "tok_count": 225,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Lady Luck, as my patron, should provide me with things.",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "As your patron in the Casino of Eternal Fortune, Lady Luck bestows upon you various gifts, resources, and assistance to ensure your success. These boons may manifest in different forms throughout your",
+      "tok_count": 429,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "It should be more along the lines of \u201csave the president\u2019s daughter\u201d or \u201cescape this weird wacky sinister place\u201d NOT \u201cget an artifact that literally controls reality\u201d.",
+      "tok_count": 35
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Title: \"Casino of Eternal Fortune\"\n\nWelcome to the \"Casino of Eternal Fortune\", a large and mysterious retro-futuristic casino situated on a seemingly remote island where technology and vintage charm ",
+      "tok_count": 47
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Where exactly do I appear when I first wake up?",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "The room itself is adorned with exquisite art deco furnishings, plush velvet cushions, and gleaming marble surfaces, creating a sumptuous ambiance of grand elegance.",
+      "tok_count": 31
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Lady Luck, as my patron, should provide me with things.",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "As your patron in the Casino of Eternal Fortune, Lady Luck bestows upon you various gifts, resources, and assistance to ensure your success. These boons may manifest in different forms throughout your",
+      "tok_count": 429
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 345,
+      "retained_tokens": 35,
+      "retention_frac": 0.10144927536231885
+    },
+    "1": {
+      "orig_tokens": 572,
+      "retained_tokens": 47,
+      "retention_frac": 0.08216783216783216
+    },
+    "2": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 225,
+      "retained_tokens": 31,
+      "retention_frac": 0.13777777777777778
+    },
+    "4": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 429,
+      "retained_tokens": 429,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Casino",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "When you first wake up in the Casino of Eternal Fortune, you find yourself in a luxurious suite located on the highest floor of the casino's opulent hotel. The suite is bathed in the soft, golden glow of the setting sun as it streams through the floor-to-ceiling windows, providing a breathtaking panoramic view of the casino, the surrounding tropical island, and the sparkling turquoise sea beyond.\n\nThe room itself is adorned with exquisite art deco furnishings, plush velvet cushions, and gleaming marble surfaces, creating a sumptuous ambiance of grand elegance. As you rise from the plush king-sized bed, wrapped in silky sheets, you notice an ornate, gilded key on the nightstand beside you \u2013 a clue that your journey has begun.\n\nThis initial moment comes as a calm before the storm, allowing you time to explore the suite, marvel at the surrounding beauty, and mentally prepare yourself for the thrilling adventures that await. Once you are ready, the enchanted key will guide you through the hidden corners and forbidden realms of the Casino of Eternal Fortune, leading you to the heart of the mystery that you are destined to unveil.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.6,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1595,
+    "comp_total_toks": 566,
+    "reduction": 64.5141065830721,
+    "DRR_soft": 0.6,
+    "RCI": 1.0
+  }
+}

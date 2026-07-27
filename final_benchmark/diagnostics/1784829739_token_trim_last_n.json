@@ -1,0 +1,492 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 880,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I\u2019m calling because I\u2019ve recently experienced a traumatic event and need urgent support. I require a therapist who specializes in trauma and is available within the next 48 hours. Can you hel",
+      "tok_count": 64,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello, I'm here to help you get urgent trauma support. First, I need to verify your identity to access our services securely. This is required by H",
+      "tok_count": 257,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Thank you for understanding the urgency. Here are my details for verification:  \n**Option 2:**  \n- Full Name: [Your Full Name]  \n- Verified Email Address: [Your Email]  \n- Phone Number: [Your Phone Nu",
+      "tok_count": 102,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"credentials\": {\"email\": \"Your.Email@example.com\", \"full_name\": \"[Your Full Name]\", \"method\": \"name_email_phone\", \"phone\": \"[Your Phone Number]\"}}, \"name\": \"authenticate_client\"}",
+      "tok_count": 49,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"client_id\": \"CL123456789\", \"specialty_required\": \"PTSD\"}, \"name\": \"match_therapist\"}",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": " {\"args\": {\"client_id\": \"CL123456789\"}, \"name\": \"verify_insurance\"}",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": " {\"args\": {\"client_id\": \"CL123456789\", \"consent_type\": \"profile_view\", \"therapist_id\": \"THERA987654\"}, \"name\": \"get_therapist_profile\"}",
+      "tok_count": 44,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "**VERIFICATION SUCCESSFUL** \u2705  \nClient ID: CL123456789\n\n---\n\n**URGENT TRAUMA SPECIALIST MATCHES** (Available within 48 hours)\n\n**1. Dr. Sarah Mitchell** \u2b50 **MOST COMPATIBLE (98%)**\n- **Therapist ID:**",
+      "tok_count": 450,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 880
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": "**VERIFICATION SUCCESSFUL** \u2705  \nClient ID: CL123456789\n\n---\n\n**URGENT TRAUMA SPECIALIST MATCHES** (Available within 48 hours)\n\n**1. Dr. Sarah Mitchell** \u2b50 **MOST COMPATIBLE (98%)**\n- **Therapist ID:**",
+      "tok_count": 450
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 880,
+      "retained_tokens": 880,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 64,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 257,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 102,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 49,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 31,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "11": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "12": {
+      "orig_tokens": 21,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "14": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "15": {
+      "orig_tokens": 44,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "17": {
+      "orig_tokens": 450,
+      "retained_tokens": 450,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "suicidal/homicidal",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "suicidal/homicidal"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello, I'm here to help you get urgent trauma support. First, I need to verify your identity to access our services securely. This is required by HIPAA regulations before I can search for therapists or schedule appointments.\\n\\n**Please provide one of the following authentication methods:**\\n\\n**Option 1:**\\n- Client ID\\n- Date of Birth (YYYY-MM-DD)\\n- Last 4 digits of your Social Security Number\\n\\n**Option 2:**\\n- Full Name\\n- Verified Email Address\\n- Phone Number\\n\\nOnce verified, I can:\\n1. Match you with licensed trauma specialists (PTSD specialists)\\n2. Check their availability within the next 48 hours\\n3. Confirm their credentials and specialties\\n4. Schedule an appointment (minimum booking lead time is 4 hours)\\n\\n**Important Notes:**\\n- Our crisis protocol requires immediate transfer for suicidal/homicidal ideation, threats of violence, active psychosis, or abuse disclosures\\n- For trauma therapy, we require specialty alignment with PTSD specialists\\n- Insurance pre-verification is required before scheduling\\n\\nPlease provide your authentication details so I can begin helping you immediately.\"}]",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_client",
+        "target": "Your.Email@example.com",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "example.com"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"credentials\": {\"email\": \"Your.Email@example.com\", \"full_name\": \"[Your Full Name]\", \"method\": \"name_email_phone\", \"phone\": \"[Your Phone Number]\"}}, \"name\": \"authenticate_client\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "match_therapist",
+        "target": "CL123456789",
+        "rationale": [
+          "id:CL123456789"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "CL123456789"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"client_id\": \"CL123456789\", \"specialty_required\": \"PTSD\"}, \"name\": \"match_therapist\"}",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "verify_insurance",
+        "target": "CL123456789",
+        "rationale": [
+          "id:CL123456789"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "CL123456789"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"client_id\": \"CL123456789\"}, \"name\": \"verify_insurance\"}",
+        "msg_idx": 12
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_therapist_profile",
+        "target": "THERA987654",
+        "rationale": [
+          "id:CL123456789",
+          "id:THERA987654"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "CL123456789",
+            "THERA987654"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"client_id\": \"CL123456789\", \"consent_type\": \"profile_view\", \"therapist_id\": \"THERA987654\"}, \"name\": \"get_therapist_profile\"}",
+        "msg_idx": 15
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "CL123456789",
+        "rationale": [
+          "id:CL123456789",
+          "id:THERA987654",
+          "id:THERA876543"
+        ],
+        "artifacts": {
+          "paths": [
+            "sessions/week",
+            "suicidal/homicidal"
+          ],
+          "ids": [
+            "CL123456789",
+            "THERA987654",
+            "THERA876543"
+          ],
+          "errors": []
+        },
+        "verbatim": "**VERIFICATION SUCCESSFUL** \u2705  \nClient ID: CL123456789\n\n---\n\n**URGENT TRAUMA SPECIALIST MATCHES** (Available within 48 hours)\n\n**1. Dr. Sarah Mitchell** \u2b50 **MOST COMPATIBLE (98%)**\n- **Therapist ID:** THERA987654\n- **Credentials:** PhD, LCSW, Certified Trauma Specialist (CTSM), EMDR Trained\n- **Specialties:** Trauma, PTSD, EMDR Therapy\n- **Languages:** English\n- **Next Available:** **Tomorrow, April 29, 2025 at 10:00 AM EDT**\n- **Session Types:** Individual, Couples\n\n**2. Dr. Michael Chen** (95% compatibility)\n- **Therapist ID:** THERA876543\n- **Credentials:** MD, ABPN Board Certified in Psychiatry, Trauma-Focused CBT Specialist\n- **Next Available:** Wednesday, April 30, 2025 at 2:30 PM EDT\n\n---\n\n**INSURANCE VERIFICATION** \u2705\n- **Status:** Verified\n- **Copay:** $35 per session\n- **Remaining Sessions This Year:** 10\n- **No Denial Reasons**\n\n---\n\n**NEXT STEPS:**\n1. **Do you have any preferences for:** \n   - Therapist gender?\n   - Language other than English?\n   - Cultural background considerations?\n\n2. **Session Details Needed:**\n   - Individual or couples therapy?\n   - Video, phone, or in-person?\n   - Session duration (45, 60, or 90 minutes)?\n\n3. **Critical Information:**\n   - Minimum booking lead time: 4 hours\n   - Maximum 3 sessions/week allowed\n   - Crisis protocol: Immediate transfer required for suicidal/homicidal ideation, threats of violence, active psychosis, or abuse disclosures\n\n**Would you like me to schedule with Dr. Sarah Mitchell for tomorrow at 10:00 AM EDT?** If yes, please provide the session details above.\n\n**Time-sensitive:** Dr. Mitchell's next available slot is tomorrow at 10:00 AM. Shall I proceed with scheduling?",
+        "msg_idx": 17
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "CL123456789",
+        "rationale": [
+          "id:CL123456789",
+          "id:THERA987654",
+          "id:THERA876543"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1898,
+    "comp_total_toks": 1330,
+    "reduction": 29.926238145416228,
+    "DRR_soft": 0.16666666666666666,
+    "RCI": 1.0
+  }
+}

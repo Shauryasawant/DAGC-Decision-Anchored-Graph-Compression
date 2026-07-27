@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfC\u00f3mo funcionan los punteros en ANSI C? \u00bfPodr\u00edas explicarme con ejemplos anal\u00f3gicos y con c\u00f3digos a la vez?",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Un puntero no es m\u00e1s que la direcci\u00f3n de memoria RAM donde se encuentra un dato. El puntero en s\u00ed obviamente es un n\u00famero, pero representa a la casilla de memoria del mismo n\u00famero donde est\u00e1 situado u",
+      "tok_count": 127,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "\u00bfC\u00f3mo funcionan los punteros en ANSI C?",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Un puntero no es m\u00e1s que la direcci\u00f3n de memoria RAM donde se encuentra un dato. El puntero en s\u00ed obviamente es un n\u00famero, pero representa a la casilla de memoria del mismo n\u00famero donde est\u00e1 situado u",
+      "tok_count": 127
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 34,
+      "retained_tokens": 12,
+      "retention_frac": 0.35294117647058826
+    },
+    "1": {
+      "orig_tokens": 127,
+      "retained_tokens": 127,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "RAM",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Un puntero no es m\u00e1s que la direcci\u00f3n de memoria RAM donde se encuentra un dato. El puntero en s\u00ed obviamente es un n\u00famero, pero representa a la casilla de memoria del mismo n\u00famero donde est\u00e1 situado un dato de alg\u00fan tipo soportado por el lenguaje C.\n\n`int *punteroAEntero; // Puntero a enteros`\n`int entero1 = 5; // Esto es un entero que vale 5`\n`punteroAEntero = &entero1; //Ahora apunta a la direcci\u00f3n de memoria que contiene el 5`",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "RAM",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 161,
+    "comp_total_toks": 139,
+    "reduction": 13.664596273291929,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

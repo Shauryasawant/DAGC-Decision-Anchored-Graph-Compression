@@ -1,0 +1,102 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI, you may use extremely long chains of thought to deeply consider the problem and deliberate with yourself via systematic reasoning processes to help come to a correct soluti",
+      "tok_count": 947,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "What are the available subtitles for the YouTube video with ID 'dQw4w9WgXcQ' in 'json3' format?",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "<think>\nOkay, the user wants to retrieve the available subtitles for a YouTube video with ID 'dQw4w9WgXcQ' in the 'json3' format. Let me recall the available tools. The'subtitles' function from the pr",
+      "tok_count": 327,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a deep thinking AI, you may use extremely long chains of thought to deeply consi[\u2026]",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "What are the available subtitles for the YouTube video with ID 'dQw4w9WgXcQ' in 'json3' format?",
+      "tok_count": 31
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 947,
+      "retained_tokens": 20,
+      "retention_frac": 0.021119324181626188
+    },
+    "1": {
+      "orig_tokens": 31,
+      "retained_tokens": 31,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 327,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "is_id",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "<think>\nOkay, the user wants to retrieve the available subtitles for a YouTube video with ID 'dQw4w9WgXcQ' in the 'json3' format. Let me recall the available tools. The'subtitles' function from the provided tools seems suitable for this task. Looking at the parameters, I need to provide the video ID as 'is_id', and specify the format as 'json3'.\n\nWait, the user didn't mention any cache bypass or other parameters. The function parameters for'subtitles' include an optional x_cachebypass, but the user didn't include that, so it's probably not needed. The format is specified as 'json3', so the subtitle format parameter will be set to 'json3'. I should call the'subtitles' function with the video ID and the desired format.\n\nSo the function call would be under the'subtitles' name, with the video ID as 'dQw4w9WgXcQ' and format set to 'json3'. The 'x_cachebypass' is not necessary here if not provided.\n\nLet me structure the call correctly: the tool name is'subtitles', arguments include 'is_id': 'dQw4w9WgXcQ' and 'format': 'json3'. That should do it. Then the result will contain the available subtitles in JSON format.\n</think>\n<tool_call>\n{\"name\":\"subtitles\",\"arguments\":{\"is_id\":\"dQw4w9WgXcQ\",\"format\":\"json3\"}}\n</tool_call>",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1305,
+    "comp_total_toks": 51,
+    "reduction": 96.0919540229885,
+    "DRR_soft": 0.0,
+    "RCI": 0.0
+  }
+}

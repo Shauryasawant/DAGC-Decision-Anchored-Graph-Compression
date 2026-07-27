@@ -1,0 +1,223 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Write what each overwatch agents could look like 10 years in the future.",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "1. Bastion: Bastion still resembles its original form, but with a few more modifications. It now sports additional vegetation growth, creating a more harmonious blend with nature. Meanwhile, its advan",
+      "tok_count": 1141,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "23 years",
+      "tok_count": 2,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Below is an updated vision of what the Overwatch agents could look like in 23 years:\n\n1. Bastion: Bastion's continued exposure to nature leads to a harmonious blend of technology with fauna and flora.",
+      "tok_count": 1063,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "20 more years, include age.",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "In 20 more years, here's how the Overwatch agents could look and their approximate ages based on the assumption they continue to age:\n\n1. Bastion: In its 43 years, Bastion has become a symbol of harmo",
+      "tok_count": 1056,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "and he could use new innovative techniques to help heal and inspire his team. McCree: With a grizzled appearance and a more robust cybernetic arm McCree may be using dual revolvers in the future. Rein",
+      "tok_count": 99
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Roadhog: His imposing stature remains but with an enhanced scrap launcher that automatically recycles used ammunition. Symmetra: With an elegant high-tech aesthetic Symmetra uses her gear to construct",
+      "tok_count": 71
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "20 more years",
+      "tok_count": 3
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Lucio: A 52-year-old musical prodigy Lucio's suit uses advanced audio-visual technologies to create breathtaking performances. McCree: At 77 McCree possesses a rugged grizzled appearance. Mei: Though ",
+      "tok_count": 116
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 16,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 1141,
+      "retained_tokens": 99,
+      "retention_frac": 0.08676599474145487
+    },
+    "2": {
+      "orig_tokens": 2,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 1063,
+      "retained_tokens": 71,
+      "retention_frac": 0.06679209783631232
+    },
+    "4": {
+      "orig_tokens": 7,
+      "retained_tokens": 3,
+      "retention_frac": 0.42857142857142855
+    },
+    "5": {
+      "orig_tokens": 1056,
+      "retained_tokens": 116,
+      "retention_frac": 0.10984848484848485
+    }
+  },
+  "removed_message_indices": [
+    0,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "grizzled appearance",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. Bastion: Bastion still resembles its original form, but with a few more modifications. It now sports additional vegetation growth, creating a more harmonious blend with nature. Meanwhile, its advanced weaponry gets concealed slightly better within its frame.\n\n2. D.Va: D.Va continues her career as a mech pilot, but her suit would become sleeker and more advanced. It may have an AI assistant integrated into the system, and her youthful appearance would be maintained while wearing a custom exoskeleton.\n\n3. Genji: With the constant innovations in technology, Genji's cybernetic body becomes even more sophisticated, representing a perfect blend of man and machine. He may have a new, sleeker appearance, perhaps with more curved edges and minimalistic design.\n\n4. Hanzo: Hanzo could show more signs of age, possibly wielding a high-tech bow that is more energy-efficient and powerful. He may also wear a cybernetic eye patch to improve his accuracy and blend traditional with cutting-edge technology.\n\n5. Junkrat: His attire might become more tattered and rugged with time, but he would still have his trademark manic grin. Junkrat may upgrade his arsenal with improvised explosive devices and launchers constructed from various technological scraps and cast-offs.\n\n6. Lucio: Sporting a more futuristic and streamlined look, Lucio could have built-in sound projectors in his armor. His music would continue to evolve and adapt to new styles, and he could use new innovative techniques to help heal and inspire his team.\n\n7. McCree: With a grizzled appearance and a more robust cybernetic arm, McCree may be using dual revolvers in the future. His outfit could have a blend of Western and futuristic elements, with a long duster coat made of advanced materials and an updated cowboy hat design.\n\n8. Mei: Mei's age-defying technology could keep her youthful appearance intact, and her weather-modification gear may become more efficient and effective. She might sport a sleeker outfit with more frost-based visual effects.\n\n9. Orisa: As a continually evolving AI, Orisa could have transformed significantly by incorporating new technology from around the world. Her design might incorporate aspects of various cultures, and her color palette could become more vibrant and diverse.\n\n10. Pharah: Pharah's armor could evolve to become more streamlined, with advanced propulsion systems and more range of capabilities. Her helmet design may be updated to resemble that of a futuristic-looking falcon, and her missiles more powerful and accurate.\n\n11. Reaper: As a constantly evolving soldier, Reaper might have even more advanced bio-weapons and life-stealing abilities, making him more powerful and terrifying. He might wear a sleeker, darker outfit with more layers and tattered edges.\n\n12. Reinhardt: Reinhardt may show more signs of aging, but his commitment to justice and honor would keep him in the fight. His armor could become more advanced, allowing him to increase his mobility, while his hammer might have upgrades that provide versatility in battle.\n\n13. Roadhog: Roadhog's stature would remain imposing, but his gear might have evolved to incorporate more scrap and technological debris. He may also have implanted some cybernetic enhancement that would allow him to heal faster or amplify his hook-throwing abilities.\n\n14. Soldier 76: With a worn and battle-hardened appearance, Soldier 76 might wear an upgraded version of his visor and have more ammunition capacity. His outfit would remain similar but look more weathered, with added gear from different encounters.\n\n15. Sombra: Sombra's hacking abilities would have evolved tremendously, most likely having wearable hacking devices directly integrated into her suit. Her appearance may include more neon accents and digital effects, showing her growth as an infamous digital infiltrator.\n\n16. Symmetra: With more streamlined features, Symmetra may wear an outfit with elegant lines and glowing elements. Her technology would keep up with new advancements, allowing her to create more elaborate and dynamic hard-light structures.\n\n17. Torbj\u00f6rn: Still sporting his iconic beard, Torbj\u00f6rn may have integrated his forge hammer and rivet gun into cybernetic limbs, making them even more efficient. Additionally, his turrets could be upgraded to incorporate new defense mechanisms and level up their fire power.\n\n18. Tracer: Tracer's youthful appearance could remain even after ten years, but her outfit and chrono-accelerator might be sleeker and more advanced. She may have increased time manipulation capabilities and improved weaponry for dealing with emerging threats.\n\n19. Widowmaker: Widowmaker's appearance could become even more deadly and seductive in the future, wearing a sleek jumpsuit with built-in cloaking technology. Her widow's kiss sniper rifle would likely have upgraded ammo types and more versatile utility functions.\n\n20. Winston: Ten years might see Winston become an even more prominent figure among Overwatch agents, with multiple technological upgrades to his suit and weaponry. His scientific research would be at the forefront of new discoveries and inventions, making him a true leader and innovator.\n\n21. Zarya: Zarya's suit could become more protective and powerful, allowing her to harness even more energy from incoming attacks. Her gravity-based weaponry might evolve to allow new techniques and tactics, making her an even greater presence on the battlefield.\n\n22. Zenyatta: As an omniscient and enlightened being, Zenyatta would continue to maintain his calm and tranquil demeanor in the face of increasingly chaotic situations. His appearance could incorporate more natural elements, like wooden accents or spiritual symbols, and his orbs might be more visually impressive in their representation of harmony and discord.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "grizzled appearance",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "target",
+        "target": "enhanced scrap launcher",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Below is an updated vision of what the Overwatch agents could look like in 23 years:\n\n1. Bastion: Bastion's continued exposure to nature leads to a harmonious blend of technology with fauna and flora. The robot may even generate sustainable energy to help protect its environment, while its traditional weaponry is further concealed.\n\n2. D.Va: Advanced AI integration with her mech suit has redefined her gaming career alongside her powerful exoskeleton. Perhaps she now offers her services as an elite trainer for other mech pilots.\n\n3. Genji: Genji's cybernetic form sets a new standard for human-machine integration, allowing him to connect to global networks and interface directly with technology. As his skills and prowess advance, he becomes a mentor for notable peacekeeping initiatives.\n\n4. Hanzo: His high-tech bow now incorporates holographic sights and adaptive draw weight, while advanced cybernetic implants enhance his keen aim. Hanzo balances his new technological prowess with a growing wisdom and respect for tradition.\n\n5. Junkrat: Junkrat now sports an entire arsenal of makeshift weapons strapped to his ragged clothing, complete with extra gadgets and grenades. His hair has grown wilder, and his grin remains as maniacal as ever.\n\n6. Lucio: As a pioneer in music technology, Lucio's suit features a full sound system with holographic capabilities. His music inspires hope and enthusiasm in audiences worldwide, while incorporating emerging genres to inspire the masses.\n\n7. McCree: Age has not diminished McCree's abilities, making him a living legend among the cowboy community. He now wields much more advanced revolvers and futuristic stealth tech, allowing him to strike from the shadows with deadly intent.\n\n8. Mei: Mei's advanced freeze technology saves the lives of thousands as the world faces new climate challenges. Her focus on climate research, her cutting-edge gear, and her youthful appearance make her an icon in environmental conservation.\n\n9. Orisa: Orisa has become a robotic ambassador, bridging cultures and sharing knowledge across the globe. Her design now features a sleek and diverse color palette, as well as improved AI capabilities that continue to expand her worldview.\n\n10. Pharah: As a decorated hero, Pharah's advanced suit now allows her to fly even more speedily and efficiently. Her arsenal, which includes plasma-guided missiles, high-caliber firearms, and EMP devices, showcases her relentless pursuit of justice.\n\n11. Reaper: Reaper's menacing appearance has intensified through his upgraded bio-weapons and stealth tech, allowing him to hunt his enemies more effectively. Now donning lethal blades and harnessing even darker energies, he truly embodies the Grim Reaper archetype.\n\n12. Reinhardt: More mobile and dangerous than ever, Reinhardt's enhanced armor has a sleek, futuristic appearance that reflects his continued dedication to justice. He now wields an upgraded hammer with powerful energy-based attacks.\n\n13. Roadhog: His imposing stature remains, but with an enhanced scrap launcher that automatically recycles used ammunition. A cybernetic enhancement has made him more resistant to damage and increased his speed, increasing his menace.\n\n14. Soldier 76: Now an icon of war veterans, Soldier 76 has honed his already exceptional skills as he ages. His armor is laden with war stories, and he continues to lead the charge in battles alongside Overwatch's newer recruits.\n\n15. Sombra: Sombra's nanotech suit and sophisticated gadgets allow her unmatched access to global networks. Her knowledge of digital surveillance and cyberterrorism has expanded, earning her fame and infamy alike as a prominent figure in the cyber realm.\n\n16. Symmetra: With an elegant, high-tech aesthetic, Symmetra uses her gear to construct even more extraordinary and dramatic hard-light structures. Her creations pave the way for stunning architectural and urban development projects worldwide.\n\n17. Torbj\u00f6rn: Time has only seasoned Torbj\u00f6rn's skills \u2013 his integrated cybernetic limbs now work alongside a powerful arsenal of creators and repair gadgets. His knowledge of advanced technology and engineering ensures the success and survival of Overwatch.\n\n18. Tracer: Aged but agile, Tracer's sleek new chrono-accelerator and armor blur the line between space and time. She deploys time manipulation techniques at her leisure, staying true to her moniker as Overwatch's time-hopping hero.\n\n19. Widowmaker: Widowmaker's latest suit offers unmatched stealth and mobility. Her sniper rifle is now outfitted with various custom rounds, including thermal, poisonous, and EMP projectiles that leave no target unhindered.\n\n20. Winston: Winston's evolved into a global figurehead for Overwatch, as both scientist and hero. Now equipped with a fully integrated technological suit and device repository, he leads his team with wisdom and expertise.\n\n21. Zarya: With graphene-infused power armor, Zarya can withstand crushing forces and outmuscle her enemies. Her gravity weapon technology now allows her to manipulate objects remotely, creating new battlefield tactics and strategies.\n\n22. Zenyatta: Transcending the human-omnic divide, Zenyatta epitomizes serenity and balance through a blend of organic and synthetic materials. His orbs radiate an almost otherworldly energy that soothes and empowers allies while hindering adversaries.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "target",
+        "target": "enhanced scrap launcher",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "uses",
+        "target": "create breathtaking performances",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In 20 more years, here's how the Overwatch agents could look and their approximate ages based on the assumption they continue to age:\n\n1. Bastion: In its 43 years, Bastion has become a symbol of harmony between nature and technology, with plants and moss covering the majority of its exterior. More sustainable energy has been integrated into its design, making it a functional monument to environmentalism.\n\n2. D.Va: At age 58, Hana Song remains surprisingly youthful due to advanced technology. Her AI-enhanced mech suit has reached new heights, and she serves as an instructor to a new generation of pilots while also maintaining a prestigious career.\n\n3. Genji: Now 76, Genji's cybernetically enhanced body slows the aging process, making him appear slightly older than his human years. He has embraced additional AI connections to refine his abilities, and he mentors younger agents in balancing technology with the human spirit.\n\n4. Hanzo: At 78, Hanzo wears his years with grace, his white hair gathered in a long ponytail. His cybernetic eye and high-tech bow stand in contrast to his traditional garb, representing a union of old and new.\n\n5. Junkrat: With an unruly beard at age 60, Junkrat has modified most of his body with scavenged parts, creating a chaotic mix of scrap and cybernetic enhancements. He wields an even more unpredictable arsenal, and his grin remains wild.\n\n6. Lucio: A 52-year-old musical prodigy, Lucio's suit uses advanced audio-visual technologies to create breathtaking performances. His music embraces global culture, inspiring unity and peace.\n\n7. McCree: At 77, McCree possesses a rugged, grizzled appearance. The elder gunslinger shares wisdom from his vast experience, while his cybernetic arm conceals powerful weaponry.\n\n8. Mei: Though Mei is 72, age-defying technology keeps her remarkably youthful. Her research in climate and environmental sciences helps humanity endure an ever-changing world.\n\n9. Orisa: Now 43, Orisa has adopted a unifying design with a multitude of colors and adorning cultural symbols. Her AI continues to learn and adapt, acting as a bridge between people from all walks of life.\n\n10. Pharah: Age 70, Pharah's appearance reveals some gray strands of hair, but her armor has become a masterpiece of integrated technology. She uses advanced weaponry and now serves as a mentor and strategist to younger operatives.\n\n11. Reaper: Reaper, who is now 83 years old, has a more skeletal, terrifying appearance due to his constant experimentation with bio-technology. His dark energy has granted him longevity and enhanced power, making him even deadlier.\n\n12. Reinhardt: At 93, Reinhardt's facial hair is long and white. Despite his aging body, he dons heavy-duty powered armor that enhances his strength and mobility, allowing him to continue to fight for justice and inspire others.\n\n13. Roadhog: The 68-year-old Roadhog has fashioned even more potent abilities from his scrap materials. A cybernetic enhancement runs along his spine, granting him increased durability and regenerative powers.\n\n14. Soldier 76: At age 88, his hair and beard have turned white, and his body's endured countless battles. Soldier 76 now focuses on guiding younger members of Overwatch, fulfilling a role as an elder statesman.\n\n15. Sombra: While Sombra, now 52 years old, has aged gracefully, her reputation as a mastermind hacker continues to grow. She bears an increasingly sleek nanotech suit, giving her unmatched access to global networks.\n\n16. Symmetra: At 62, her face shows few signs of age, with only faint wrinkles. Her sophisticated, hard-light technology has pushed architectural boundaries, helping to build a better world and making her an icon in her field.\n\n17. Torbj\u00f6rn: Age 87, Torbj\u00f6rn uses his cybernetic limbs to provide exceptional craftsmanship in the world of engineering. He trains a new generation of engineers to carry on his legacy.\n\n18. Tracer: Tracer, at 53, appears to have aged only slightly due to her time-traveling suit. Her chrono-accelerator has been significantly upgraded, allowing for unprecedented mobility and tactical versatility.\n\n19. Widowmaker: The 60-year-old Widowmaker is virtually ageless thanks to her enhancements. Her sniper rifle now harnesses cutting-edge technology, making her an indispensable asset for long-range combat.\n\n20. Winston: At 41, Winston has become a globally influential scientist and leader. His suit contains various mechanisms to assist in research and invention, driving world-changing advancements.\n\n21. Zarya: At the age of 67, Zarya maintains an impressive physique. Her power armor now uses advanced materials, allowing her to manipulate gravity fields more potently.\n\n22. Zenyatta: Despite being a 43-year-old omnic, Zenyatta now resembles an enlightened, ageless sage, with intricate carvings and engravings adorning his metallic body. His teachings continue to promote understanding and peace between humanity and omnics.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "uses",
+        "target": "create breathtaking performances",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 3285,
+    "comp_total_toks": 289,
+    "reduction": 91.20243531202435,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

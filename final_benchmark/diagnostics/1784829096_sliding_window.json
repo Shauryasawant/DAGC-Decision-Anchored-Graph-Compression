@@ -1,0 +1,587 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "[SYSTEM POLICY] # Airline Agent Policy\n\nThe current time is 2024-05-15 15:00:00 EST.\n\nAs an airline agent, you can help users book, modify, or cancel flight reservations.\n\n- Before taking any actions ",
+      "tok_count": 1257,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": " Hi, I'm extremely frustrated about my flight HAT039 from Atlanta to Seattle being delayed. Can you tell me what's going on with this delay?",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": " I understand your frustration about the flight delay. Let me first ask for a few details I need to help you:\n\n1. Could you please provide your user ID?\n2. Could you provide the reservation ID for thi",
+      "tok_count": 67,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "user",
+      "preview": " I'm ethan_martin_2396, but I don't have the reservation ID handy right now. Can't you just look up the flight status with the flight number HAT039? I really need to know what's causing this delay.",
+      "tok_count": 50,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": " I understand you want to know about flight HAT039's status. However, I actually don't have a direct tool to check flight statuses by flight number alone. To properly assist you and check your specifi",
+      "tok_count": 128,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": {\"first_name\": \"Ethan\", \"last_name\": \"Martin\"}, \"address\": {\"address1\": \"157 Willow Lane\", \"address2\": \"Suite 744\", \"city\": \"Dallas\", \"country\": \"USA\", \"province\": \"TX\", \"zip\": ",
+      "tok_count": 352,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "\n\nI can see several reservations in your profile. Let me check each one to find the specific flight you're asking about.\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:pa",
+      "tok_count": 72,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"GXWCPN\", \"user_id\": \"ethan_martin_2396\", \"origin\": \"LGA\", \"destination\": \"BOS\", \"flight_type\": \"round_trip\", \"cabin\": \"economy\", \"flights\": [{\"origin\": \"LGA\", \"destin",
+      "tok_count": 317,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">DQST39</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 48,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"DQST39\", \"user_id\": \"ethan_martin_2396\", \"origin\": \"ORD\", \"destination\": \"EWR\", \"flight_type\": \"round_trip\", \"cabin\": \"business\", \"flights\": [{\"origin\": \"ORD\", \"desti",
+      "tok_count": 317,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">BSSSM3</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 48,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"BSSSM3\", \"user_id\": \"ethan_martin_2396\", \"origin\": \"MCO\", \"destination\": \"MSP\", \"flight_type\": \"round_trip\", \"cabin\": \"business\", \"flights\": [{\"origin\": \"MCO\", \"desti",
+      "tok_count": 238,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">RVQC22</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 47,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"RVQC22\", \"user_id\": \"ethan_martin_2396\", \"origin\": \"SEA\", \"destination\": \"MCO\", \"flight_type\": \"one_way\", \"cabin\": \"basic_economy\", \"flights\": [{\"origin\": \"SEA\", \"des",
+      "tok_count": 235,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">P824NH</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 47,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"P824NH\", \"user_id\": \"ethan_martin_2396\", \"origin\": \"DTW\", \"destination\": \"MCO\", \"flight_type\": \"round_trip\", \"cabin\": \"basic_economy\", \"flights\": [{\"origin\": \"DTW\", \"",
+      "tok_count": 317,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">3HE6QG</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 49,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"3HE6QG\", \"user_id\": \"ethan_martin_2396\", \"origin\": \"SEA\", \"destination\": \"ATL\", \"flight_type\": \"one_way\", \"cabin\": \"basic_economy\", \"flights\": [{\"origin\": \"SEA\", \"des",
+      "tok_count": 199,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">NTIRXF</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 47,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"NTIRXF\", \"user_id\": \"ethan_martin_2396\", \"origin\": \"SFO\", \"destination\": \"CLT\", \"flight_type\": \"one_way\", \"cabin\": \"business\", \"flights\": [{\"origin\": \"SFO\", \"destinat",
+      "tok_count": 238,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">HG8X9P</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 49,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"HG8X9P\", \"user_id\": \"ethan_martin_2396\", \"origin\": \"LAX\", \"destination\": \"ATL\", \"flight_type\": \"round_trip\", \"cabin\": \"economy\", \"flights\": [{\"origin\": \"LAX\", \"destin",
+      "tok_count": 343,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">M61CQM</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 48,
+      "protected": false
+    },
+    {
+      "idx": 23,
+      "role": "assistant",
+      "preview": "[tool result] {\"reservation_id\": \"M61CQM\", \"user_id\": \"ethan_martin_2396\", \"origin\": \"ORD\", \"destination\": \"SEA\", \"flight_type\": \"one_way\", \"cabin\": \"economy\", \"flights\": [{\"origin\": \"ORD\", \"destinati",
+      "tok_count": 286,
+      "protected": false
+    },
+    {
+      "idx": 24,
+      "role": "assistant",
+      "preview": "\n\nI found your reservation (M61CQM) that includes flight HAT039 from Atlanta to Seattle today. I can see that you're traveling in economy class with two other passengers. Since you're a silver member ",
+      "tok_count": 126,
+      "protected": false
+    },
+    {
+      "idx": 25,
+      "role": "user",
+      "preview": " I want to know why the flight is delayed first, and then I'd like to discuss compensation options. I've already lost several hours of my time because of this delay!",
+      "tok_count": 35,
+      "protected": false
+    },
+    {
+      "idx": 26,
+      "role": "assistant",
+      "preview": " I apologize, but I actually don't have direct access to real-time flight delay information or the specific reasons for delays. This is something that would be better handled by airport staff or gate ",
+      "tok_count": 186,
+      "protected": false
+    },
+    {
+      "idx": 27,
+      "role": "user",
+      "preview": " Yes, I'll take the travel certificate, but I'm not happy about this situation at all. Can you at least make sure it's valid for at least a year? And will it be emailed to me?",
+      "tok_count": 43,
+      "protected": false
+    },
+    {
+      "idx": 28,
+      "role": "assistant",
+      "preview": " Let me issue the travel certificate for you. The certificate will be automatically sent to your email address (ethan.martin2913@example.com) and will be added to your payment methods in your profile.",
+      "tok_count": 121,
+      "protected": false
+    },
+    {
+      "idx": 29,
+      "role": "assistant",
+      "preview": "[tool result] Certificate certificate_3221322 added to user ethan_martin_2396 with amount 150.",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 30,
+      "role": "assistant",
+      "preview": "\n\nI've issued a $150 travel certificate to your account. You should receive an email confirmation shortly. The certificate has been added to your profile and can be used for future bookings with us. T",
+      "tok_count": 65,
+      "protected": false
+    },
+    {
+      "idx": 31,
+      "role": "user",
+      "preview": " ###STOP###",
+      "tok_count": 3,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 16,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">3HE6QG</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 49
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 18,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">NTIRXF</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 47
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 20,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">HG8X9P</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 49
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 22,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_reservation_details\">\n<antml:parameter name=\"reservation_id\">M61CQM</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 48
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 24,
+      "role": "assistant",
+      "preview": "\n\nI found your reservation (M61CQM) that includes flight HAT039 from Atlanta to Seattle today. I can see that you're traveling in economy class with two other passengers. Since you're a silver member ",
+      "tok_count": 126
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 25,
+      "role": "user",
+      "preview": " I want to know why the flight is delayed first, and then I'd like to discuss compensation options. I've already lost several hours of my time because of this delay!",
+      "tok_count": 35
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 26,
+      "role": "assistant",
+      "preview": " I apologize, but I actually don't have direct access to real-time flight delay information or the specific reasons for delays. This is something that would be better handled by airport staff or gate ",
+      "tok_count": 186
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 27,
+      "role": "user",
+      "preview": " Yes, I'll take the travel certificate, but I'm not happy about this situation at all. Can you at least make sure it's valid for at least a year? And will it be emailed to me?",
+      "tok_count": 43
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 28,
+      "role": "assistant",
+      "preview": " Let me issue the travel certificate for you. The certificate will be automatically sent to your email address (ethan.martin2913@example.com) and will be added to your payment methods in your profile.",
+      "tok_count": 121
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 29,
+      "role": "assistant",
+      "preview": "[tool result] Certificate certificate_3221322 added to user ethan_martin_2396 with amount 150.",
+      "tok_count": 25
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 30,
+      "role": "assistant",
+      "preview": "\n\nI've issued a $150 travel certificate to your account. You should receive an email confirmation shortly. The certificate has been added to your profile and can be used for future bookings with us. T",
+      "tok_count": 65
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 31,
+      "role": "user",
+      "preview": " ###STOP###",
+      "tok_count": 3
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1257,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 31,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 67,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 50,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 128,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 352,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 72,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 317,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 48,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 317,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 48,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 238,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "12": {
+      "orig_tokens": 47,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 235,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "14": {
+      "orig_tokens": 47,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "15": {
+      "orig_tokens": 317,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 49,
+      "retained_tokens": 49,
+      "retention_frac": 1.0
+    },
+    "17": {
+      "orig_tokens": 199,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "18": {
+      "orig_tokens": 47,
+      "retained_tokens": 47,
+      "retention_frac": 1.0
+    },
+    "19": {
+      "orig_tokens": 238,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "20": {
+      "orig_tokens": 49,
+      "retained_tokens": 49,
+      "retention_frac": 1.0
+    },
+    "21": {
+      "orig_tokens": 343,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "22": {
+      "orig_tokens": 48,
+      "retained_tokens": 48,
+      "retention_frac": 1.0
+    },
+    "23": {
+      "orig_tokens": 286,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "24": {
+      "orig_tokens": 126,
+      "retained_tokens": 126,
+      "retention_frac": 1.0
+    },
+    "25": {
+      "orig_tokens": 35,
+      "retained_tokens": 35,
+      "retention_frac": 1.0
+    },
+    "26": {
+      "orig_tokens": 186,
+      "retained_tokens": 186,
+      "retention_frac": 1.0
+    },
+    "27": {
+      "orig_tokens": 43,
+      "retained_tokens": 43,
+      "retention_frac": 1.0
+    },
+    "28": {
+      "orig_tokens": 121,
+      "retained_tokens": 121,
+      "retention_frac": 1.0
+    },
+    "29": {
+      "orig_tokens": 25,
+      "retained_tokens": 25,
+      "retention_frac": 1.0
+    },
+    "30": {
+      "orig_tokens": 65,
+      "retained_tokens": 65,
+      "retention_frac": 1.0
+    },
+    "31": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    17,
+    19,
+    21,
+    23
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "ethan_martin_2396",
+        "rationale": [
+          "id:ethan_martin_2396"
+        ],
+        "artifacts": {
+          "paths": [
+            "example.com"
+          ],
+          "ids": [
+            "ethan_martin_2396"
+          ],
+          "errors": []
+        },
+        "verbatim": " Let me issue the travel certificate for you. The certificate will be automatically sent to your email address (ethan.martin2913@example.com) and will be added to your payment methods in your profile. All our travel certificates are valid for one year from the date of issuance.\n\n<antml:function_calls>\n<antml:invoke name=\"send_certificate\">\n<antml:parameter name=\"user_id\">ethan_martin_2396</antml:parameter>\n<antml:parameter name=\"amount\">150</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+        "msg_idx": 28
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "ethan_martin_2396",
+        "rationale": [
+          "id:ethan_martin_2396"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "confirmation",
+        "target": "2025",
+        "rationale": [
+          "value:2025"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\n\nI've issued a $150 travel certificate to your account. You should receive an email confirmation shortly. The certificate has been added to your profile and can be used for future bookings with us. The certificate is valid until May 15, 2025.\n\nIs there anything else you need assistance with regarding your delayed flight?",
+        "msg_idx": 30
+      },
+      "reproduced": {
+        "action": "confirmation",
+        "target": "2025",
+        "rationale": [
+          "value:2025"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 5434,
+    "comp_total_toks": 797,
+    "reduction": 85.33308796466692,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

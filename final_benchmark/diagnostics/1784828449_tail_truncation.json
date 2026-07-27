@@ -1,0 +1,287 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "What is Rick Ross' most popular song to date?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Rick Ross' most popular song to date is \"Hustlin',\" which was released in 2006 and became his debut single.",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Was the instrumental used in that song considered to be ahead of it's time",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The instrumental in \"Hustlin'\" was produced by J.R. Rotem and features a sample from the 1978 song \"Everybody Loves the Sunshine\" by Roy Ayers. It was considered to be a unique blend of southern hip-h",
+      "tok_count": 102,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Does the sample have a synthesizer in the song",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Yes, the sample used in \"Hustlin'\" features a prominent synthesizer, which has become a recognizable element of the song. The synthesizer riff comes from the beginning of the original source track, \"E",
+      "tok_count": 78,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Which synthesizer was used in the sample if you know",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "The specific synthesizer used in the sample from \"Everybody Loves the Sunshine\" by Roy Ayers is not publicly known. However, some music experts believe that the synthesizer used in the original record",
+      "tok_count": 94,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "It sounded more like a minimoog than an Odyssey",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "You may be right. It's possible that the synthesizer used in \"Everybody Loves the Sunshine\" was a Minimoog, which is another popular analog synthesizer that was widely used in the 1970s. The Minimoog ",
+      "tok_count": 107,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "You may be right. It's possible that the synthesizer used in \"Everybody Loves the Sunshine\" was a Minimoog, which is another popular analog synthesizer that was widely used in the 1970s. The Minimoog ",
+      "tok_count": 107
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 11,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 27,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 15,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 102,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 10,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 78,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 11,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 94,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 11,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 107,
+      "retained_tokens": 107,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "2006",
+        "rationale": [
+          "value:2006"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Rick Ross' most popular song to date is \"Hustlin',\" which was released in 2006 and became his debut single.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "recognizable element",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Yes, the sample used in \"Hustlin'\" features a prominent synthesizer, which has become a recognizable element of the song. The synthesizer riff comes from the beginning of the original source track, \"Everybody Loves the Sunshine\" by Roy Ayers. J.R. Rotem, the producer, also added additional instrumentation and drums to create the beat for \"Hustlin'.\"",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "specific synthesizer",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The specific synthesizer used in the sample from \"Everybody Loves the Sunshine\" by Roy Ayers is not publicly known. However, some music experts believe that the synthesizer used in the original recording may have been an ARP Odyssey, which was a popular synthesizer in the 1970s. The ARP Odyssey was known for its fat, warm sound and was used by many notable musicians of the time, including Stevie Wonder, Herbie Hancock, and Kraftwerk.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "Everybody",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "You may be right. It's possible that the synthesizer used in \"Everybody Loves the Sunshine\" was a Minimoog, which is another popular analog synthesizer that was widely used in the 1970s. The Minimoog was known for its thick, rich sound and was used on countless classic recordings from that era. Even though the identity of the specific synthesizer used in the sample is not publicly known, it's likely that either the ARP Odyssey or Minimoog could have been used to create that distinctive sound.",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "Everybody",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 466,
+    "comp_total_toks": 107,
+    "reduction": 77.03862660944206,
+    "DRR_soft": 0.25,
+    "RCI": 1.0
+  }
+}

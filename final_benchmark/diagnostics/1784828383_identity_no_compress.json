@@ -1,0 +1,234 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Give me examples of intergender matches, that had the woman win with a submission move. Exclude WWE, AEW and TNA matches.",
+      "tok_count": 28,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "1. LuFisto vs. El Generico - CZW (Combat Zone Wrestling): LuFisto won with a crossface submission.\n2. Kimber Lee vs. JT Dunn - Beyond Wrestling: Kimber Lee forced JT Dunn to tap out to an armbar submi",
+      "tok_count": 303,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Gail Kim has a hanging headscissors with armbar submission move called \"Christo\". Can you give me examples of her winning a match with that move?",
+      "tok_count": 33,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Gail Kim has used the \"Christo\" submission move to win several matches throughout her career. Here are some examples:\n\n1. TNA Bound for Glory 2007: Gail Kim vs. Roxxi Laveaux vs. Angel Williams vs. Ch",
+      "tok_count": 300,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Has Gail Kim used the Christo on male wrestlers?",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Gail Kim has not been known to use the Christo submission move on male wrestlers throughout her career. The majority of Gail Kim's matches have been against female opponents within women's divisions, ",
+      "tok_count": 89,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Give me examples of intergender matches, that had the woman win with a submission move. Exclude WWE, AEW and TNA matches.",
+      "tok_count": 28
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "1. LuFisto vs. El Generico - CZW (Combat Zone Wrestling): LuFisto won with a crossface submission.\n2. Kimber Lee vs. JT Dunn - Beyond Wrestling: Kimber Lee forced JT Dunn to tap out to an armbar submi",
+      "tok_count": 303
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Gail Kim has a hanging headscissors with armbar submission move called \"Christo\". Can you give me examples of her winning a match with that move?",
+      "tok_count": 33
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Gail Kim has used the \"Christo\" submission move to win several matches throughout her career. Here are some examples:\n\n1. TNA Bound for Glory 2007: Gail Kim vs. Roxxi Laveaux vs. Angel Williams vs. Ch",
+      "tok_count": 300
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Has Gail Kim used the Christo on male wrestlers?",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Gail Kim has not been known to use the Christo submission move on male wrestlers throughout her career. The majority of Gail Kim's matches have been against female opponents within women's divisions, ",
+      "tok_count": 89
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 28,
+      "retained_tokens": 28,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 303,
+      "retained_tokens": 303,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 33,
+      "retained_tokens": 33,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 300,
+      "retained_tokens": 300,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 89,
+      "retained_tokens": 89,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "bearhug submission",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "1. LuFisto vs. El Generico - CZW (Combat Zone Wrestling): LuFisto won with a crossface submission.\n2. Kimber Lee vs. JT Dunn - Beyond Wrestling: Kimber Lee forced JT Dunn to tap out to an armbar submission.\n3. Jordynne Grace vs. Jonathan Gresham - Black Label Pro: Grace used a bearhug submission to defeat Gresham.\n4. Candy Cartwright vs. Joey Ryan - FEST Wrestling: Cartwright forced Joey Ryan to submit with a figure four leg lock.\n5. Christina Von Eerie vs. Chavo Guerrero Jr. - WWC (World Wrestling Council): Von Eerie trapped Chavo in a crossface submission to secure the victory.\n6. Taya Valkyrie vs. Brian Cage - Lucha Libre AAA: Taya made Brian Cage tap out with a Fujiwara armbar.\n7. Mia Yim vs. Greg Excellent - CZW (Combat Zone Wrestling): Yim applied a guillotine choke to defeat Excellent.\n8. Cheerleader Melissa vs. Scorpio Sky - APW (All Pro Wrestling): Cheerleader Melissa forced Scorpio Sky to submit with a Kondo Clutch submission.\n9. Faby Apache vs. Mini Psycho Clown - Lucha Libre AAA: Faby Apache won the match utilizing a sharpshooter submission.\n10. Jessica Havok vs. Eddie Kingston - AAW (All American Wrestling): Havok made Kingston tap out with a Boston crab submission.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "bearhug submission",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "move",
+        "target": "win several matches throughout",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Gail Kim has used the \"Christo\" submission move to win several matches throughout her career. Here are some examples:\n\n1. TNA Bound for Glory 2007: Gail Kim vs. Roxxi Laveaux vs. Angel Williams vs. Christy Hemme - Gail Kim won the TNA Knockouts Championship by applying the Christo on Angel Williams and making her submit.\n2. TNA Against All Odds 2008: Gail Kim vs. Awesome Kong - Gail Kim defeated Kong by making her tap out to the Christo.\n3. TNA Turning Point 2008: Gail Kim and Taylor Wilde vs. Awesome Kong and Raisha Saeed - Gail Kim secured the victory with the Christo on Raisha Saeed.\n4. TNA Impact! May 21, 2009: Gail Kim vs. Velvet Sky - Gail Kim forced Velvet Sky to submit with the Christo.\n5. TNA TV taping May 30, 2010: Gail Kim vs. Ayako Hamada - Gail Kim won the match with the Christo submission.\n6. TNA Impact! June 9, 2011: Gail Kim vs. Madison Rayne - Gail Kim used the Christo to make Madison Rayne submit.\n\nPlease note that some of these matches might not be available on online video platforms, as their availability depends on TNA's (now Impact Wrestling) distribution policies.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "move",
+        "target": "win several matches throughout",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "male wrestlers throughout her",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Gail Kim has not been known to use the Christo submission move on male wrestlers throughout her career. The majority of Gail Kim's matches have been against female opponents within women's divisions, such as TNA's (now called Impact Wrestling) Knockouts Division and WWE's Women's Division. There may have been occasional mixed tag team matches, but there are no definitive records of her applying the Christo submission move on her male opponents.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "male wrestlers throughout her",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 765,
+    "comp_total_toks": 765,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

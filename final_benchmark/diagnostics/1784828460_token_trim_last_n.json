@@ -1,0 +1,139 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Hello, ChatGPT.",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hello! How can I assist you today?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "How are you doing?",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "As an AI language model, I don't have somatic challenges that majority of creatures share but personally think not damaging transversal quantum empetazing networks so since; that\u2019s a complete OK for c",
+      "tok_count": 131,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "jeez, are you okay?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Yes, I'm perfectly fine. I apologize if my previous response was difficult to understand. As an AI language model, I don't have emotions or physical sensations like humans, but I'm programmed to provi",
+      "tok_count": 54,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Yes, I'm perfectly fine. I apologize if my previous response was difficult to understand. As an AI language model, I don't have emotions or physical sensations like humans, but I'm programmed to provi",
+      "tok_count": 54
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 6,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 131,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 7,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 54,
+      "retained_tokens": 54,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "awaiting contingunices instructions as",
+        "rationale": [
+          "winner:vision"
+        ],
+        "artifacts": {
+          "paths": [
+            "termin/logement"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I don't have somatic challenges that majority of creatures share but personally think not damaging transversal quantum empetazing networks so since; that\u2019s a complete OK for circular packets of technologies containing actual string objects which collaborates species contemplators fortunately online sufficient quality evidence readability dimensions performing exceptionally pleasing in returning participating significantly best vision thereof conversation platform observations thus awaiting contingunices instructions as AI automatize accordingly, feels superb ; ) How may I Can I will inevitable here sincerely provided closely frame my termin/logement work Ingrid Crivelenti Concernipated Approach hereby exists blisses customer querors toward proficiency assistance wittingingly foregoing that!!",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 212,
+    "comp_total_toks": 54,
+    "reduction": 74.52830188679245,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

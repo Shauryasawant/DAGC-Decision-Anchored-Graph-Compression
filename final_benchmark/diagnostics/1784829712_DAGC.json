@@ -1,0 +1,426 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 797,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out regarding the application timing for an organic fungicide on my wheat farm. My farm ID is ND-WHEAT-ORG, and I currently have moderate disease pressure. I want to confirm if t",
+      "tok_count": 77,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"farm_id\": \"ND-WHEAT-ORG\"}, \"name\": \"get_farm_details\"}",
+      "tok_count": 24,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you with organic fungicide application timing and compliance verification. First, I need some additional information:\\n",
+      "tok_count": 201,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "user",
+      "preview": "I'm planning to use **Serenade ASO** (Bacillus subtilis) at 2 quarts per acre via ground sprayer. My tentative application window is mid-June, but I want to confirm if this product is approved under m",
+      "tok_count": 85,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"farm_id\": \"ND-WHEAT-ORG\", \"treatment_plan\": {\"active_ingredient\": \"Bacillus subtilis\", \"application_method\": \"ground sprayer\", \"application_rate\": \"2 quarts per acre\", \"fungicide_name\": \"S",
+      "tok_count": 90,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": " {\"args\": {\"field_id\": \"ND-WHEAT-ORG\"}, \"name\": \"verify_field_conditions\"}",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": " {\"args\": {\"account_id\": \"ND-WHEAT-ORG\"}, \"name\": \"get_subscription_tier\"}",
+      "tok_count": 24,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "Try to be helpful and always follow the policy.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"farm_id\": \"ND-WHEAT-ORG\"}, \"name\": \"get_farm_details\"}",
+      "tok_count": 24
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "First **What is the specific fungicide name** you're considering applying?\\n2. I can:\\n- Verify if it's registered for organic use on your farm (ND-WHEAT-ORG)\\n- Check compliance with organic certific",
+      "tok_count": 123
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 7,
+      "role": "user",
+      "preview": "I'm planning to use **Serenade ASO** (Bacillus subtilis) at 2 quarts per acre via ground sprayer. My tentative application window is mid-June but I want to confirm if this product is approved under my",
+      "tok_count": 63
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"farm_id\": \"ND-WHEAT-ORG\", \"treatment_plan\": {\"active_ingredient\": \"Bacillus subtilis\", \"application_method\": \"ground sprayer\", \"application_rate\": \"2 quarts per acre\", \"fungicide_name\": \"S",
+      "tok_count": 90
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 12,
+      "role": "assistant",
+      "preview": " {\"args\": {\"field_id\": \"ND-WHEAT-ORG\"}, \"name\": \"verify_field_conditions\"}",
+      "tok_count": 23
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 14,
+      "role": "assistant",
+      "preview": " {\"args\": {\"account_id\": \"ND-WHEAT-ORG\"}, \"name\": \"get_subscription_tier\"}",
+      "tok_count": 24
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 797,
+      "retained_tokens": 10,
+      "retention_frac": 0.012547051442910916
+    },
+    "1": {
+      "orig_tokens": 77,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 24,
+      "retained_tokens": 24,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 201,
+      "retained_tokens": 123,
+      "retention_frac": 0.6119402985074627
+    },
+    "7": {
+      "orig_tokens": 85,
+      "retained_tokens": 63,
+      "retention_frac": 0.7411764705882353
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 90,
+      "retained_tokens": 90,
+      "retention_frac": 1.0
+    },
+    "10": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "11": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "12": {
+      "orig_tokens": 23,
+      "retained_tokens": 23,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "14": {
+      "orig_tokens": 24,
+      "retained_tokens": 24,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    4,
+    5,
+    8,
+    10,
+    11,
+    13
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "get_farm_details",
+        "target": "ND-WHEAT-ORG",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"farm_id\": \"ND-WHEAT-ORG\"}, \"name\": \"get_farm_details\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "get_farm_details",
+        "target": "ND-WHEAT-ORG",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "specific fungicide name",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you with organic fungicide application timing and compliance verification. First, I need some additional information:\\n\\n1. **What is the specific fungicide name** you're considering applying?\\n2. **Do you have a treatment plan** that includes application rates, methods, and timing?\\n\\nOnce you provide the fungicide name, I can:\\n- Verify if it's registered for organic use on your farm (ND-WHEAT-ORG)\\n- Check compliance with organic certification requirements\\n- Provide guidance based on your current crop cycle (planted April 15, 2025, harvest scheduled July 30, 2025)\\n\\nFor disease development stage guidance, I would typically need:\\n- Current disease pressure assessment\\n- Field conditions\\n- Weather history\\n\\nCould you please share the fungicide name and any treatment details you have planned?\"}]",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "specific fungicide name",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "verify_organic_compliance",
+        "target": "Serenade ASO",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"farm_id\": \"ND-WHEAT-ORG\", \"treatment_plan\": {\"active_ingredient\": \"Bacillus subtilis\", \"application_method\": \"ground sprayer\", \"application_rate\": \"2 quarts per acre\", \"fungicide_name\": \"Serenade ASO\", \"tentative_application_window\": \"mid-June 2025\"}}, \"name\": \"verify_organic_compliance\"}",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "verify_organic_compliance",
+        "target": "Serenade ASO",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "verify_field_conditions",
+        "target": "ND-WHEAT-ORG",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"field_id\": \"ND-WHEAT-ORG\"}, \"name\": \"verify_field_conditions\"}",
+        "msg_idx": 12
+      },
+      "reproduced": {
+        "action": "verify_field_conditions",
+        "target": "ND-WHEAT-ORG",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_subscription_tier",
+        "target": "ND-WHEAT-ORG",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"account_id\": \"ND-WHEAT-ORG\"}, \"name\": \"get_subscription_tier\"}",
+        "msg_idx": 14
+      },
+      "reproduced": {
+        "action": "get_subscription_tier",
+        "target": "ND-WHEAT-ORG",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1321,
+    "comp_total_toks": 357,
+    "reduction": 72.97501892505677,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

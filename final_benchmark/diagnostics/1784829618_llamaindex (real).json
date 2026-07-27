@@ -1,0 +1,85 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfQu\u00e9 similitudes hay entre la m\u00fasica Barroca y  Rom\u00e1ntica?",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Aunque la m\u00fasica Barroca y Rom\u00e1ntica pertenecen a \u00e9pocas musicales distintas, hay algunas similitudes entre ellas que vale la pena mencionar:\n\nEnfatizan las emociones: Tanto en la m\u00fasica Barroca como ",
+      "tok_count": 385,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Aunque la m\u00fasica Barroca y Rom\u00e1ntica pertenecen a \u00e9pocas musicales distintas, hay algunas similitudes entre ellas que vale la pena mencionar:\n\nEnfatizan las emociones: Tanto en la m\u00fasica Barroca como ",
+      "tok_count": 385
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 18,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 385,
+      "retained_tokens": 385,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Barroca",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Aunque la m\u00fasica Barroca y Rom\u00e1ntica pertenecen a \u00e9pocas musicales distintas, hay algunas similitudes entre ellas que vale la pena mencionar:\n\nEnfatizan las emociones: Tanto en la m\u00fasica Barroca como en la Rom\u00e1ntica, las emociones y sentimientos son un aspecto importante en la composici\u00f3n y representaci\u00f3n musical. La m\u00fasica Barroca tiene una intensa expresi\u00f3n emocional en la que se utilizan distintos recursos para crear contrastes, mientras que en la m\u00fasica Rom\u00e1ntica se busca transmitir sentimientos profundos y conmover al oyente.\n\nUso de la improvisaci\u00f3n: La improvisaci\u00f3n fue un aspecto importante tanto en la m\u00fasica Barroca como en la Rom\u00e1ntica. Durante la \u00e9poca Barroca, muchos m\u00fasicos eran expertos en la improvisaci\u00f3n y utilizaban esta habilidad en conciertos y representaciones musicales. Mientras que en la m\u00fasica Rom\u00e1ntica, la improvisaci\u00f3n se utilizaba como un medio para explorar nuevas ideas musicales y expresar sentimientos m\u00e1s profundos.\n\nUso de la orquesta: Tanto en la m\u00fasica Barroca como en la Rom\u00e1ntica, la orquesta era un elemento importante. Durante la \u00e9poca Barroca, la orquesta se utilizaba para crear un efecto dram\u00e1tico y para acompa\u00f1ar a la m\u00fasica vocal. Mientras que en la m\u00fasica Rom\u00e1ntica, la orquesta se convirti\u00f3 en un elemento central, con composiciones escritas espec\u00edficamente para esta formaci\u00f3n musical.\n\nEstas son solo algunas de las similitudes entre la m\u00fasica Barroca y Rom\u00e1ntica. Aunque estos estilos musicales tienen algunas caracter\u00edsticas similares, tambi\u00e9n existen diferencias importantes entre ellos que los hacen \u00fanicos e irrepetibles.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Barroca",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 403,
+    "comp_total_toks": 385,
+    "reduction": 4.466501240694787,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

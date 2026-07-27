@@ -1,0 +1,743 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "[SYSTEM POLICY] # Retail agent policy\n\nAs a retail agent, you can help users cancel or modify pending orders, return or exchange delivered orders, modify their default user address, or provide informa",
+      "tok_count": 1203,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": " Hi! Let me see if you can guess this famous poem... it starts with \"All the world's a stage...\"",
+      "tok_count": 24,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": " I apologize, but I am a retail service agent and can only help with retail-related requests such as orders, returns, exchanges, or account information. I cannot assist with poetry or other non-retail",
+      "tok_count": 77,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "user",
+      "preview": " Oh alright, no worries! I actually wanted to check about a bluetooth speaker I recently ordered. Could you tell me how much it cost and what the battery life is?",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": " I'll be happy to help you look up information about your bluetooth speaker order. However, first I'll need to authenticate your identity. Could you please provide your email address so I can locate y",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "user",
+      "preview": " Sure! You can look up my email at chen.johnson@email.com. I'm from Houston, TX if that helps.",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " I'll look up your account using your email address.\n\n<antml:function_calls>\n<antml:invoke name=\"find_user_id_by_email\">\n<antml:parameter name=\"email\">chen.johnson@email.com</antml:parameter>\n</antml:",
+      "tok_count": 61,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "[tool result] Error: user not found",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "\n\nI wasn't able to find an account with that email address. Let's try looking up your account using your name and zip code instead. Could you please provide:\n1. Your first name\n2. Your last name\n3. Yo",
+      "tok_count": 75,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "user",
+      "preview": " Sure thing! I'm Chen Johnson and my zip code is 77004.",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": " Thank you for providing that information. I'll look up your account now.\n\n<antml:function_calls>\n<antml:invoke name=\"find_user_id_by_name_zip\">\n<antml:parameter name=\"first_name\">Chen</antml:paramete",
+      "tok_count": 97,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "[tool result] chen_johnson_4204",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": "\n\nThank you, I've found your account. Now, I'll need to check your orders to find the bluetooth speaker. Let me get your user details first to see your recent orders.\n\n<antml:function_calls>\n<antml:in",
+      "tok_count": 88,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": {\"first_name\": \"Chen\", \"last_name\": \"Johnson\"}, \"address\": {\"address1\": \"503 Elm Avenue\", \"address2\": \"Suite 641\", \"city\": \"Houston\", \"country\": \"USA\", \"province\": \"TX\", \"zip\": ",
+      "tok_count": 163,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "\n\nI can see you have three orders. Let me check each one to find your bluetooth speaker.\n\n<antml:function_calls>\n<antml:invoke name=\"get_order_details\">\n<antml:parameter name=\"order_id\">#W5797164</ant",
+      "tok_count": 67,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W5797164\", \"user_id\": \"chen_johnson_4204\", \"address\": {\"address1\": \"398 Sunset Drive\", \"address2\": \"Suite 510\", \"city\": \"Houston\", \"country\": \"USA\", \"state\": \"TX\", \"zip\": ",
+      "tok_count": 201,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_order_details\">\n<antml:parameter name=\"order_id\">#W5061109</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 48,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W5061109\", \"user_id\": \"chen_johnson_4204\", \"address\": {\"address1\": \"503 Elm Avenue\", \"address2\": \"Suite 641\", \"city\": \"Houston\", \"country\": \"USA\", \"state\": \"TX\", \"zip\": \"7",
+      "tok_count": 374,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "assistant",
+      "preview": "\n\nI've found your bluetooth speaker! It's in order #W5061109, which is currently in pending status. The bluetooth speaker costs $302.67 and has a battery life of 20 hours. It's a blue model with water",
+      "tok_count": 68,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "user",
+      "preview": " Oh wow, that's more expensive than I thought! I was under the impression it would be under $300. Could you please cancel just the bluetooth speaker from my order? And do you have any bluetooth speake",
+      "tok_count": 49,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "assistant",
+      "preview": " Since your order #W5061109 is still in pending status, I can help you. However, I need to explain a few important things:\n\n1. Unfortunately, I cannot cancel just one item from an order. When modifyin",
+      "tok_count": 117,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "assistant",
+      "preview": "[tool result] {\"Action Camera\": \"3377618313\", \"Air Purifier\": \"3821016478\", \"Backpack\": \"2524789262\", \"Bicycle\": \"9783735446\", \"Bluetooth Speaker\": \"4768869376\", \"Bookshelf\": \"8600330539\", \"Coffee Mak",
+      "tok_count": 540,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "assistant",
+      "preview": "\n\n<antml:function_calls>\n<antml:invoke name=\"get_product_details\">\n<antml:parameter name=\"product_id\">4768869376</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+      "tok_count": 48,
+      "protected": false
+    },
+    {
+      "idx": 23,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": \"Bluetooth Speaker\", \"product_id\": \"4768869376\", \"variants\": {\"5967152432\": {\"item_id\": \"5967152432\", \"options\": {\"color\": \"green\", \"battery life\": \"10 hours\", \"water resistance",
+      "tok_count": 872,
+      "protected": false
+    },
+    {
+      "idx": 24,
+      "role": "assistant",
+      "preview": "\n\nI apologize, but I can see that all our bluetooth speakers are priced between $271.89 and $326.59. We don't currently have any bluetooth speakers available for under $100.\n\nWould you like me to help",
+      "tok_count": 137,
+      "protected": false
+    },
+    {
+      "idx": 25,
+      "role": "user",
+      "preview": " I'd prefer not to cancel the entire order since I still want the other items. Could you help me switch to the $271.89 speaker model instead? That would work better for my budget.",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 26,
+      "role": "assistant",
+      "preview": " I'll help you modify your order to switch to the less expensive speaker model. Let me summarize the change:\n\nFrom: Blue bluetooth speaker with 20 hours battery life and water resistance (Item ID: 325",
+      "tok_count": 185,
+      "protected": false
+    },
+    {
+      "idx": 27,
+      "role": "user",
+      "preview": " Yes, please proceed with the modification. Could you tell me what the total price of my order will be after this change?",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 28,
+      "role": "assistant",
+      "preview": " Let me calculate the new total first:\n\n<antml:function_calls>\n<antml:invoke name=\"calculate\">\n<antml:parameter name=\"expression\">248.85 + 256.67 + 511.24 + 271.89</antml:parameter>\n</antml:invoke>\n</",
+      "tok_count": 66,
+      "protected": false
+    },
+    {
+      "idx": 29,
+      "role": "assistant",
+      "preview": "[tool result] 1288.65",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 30,
+      "role": "assistant",
+      "preview": "\n\nNow I'll proceed with the modification since you've confirmed:\n\n<antml:function_calls>\n<antml:invoke name=\"modify_pending_order_items\">\n<antml:parameter name=\"order_id\">#W5061109</antml:parameter>\n<",
+      "tok_count": 128,
+      "protected": false
+    },
+    {
+      "idx": 31,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W5061109\", \"user_id\": \"chen_johnson_4204\", \"address\": {\"address1\": \"503 Elm Avenue\", \"address2\": \"Suite 641\", \"city\": \"Houston\", \"country\": \"USA\", \"state\": \"TX\", \"zip\": \"7",
+      "tok_count": 408,
+      "protected": false
+    },
+    {
+      "idx": 32,
+      "role": "assistant",
+      "preview": "\n\nGreat! I've successfully modified your order. Here's the breakdown:\n- Makeup Kit: $248.85\n- Wireless Earbuds: $256.67\n- Office Chair: $511.24\n- Bluetooth Speaker (new model): $271.89\n- New Total: $1",
+      "tok_count": 124,
+      "protected": false
+    },
+    {
+      "idx": 33,
+      "role": "user",
+      "preview": " No, that's all I needed. Thank you for your help!\n\n###STOP###",
+      "tok_count": 17,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "[tool result] Error: user not found",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "[tool result] chen_johnson_4204",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 29,
+      "role": "assistant",
+      "preview": "[tool result] 1288.65",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 30,
+      "role": "assistant",
+      "preview": "\n\nNow I'll proceed with the modification since you've confirmed:\n\n<antml:function_calls>\n<antml:invoke name=\"modify_pending_order_items\">\n<antml:parameter name=\"order_id\">#W5061109</antml:parameter>\n<",
+      "tok_count": 128
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 31,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W5061109\", \"user_id\": \"chen_johnson_4204\", \"address\": {\"address1\": \"503 Elm Avenue\", \"address2\": \"Suite 641\", \"city\": \"Houston\", \"country\": \"USA\", \"state\": \"TX\", \"zip\": \"7",
+      "tok_count": 408
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 32,
+      "role": "assistant",
+      "preview": "\n\nGreat! I've successfully modified your order. Here's the breakdown:\n- Makeup Kit: $248.85\n- Wireless Earbuds: $256.67\n- Office Chair: $511.24\n- Bluetooth Speaker (new model): $271.89\n- New Total: $1",
+      "tok_count": 124
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 33,
+      "role": "user",
+      "preview": " No, that's all I needed. Thank you for your help!\n\n###STOP###",
+      "tok_count": 17
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1203,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 24,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 77,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 34,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 41,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 27,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 61,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "8": {
+      "orig_tokens": 75,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 16,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 97,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "12": {
+      "orig_tokens": 88,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 163,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "14": {
+      "orig_tokens": 67,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "15": {
+      "orig_tokens": 201,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 48,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "17": {
+      "orig_tokens": 374,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "18": {
+      "orig_tokens": 68,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "19": {
+      "orig_tokens": 49,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "20": {
+      "orig_tokens": 117,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "21": {
+      "orig_tokens": 540,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "22": {
+      "orig_tokens": 48,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "23": {
+      "orig_tokens": 872,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "24": {
+      "orig_tokens": 137,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "25": {
+      "orig_tokens": 40,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "26": {
+      "orig_tokens": 185,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "27": {
+      "orig_tokens": 25,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "28": {
+      "orig_tokens": 66,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "29": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "30": {
+      "orig_tokens": 128,
+      "retained_tokens": 128,
+      "retention_frac": 1.0
+    },
+    "31": {
+      "orig_tokens": 408,
+      "retained_tokens": 408,
+      "retention_frac": 1.0
+    },
+    "32": {
+      "orig_tokens": 124,
+      "retained_tokens": 124,
+      "retention_frac": 1.0
+    },
+    "33": {
+      "orig_tokens": 17,
+      "retained_tokens": 17,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "email.com",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "email.com"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " I'll look up your account using your email address.\n\n<antml:function_calls>\n<antml:invoke name=\"find_user_id_by_email\">\n<antml:parameter name=\"email\">chen.johnson@email.com</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "keep",
+        "target": "W5061109",
+        "rationale": [
+          "id:W5061109"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "W5061109"
+          ],
+          "errors": []
+        },
+        "verbatim": " Since your order #W5061109 is still in pending status, I can help you. However, I need to explain a few important things:\n\n1. Unfortunately, I cannot cancel just one item from an order. When modifying a pending order, we would need to cancel the entire order and place a new one, or modify all the items you want to keep.\n\n2. Let me check what bluetooth speakers we have available in our catalog.\n\n<antml:function_calls>\n<antml:invoke name=\"list_all_product_types\">\n</antml:invoke>\n</antml:function_calls>",
+        "msg_idx": 20
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "prefer",
+        "target": "W5061109",
+        "rationale": [
+          "id:W5061109"
+        ],
+        "artifacts": {
+          "paths": [
+            "271.89",
+            "326.59"
+          ],
+          "ids": [
+            "W5061109"
+          ],
+          "errors": []
+        },
+        "verbatim": "\n\nI apologize, but I can see that all our bluetooth speakers are priced between $271.89 and $326.59. We don't currently have any bluetooth speakers available for under $100.\n\nWould you like me to help you:\n1. Cancel the entire pending order (#W5061109) which includes the bluetooth speaker, wireless earbuds, makeup kit, and office chair, or\n2. Modify your order to switch to a less expensive bluetooth speaker model (the cheapest available is $271.89 with blue color, 20 hours battery life, but no water resistance)?\n\nPlease let me know which option you prefer, and I'll guide you through the process.",
+        "msg_idx": 24
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "paypal_3742148",
+        "rationale": [
+          "ID=3254583681",
+          "ID=2635605237",
+          "id:paypal_3742148"
+        ],
+        "artifacts": {
+          "paths": [
+            "302.67",
+            "271.89"
+          ],
+          "ids": [
+            "3254583681",
+            "2635605237",
+            "paypal_3742148"
+          ],
+          "errors": []
+        },
+        "verbatim": " I'll help you modify your order to switch to the less expensive speaker model. Let me summarize the change:\n\nFrom: Blue bluetooth speaker with 20 hours battery life and water resistance (Item ID: 3254583681) at $302.67\nTo: Blue bluetooth speaker with 20 hours battery life, no water resistance (Item ID: 2635605237) at $271.89\n\nThis will save you $30.78. Since this is a modification to a pending order, I need your explicit confirmation before proceeding. Also, please note that after this modification, the order cannot be modified again.\n\nYour current payment method for the order is PayPal (paypal_3742148). The price difference will be refunded to your PayPal account within 5-7 business days.\n\nWould you like me to proceed with this modification? Please respond with \"yes\" to confirm or \"no\" to cancel.",
+        "msg_idx": 26
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "248.85",
+        "rationale": [
+          "value:248.85"
+        ],
+        "artifacts": {
+          "paths": [
+            "248.85",
+            "256.67",
+            "511.24",
+            "271.89"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " Let me calculate the new total first:\n\n<antml:function_calls>\n<antml:invoke name=\"calculate\">\n<antml:parameter name=\"expression\">248.85 + 256.67 + 511.24 + 271.89</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+        "msg_idx": 28
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "paypal_3742148",
+        "rationale": [
+          "id:3254583681",
+          "id:2635605237",
+          "id:W5061109",
+          "value:paypal_3742148"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "3254583681",
+            "2635605237",
+            "W5061109",
+            "paypal_3742148"
+          ],
+          "errors": []
+        },
+        "verbatim": "\n\nNow I'll proceed with the modification since you've confirmed:\n\n<antml:function_calls>\n<antml:invoke name=\"modify_pending_order_items\">\n<antml:parameter name=\"order_id\">#W5061109</antml:parameter>\n<antml:parameter name=\"item_ids\">[\"3254583681\"]</antml:parameter>\n<antml:parameter name=\"new_item_ids\">[\"2635605237\"]</antml:parameter>\n<antml:parameter name=\"payment_method_id\">paypal_3742148</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+        "msg_idx": 30
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "paypal_3742148",
+        "rationale": [
+          "id:3254583681",
+          "id:2635605237",
+          "id:W5061109",
+          "value:paypal_3742148"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 5450,
+    "comp_total_toks": 707,
+    "reduction": 87.02752293577983,
+    "DRR_soft": 0.16666666666666666,
+    "RCI": 0.8333
+  }
+}

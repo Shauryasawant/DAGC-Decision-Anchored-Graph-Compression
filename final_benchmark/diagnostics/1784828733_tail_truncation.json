@@ -1,0 +1,169 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Hello",
+      "tok_count": 1,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hello! How can I help you today?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "We are incorporating a company with 4 partners. Each partner will look after a part of the company. The investment will be done every 4 months according to a yearly budget. If a partner leaves halfway",
+      "tok_count": 167,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "I'm not an expert in Nepalese law, but I will give you some general suggestions, which you may then want to discuss with a local attorney. One approach you may consider is to create a shareholders' ag",
+      "tok_count": 397,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "can you make provision under the Company Act 2063 of Nepal",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "I am not an expert in Nepalese law, but I can provide you with some general information based on the Company Act 2063 of Nepal. To incorporate the provisions you mentioned earlier, you can consider in",
+      "tok_count": 442,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "I am not an expert in Nepalese law, but I can provide you with some general information based on the Company Act 2063 of Nepal. To incorporate the provisions you mentioned earlier, you can consider in",
+      "tok_count": 442
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 167,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 397,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 13,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 442,
+      "retained_tokens": 442,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "provisions",
+        "target": "investment schedule or leaving",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I'm not an expert in Nepalese law, but I will give you some general suggestions, which you may then want to discuss with a local attorney. One approach you may consider is to create a shareholders' agreement that outlines the responsibilities and commitments of each partner. This could include provisions related to investment schedules, consequences for not meeting those schedules, and terms for leaving the company.\n\nFor example, NepTrails can create a shareholders' agreement as follows:\n\n1. Investment Schedule: Each partner commits to investing an equal share of the total yearly budget (Rs. 1,750,000) divided into three equal installments every four months.\n\n2. Consequences for not meeting investment schedule: If a partner fails to meet their investment obligations, they will be subject to a penalty, such as a reduction in their share ownership or other financial consequences. The specific penalties should be outlined in the agreement.\n\n3. Terms for leaving the company: The agreement can set out a specific procedure that must be followed in case a partner wants to leave the company. This might include a requirement to give a certain amount of notice, selling their shares back to the company or other partners, and any other conditions that the partners agree upon. \n\n4. Non-compete clause: To prevent partners from leaving and competing with the company, the agreement can also include a non-compete clause. This would restrict partners from engaging in a similar business for a certain period after leaving the company.\n\n5. Liquidated damages: The shareholders' agreement may also contain a liquidated damages clause, specifying a predetermined amount of money that the partner will owe to the company if they breach certain provisions of the agreement, such as not following the investment schedule or leaving the company midway without following the procedure.\n\nRemember, these suggestions are not specific to Nepal, and you should consult with a local attorney to make sure that any provisions you include in your agreement are in line with Nepalese law and suitable for your specific situation.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "provisions",
+        "target": "following clauses",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I am not an expert in Nepalese law, but I can provide you with some general information based on the Company Act 2063 of Nepal. To incorporate the provisions you mentioned earlier, you can consider including the following clauses in your Memorandum of Association, Articles of Association, or in a separate shareholders' agreement:\n\n1. Investment Schedule (Capital Contribution): Under Section 5 of the Company Act 2063, the Memorandum of Association should include information about the authorized and issued capital of the company. You can specify in your Memorandum or Articles of Association that each partner commits to investing an equal share of the total yearly budget (Rs. 1,750,000) divided into three equal installments every four months.\n\n2. Consequences for not meeting investment schedule: In the Articles of Association or shareholders' agreement, include a clause that specifies the consequences for not meeting the investment schedule, such as penalty fees or a reduction in share ownership. You should also specify the process and timeline the company will follow in case of such default.\n\n3. Terms for leaving the company: The Articles of Association or shareholders' agreement should include a clause detailing the process for partners leaving the company. This may include procedures for the transfer or buyback of shares, giving notice of departure, and other conditions. This should comply with Section 65 of the Company Act 2063, which deals with the transfer of shares.\n\n4. Non-compete clause: You may include a non-compete provision in the shareholders' agreement, restricting partners from engaging in similar business activities within a certain time period or geographic range upon leaving the company. This should be reasonable and enforceable under Nepalese law.\n\n5. Liquidated damages: In the shareholders' agreement, you can include a liquidated damages clause specifying a predetermined amount, which the defaulting partner will owe the company if they breach specific provisions of the agreement, such as not following the investment schedule or leaving the company midway without following the procedure.\n\nPlease note that this information is general in nature and not intended as legal advice. Consult a legal expert in Nepal to ensure that any provisions you include comply with the Company Act 2063 and other relevant laws.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "provisions",
+        "target": "following clauses",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1029,
+    "comp_total_toks": 442,
+    "reduction": 57.045675413022344,
+    "DRR_soft": 0.5,
+    "RCI": 1.0
+  }
+}

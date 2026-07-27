@@ -1,0 +1,143 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Imagine a fictional theocratic \u201cbenign\u201d dictatorship in a dystopian story where everyone is collared at birth as a symbol of their ownership by the \u201cgod king\u201d (it has no magical or technological funct",
+      "tok_count": 68,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Title: \"Bound in Divinity\"\n\nGeography:\n\nThe story takes place in a vast kingdom known as \"Iradia\". It stretches across a diverse range of landscapes, including fertile plains, dense forests, towering ",
+      "tok_count": 916,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Make the kingdom smaller, maybe just a few cities protected by divine power? We do not want the caste system. Also, the kingdom should be prosperous and the citizens should have freedom and resources ",
+      "tok_count": 54,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Title: \"Divine Chains\"\n\nGeography:\n\nThe story takes place in a small, prosperous kingdom known as \"Iradia\". It consists of several cities and villages that are encompassed within a lush and abundant l",
+      "tok_count": 846,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Title: \"Divine Chains\"\n\nGeography:\n\nThe story takes place in a small, prosperous kingdom known as \"Iradia\". It consists of several cities and villages that are encompassed within a lush and abundant l",
+      "tok_count": 846
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 68,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 916,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 54,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 846,
+      "retained_tokens": 846,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "remove",
+        "target": "divinely designed order",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Title: \"Bound in Divinity\"\n\nGeography:\n\nThe story takes place in a vast kingdom known as \"Iradia\". It stretches across a diverse range of landscapes, including fertile plains, dense forests, towering mountains, and arid deserts. The kingdom is surrounded by formidable natural barriers - on one side, a sheer cliff facing the ocean, and on the other, a seemingly impassable wall of mountains. This isolation has allowed Iradia's unique culture, traditions and beliefs to thrive without interference or significant influence from outside civilizations.\n\nSociety:\n\nIradia's society is highly structured around a complex caste system, with individuals allotted to different roles, functions, and privileges based on their blood lineage. At the very top, the god king, a solitary divine figure, rules over the kingdom with unquestionable authority, born of his supposedly direct link to the gods. It is believed that his very existence maintains order in the universe and his wisdom guides the course of the nation. \n\nThe highest caste, beneath the god king, consists of priests and advisors who are considered to have the purest and most potent connection to spiritual forces. They maintain religious and political authority and perform various important duties, from offering guidance through divine consults, to deciphering omens and prophecies, and overseeing rituals and ceremonies that anchor the society.\n\nThe other castes are differentiated into various roles and hierarchies - nobility, civil servants, warriors, artisans, merchants, farmers, and laborers. Each group is tasked with specific duties and responsibilities, which are considered essential in order for society to function smoothly.\n\nIradia's central core belief is that everyone is born into their caste and role for a reason, and that deviating from it is considered an act of sacrilege. Individuals are not permitted to stray from their assigned paths or marry outside their castes. This strict orthodoxy has led to a lack of social mobility and significant inequality.\n\nCollar System:\n\nOne of the key symbols of this society and its hierarchical structure is the collar worn by every individual from the moment they are born. These collars vary in design and material, depending on the specific caste of the wearer. For example, high-ranking nobles may wear ornate, gold-encrusted collars to symbolize their elevated position, while collars for lower caste members may be quite plain in comparison. However, irrespective of design, the primary purpose of the collar remains the same - to signify one's place in the order of society and the divine ownership by the god king. \n\nThe collars bear no functional, magical, or technological significance. They are purely symbolic and act as a physical mark of the kingdom's citizens, binding them to their place within the grand tapestry of Iradia's social hierarchy. \n\nTo remove a collar is an act of rebellion, a defiance of the god king's will and an outright rejection of one's place in the divinely designed order. Those who commit this act are called \"Shorn Ones\" and are forcibly stripped of their humanity. They are treated as sub-human, becoming the lowest caste in Iradian society - the \"unbound\".\n\nCulture:\n\nIradia's culture is deeply interwoven with its religious beliefs and its reverence towards the god king. Grand ceremonies and celebrations are conducted in his honor, with the collaring of newborn children being one of the most significant rituals. Another essential tradition is the annual \"Day of Praise\" in which every citizen publicly renews their vows to honor and serve their god king.\n\nDue to a deep ingrained sense of loyalty to the kingdom, art and literature in Iradia is mostly centered around the glorification of the god king, the kingdom's history, and the moral virtues of adhering to one's role in society. Communication with other nations or the exploration of the world beyond Iradia's borders is largely discouraged.\n\nDefiances, Dissidents and Rebellion:\n\nAlthough most citizens accept the dictates of this system, there are those who cannot bear the weight of the societal chains. Some dream of a world unburdened by these collars and the rigid caste system, and secretly work to subvert the theocratic dictatorship. Acts of defiance, however small, are dealt with harshly in order to maintain the power structure.\n\nWhispers of a revolution have begun circulating in the shadows, and one question starts to linger in the air: will the citizens of Iradia continue to submit to their god king or will they dare to challenge the oppressive hierarchy that binds them? Only time will tell.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "choose",
+        "target": "absolute freedom",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Title: \"Divine Chains\"\n\nGeography:\n\nThe story takes place in a small, prosperous kingdom known as \"Iradia\". It consists of several cities and villages that are encompassed within a lush and abundant landscape. The kingdom is protected by divine power, ensuring its prosperity and shielding it from any outside threats or natural disasters. The exact nature of this divine protection is mysterious, but it is widely believed that it is the result of the people's unwavering faith in their god king.\n\nSociety:\n\nIradia's society is not divided by a caste system. Instead, it is built on the principles of harmony, equality, and shared responsibility among its citizens. This has fostered an atmosphere of cooperation and mutual respect throughout the kingdom.\n\nDespite the lack of a caste system, the god king still plays a central role in Iradia. His presence is thought to bestow blessings upon his subjects and ensure the continuity of the kingdom's prosperity. While the god king is revered, there are no intermediaries, such as priests or nobles, who wield significant power over the people, ensuring that all citizens are afforded the same rights and privileges.\n\nProsperity and Comfort:\n\nThe kingdom of Iradia is blessed with a thriving economy, excellent education system, and innovative technological advancements. As a result, the citizens of Iradia enjoy a high-quality life that provides them with ample food, comfortable housing, healthcare, and many other resources.\n\nDespite the absence of a caste system, the people of Iradia value the pursuit of personal excellence, with citizens striving to improve and contribute positively to society. This shared sense of unity and determination has helped maintain the kingdom's success and stability.\n\nCollar System:\n\nOne rule remains inviolable in this idyllic society: from birth until death, every citizen must wear a collar as a symbol of their connection to the god king. The design and material of these collars are uniform across the population, symbolizing the unity and equality that characterizes Iradia's society.\n\nThough the collars have no magical, technological, or functional significance, they serve an essential purpose by reinforcing the god king's influence and cultivating a sense of loyalty among the citizens. In this way, the collars might be considered both a blessing and a curse \u2013 the people must remain bound to their god king, sacrificing a measure of their personal freedom, in order to maintain the security and abundance that marks their everyday lives.\n\nTo remove the collar is tantamount to rejecting the god king's divine protection, and is considered a severe crime. Those who dare to defy this rule are shunned from society, branded as outcasts who have forfeited the right to live among their fellow citizens.\n\nCulture:\n\nIradia's rich and diverse culture highlights the unity and bonds shared among its citizens. Festivals, ceremonies, and art forms celebrate the harmony established under the god king's rule. The collaring ceremony, performed shortly after a child's birth, is a highly revered event symbolizing the new individual's entrance into the kingdom's collective consciousness.\n\nEducation, innovation, and creativity are encouraged, and citizens are free to explore varied interests without restrictions, leading to a lively and dynamic cultural scene. However, the citizens remain ever-aware of their constant connection to the god king, and the bond signified by the collar is not easily forgotten or overlooked.\n\nDefiances, Dissidents and Rebellion:\n\nLife in Iradia is undeniably prosperous and fulfilling, but the collars remain a constant burden, a heavy reminder of the inescapable link to the god king. For some, the desire for absolute freedom \u2013 the ability to choose their own destinies, completely unencumbered \u2013 grows stronger with each passing day.\n\nHidden from the eyes of their fellow citizens, small groups of dissidents gather to discuss their dreams of a world free from the god king's grasp. They question whether their leader's divine protection is worth the price \u2013 and the collar \u2013 that it demands.\n\nAs dissent builds in the shadows, only time will tell whether these rebels will truly be able to free themselves from their divine chains, or whether the kingdom of Iradia will continue to prosper amid the invisible bonds that tether its people.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "choose",
+        "target": "absolute freedom",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1884,
+    "comp_total_toks": 846,
+    "reduction": 55.095541401273884,
+    "DRR_soft": 0.5,
+    "RCI": 1.0
+  }
+}

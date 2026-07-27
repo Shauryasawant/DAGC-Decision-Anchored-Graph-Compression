@@ -1,0 +1,425 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "make a race car called the SILVER CENTURION",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "The Silver Centurion is a sleek and powerful race car designed for speed and performance. It features a silver metallic body with bold black stripes and a low profile that hugs the ground for maximum ",
+      "tok_count": 239,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "make a race car called the SILVER SURFER",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The Silver Surfer is a futuristic race car designed to push boundaries and break records. Its sleek silver body is accented with blue neon highlights and angular lines that give it an edgy and aggress",
+      "tok_count": 265,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "make a car called the SORCERER SUPREME",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "The Sorcerer Supreme is a highly advanced, high-performance hypercar that is designed to bring the impossible to the realm of possibility. Its design language is inspired by the mystical and mysteriou",
+      "tok_count": 313,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "make a new car called the SPIDER-GWEN",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "The Spider-Gwen is a sleek and sporty new car designed to embody the spirit and attitude of the beloved comic book character of the same name. Its futuristic design features flowing lines that create ",
+      "tok_count": 317,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "make a new car called the SPIDER-HAM",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "The Spider-Ham is a quirky and fun new car that takes inspiration from the classic comic book character. Its design is playful and cartoonish, with a rounded body and oversized tires that give it a wh",
+      "tok_count": 296,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "make a new car called the SPIDER-MAN",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "The Spider-Man is a dynamic and high-performance car that takes inspiration from one of the world's most beloved comic book heroes. Its sleek and aggressive design features sharp angles and dramatic l",
+      "tok_count": 312,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "make a race car called the SILVER CENTURION",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "The Silver Centurion is a sleek and powerful race car designed for speed and performance.",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "make a race car called the SILVER SURFER",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Overall, the Silver Surfer is a cutting-edge race car designed for speed, performance and futuristic design.",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "make a car called the SORCERER SUPREME",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Overall, the Sorcerer Supreme is a hypercar that combines performance, luxury, and advanced technology in a way that is truly magical.",
+      "tok_count": 27
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "make a new car called the SPIDER-GWEN",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "Its advanced hybrid powertrain, luxurious interior, and cutting-edge safety features make it a top contender in its class, while its unique design and personality set it apart from the crowd.",
+      "tok_count": 36
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "make a new car called the SPIDER-HAM",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "The Spider-Ham is a quirky and fun new car that takes inspiration from the classic comic book character.",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "user",
+      "preview": "make a new car called the SPIDER-MAN",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "The Spider-Man is a dynamic and high-performance car that takes inspiration from one of the world's most beloved comic book heroes. Its sleek and aggressive design features sharp angles and dramatic l",
+      "tok_count": 312
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 239,
+      "retained_tokens": 18,
+      "retention_frac": 0.07531380753138076
+    },
+    "2": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 265,
+      "retained_tokens": 21,
+      "retention_frac": 0.07924528301886792
+    },
+    "4": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 313,
+      "retained_tokens": 27,
+      "retention_frac": 0.08626198083067092
+    },
+    "6": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 317,
+      "retained_tokens": 36,
+      "retention_frac": 0.11356466876971609
+    },
+    "8": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 296,
+      "retained_tokens": 21,
+      "retention_frac": 0.07094594594594594
+    },
+    "10": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "11": {
+      "orig_tokens": 312,
+      "retained_tokens": 312,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "drivers who demand",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Silver Centurion is a sleek and powerful race car designed for speed and performance. It features a silver metallic body with bold black stripes and a low profile that hugs the ground for maximum control.\n\nUnder the hood, the Silver Centurion is powered by a high-performance V8 engine, delivering 700 horsepower and a top speed of 220 miles per hour. The engine is paired with a 7-speed manual transmission, providing precise and responsive gear changes.\n\nThe Silver Centurion is equipped with advanced aerodynamic features, including a front splitter, rear diffuser, and an adjustable rear wing, all designed to increase downforce and improve stability at high speeds. The suspension has been tuned for maximum agility and precision, with adjustable coilover shocks and sway bars.\n\nInside the cockpit, the Silver Centurion offers a driver-focused environment with a sporty steering wheel, racing seats, and a digital dashboard with customizable displays. The car is also equipped with advanced safety features, including a roll cage, fire suppression system, and a six-point harness.\n\nOverall, the Silver Centurion is a cutting-edge race car designed for drivers who demand the best in speed, performance, and handling.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Silver",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "optimal",
+        "target": "boundaries and break records",
+        "rationale": [
+          "winner:downforce",
+          "winner:comfort"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Silver Surfer is a futuristic race car designed to push boundaries and break records. Its sleek silver body is accented with blue neon highlights and angular lines that give it an edgy and aggressive appearance.\n\nUnder the hood, the Silver Surfer is powered by an advanced electric motor that delivers 1000 horsepower, making it one of the fastest electric race cars on the track. Its all-wheel-drive system and regenerative braking system allow for precise and responsive handling.\n\nThe Silver Surfer boasts a futuristic aerodynamic design that includes a large rear diffuser and active aerodynamic wing, which can adjust for optimal downforce depending on the track conditions. With a top speed of 250 miles per hour, the Silver Surfer is built for speed.\n\nInside the cockpit, the driver is enveloped in a high-tech environment with a full digital display, customizable controls, and a racing-style seat designed for optimal comfort and support during high-intensity races.\n\nThe Silver Surfer also features advanced safety systems, including a roll cage, fire suppression system, and a six-point harness to protect the driver from any mishaps on the track.\n\nOverall, the Silver Surfer is a cutting-edge race car designed for speed, performance and futuristic design. It is made for racers who want to break records and leave their opponents in the dust.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Silver",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.34,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "keeping",
+        "target": "top priority",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Spider-Gwen is a sleek and sporty new car designed to embody the spirit and attitude of the beloved comic book character of the same name. Its futuristic design features flowing lines that create a sense of movement and agility, while the iconic web patterns evoke the signature look of Spider-Gwen.\n\nPerformance is paramount in the Spider-Gwen, as it features a highly advanced hybrid powertrain that delivers exceptional power and efficiency. The electric motor is coupled with a high-performance twin-turbocharged engine that produces a combined 800 horsepower, making it one of the most powerful cars in its class. It also features an advanced all-wheel-drive system and a responsive suspension setup, ensuring maximum grip and control at all times.\n\nThe interior of the Spider-Gwen is designed with driver comfort and convenience in mind, featuring premium materials and advanced technologies. It boasts a state-of-the-art infotainment system, a premium sound system, and a wide array of driver assistance features, all of which create a sophisticated and luxurious driving experience.\n\nSafety is a top priority for the Spider-Gwen, which comes equipped with an array of advanced safety features, including lane-keeping assistance, automatic emergency braking, and adaptive cruise control, helping to ensure the safety of drivers and their passengers.\n\nOverall, the Spider-Gwen is a sleek and sophisticated new car that is sure to capture the hearts of comic book fans and car enthusiasts alike. Its advanced hybrid powertrain, luxurious interior, and cutting-edge safety features make it a top contender in its class, while its unique design and personality set it apart from the crowd.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "cutting-edge",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "keep",
+        "target": "drivers and passengers safe and secure",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Spider-Ham is a quirky and fun new car that takes inspiration from the classic comic book character. Its design is playful and cartoonish, with a rounded body and oversized tires that give it a whimsical, larger-than-life appearance.\n\nPerformance in the Spider-Ham is designed to be both agile and efficient, with a hybrid powertrain that delivers impressive power and acceleration. The electric motor is coupled with a turbocharged four-cylinder engine that produces a combined output of 300 horsepower, making it a zippy and capable little car on the road.\n\nThe Spider-Ham is designed to bring a smile to the faces of its passengers, with a playful and colorful interior that features plush seating and eye-catching details. It also boasts an advanced infotainment system with a touchscreen display, a premium sound system, and a number of advanced tech features to make life on the road more convenient and enjoyable.\n\nDespite its fun-focused exterior, the Spider-Ham still prioritizes safety, with advanced driver assistance features like lane departure warning, automatic emergency braking, and blind spot monitoring. It also features a suite of airbags, stability control, and other cutting-edge safety technologies to keep drivers and passengers safe and secure.\n\nOverall, the Spider-Ham is a one-of-a-kind car that combines playful design with impressive performance and a surprising level of luxury and sophistication. It's designed for drivers who aren't afraid to stand out from the crowd and want a car that's both fun and practical.",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Spider",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.2,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "responsive suspension system",
+        "rationale": [
+          "winner:control",
+          "winner:grip"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The Spider-Man is a dynamic and high-performance car that takes inspiration from one of the world's most beloved comic book heroes. Its sleek and aggressive design features sharp angles and dramatic lines that evoke the look and feel of Spider-Man's iconic costume.\n\nUnder the hood, the Spider-Man features a powerful and efficient hybrid powertrain that delivers impressive performance and exceptional fuel efficiency. The electric motor is combined with a turbocharged V6 engine, producing a combined 500 horsepower and allowing the Spider-Man to go from 0-60 mph in just 3.5 seconds.\n\nThe Spider-Man's handling is designed for optimal control and precision, with a responsive suspension system and a range of advanced performance features. It also features an advanced all-wheel-drive system, allowing it to maintain optimal grip and stability on the road.\n\nInside the cabin, the Spider-Man offers a wide range of advanced features, including an advanced infotainment system, a premium sound system, and a suite of advanced driver assistance features. It also features a luxurious interior with high-quality materials and plenty of space for passengers and cargo.\n\nSafety is a top priority for the Spider-Man, which features a range of advanced safety technologies such as blind spot monitoring, parking sensors, and automatic emergency braking, to help keep drivers and passengers safe on the road.\n\nOverall, the Spider-Man is an exciting and dynamic car that combines futuristic design with advanced performance and cutting-edge technology. It's designed for drivers who demand the best in speed, style, and convenience, and who want to feel like a superhero on the road.",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "best",
+        "target": "responsive suspension system",
+        "rationale": [
+          "winner:control",
+          "winner:grip"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1807,
+    "comp_total_toks": 500,
+    "reduction": 72.32982844493637,
+    "DRR_soft": 0.45600000000000007,
+    "RCI": 0.8
+  }
+}

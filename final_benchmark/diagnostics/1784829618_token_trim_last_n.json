@@ -1,0 +1,109 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Is it normal to have a dark ring around the iris of my eye?",
+      "tok_count": 15,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "A dark ring around the iris of the eye is known as a limbal ring, and it is generally considered to be a normal and natural feature of the eye. Limbal rings are more prominent in some individuals than",
+      "tok_count": 164,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Your reply is good tell some illness regarding it",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "A dark ring around the iris of the eye can be a sign of several medical conditions, some of which are benign while others may require prompt medical attention. It is essential to understand the potent",
+      "tok_count": 347,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "A dark ring around the iris of the eye can be a sign of several medical conditions, some of which are benign while others may require prompt medical attention. It is essential to understand the potent",
+      "tok_count": 347
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 15,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 164,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 347,
+      "retained_tokens": 347,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "limbal rings",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "A dark ring around the iris of the eye is known as a limbal ring, and it is generally considered to be a normal and natural feature of the eye. Limbal rings are more prominent in some individuals than in others, and they may become less distinct with age or due to certain health conditions.\n\nIn addition to being a natural feature of the eye, some people consider limbal rings to be a desirable physical trait. In fact, studies have shown that individuals with more prominent limbal rings are often perceived as more attractive, youthful, and healthy.\n\nHowever, if you notice any sudden changes or other unusual features in your eye, such as a change in color or shape, redness, or pain, it is always a good idea to consult with an eye doctor or healthcare professional for a proper diagnosis and treatment.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 535,
+    "comp_total_toks": 347,
+    "reduction": 35.14018691588785,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

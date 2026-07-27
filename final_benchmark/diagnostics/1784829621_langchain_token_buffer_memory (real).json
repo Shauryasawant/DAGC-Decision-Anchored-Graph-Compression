@@ -1,0 +1,78 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfCu\u00e1l es el medio de transporte m\u00e1s seguro y por qu\u00e9?",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Avi\u00f3n. Por sorprendente que parezca, viajar en avi\u00f3n sigue siendo el medio de transporte m\u00e1s seguro. Seg\u00fan investigaciones recientes, los accidentes de avi\u00f3n solo son responsables de 0,006 muertes por",
+      "tok_count": 62,
+      "protected": true
+    }
+  ],
+  "trace_post": [],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 14,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 62,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "006",
+        "rationale": [
+          "value:006"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Avi\u00f3n. Por sorprendente que parezca, viajar en avi\u00f3n sigue siendo el medio de transporte m\u00e1s seguro. Seg\u00fan investigaciones recientes, los accidentes de avi\u00f3n solo son responsables de 0,006 muertes por mil millones de kil\u00f3metros de viaje.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 76,
+    "comp_total_toks": 0,
+    "reduction": 100.0,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

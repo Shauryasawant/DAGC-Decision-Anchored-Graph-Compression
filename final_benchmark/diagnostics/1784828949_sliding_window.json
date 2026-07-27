@@ -1,0 +1,83 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Write a story about Bob.",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Once upon a time, in a small town in Oklahoma, there lived a man named Bob. Bob was an odd fellow - not particularly tall, not particularly short, not particularly handsome or clever. He wore clothes ",
+      "tok_count": 770,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Write a story about Bob.",
+      "tok_count": 6
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 6,
+      "retained_tokens": 6,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 770,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "choose",
+        "target": "stories others",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Once upon a time, in a small town in Oklahoma, there lived a man named Bob. Bob was an odd fellow - not particularly tall, not particularly short, not particularly handsome or clever. He wore clothes that never quite matched, and his hair was a curious blend of grey and brown which seemed to never grow longer or shorter.\n\nBob lived in a tiny house in a quiet neighborhood. Many of his neighbors were curious about this man, who kept to himself and went on about his daily business without much interaction. Every evening, after finishing his chores and feeding his dog, a feeble old Yorkshire terrier named Gus, Bob would sit on his porch and watch the sun go down with a knowing smile on his face. As he did, people would look at him and think, \"That Bob, he's really something.\"\n\nEveryone in the small town knew Bob, but nobody could pinpoint why he was so fascinating. The children gawked at him as he passed them on his out-of-tune bike, and the adults whispered about him at PTA meetings and dinner parties. Why, just last week, he had been seen leaving a store carrying only a bag of candy in one hand and a roll of toilet paper in the other. \n\nStrange rumors began to fly about this enigmatic figure. Some claimed he was an undercover spy, hiding from the government. Others said he was actually the long-lost inventor of post-it notes, who had gone into hiding after his creation blew the stationary world by storm.\n\nOne autumn day, a young boy named Tommy dared to approach Bob as he sat upon his porch. Tommy was tired of hearing tall tales, and decided to put an end to this small-town mystery once and for all.\n\n\"Excuse me,\" said Tommy, standing before Bob's porch looking rather sheepish. \"I hope I'm not bothering you, but, you see, we've all been talking about you in school, and you seem so mysterious. We just wanted to know... what's your story? I apologize if I seem rude.\"\n\nBob looked down at young Tommy with a warm, gray gaze. He leaned forward in his creaky rocking chair and said, \"Young man, do you know what makes life interesting? It's not the stories others tell about you, but the stories you choose to tell about yourself. And sometimes, the less you tell, the more interesting your life becomes.\"\n\nTommy frowned, puzzled by this cryptic response. As he turned to leave, Bob called after him, \"And one more thing... Life is full of mysteries, young man. Learn to appreciate them.\"\n\nTommy walked away, pondering what Bob had said. He wondered what Bob meant by \"the stories you choose to tell about yourself\" and Bob\u2019s last words left him curious about the town\u2019s other so-called mysteries.\n\nWeeks went by, and life in the small town continued its predictable pattern. However, as the seasons changed, the people started to view the mystery of Bob in a new light. They began to appreciate the small pleasures in life, the unexpected encounters, and the unanswered questions.\n\nBob continued to sit on his porch, watching the sun set with Gus, his loyal companion. The wind picked up, rustling the leaves around him, and that knowing smile never left his face. As the glow of the fading sun washed over him, Bob whispered softly into the wind, \"Life, my friend, is full of mysteries. And through them, we find our stories.\"\n\nAnd so, the once unremarkable man named Bob had inadvertently become a central piece in the lore and character of the small town in Oklahoma. His peculiar charm and mystique had brought the town a sense of wonder, teaching its inhabitants to appreciate the unknown and to embrace their stories \u2013 whatever they may be.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 776,
+    "comp_total_toks": 6,
+    "reduction": 99.22680412371135,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

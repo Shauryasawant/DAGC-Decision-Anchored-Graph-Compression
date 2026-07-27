@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Hey there! Are you familiar with reality shifting? So, I\u2019m refining a foolproof method for reality shifting and want to pick a destination. Want to help me? I\u2019m thinking something pretty personalized.",
+      "tok_count": 373,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Hey there! I'd be happy to help you plan your reality-shifting destination. Based on your requirements, here's a detailed and unique scenario for you to shift into. Let's call it the \"Enchanted Casino",
+      "tok_count": 650,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Are you familiar with reality shifting? There are a few things that are required of my destination. 1. Babes. 3. Unconsciousness. The world should be self-contained and relatively small/understandable",
+      "tok_count": 59
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "There's a secret organization controlling the city's fortunes by rigging casino games using dark magic You'll need to use your wit and I wish you the best of luck on your Enchanted Casino Heist!",
+      "tok_count": 42
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 373,
+      "retained_tokens": 59,
+      "retention_frac": 0.1581769436997319
+    },
+    "1": {
+      "orig_tokens": 650,
+      "retained_tokens": 42,
+      "retention_frac": 0.06461538461538462
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "secret organization controlling",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Hey there! I'd be happy to help you plan your reality-shifting destination. Based on your requirements, here's a detailed and unique scenario for you to shift into. Let's call it the \"Enchanted Casino Heist.\"\n\n1. The quest: Your mission in this reality is to infiltrate a highly secure, enchanted casino called \"Lunar Lux\" and dismantle the sinister operation hiding behind its glamorous facade. There's a secret organization controlling the city's fortunes by rigging casino games using dark magic, and you must put an end to this. Instead of fetching an artifact, you'll be exposing the truth and breaking the chains of corruption for the innocent people living in the city.\n\n2. Babes: This reality is filled with stunning enchantresses, skilled in various magical arts. Some are natural-born magicians, and others have gained their powers from mysterious potions. A few examples of the ladies accompanying you on this adventure are:\n\n  - Lyra: The spellbinding enchantress with the ability to control the elements (fire, water, air, and earth). She's fiery, passionate, and always up for some mischief.\n  \n  - Celeste: A kind-hearted healer with hypnotic beauty. She can mend wounds and cure various ailments with her divine magic, as well as provide support and guidance during your quest.\n\nThese enchantresses will be your allies, providing you with essential assistance throughout your mission.\n\n3. The entry: To begin your journey, you'll first find yourself in a dimly lit alley between our world and the Lunar Lux city. Lyra, the saucy elemental enchantress, sneaks up behind you with a devilish grin. She playfully taps you on the shoulder with her enchanted staff, causing you to lose consciousness and transport into your desired reality.\n\n4. Action: The Enchanted Casino Heist is filled with action and adventure. You'll need to use your wit, stealth, and agility to navigate through the intricate security measures of the Lunar Lux casino. Engage in intense magical battles with corrupt guards, unweave the enchantments that control the game outcomes, and work with the enchantresses to expose the corrupt organization pulling the strings.\n\n5. Unconsciousness: In this reality, fainting spells and sudden bouts of unconsciousness are common, often triggered by intense magical duels or curious spells gone awry. You and the enchantresses will regularly find yourselves battling against the effects of enchanted objects, bewitched environments, and run-ins with mysterious potions that leave you dazed, disoriented, or passed out.\n\nThe Lunar Lux city is a blend of sci-fi and fantasy, a place where technology and magic coexist. Neon lights illuminate the cobblestone streets, and high-tech security systems protect the enchanted casino. The surrounding environment consists of fusions between modern buildings and Victorian-inspired architecture, as well as cozy taverns where you and your spellbinding companions can share a beverage and discuss strategy. The city is bustling with life, creating the perfect blend of excitement and intrigue for your reality-shifting adventure.\n\nI hope you find this reality just as exciting and detailed as I did, and I wish you the best of luck on your Enchanted Casino Heist!",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "secret organization controlling",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1023,
+    "comp_total_toks": 101,
+    "reduction": 90.12707722385142,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

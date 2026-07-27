@@ -1,0 +1,246 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "please make flashcards about rust's warp modules",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Flashcard 1:\nFront: What is Warp in Rust?\nBack: Warp is a fast, flexible, and lightweight web framework for Rust designed for ease of use and high performance. It is built on top of the Tokyo asynchro",
+      "tok_count": 520,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "please make flashcards of all the way that rust\u2019s \" warp::reply module \" provides ways to create HTTP responses with specific status codes, headers, and bodies.",
+      "tok_count": 33,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Flashcard 1:\nFront: How to create a Reply with a custom status code in Warp?\nBack: Use the warp::reply::with_status function, which takes a Reply and a StatusCode as input and creates a new Reply with",
+      "tok_count": 455,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "The Flashcard 6 is confusing. Can you explain Custom Body with and provide an example?",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "I apologize for any confusion.\n\nFlashcard 6:\n\nFront: How to create a Reply with a custom body in Warp?\n\nBack: To create a custom-body Reply in Warp, you first need to create an `http::response::Respon",
+      "tok_count": 297,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "please make flashcards about rust's warp modules",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Flashcard 1:\nFront: What is Warp in Rust?\nBack: Warp is a fast, flexible, and lightweight web framework for Rust designed for ease of use and high performance. It is built on top of the Tokyo asynchro",
+      "tok_count": 520
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "please make flashcards of all the way that rust\u2019s \" warp::reply module \" provides ways to create HTTP responses with specific status codes, headers, and bodies.",
+      "tok_count": 33
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Flashcard 1:\nFront: How to create a Reply with a custom status code in Warp?\nBack: Use the warp::reply::with_status function, which takes a Reply and a StatusCode as input and creates a new Reply with",
+      "tok_count": 455
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "The Flashcard 6 is confusing. Can you explain Custom Body with and provide an example?",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "I apologize for any confusion.\n\nFlashcard 6:\n\nFront: How to create a Reply with a custom body in Warp?\n\nBack: To create a custom-body Reply in Warp, you first need to create an `http::response::Respon",
+      "tok_count": 297
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 520,
+      "retained_tokens": 520,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 33,
+      "retained_tokens": 33,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 455,
+      "retained_tokens": 455,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 19,
+      "retained_tokens": 19,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 297,
+      "retained_tokens": 297,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "application/json",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "application/json"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Flashcard 1:\nFront: What is Warp in Rust?\nBack: Warp is a fast, flexible, and lightweight web framework for Rust designed for ease of use and high performance. It is built on top of the Tokyo asynchronous runtime and hyper HTTP server.\n\nFlashcard 2:\nFront: What is the purpose of Rust's warp::filters module?\nBack: The warp::filters module provides building blocks for creating route handlers with the Warp web framework. These filters can be combined and composed to create complex route structures and efficiently route incoming requests.\n\nFlashcard 3:\nFront: What do the functions in the warp::reply module provide?\nBack: The functions in the warp::reply module provide ways to create HTTP responses with specific status codes, headers, and bodies. These replies can be returned by route handlers to easily create different types of HTTP responses.\n\nFlashcard 4:\nFront: How is the warp::path function used in rust?\nBack: The warp::path function helps to match and extract components from the request's path. The components can be of various types, such as strings, integers, or uuids. The extracted values can be used as input to handler functions or as part of further routing.\n\nFlashcard 5:\nFront: How do you create a JSON reply in Warp?\nBack: To create a JSON reply in Warp, you can use the warp::reply::json function, which takes a serializable value as input and creates a Reply with the JSON representation of that value and a content-type of \"application/json\".\n\nFlashcard 6:\nFront: How can you combine multiple Filter instances in Warp?\nBack: You can combine multiple Filter instances using the \"and\" or \"or\" operations. The \"and\" operation requires all specified filters to succeed for the request to be processed, while the \"or\" operation requires at least one of the filters to succeed.\n\nFlashcard 7:\nFront: What is the warp::sse module and how is it used?\nBack: The warp::sse (Server-Sent Events) module provides a way to send real-time updates to clients over HTTP. It allows the server to push data to a client over a single long-lived connection. The module provides utilities to create and handle SSE connections with clients easily.\n\nFlashcard 8:\nFront: How can you apply middleware to a Warp filter?\nBack: Middleware can be applied to Warp filters by wrapping the filter with the desired middleware function using the \"with\" method. The middleware function should take a Request, process it, and return a future that resolves to a Response.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "application/json",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "utf-8",
+        "rationale": [
+          "id:utf-8"
+        ],
+        "artifacts": {
+          "paths": [
+            "text/html",
+            "text/plain",
+            "application/json"
+          ],
+          "ids": [
+            "utf-8"
+          ],
+          "errors": []
+        },
+        "verbatim": "Flashcard 1:\nFront: How to create a Reply with a custom status code in Warp?\nBack: Use the warp::reply::with_status function, which takes a Reply and a StatusCode as input and creates a new Reply with the specified status code.\n\nFlashcard 2:\nFront: How to create a Reply with custom headers in Warp?\nBack: Use the warp::reply::with_header function, which takes a Reply, a header field name (`&str`), and a header value (`Into<HeaderValue>`) and creates a new Reply with the specified header value set.\n\nFlashcard 3:\nFront: How to create a Reply with an HTML content in Warp?\nBack: Use the warp::reply::html function, which takes an `Into<Cow<'static, str>>` as input and creates a new Reply with the provided HTML content and a content-type of \"text/html; charset=utf-8\".\n\nFlashcard 4:\nFront: How to create a Reply with a plain text content in Warp?\nBack: Use the warp::reply::text function, which takes an `Into<Cow<'static, str>>` as input and creates a new Reply with the provided plain text content and a content-type of \"text/plain; charset=utf-8\".\n\nFlashcard 5:\nFront: How to create a Reply with a JSON content in Warp?\nBack: Use the warp::reply::json function, which takes a serializable value as input and creates a new Reply with the JSON representation of that value and a content-type of \"application/json\".\n\nFlashcard 6:\nFront: How to create a Reply with a custom body in Warp?\nBack: Use the warp::reply::Response::new function, which creates a new `http::response::Response<B>`, and then you can set the body and other headers or status before turning it into a `warp::reply::Response` using `warp::reply::Response::from_response` function.\n\nFlashcard 7:\nFront: How to create a Reply with an empty body and specific status in Warp?\nBack: Use the warp::reply::custom function, which takes a StatusCode as input and creates a new Reply with the specified status code and an empty body.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "utf-8",
+        "rationale": [
+          "id:utf-8"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "input content",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I apologize for any confusion.\n\nFlashcard 6:\n\nFront: How to create a Reply with a custom body in Warp?\n\nBack: To create a custom-body Reply in Warp, you first need to create an `http::response::Response` and set a custom body to the response. Next, convert the `http::response::Response` into `warp::reply::Response` utilizing the `warp::reply::Response::from_response` function.\n\nExample:\n\n```rust\nuse warp::{http::Response, hyper::Body};\n\nfn custom_body_response(content: &str) -> warp::reply::Response {\n    // Create an http::response::Response with a custom body\n    let mut response = Response::new(Body::from(content));\n\n    // Customize other aspects of the response, e.g., status code or headers\n    *response.status_mut() = http::StatusCode::OK;\n\n    // Convert the response to a warp::reply::Response\n    warp::reply::Response::from_response(response)\n}\n```\n\nIn this example, we have a `custom_body_response` function that accepts a string `content`. It first creates an `http::response::Response` with a custom body using the input content. Next, it sets the desired status code (in this case, `http::StatusCode::OK`). Finally, the function converts the `http::response::Response` into a `warp::reply::Response` and returns it.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "input content",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1333,
+    "comp_total_toks": 1333,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

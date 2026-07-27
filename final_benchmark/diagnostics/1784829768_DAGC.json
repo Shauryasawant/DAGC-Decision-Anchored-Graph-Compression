@@ -1,0 +1,149 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Hey there! Are you familiar with reality shifting? So, I\u2019m refining a foolproof method for reality shifting and want to pick a destination. Want to help me? I\u2019m thinking something pretty personalized.",
+      "tok_count": 345,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Title: \"Casino of Eternal Fortune\"\n\nWelcome to the \"Casino of Eternal Fortune\", a large and mysterious retro-futuristic casino situated on a seemingly remote island where technology and vintage charm ",
+      "tok_count": 572,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Where exactly do I appear when I first wake up?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "When you first wake up in the Casino of Eternal Fortune, you find yourself in a luxurious suite located on the highest floor of the casino's opulent hotel. The suite is bathed in the soft, golden glow",
+      "tok_count": 225,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Lady Luck, as my patron, should provide me with things.",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "As your patron in the Casino of Eternal Fortune, Lady Luck bestows upon you various gifts, resources, and assistance to ensure your success. These boons may manifest in different forms throughout your",
+      "tok_count": 429,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Are you familiar with reality shifting? There are a few things that are required of my destination. 1. Seriously Babes. 3. 4. 5. Unconsciousness. Don\u2019t be vague The world should be self-contained and ",
+      "tok_count": 66
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "When you first wake up in the Casino of Eternal Fortune, you find yourself in a luxurious suite located on the highest floor of the casino's opulent hotel.",
+      "tok_count": 32
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "As your patron in the Casino of Eternal Fortune",
+      "tok_count": 9
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 345,
+      "retained_tokens": 66,
+      "retention_frac": 0.19130434782608696
+    },
+    "1": {
+      "orig_tokens": 572,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 11,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 225,
+      "retained_tokens": 32,
+      "retention_frac": 0.14222222222222222
+    },
+    "4": {
+      "orig_tokens": 13,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 429,
+      "retained_tokens": 9,
+      "retention_frac": 0.02097902097902098
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    4
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Casino",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "When you first wake up in the Casino of Eternal Fortune, you find yourself in a luxurious suite located on the highest floor of the casino's opulent hotel. The suite is bathed in the soft, golden glow of the setting sun as it streams through the floor-to-ceiling windows, providing a breathtaking panoramic view of the casino, the surrounding tropical island, and the sparkling turquoise sea beyond.\n\nThe room itself is adorned with exquisite art deco furnishings, plush velvet cushions, and gleaming marble surfaces, creating a sumptuous ambiance of grand elegance. As you rise from the plush king-sized bed, wrapped in silky sheets, you notice an ornate, gilded key on the nightstand beside you \u2013 a clue that your journey has begun.\n\nThis initial moment comes as a calm before the storm, allowing you time to explore the suite, marvel at the surrounding beauty, and mentally prepare yourself for the thrilling adventures that await. Once you are ready, the enchanted key will guide you through the hidden corners and forbidden realms of the Casino of Eternal Fortune, leading you to the heart of the mystery that you are destined to unveil.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Casino",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1595,
+    "comp_total_toks": 107,
+    "reduction": 93.29153605015674,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

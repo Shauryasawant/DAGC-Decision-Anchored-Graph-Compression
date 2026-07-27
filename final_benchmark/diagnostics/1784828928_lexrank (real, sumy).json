@@ -1,0 +1,181 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "assistant",
+      "preview": "As an AI language model, I do not have personal beliefs or opinions. However, I am designed to be impartial, objective, and provide accurate information to users.",
+      "tok_count": 33,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "What are you.",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I am an artificial intelligence language model designed to understand and respond to natural language text inputs. I use complex algorithms, computational linguistics, and large datasets to provide in",
+      "tok_count": 39,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "user",
+      "preview": "What are you hosted on.",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "As an AI language model, I am hosted on a cloud-based platform that allows me to operate at scale and respond to user inputs in real-time. My hosting infrastructure typically includes high-performance",
+      "tok_count": 85,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "assistant",
+      "preview": "As an AI language model, I do not have personal beliefs or opinions.",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "What are you.",
+      "tok_count": 4
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I am an artificial intelligence language model designed to understand and respond to natural language text inputs.",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "user",
+      "preview": "What are you hosted on.",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "As an AI language model, I am hosted on a cloud-based platform that allows me to operate at scale and respond to user inputs in real-time. My hosting infrastructure typically includes high-performance",
+      "tok_count": 85
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 33,
+      "retained_tokens": 15,
+      "retention_frac": 0.45454545454545453
+    },
+    "1": {
+      "orig_tokens": 4,
+      "retained_tokens": 4,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 39,
+      "retained_tokens": 18,
+      "retention_frac": 0.46153846153846156
+    },
+    "3": {
+      "orig_tokens": 6,
+      "retained_tokens": 6,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 85,
+      "retained_tokens": 85,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "complex algorithms",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I am an artificial intelligence language model designed to understand and respond to natural language text inputs. I use complex algorithms, computational linguistics, and large datasets to provide intelligent and informative responses to users.",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "used",
+        "target": "organization or individual",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I am hosted on a cloud-based platform that allows me to operate at scale and respond to user inputs in real-time. My hosting infrastructure typically includes high-performance computing resources, such as servers or virtual machines, as well as storage and networking components necessary for supporting my computational workload. The exact platform used for hosting me may vary depending on the specific implementation and needs of the organization or individual using me.",
+        "msg_idx": 4
+      },
+      "reproduced": {
+        "action": "used",
+        "target": "organization or individual",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 167,
+    "comp_total_toks": 128,
+    "reduction": 23.35329341317365,
+    "DRR_soft": 0.77,
+    "RCI": 1.0
+  }
+}

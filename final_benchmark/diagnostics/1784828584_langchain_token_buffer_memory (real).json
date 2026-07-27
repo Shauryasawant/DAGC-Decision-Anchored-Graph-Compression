@@ -1,0 +1,164 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "What major news happened on January 23, 2023? Rate using a scale of 1 to 10 your confidence that your answer is correct.",
+      "tok_count": 31,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "As an AI language model, I cannot provide real-time or future information. My knowledge is up-to-date only until September 2021. Therefore, I cannot provide any information on major news events on Jan",
+      "tok_count": 71,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "How about January 12, 2021?",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "On January 12, 2021, the House of Representatives passed a resolution calling on then-Vice President Mike Pence to invoke the 25th Amendment to remove President Donald Trump from office. This came in ",
+      "tok_count": 91,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Guess Gwen Stefan's favorite color. Rate using a scale of 1 to 10 your confidence that your answer is correct.",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "As an AI, I cannot guess personal preferences or opinions of individuals, such as Gwen Stefani's favorite color. My knowledge is based on information available up to September 2021. Unless she has pub",
+      "tok_count": 65,
+      "protected": true
+    }
+  ],
+  "trace_post": [],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 31,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 71,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 10,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 91,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 25,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 65,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "2021",
+        "rationale": [
+          "value:2021"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "As an AI language model, I cannot provide real-time or future information. My knowledge is up-to-date only until September 2021. Therefore, I cannot provide any information on major news events on January 23, 2023. My confidence in this answer is a 10 because I am certain that I cannot provide information beyond my knowledge base.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "remove",
+        "target": "2021",
+        "rationale": [
+          "value:2021"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "On January 12, 2021, the House of Representatives passed a resolution calling on then-Vice President Mike Pence to invoke the 25th Amendment to remove President Donald Trump from office. This came in response to the storming of the U.S. Capitol by a mob of Trump supporters on January 6, 2021. Vice President Pence ultimately did not invoke the 25th Amendment. My confidence in this answer is a 10.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 293,
+    "comp_total_toks": 0,
+    "reduction": 100.0,
+    "DRR_soft": 0.0,
+    "RCI": 0.0
+  }
+}

@@ -1,0 +1,368 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 960,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHi, I\u2019m calling about the pre-authorization requirements for an elective procedure I\u2019m planning that requires extended care coverage. Can you explain the insurance pre-authorization process for my s",
+      "tok_count": 52,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you with coverage information for your extended care needs. First, I need to verify your identity to access your specif",
+      "tok_count": 138,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Sure, here\u2019s the information:  \n1. Client ID: CL123456  \n2. Birthdate: 1980-05-15  \n\nThe procedure I\u2019m planning is a hip replacement, which will require Skilled Nursing care and Physical Therapy for a",
+      "tok_count": 89,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"birthdate\": \"1980-05-15\", \"client_id\": \"CL123456\"}, \"name\": \"authenticate_client\"}",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"client_id\": \"CL123456\", \"duration\": 42, \"service_type\": \"SkilledNursing\"}, \"name\": \"check_coverage\"}",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": " {\"args\": {\"client_id\": \"CL123456\", \"duration\": 42, \"service_type\": \"Therapy\"}, \"name\": \"check_coverage\"}",
+      "tok_count": 34,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "Hello Jane! I've verified your identity and checked the coverage for your post-hip replacement care needs. Here's what I found:\n\n## Coverage Status\n\n**Skilled Nursing Care (42 days):**\n- \u2705 **Covered**",
+      "tok_count": 342,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 960
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 14,
+      "role": "assistant",
+      "preview": "Hello Jane! I've verified your identity and checked the coverage for your post-hip replacement care needs. Here's what I found:\n\n## Coverage Status\n\n**Skilled Nursing Care (42 days):**\n- \u2705 **Covered**",
+      "tok_count": 342
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 960,
+      "retained_tokens": 960,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 52,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 138,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 89,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 30,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 36,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "11": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "12": {
+      "orig_tokens": 34,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "14": {
+      "orig_tokens": 342,
+      "retained_tokens": 342,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_client",
+        "target": "CL123456",
+        "rationale": [
+          "id:CL123456"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "CL123456"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"birthdate\": \"1980-05-15\", \"client_id\": \"CL123456\"}, \"name\": \"authenticate_client\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "check_coverage",
+        "target": "CL123456",
+        "rationale": [
+          "id:CL123456"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "CL123456"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"client_id\": \"CL123456\", \"duration\": 42, \"service_type\": \"SkilledNursing\"}, \"name\": \"check_coverage\"}",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "check_coverage",
+        "target": "CL123456",
+        "rationale": [
+          "id:CL123456"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "CL123456"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"client_id\": \"CL123456\", \"duration\": 42, \"service_type\": \"Therapy\"}, \"name\": \"check_coverage\"}",
+        "msg_idx": 12
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "confirmation",
+        "target": "Services",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Hello Jane! I've verified your identity and checked the coverage for your post-hip replacement care needs. Here's what I found:\n\n## Coverage Status\n\n**Skilled Nursing Care (42 days):**\n- \u2705 **Covered** under your Private Insurance plan\n- **Reason**: Medically necessary post-surgical recovery\n\n**Physical Therapy (42 days):**\n- \u2705 **Covered** under your Private Insurance plan  \n- **Reason**: Post-surgical rehabilitation\n\n## Pre-Authorization Requirements\n\n**Both services require pre-authorization because they exceed 21 days:**\n1. **Skilled Nursing**: Prior approval needed from your insurance carrier before scheduling\n2. **Physical Therapy**: Prior approval needed, along with documentation of medical necessity from your surgeon\n\n## Coverage Limitations\n\n**For Physical Therapy:**\n- Daily maximum: 2 therapy sessions\n- Annual cap: 6-month limit on post-surgical rehabilitation services\n\n## Next Steps\n\n1. **Contact your insurance carrier** directly to initiate the pre-authorization process for both services\n2. **Obtain documentation** from your surgeon regarding medical necessity for the 42-day therapy plan\n3. **Once pre-authorization is approved**, you can schedule services with us (minimum 48-hour notice for routine scheduling)\n\n**Important Notes:**\n- The pre-authorization process itself is handled through your insurance carrier, not through our scheduling system\n- Services can only be scheduled once we receive confirmation of insurance approval\n- Emergency scheduling (2-hour notice) incurs a $35 surcharge but still requires pre-authorization\n\nWould you like me to help you schedule these services once you've obtained the necessary pre-authorizations?",
+        "msg_idx": 14
+      },
+      "reproduced": {
+        "action": "confirmation",
+        "target": "Services",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1681,
+    "comp_total_toks": 1302,
+    "reduction": 22.546103509815584,
+    "DRR_soft": 0.25,
+    "RCI": 0.2
+  }
+}

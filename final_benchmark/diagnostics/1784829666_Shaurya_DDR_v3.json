@@ -1,0 +1,201 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 851,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm calling from the botanical conservatory at 30307 Conservatory Pl. I'm the director here, and we're currently managing several IUCN Red List species in our collection. I need to ensure pro",
+      "tok_count": 97,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"customer_id\": \"C-671\"}, \"name\": \"get_customer_profile\"}",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer C-671 (botanical conservatory director) is requesting: 1) Detailed species inventory with threat levels for all plants under our care, 2) Verification that staff hold v",
+      "tok_count": 91,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "Try to be helpful and always follow the policy.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "My customer ID is C-671 for reference.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"customer_id\": \"C-671\"}, \"name\": \"get_customer_profile\"}",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer C-671 (botanical conservatory director) is requesting: 1) Detailed species inventory with threat levels for all plants under our care, 2) Verification that staff hold v",
+      "tok_count": 91
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 851,
+      "retained_tokens": 10,
+      "retention_frac": 0.011750881316098707
+    },
+    "1": {
+      "orig_tokens": 97,
+      "retained_tokens": 10,
+      "retention_frac": 0.10309278350515463
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 20,
+      "retained_tokens": 20,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 91,
+      "retained_tokens": 91,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    4
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "get_customer_profile",
+        "target": "C-671",
+        "rationale": [
+          "id:C-671"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "C-671"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"customer_id\": \"C-671\"}, \"name\": \"get_customer_profile\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "get_customer_profile",
+        "target": "C-671",
+        "rationale": [
+          "id:C-671"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "transfer_to_human_agent",
+        "target": "C-671",
+        "rationale": [
+          "id:C-671"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "C-671"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"Customer C-671 (botanical conservatory director) is requesting: 1) Detailed species inventory with threat levels for all plants under our care, 2) Verification that staff hold valid certifications for handling protected botanical specimens. These requests fall outside automated agent capabilities per policy limitations on horticultural advice and tool capabilities. Customer is commercial entity (botanical conservatory).\"}, \"name\": \"transfer_to_human_agent\"}",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "transfer_to_human_agent",
+        "target": "C-671",
+        "rationale": [
+          "id:C-671"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1059,
+    "comp_total_toks": 131,
+    "reduction": 87.62983947119925,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

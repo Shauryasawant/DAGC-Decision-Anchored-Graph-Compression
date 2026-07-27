@@ -1,0 +1,388 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u5c06\u6458\u8981\u201cPCB\u662f\u73b0\u4ee3\u7535\u5b50\u4ea7\u54c1\u4e2d\u7684\u5fc5\u5907\u5143\u7d20\u4e4b\u4e00\uff0c\u5b83\u901a\u8fc7\u4f20\u5bfc\u7535\u6d41\u548c\u4fe1\u53f7\u6765\u5b9e\u73b0\u7535\u5b50\u5668\u4ef6\u4e4b\u95f4\u7684\u8fde\u63a5\u548c\u4e92\u901a\u3002\u4e3a\u786e\u4fdd\u7535\u5b50\u4ea7\u54c1\u80fd\u591f\u957f\u671f\u7a33\u5b9a\u8fd0\u884c\uff0c\u5bf9PCB\u8868\u9762\u7684\u7f3a\u9677\u68c0\u6d4b\u663e\u5f97\u5c24\u4e3a\u91cd\u8981\u3002\u867d\u7136\u5728PCB\u8868\u9762\u7f3a\u9677\u68c0\u6d4b\u65b9\u9762\uff0c\u6df1\u5ea6\u5b66\u4e60\u76ee\u6807\u68c0\u6d4b\u65b9\u6cd5\u6709\u4e86\u5f88\u5927\u7684\u8fdb\u5c55\uff0c\u4f46\u4ecd\u7136\u5b58\u5728\u4e00\u4e9b\u95ee\u9898\uff0c\u4f8b\u5982\u7279\u5f81\u5b66\u4e60\u80fd\u529b\u53d7\u9650\uff0c\u68c0\u6d4b\u7cbe\u5ea6\u548c\u901f\u5ea6\u4e0d\u5e73\u8861\u7b49\u3002\u56e0\u6b64\uff0c\u7ecf\u8fc7\u5bf9YOLOv4\u7b97\u6cd5\u7684\u6df1\u5165\u7814\u7a76\uff0c\u672c\u6587\u63d0\u51fa\u4e86\u4e00\u79cd\u8f7b\u91cf\u7ea7\u7684PCB\u8868\u9762\u7f3a\u9677\u68c0\u6d4b\u65b9\u6cd5\uff0c\u5176\u4e3b\u8981\u5de5\u4f5c\u5982\u4e0b\uff1a",
+      "tok_count": 227,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "\"PCB is one of the essential elements in modern electronic products which achieves connections and interactions between electronic devices through conducting current and signals. To ensure the long-te",
+      "tok_count": 117,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "\u5c06\u6458\u8981\u201c\u5efa\u7acb\u8f7b\u91cf\u7ea7\u76ee\u6807\u68c0\u6d4b\u6a21\u578b\u3002\u4e3a\u6ee1\u8db3\u5bf9 PCB \u8868\u9762\u5e38\u89c1\u516d\u79cd\u7f3a\u9677\u68c0\u6d4b\u7684\u901f\u5ea6\u548c\u7cbe\u5ea6\u8981\u6c42\uff0c\u672c\u6587\u5728\u57fa\u4e8eYOLOv4\u7b97\u6cd5\u7684\u57fa\u7840\u4e0a\u5f15\u5165\u4e86\u8f7b\u91cf\u5316\u4e3b\u5e72\u7279\u5f81\u7f51\u7edc\uff0c\u5305\u62ec MobileNet\u7cfb\u5217\u3001GhostNet\u548cDenseNet\u3002\u7ecf\u66ff\u6362YOLOv4\u7684\u4e3b\u5e72\u7279\u5f81\u7f51\u7edcCSPDarkNet53\u5e76\u8fdb\u884c\u5b9e\u9a8c\uff0c\u57fa\u4e8e\u8f7b\u91cf\u5316\u7f51\u7edc\u7ed3\u6784\u7684 YOLOv4 \u6a21\u578b\u4f53\u79ef\u660e\u663e\u964d\u4f4e\u3001\u68c0\u6d4b\u901f\u5ea6\u663e\u8457\u63d0\u5347\uff0c\u4f46\u540c\u65f6\u4e5f\u5e26\u6765\u4e86\u660e\u663e\u7684\u7cbe\u5ea6\u4e0b\u964d\u3002\u9488\u5bf9\u4e94\u79cd\u8f7b\u91cf\u5316\u7f51",
+      "tok_count": 277,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "\"Establish a lightweight object detection model. To meet the speed and accuracy requirements for detecting the six common defects on the surface of PCB, this paper introduces lightweight backbone feat",
+      "tok_count": 158,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "\u5e2e\u6211\u5c06\u201c\u4e3a\u89e3\u51b3\u5f53\u524d\u7b97\u6cd5\u5e94\u7528\u4e8ePCB\u8868\u9762\u7f3a\u9677\u68c0\u6d4b\u5b58\u5728\u53c2\u6570\u91cf\u591a\u3001\u8ba1\u7b97\u91cf\u5927\u3001\u63a8\u7406\u901f\u5ea6\u6162\u7b49\u95ee\u9898\uff0c\u672c\u6587\u91c7\u7528\u8f7b\u91cf\u5316\u7684 MobileNetV3 \u7f51\u7edc\u6a21\u578b\u6765\u66ff\u4ee3 YOLOv4 \u4e2d\u7684 CSPDarknet-53 \u9aa8\u5e72\u7f51\u7edc\u8fdb\u884c\u7279\u5f81\u63d0\u53d6\u3002MobileNetV3 \u901a\u8fc7\u4f7f\u7528\u6df1\u5ea6\u53ef\u5206\u79bb\u5377\u79ef\u548c\u51cf\u5c11\u7f51\u7edc\u6df1\u5ea6\u7684\u65b9\u5f0f\uff0c\u5728\u4fdd\u8bc1\u7279\u5f81\u63d0\u53d6\u80fd\u529b\u7684\u57fa\u7840\u4e0a\uff0c\u51cf\u5c11\u4e86\u53c2\u6570\u91cf\uff0c\u5e76\u63d0\u9ad8\u4e86\u68c0\u6d4b\u901f\u5ea6\uff0c\u4fbf\u4e8e\u5e94\u7528\u5728\u5b9e\u9645\u5de5\u4e1a\u73b0\u573a\uff0c\u63a8\u52a8 PCB \u8868\u9762\u7f3a\u9677\u68c0\u6d4b\u7684\u81ea\u52a8",
+      "tok_count": 210,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "To address the issues of large parameter volumes, high computational complexity, and slow inference speed in the current algorithms applied to PCB surface defect detection, this paper replaces the CSP",
+      "tok_count": 110,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "\u5e2e\u6211\u7528\u4e2d\u6587\u5c06\u201c\u4e3a\u89e3\u51b3\u5f53\u524d\u7b97\u6cd5\u5e94\u7528\u4e8ePCB\u8868\u9762\u7f3a\u9677\u68c0\u6d4b\u5b58\u5728\u53c2\u6570\u91cf\u591a\u3001\u8ba1\u7b97\u91cf\u5927\u3001\u63a8\u7406\u901f\u5ea6\u6162\u7b49\u95ee\u9898\uff0c\u672c\u6587\u91c7\u7528\u8f7b\u91cf\u5316\u7684 MobileNetV3 \u7f51\u7edc\u6a21\u578b\u6765\u66ff\u4ee3 YOLOv4 \u4e2d\u7684 CSPDarknet-53 \u9aa8\u5e72\u7f51\u7edc\u8fdb\u884c\u7279\u5f81\u63d0\u53d6\u3002MobileNetV3 \u901a\u8fc7\u4f7f\u7528\u6df1\u5ea6\u53ef\u5206\u79bb\u5377\u79ef\u548c\u51cf\u5c11\u7f51\u7edc\u6df1\u5ea6\u7684\u65b9\u5f0f\uff0c\u5728\u4fdd\u8bc1\u7279\u5f81\u63d0\u53d6\u80fd\u529b\u7684\u57fa\u7840\u4e0a\uff0c\u51cf\u5c11\u4e86\u53c2\u6570\u91cf\uff0c\u5e76\u63d0\u9ad8\u4e86\u68c0\u6d4b\u901f\u5ea6\uff0c\u4fbf\u4e8e\u5e94\u7528\u5728\u5b9e\u9645\u5de5\u4e1a\u73b0\u573a\uff0c\u63a8\u52a8 PCB \u8868\u9762\u7f3a\u9677\u68c0\u6d4b",
+      "tok_count": 213,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "\u4e3a\u89e3\u51b3PCB\u8868\u9762\u7f3a\u9677\u68c0\u6d4b\u7b97\u6cd5\u5728\u5e94\u7528\u4e2d\u5b58\u5728\u53c2\u6570\u91cf\u591a\u3001\u8ba1\u7b97\u91cf\u5927\u3001\u63a8\u7406\u901f\u5ea6\u6162\u7b49\u95ee\u9898\uff0c\u672c\u6587\u63d0\u51fa\u4e86\u4e00\u79cd\u91c7\u7528\u8f7b\u91cf\u5316\u7684MobileNetV3\u7f51\u7edc\u6a21\u578b\u66ff\u4ee3YOLOv4\u4e2dCSPDarknet-53\u9aa8\u5e72\u7f51\u7edc\u8fdb\u884c\u7279\u5f81\u63d0\u53d6\u7684\u65b9\u6cd5\u3002MobileNetV3\u7f51\u7edc\u91c7\u7528\u6df1\u5ea6\u53ef\u5206\u79bb\u5377\u79ef\u548c\u51cf\u5c11\u7f51\u7edc\u6df1\u5ea6\u7684\u65b9\u5f0f\uff0c\u5728\u4e0d\u51cf\u5f31\u7279\u5f81\u63d0\u53d6\u80fd\u529b\u7684\u524d\u63d0\u4e0b\uff0c\u51cf\u5c11\u4e86\u53c2\u6570\u91cf\u5e76\u63d0\u9ad8\u4e86\u68c0\u6d4b\u901f\u5ea6\u3002\u8fd9\u79cd\u65b9\u6cd5\u9002\u7528\u4e8e\u5b9e\u9645\u7684\u5de5\u4e1a\u73af\u5883\uff0c\u53ef\u4ee5\u63a8\u52a8PCB\u8868\u9762\u7f3a\u9677\u68c0\u6d4b\u7684\u81ea\u52a8\u5316\u548c\u5de5",
+      "tok_count": 197,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "\u8fdb\u4e00\u6b65\u6539\u5199",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "\u4e3a\u4e86\u89e3\u51b3PCB\u8868\u9762\u7f3a\u9677\u68c0\u6d4b\u7b97\u6cd5\u4e2d\u53c2\u6570\u91cf\u591a\u3001\u8ba1\u7b97\u91cf\u5927\u3001\u63a8\u7406\u901f\u5ea6\u6162\u7b49\u95ee\u9898\uff0c\u672c\u6587\u5f15\u5165\u4e00\u79cd\u8f7b\u91cf\u5316\u7684MobileNetV3\u7f51\u7edc\u6a21\u578b\uff0c\u5b83\u66ff\u4ee3\u4e86YOLOv4\u4e2d\u7684CSPDarknet-53\u9aa8\u5e72\u7f51\u7edc\u8fdb\u884c\u7279\u5f81\u63d0\u53d6\u3002\u8be5\u7f51\u7edc\u4f7f\u7528\u6df1\u5ea6\u53ef\u5206\u79bb\u5377\u79ef\u548c\u51cf\u5c11\u7f51\u7edc\u6df1\u5ea6\u7684\u65b9\u6cd5\uff0c\u5728\u4e0d\u964d\u4f4e\u7279\u5f81\u63d0\u53d6\u80fd\u529b\u7684\u60c5\u51b5\u4e0b\uff0c\u964d\u4f4e\u4e86\u53c2\u6570\u91cf\u5e76\u63d0\u9ad8\u4e86\u68c0\u6d4b\u901f\u5ea6\u3002\u8fd9\u4e00\u65b9\u6cd5\u9002\u7528\u4e8e\u5b9e\u9645\u7684\u5de5\u4e1a\u73af\u5883\uff0c\u53ef\u4ee5\u4fc3\u8fdbPCB\u8868\u9762\u7f3a\u9677\u68c0\u6d4b\u7684\u81ea\u52a8\u5316\u548c\u5de5\u4e1a\u5316\u53d1\u5c55\u3002",
+      "tok_count": 191,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "MobilNetV3\u662f\u600e\u6837\u63d0\u9ad8\u68c0\u6d4b\u901f\u5ea6\u7684",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "MobileNetV3\u662f\u901a\u8fc7\u91c7\u7528\u6df1\u5ea6\u53ef\u5206\u79bb\u5377\u79ef\u548c\u51cf\u5c11\u7f51\u7edc\u6df1\u5ea6\u7684\u65b9\u5f0f\u6765\u63d0\u9ad8\u68c0\u6d4b\u901f\u5ea6\u7684\u3002\u9996\u5148\uff0c\u6df1\u5ea6\u53ef\u5206\u79bb\u5377\u79ef\u662f\u5c06\u4f20\u7edf\u5377\u79ef\u5206\u4e3a\u6df1\u5ea6\u5377\u79ef\u548c\u9010\u70b9\u5377\u79ef\u4e24\u4e2a\u6b65\u9aa4\u6765\u5b8c\u6210\uff0c\u53ef\u4ee5\u51cf\u5c11\u5377\u79ef\u8ba1\u7b97\u7684\u6570\u91cf\u3002\u5176\u6b21\uff0cMobileNetV3\u901a\u8fc7\u51cf\u5c11\u7f51\u7edc\u6df1\u5ea6\u6765\u964d\u4f4e\u53c2\u6570\u6570\u91cf\uff0c\u51cf\u5c11\u8ba1\u7b97\u91cf\u3002\u8fd9\u4e24\u79cd\u65b9\u5f0f\u7684\u7ec4\u5408\u53ef\u4ee5\u6709\u6548\u63d0\u9ad8\u68c0\u6d4b\u901f\u5ea6\uff0c\u5e76\u4e14\u4e0d\u4f1a\u663e\u8457\u5f71\u54cd\u7279\u5f81\u63d0\u53d6\u7684\u80fd\u529b\uff0c\u56e0\u6b64\u5728\u5b9e\u9645\u5e94\u7528\u4e2d\u975e\u5e38\u9002\u7528\u3002",
+      "tok_count": 184,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "\u6539\u5199\u201c\u5728\u5b9e\u9645\u5e94\u7528\u4e2d\u975e\u5e38\u9002\u7528\u201d",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "\u603b\u4f53\u6765\u8bf4\uff0c\u4f7f\u7528\u6df1\u5ea6\u53ef\u5206\u79bb\u5377\u79ef\u548c\u51cf\u5c11\u7f51\u7edc\u6df1\u5ea6\u7684\u65b9\u5f0f\u53ef\u4ee5\u63d0\u9ad8MobileNetV3\u7684\u68c0\u6d4b\u901f\u5ea6\uff0c\u8fd9\u79cd\u65b9\u6cd5\u5728\u5b9e\u9645\u5e94\u7528\u4e2d\u5177\u6709\u5e7f\u6cdb\u7684\u9002\u7528\u6027\u3002",
+      "tok_count": 62,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "user",
+      "preview": "\u4e3a\u4e86\u89e3\u51b3\u5f15\u5165\u8f7b\u91cf\u5316\u7684 MobileNetV3 \u7f51\u7edc\u53ef\u80fd\u5bfc\u81f4 PCB \u7f3a\u9677\u68c0\u6d4b\u7cbe\u5ea6\u964d\u4f4e\u7684\u95ee\u9898\uff0c",
+      "tok_count": 42,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "\u4e3a\u4e86\u907f\u514d\u5f15\u5165\u8f7b\u91cf\u5316\u7684MobileNetV3\u7f51\u7edc\u53ef\u80fd\u5bfc\u81f4PCB\u7f3a\u9677\u68c0\u6d4b\u7cbe\u5ea6\u964d\u4f4e\u7684\u98ce\u9669\uff0c",
+      "tok_count": 44,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "user",
+      "preview": "\u7528\u4e2d\u6587\u6539\u5199\u201c\u5728 MobileNetV3 \u7684\u7279\u5f81\u63d0\u53d6\u6d45\u5c42\u90e8\u5206\u7f51\u7edc\u4e2d\uff0c\u4f7f\u7528 SiLU \uff08Sigmoid Weighted Linear Unit\uff09\u6fc0\u6d3b\u51fd\u6570\u6765\u53d6\u4ee3 ReLU \u201d",
+      "tok_count": 48,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "\u4e3a\u4e86\u6539\u5584MobileNetV3\u7684\u7279\u5f81\u63d0\u53d6\u6d45\u5c42\u7f51\u7edc\u90e8\u5206\uff0c\u672c\u6587\u91c7\u7528\u4e86SiLU\uff08Sigmoid Weighted Linear Unit\uff09\u6fc0\u6d3b\u51fd\u6570\u6765\u4ee3\u66ffReLU\u51fd\u6570\u3002",
+      "tok_count": 51,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "user",
+      "preview": "\u7528\u4e2d\u6587\u6539\u5199\u201c\u7279\u5f81\u878d\u5408\u7ed3\u6784\u4e2d\u6784\u5efa\u4e86\u8de8\u9636\u6bb5\u5c40\u90e8\u8fde\u63a5\u7ed3\u6784\u7684\u5377\u79ef\u6a21\u5757 CSP_Conv2D\u201d",
+      "tok_count": 43,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "\u672c\u6587\u5728\u7279\u5f81\u878d\u5408\u7ed3\u6784\u4e2d\u5f15\u5165\u4e86\u4e00\u79cd\u540d\u4e3aCSP_Conv2D\u7684\u5377\u79ef\u6a21\u5757\uff0c\u5e76\u91c7\u7528\u8de8\u9636\u6bb5\u5c40\u90e8\u8fde\u63a5\u7684\u7ed3\u6784\u8fdb\u884c\u6784\u5efa\u3002",
+      "tok_count": 53,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 14,
+      "role": "user",
+      "preview": "\u4e3a\u4e86\u89e3\u51b3\u5f15\u5165\u8f7b\u91cf\u5316\u7684 MobileNetV3 \u7f51\u7edc\u53ef\u80fd\u5bfc\u81f4 PCB \u7f3a\u9677\u68c0\u6d4b\u7cbe\u5ea6\u964d\u4f4e\u7684\u95ee\u9898\uff0c",
+      "tok_count": 42
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 15,
+      "role": "assistant",
+      "preview": "\u4e3a\u4e86\u907f\u514d\u5f15\u5165\u8f7b\u91cf\u5316\u7684MobileNetV3\u7f51\u7edc\u53ef\u80fd\u5bfc\u81f4PCB\u7f3a\u9677\u68c0\u6d4b\u7cbe\u5ea6\u964d\u4f4e\u7684\u98ce\u9669\uff0c",
+      "tok_count": 44
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 16,
+      "role": "user",
+      "preview": "\u7528\u4e2d\u6587\u6539\u5199\u201c\u5728 MobileNetV3 \u7684\u7279\u5f81\u63d0\u53d6\u6d45\u5c42\u90e8\u5206\u7f51\u7edc\u4e2d\uff0c\u4f7f\u7528 SiLU \uff08Sigmoid Weighted Linear Unit\uff09\u6fc0\u6d3b\u51fd\u6570\u6765\u53d6\u4ee3 ReLU \u201d",
+      "tok_count": 48
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": "\u4e3a\u4e86\u6539\u5584MobileNetV3\u7684\u7279\u5f81\u63d0\u53d6\u6d45\u5c42\u7f51\u7edc\u90e8\u5206\uff0c\u672c\u6587\u91c7\u7528\u4e86SiLU\uff08Sigmoid Weighted Linear Unit\uff09\u6fc0\u6d3b\u51fd\u6570\u6765\u4ee3\u66ffReLU\u51fd\u6570\u3002",
+      "tok_count": 51
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 18,
+      "role": "user",
+      "preview": "\u7528\u4e2d\u6587\u6539\u5199\u201c\u7279\u5f81\u878d\u5408\u7ed3\u6784\u4e2d\u6784\u5efa\u4e86\u8de8\u9636\u6bb5\u5c40\u90e8\u8fde\u63a5\u7ed3\u6784\u7684\u5377\u79ef\u6a21\u5757 CSP_Conv2D\u201d",
+      "tok_count": 43
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 19,
+      "role": "assistant",
+      "preview": "\u672c\u6587\u5728\u7279\u5f81\u878d\u5408\u7ed3\u6784\u4e2d\u5f15\u5165\u4e86\u4e00\u79cd\u540d\u4e3aCSP_Conv2D\u7684\u5377\u79ef\u6a21\u5757\uff0c\u5e76\u91c7\u7528\u8de8\u9636\u6bb5\u5c40\u90e8\u8fde\u63a5\u7684\u7ed3\u6784\u8fdb\u884c\u6784\u5efa\u3002",
+      "tok_count": 53
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 227,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 117,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 277,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 158,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 210,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 110,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "6": {
+      "orig_tokens": 213,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 197,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 5,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 191,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "10": {
+      "orig_tokens": 17,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "11": {
+      "orig_tokens": 184,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "12": {
+      "orig_tokens": 16,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "13": {
+      "orig_tokens": 62,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "14": {
+      "orig_tokens": 42,
+      "retained_tokens": 42,
+      "retention_frac": 1.0
+    },
+    "15": {
+      "orig_tokens": 44,
+      "retained_tokens": 44,
+      "retention_frac": 1.0
+    },
+    "16": {
+      "orig_tokens": 48,
+      "retained_tokens": 48,
+      "retention_frac": 1.0
+    },
+    "17": {
+      "orig_tokens": 51,
+      "retained_tokens": 51,
+      "retention_frac": 1.0
+    },
+    "18": {
+      "orig_tokens": 43,
+      "retained_tokens": 43,
+      "retention_frac": 1.0
+    },
+    "19": {
+      "orig_tokens": 53,
+      "retained_tokens": 53,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "MobilenetV3-YOLOv4",
+        "rationale": [
+          "id:MobilenetV3-YOLOv4",
+          "winner:performance"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "MobilenetV3-YOLOv4"
+          ],
+          "errors": []
+        },
+        "verbatim": "\"Establish a lightweight object detection model. To meet the speed and accuracy requirements for detecting the six common defects on the surface of PCB, this paper introduces lightweight backbone feature networks, including MobileNet series, GhostNet, and DenseNet, based on the YOLOv4 algorithm. By replacing the CSPDarkNet53 backbone feature network of YOLOv4 and conducting experiments, the YOLOv4 model based on lightweight network structures has significantly reduced volume and improved detection speed, but it has also brought about significant accuracy reduction. Among the five lightweight network models, the MobilenetV3-YOLOv4 model shows the best performance based on comprehensive evaluation indicators of average precision, harmonic mean value, model size, and FPS. Therefore, we further improve this model.\"",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "CSPDarknet-53",
+        "rationale": [
+          "id:CSPDarknet-53"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "CSPDarknet-53"
+          ],
+          "errors": []
+        },
+        "verbatim": "To address the issues of large parameter volumes, high computational complexity, and slow inference speed in the current algorithms applied to PCB surface defect detection, this paper replaces the CSPDarknet-53 backbone network for feature extraction in YOLOv4 with a lightweight MobileNetV3 network model. By using depthwise separable convolutions and reducing network depth, MobileNetV3 reduces parameter volumes while maintaining feature extraction capabilities and improving detection speed. This enables its application in actual industrial environments and promotes the automation and industrialization development of PCB surface defect detection.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2265,
+    "comp_total_toks": 281,
+    "reduction": 87.59381898454745,
+    "DRR_soft": 0.0,
+    "RCI": 0.0
+  }
+}

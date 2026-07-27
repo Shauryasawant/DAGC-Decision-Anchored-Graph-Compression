@@ -1,0 +1,195 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 838,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm calling to let you know that I received two deliveries for the same order today. My order number is GH8811, and both deliveries were on October 5th. Could you help me resolve this duplica",
+      "tok_count": 49,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"order_number\": \"GH8811\"}, \"name\": \"check_order_status\"}",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer reports duplicate delivery for order GH8811 on October 5th. Order status shows delivered, but customer received two separate deliveries for same order. Potential billin",
+      "tok_count": 57,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 838
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Hello, I'm calling to let you know that I received two deliveries for the same order today.",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "{\"args\": {\"order_number\": \"GH8811\"}, \"name\": \"check_order_status\"} {\"args\": {\"order_number\": \"GH8811\"}, \"name\": \"check_order_status\"}",
+      "tok_count": 40
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer reports duplicate delivery for order GH8811 on October 5th. Order status shows delivered, but customer received two separate deliveries for same order. Potential billin",
+      "tok_count": 57
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 838,
+      "retained_tokens": 838,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 49,
+      "retained_tokens": 20,
+      "retention_frac": 0.40816326530612246
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 20,
+      "retained_tokens": 40,
+      "retention_frac": 2.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 57,
+      "retained_tokens": 57,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    4
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "check_order_status",
+        "target": "GH8811",
+        "rationale": [
+          "value:GH8811"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"order_number\": \"GH8811\"}, \"name\": \"check_order_status\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "check_order_status",
+        "target": "GH8811",
+        "rationale": [
+          "value:GH8811"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "transfer_to_specialist",
+        "target": null,
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "billing/fulfillment"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"Customer reports duplicate delivery for order GH8811 on October 5th. Order status shows delivered, but customer received two separate deliveries for same order. Potential billing/fulfillment error requiring investigation.\"}, \"name\": \"transfer_to_specialist\"}",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "transfer_to_specialist",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.85,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": null,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": false
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 964,
+    "comp_total_toks": 955,
+    "reduction": 0.9336099585062207,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

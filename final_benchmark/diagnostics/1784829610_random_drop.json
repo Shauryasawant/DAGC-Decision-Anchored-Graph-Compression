@@ -1,0 +1,174 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "I want to start doing astrophotography as a hobby, any suggestions what could i do?",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Getting started in astrophotography can seem daunting, but with some patience and practice, you can become a master of the craft. To begin, you'll need a good camera and lens, a tripod, and a dark sky",
+      "tok_count": 156,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Can you tell me more?  What would you recommend as a basic set of equipment to get started with?  How much will it cost?",
+      "tok_count": 29,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Astrophotography can be a fun and rewarding hobby, and here are some more in depth suggestions for you to get started:\n\n    Equipment: As a beginner, you will need a camera that is capable of taking l",
+      "tok_count": 386,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "What is a good course of instruction to avoid years of wasted effort?",
+      "tok_count": 14,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "I want to start doing astrophotography as a hobby, any suggestions what could i do?",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Location: Look for a location with minimal light pollution and a clear view of the night sky. As you improve, you can upgrade your equipment and add additional accessories such as filters and tracking",
+      "tok_count": 39
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "What is a good course of instruction to avoid years of wasted effort?",
+      "tok_count": 14
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 20,
+      "retained_tokens": 20,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 156,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 29,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 386,
+      "retained_tokens": 39,
+      "retention_frac": 0.10103626943005181
+    },
+    "4": {
+      "orig_tokens": 14,
+      "retained_tokens": 14,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "tracking celestial objects",
+        "rationale": [
+          "winner:techniques"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Getting started in astrophotography can seem daunting, but with some patience and practice, you can become a master of the craft. To begin, you'll need a good camera and lens, a tripod, and a dark sky location free of light pollution. You will also need to learn about the basics of astrophotography, such as what camera settings to use, how to capture star trails, and the best techniques for tracking celestial objects. You can also purchase or rent different types of telescopes, depending on what types of objects you want to capture. Additionally, it's important to keep up with the latest astrophotography news and trends. Once you have the necessary equipment and knowledge, you can start shooting and experimenting with different techniques to get the best results.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "choose",
+        "target": "most expensive equipment",
+        "rationale": [
+          "winner:spots"
+        ],
+        "artifacts": {
+          "paths": [
+            "f/2.8"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Astrophotography can be a fun and rewarding hobby, and here are some more in depth suggestions for you to get started:\n\n    Equipment: As a beginner, you will need a camera that is capable of taking long exposures and manual control over the settings. A good starting point would be a digital SLR (DSLR) camera or a mirrorless camera. You will also need a sturdy tripod, a fast wide-angle lens (f/2.8 or faster), and a remote shutter release cable to minimize camera shake during long exposures.\n\n    Location: Look for a location with minimal light pollution and a clear view of the night sky. Check online maps to find the best spots near you.\n\n    Settings: Start with a wide-angle lens and set your camera to manual mode. Set your aperture to f/2.8 or wider, ISO to 800 or 1600, and experiment with different exposure times (30 seconds to 2 minutes).\n\n    Focus: Focus the lens on the stars using live view and manual focus. You may also need to use a Bahtinov mask to achieve accurate focus.\n\n    Editing: After you've taken your photos, use editing software such as Adobe Lightroom or Photoshop to adjust the exposure, contrast, and color balance to get the best results.\n\nThe cost of equipment will depend on the type of camera and lens you choose, but a basic setup can cost anywhere from $500 to $3000. However, you don't need to start with the most expensive equipment to get good results. As you improve, you can upgrade your equipment and add additional accessories such as filters and tracking mounts.\n\nRemember, astrophotography is a hobby that requires patience and practice, so don't be discouraged if your first few attempts don't turn out as well as you had hoped. Keep experimenting and learning, and you'll soon be able to capture stunning images of the night sky!",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Look",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.34,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 605,
+    "comp_total_toks": 73,
+    "reduction": 87.93388429752066,
+    "DRR_soft": 0.17,
+    "RCI": null
+  }
+}

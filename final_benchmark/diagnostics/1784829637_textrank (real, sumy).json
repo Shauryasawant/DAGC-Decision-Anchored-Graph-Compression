@@ -1,0 +1,111 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "what are some fun facts about astronomy.",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Here are some fun facts about astronomy:\n\n1. The Milky Way galaxy - which is home to the Earth and the rest of the Solar System - is estimated to contain approximately 100 billion stars.\n2. The Univer",
+      "tok_count": 214,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "can you answer this question with some more complex facts?",
+      "tok_count": 11,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "what are some fun facts about astronomy.",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "The Solar System is located in one of the spiral arms of the Milky Way, which is known as the Orion Arm or the Carina Arm.",
+      "tok_count": 29
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "can you answer this question with some more complex facts?",
+      "tok_count": 11
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 8,
+      "retained_tokens": 8,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 214,
+      "retained_tokens": 29,
+      "retention_frac": 0.13551401869158877
+    },
+    "2": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "4.5",
+        "rationale": [
+          "value:4.5"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Here are some fun facts about astronomy:\n\n1. The Milky Way galaxy - which is home to the Earth and the rest of the Solar System - is estimated to contain approximately 100 billion stars.\n2. The Universe is thought to be expanding at an accelerating rate, and it is believed that this acceleration is due to dark energy.\n3. The Solar System is located in one of the spiral arms of the Milky Way, which is known as the Orion Arm or the Carina Arm.\n4. The Moon is the only natural satellite of the Earth, and it has been orbiting the Earth for over 4.5 billion years.\n5. Saturn is the only planet in the Solar System that has a ring system, and the planet's rings are composed primarily of water ice particles.\n6. Mercury is the closest planet to the Sun, and it orbits the Sun in just 88 days.\n7. Mars is slightly smaller than the Earth, and it is known for its unique red color, which is due to the presence of iron oxide on the planet's surface.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Arm",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.4,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 233,
+    "comp_total_toks": 48,
+    "reduction": 79.3991416309013,
+    "DRR_soft": 0.4,
+    "RCI": null
+  }
+}

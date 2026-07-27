@@ -1,0 +1,234 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 793,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I need urgent help. My dog was bitten by a rattlesnake about 30 minutes ago on the leg. The symptoms are starting to show\u2014swelling, drooling, and lethargy. I\u2019m in Colorado (zip code 80202) an",
+      "tok_count": 83,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"tier\": 1}, \"name\": \"get_emergency_protocol\"}",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Dog bitten by rattlesnake approximately 30 minutes ago on leg. Symptoms: swelling, drooling, lethargy. Owner in Colorado zip code 80202. This is a Tier 1 emergency (poisoning).\"",
+      "tok_count": 66,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "YOU ARE BEING TRANSFERRED TO A LICENSED VETERINARIAN. PLEASE DESCRIBE YOUR PET'S SYMPTOMS.",
+      "tok_count": 30,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 793
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "I\u2019m in Colorado (zip code 80202) and I\u2019m panicking.",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "{\"args\": {\"tier\": 1}, \"name\": \"get_emergency_protocol\"} {\"args\": {\"tier\": 1}, \"name\": \"get_emergency_protocol\"}",
+      "tok_count": 36
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "{\"args\": {\"summary\": \"Dog bitten by rattlesnake approximately 30 minutes ago on leg. {\"args\": {\"summary\": \"Dog bitten by rattlesnake approximately 30 minutes ago on leg. Symptoms: swelling, drooling, ",
+      "tok_count": 88
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": "YOU ARE BEING TRANSFERRED TO A LICENSED VETERINARIAN. PLEASE DESCRIBE YOUR PET'S SYMPTOMS.",
+      "tok_count": 30
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 793,
+      "retained_tokens": 793,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 83,
+      "retained_tokens": 17,
+      "retention_frac": 0.20481927710843373
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 18,
+      "retained_tokens": 36,
+      "retention_frac": 2.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 66,
+      "retained_tokens": 88,
+      "retention_frac": 1.3333333333333333
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 30,
+      "retained_tokens": 30,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    4,
+    5,
+    7
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "get_emergency_protocol",
+        "target": null,
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"tier\": 1}, \"name\": \"get_emergency_protocol\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "get_emergency_protocol",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.85,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": null,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": false
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "transfer_to_licensed_vet",
+        "target": null,
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"Dog bitten by rattlesnake approximately 30 minutes ago on leg. Symptoms: swelling, drooling, lethargy. Owner in Colorado zip code 80202. This is a Tier 1 emergency (poisoning).\"}, \"name\": \"transfer_to_licensed_vet\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "transfer_to_licensed_vet",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.85,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": null,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": false
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 990,
+    "comp_total_toks": 964,
+    "reduction": 2.626262626262621,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

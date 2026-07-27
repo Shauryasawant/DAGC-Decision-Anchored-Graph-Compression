@@ -1,0 +1,128 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Solve a quadratic equation where a=2, b=6, and c=5",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the solve_quadratic_equation function to handle this request. {\"args\": {}, \"name\": \"solve_quadratic_equation\"}",
+      "tok_count": 29,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Solve a quadratic equation where a=2, b=6, and c=5",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the solve_quadratic_equation function to handle this request. {\"args\": {}, \"name\": \"solve_quadratic_equation\"} {\"args\": {}, \"name\": \"solve_quadratic_equation\"}",
+      "tok_count": 43
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 18,
+      "retained_tokens": 18,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 29,
+      "retained_tokens": 43,
+      "retention_frac": 1.4827586206896552
+    },
+    "3": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "solve_quadratic_equation",
+        "target": "solve quadratic equation function",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I'll use the solve_quadratic_equation function to handle this request. {\"args\": {}, \"name\": \"solve_quadratic_equation\"}",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "solve_quadratic_equation",
+        "target": "solve quadratic equation function",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 59,
+    "comp_total_toks": 73,
+    "reduction": -23.728813559322038,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

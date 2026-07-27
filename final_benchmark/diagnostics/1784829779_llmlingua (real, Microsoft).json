@@ -1,0 +1,137 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "TEST",
+      "tok_count": 1,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "I'm sorry, I cannot take tests as I am an AI language model designed to assist with information and answer questions. Please let me know if you have any questions or need help with anything else.",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Is this GPT4 oder GPT 3.5?",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "I am an AI language model powered by OpenAI's GPT-3. Currently, GPT-4 has not been released. If you have any questions or need help, feel free to ask!",
+      "tok_count": 41,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "TEST",
+      "tok_count": 1
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "I'm sorry, I cannot take tests as I am an AI language model designed to assist with information and answer questions. Please let me know if you have any questions or need help with anything else.",
+      "tok_count": 40
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Is this GPT4 oder GPT 3.5?",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "I am an AI language model powered by OpenAI's GPT-3. Currently, GPT-4 has not been released. If you have any questions or need help, feel free to ask!",
+      "tok_count": 41
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1,
+      "retained_tokens": 1,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 40,
+      "retained_tokens": 40,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 41,
+      "retained_tokens": 41,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "GPT-3",
+        "rationale": [
+          "id:GPT-3",
+          "id:GPT-4"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "GPT-3",
+            "GPT-4"
+          ],
+          "errors": []
+        },
+        "verbatim": "I am an AI language model powered by OpenAI's GPT-3. Currently, GPT-4 has not been released. If you have any questions or need help, feel free to ask!",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "GPT-3",
+        "rationale": [
+          "id:GPT-3",
+          "id:GPT-4"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 95,
+    "comp_total_toks": 95,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

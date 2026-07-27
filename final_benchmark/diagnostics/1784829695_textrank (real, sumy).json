@@ -1,0 +1,1030 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 752,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHi, I'm reaching out regarding persistent cross-region latency between us-west-2 and sa-east-1. Our internal monitoring shows an average latency of 265ms during business hours, which exceeds the 250",
+      "tok_count": 125,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you investigate the cross-region latency issue between us-west-2 and sa-east-1. First, I need to verify your identity t",
+      "tok_count": 132,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Sure, here\u2019s the verification information:  \n1. Registered email: **network.engineer@telecomco.com**  \n2. Verification method: **Account creation date: 2020-05-15**  \n\nOnce verified, please proceed wi",
+      "tok_count": 108,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"email_or_phone\": \"network.engineer@telecomco.com\", \"verification_method\": \"account_creation_date\", \"verification_value\": \"2020-05-15\"}, \"name\": \"verify_user\"}",
+      "tok_count": 46,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": " {\"args\": {\"metric_type\": \"network\", \"resource_id\": \"i-1234567890abcdef0\", \"time_range\": \"24h\"}, \"name\": \"get_resource_metrics\"}",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": " {\"args\": {\"metric_type\": \"network\", \"resource_id\": \"i-0987654321fedcba9\", \"time_range\": \"24h\"}, \"name\": \"get_resource_metrics\"}",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": " {\"args\": {\"action_type\": \"read\", \"resource_id\": \"i-1234567890abcdef0\", \"user_id\": \"user-12345\"}, \"name\": \"validate_permissions\"}",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "assistant",
+      "preview": " {\"args\": {\"metric_type\": \"network\", \"resource_id\": \"vpc-pcx-12345678\", \"time_range\": \"24h\"}, \"name\": \"get_resource_metrics\"}",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "assistant",
+      "preview": " {\"args\": {\"action_type\": \"read\", \"resource_id\": \"i-0987654321fedcba9\", \"user_id\": \"user-12345\"}, \"name\": \"validate_permissions\"}",
+      "tok_count": 42,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 23,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 24,
+      "role": "assistant",
+      "preview": " {\"args\": {\"action_type\": \"read\", \"resource_id\": \"vpc-pcx-12345678\", \"user_id\": \"user-12345\"}, \"name\": \"validate_permissions\"}",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 25,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 26,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 27,
+      "role": "assistant",
+      "preview": " {\"args\": {\"action\": \"Verified identity and retrieved network metrics for cross-region latency investigation\", \"resource_id\": \"i-1234567890abcdef0\", \"user_id\": \"user-12345\"}, \"name\": \"log_audit_action",
+      "tok_count": 51,
+      "protected": false
+    },
+    {
+      "idx": 28,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 29,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 30,
+      "role": "assistant",
+      "preview": " {\"args\": {\"source_resource\": \"i-1234567890abcdef0\", \"target_resource\": \"i-0987654321fedcba9\"}, \"name\": \"run_diagnostic_ping\"}",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 31,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 32,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer reporting persistent cross-region latency between us-west-2 and sa-east-1 exceeding 250ms SLA threshold. Verified metrics show: i-1234567890abcdef0: 268ms latency, 2.1%",
+      "tok_count": 152,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 752
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Please confirm if this latency is consistent across your infrastructure and escalate if appropriate.",
+      "tok_count": 15
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Verification method (either your account creation date in YYYY-MM-DD format OR the last 4 digits of your payment method)\\n\\nOnce verified, I can check the metrics for the resources you mentioned and r",
+      "tok_count": 49
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Once verified, please proceed with checking the metrics for the EC2 instances **i-1234567890abcdef0**, **i-0987654321fedcba9**, and the VPC peering connection **vpc-pcx-12345678**.",
+      "tok_count": 53
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "{\"args\": {\"email_or_phone\": \"network.engineer@telecomco.com\", \"verification_method\": \"account_creation_date\", \"verification_value\": \"2020-05-15\"}, \"name\": \"verify_user\"} {\"args\": {\"email_or_phone\": \"n",
+      "tok_count": 92
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "{\"args\": {\"metric_type\": \"network\", \"resource_id\": \"i-1234567890abcdef0\", \"time_range\": \"24h\"}, \"name\": \"get_resource_metrics\"} {\"args\": {\"metric_type\": \"network\", \"resource_id\": \"i-1234567890abcdef0\"",
+      "tok_count": 80
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 12,
+      "role": "assistant",
+      "preview": "{\"args\": {\"metric_type\": \"network\", \"resource_id\": \"i-0987654321fedcba9\", \"time_range\": \"24h\"}, \"name\": \"get_resource_metrics\"} {\"args\": {\"metric_type\": \"network\", \"resource_id\": \"i-0987654321fedcba9\"",
+      "tok_count": 82
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 15,
+      "role": "assistant",
+      "preview": "{\"args\": {\"action_type\": \"read\", \"resource_id\": \"i-1234567890abcdef0\", \"user_id\": \"user-12345\"}, \"name\": \"validate_permissions\"} {\"args\": {\"action_type\": \"read\", \"resource_id\": \"i-1234567890abcdef0\", ",
+      "tok_count": 82
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 18,
+      "role": "assistant",
+      "preview": "{\"args\": {\"metric_type\": \"network\", \"resource_id\": \"vpc-pcx-12345678\", \"time_range\": \"24h\"}, \"name\": \"get_resource_metrics\"} {\"args\": {\"metric_type\": \"network\", \"resource_id\": \"vpc-pcx-12345678\", \"tim",
+      "tok_count": 80
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 21,
+      "role": "assistant",
+      "preview": "{\"args\": {\"action_type\": \"read\", \"resource_id\": \"i-0987654321fedcba9\", \"user_id\": \"user-12345\"}, \"name\": \"validate_permissions\"} {\"args\": {\"action_type\": \"read\", \"resource_id\": \"i-0987654321fedcba9\", ",
+      "tok_count": 84
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 24,
+      "role": "assistant",
+      "preview": "{\"args\": {\"action_type\": \"read\", \"resource_id\": \"vpc-pcx-12345678\", \"user_id\": \"user-12345\"}, \"name\": \"validate_permissions\"} {\"args\": {\"action_type\": \"read\", \"resource_id\": \"vpc-pcx-12345678\", \"user_",
+      "tok_count": 82
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 27,
+      "role": "assistant",
+      "preview": "{\"args\": {\"action\": \"Verified identity and retrieved network metrics for cross-region latency investigation\", \"resource_id\": \"i-1234567890abcdef0\", \"user_id\": \"user-12345\"}, \"name\": \"log_audit_action\"",
+      "tok_count": 102
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 30,
+      "role": "assistant",
+      "preview": "{\"args\": {\"source_resource\": \"i-1234567890abcdef0\", \"target_resource\": \"i-0987654321fedcba9\"}, \"name\": \"run_diagnostic_ping\"} {\"args\": {\"source_resource\": \"i-1234567890abcdef0\", \"target_resource\": \"i-",
+      "tok_count": 82
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 32,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Customer reporting persistent cross-region latency between us-west-2 and sa-east-1 exceeding 250ms SLA threshold. Verified metrics show: i-1234567890abcdef0: 268ms latency, 2.1%",
+      "tok_count": 152
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 752,
+      "retained_tokens": 752,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 125,
+      "retained_tokens": 15,
+      "retention_frac": 0.12
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 132,
+      "retained_tokens": 49,
+      "retention_frac": 0.3712121212121212
+    },
+    "4": {
+      "orig_tokens": 108,
+      "retained_tokens": 53,
+      "retention_frac": 0.49074074074074076
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 46,
+      "retained_tokens": 92,
+      "retention_frac": 2.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "9": {
+      "orig_tokens": 40,
+      "retained_tokens": 80,
+      "retention_frac": 2.0
+    },
+    "10": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "11": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "12": {
+      "orig_tokens": 41,
+      "retained_tokens": 82,
+      "retention_frac": 2.0
+    },
+    "13": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "14": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "15": {
+      "orig_tokens": 41,
+      "retained_tokens": 82,
+      "retention_frac": 2.0
+    },
+    "16": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "17": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "18": {
+      "orig_tokens": 40,
+      "retained_tokens": 80,
+      "retention_frac": 2.0
+    },
+    "19": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "20": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "21": {
+      "orig_tokens": 42,
+      "retained_tokens": 84,
+      "retention_frac": 2.0
+    },
+    "22": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "23": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "24": {
+      "orig_tokens": 41,
+      "retained_tokens": 82,
+      "retention_frac": 2.0
+    },
+    "25": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "26": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "27": {
+      "orig_tokens": 51,
+      "retained_tokens": 102,
+      "retention_frac": 2.0
+    },
+    "28": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "29": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "30": {
+      "orig_tokens": 41,
+      "retained_tokens": 82,
+      "retention_frac": 2.0
+    },
+    "31": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "32": {
+      "orig_tokens": 152,
+      "retained_tokens": 152,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2,
+    5,
+    7,
+    8,
+    10,
+    11,
+    13,
+    14,
+    16,
+    17,
+    19,
+    20,
+    22,
+    23,
+    25,
+    26,
+    28,
+    29,
+    31
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "us-west-2",
+        "rationale": [
+          "id:us-west-2",
+          "id:sa-east-1"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "us-west-2",
+            "sa-east-1"
+          ],
+          "errors": []
+        },
+        "verbatim": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I'd be happy to help you investigate the cross-region latency issue between us-west-2 and sa-east-1. First, I need to verify your identity to access the resource metrics and perform diagnostics.\\n\\nCould you please provide:\\n1. Your registered email or phone number with CloudScale Inc.\\n2. Verification method (either your account creation date in YYYY-MM-DD format OR the last 4 digits of your payment method)\\n\\nOnce verified, I can check the metrics for the resources you mentioned and run diagnostics to confirm the latency issue.\"}]",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "latency issue",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.4,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "verify_user",
+        "target": "network.engineer@telecomco.com",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "telecomco.com"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"email_or_phone\": \"network.engineer@telecomco.com\", \"verification_method\": \"account_creation_date\", \"verification_value\": \"2020-05-15\"}, \"name\": \"verify_user\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "verify_user",
+        "target": "network.engineer@telecomco.com",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_resource_metrics",
+        "target": "i-1234567890abcdef0",
+        "rationale": [
+          "id:1234567890abcdef0",
+          "id:i-1234567890abcdef0"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "1234567890abcdef0",
+            "i-1234567890abcdef0"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"metric_type\": \"network\", \"resource_id\": \"i-1234567890abcdef0\", \"time_range\": \"24h\"}, \"name\": \"get_resource_metrics\"}",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "get_resource_metrics",
+        "target": "i-1234567890abcdef0",
+        "rationale": [
+          "id:1234567890abcdef0",
+          "id:i-1234567890abcdef0"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_resource_metrics",
+        "target": "i-0987654321fedcba9",
+        "rationale": [
+          "id:0987654321fedcba9",
+          "id:i-0987654321fedcba9"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "0987654321fedcba9",
+            "i-0987654321fedcba9"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"metric_type\": \"network\", \"resource_id\": \"i-0987654321fedcba9\", \"time_range\": \"24h\"}, \"name\": \"get_resource_metrics\"}",
+        "msg_idx": 12
+      },
+      "reproduced": {
+        "action": "get_resource_metrics",
+        "target": "i-0987654321fedcba9",
+        "rationale": [
+          "id:0987654321fedcba9",
+          "id:i-0987654321fedcba9"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "validate_permissions",
+        "target": "i-1234567890abcdef0",
+        "rationale": [
+          "id:1234567890abcdef0",
+          "id:i-1234567890abcdef0",
+          "id:user-12345"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "1234567890abcdef0",
+            "i-1234567890abcdef0",
+            "user-12345"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"action_type\": \"read\", \"resource_id\": \"i-1234567890abcdef0\", \"user_id\": \"user-12345\"}, \"name\": \"validate_permissions\"}",
+        "msg_idx": 15
+      },
+      "reproduced": {
+        "action": "validate_permissions",
+        "target": "i-1234567890abcdef0",
+        "rationale": [
+          "id:1234567890abcdef0",
+          "id:i-1234567890abcdef0",
+          "id:user-12345"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_resource_metrics",
+        "target": "vpc-pcx-12345678",
+        "rationale": [
+          "id:12345678",
+          "id:vpc-pcx-12345678"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "12345678",
+            "vpc-pcx-12345678"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"metric_type\": \"network\", \"resource_id\": \"vpc-pcx-12345678\", \"time_range\": \"24h\"}, \"name\": \"get_resource_metrics\"}",
+        "msg_idx": 18
+      },
+      "reproduced": {
+        "action": "get_resource_metrics",
+        "target": "vpc-pcx-12345678",
+        "rationale": [
+          "id:12345678",
+          "id:vpc-pcx-12345678"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "validate_permissions",
+        "target": "i-0987654321fedcba9",
+        "rationale": [
+          "id:0987654321fedcba9",
+          "id:i-0987654321fedcba9",
+          "id:user-12345"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "0987654321fedcba9",
+            "i-0987654321fedcba9",
+            "user-12345"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"action_type\": \"read\", \"resource_id\": \"i-0987654321fedcba9\", \"user_id\": \"user-12345\"}, \"name\": \"validate_permissions\"}",
+        "msg_idx": 21
+      },
+      "reproduced": {
+        "action": "validate_permissions",
+        "target": "i-0987654321fedcba9",
+        "rationale": [
+          "id:0987654321fedcba9",
+          "id:i-0987654321fedcba9",
+          "id:user-12345"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "validate_permissions",
+        "target": "vpc-pcx-12345678",
+        "rationale": [
+          "id:12345678",
+          "id:vpc-pcx-12345678",
+          "id:user-12345"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "12345678",
+            "vpc-pcx-12345678",
+            "user-12345"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"action_type\": \"read\", \"resource_id\": \"vpc-pcx-12345678\", \"user_id\": \"user-12345\"}, \"name\": \"validate_permissions\"}",
+        "msg_idx": 24
+      },
+      "reproduced": {
+        "action": "validate_permissions",
+        "target": "vpc-pcx-12345678",
+        "rationale": [
+          "id:12345678",
+          "id:vpc-pcx-12345678",
+          "id:user-12345"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "log_audit_action",
+        "target": "i-1234567890abcdef0",
+        "rationale": [
+          "id:1234567890abcdef0",
+          "id:i-1234567890abcdef0",
+          "id:user-12345"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "1234567890abcdef0",
+            "i-1234567890abcdef0",
+            "user-12345"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"action\": \"Verified identity and retrieved network metrics for cross-region latency investigation\", \"resource_id\": \"i-1234567890abcdef0\", \"user_id\": \"user-12345\"}, \"name\": \"log_audit_action\"}",
+        "msg_idx": 27
+      },
+      "reproduced": {
+        "action": "log_audit_action",
+        "target": "i-1234567890abcdef0",
+        "rationale": [
+          "id:1234567890abcdef0",
+          "id:i-1234567890abcdef0",
+          "id:user-12345"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "run_diagnostic_ping",
+        "target": "i-0987654321fedcba9",
+        "rationale": [
+          "id:1234567890abcdef0",
+          "id:0987654321fedcba9",
+          "id:i-1234567890abcdef0",
+          "value:i-0987654321fedcba9"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "1234567890abcdef0",
+            "0987654321fedcba9",
+            "i-1234567890abcdef0",
+            "i-0987654321fedcba9"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"source_resource\": \"i-1234567890abcdef0\", \"target_resource\": \"i-0987654321fedcba9\"}, \"name\": \"run_diagnostic_ping\"}",
+        "msg_idx": 30
+      },
+      "reproduced": {
+        "action": "run_diagnostic_ping",
+        "target": "i-0987654321fedcba9",
+        "rationale": [
+          "id:1234567890abcdef0",
+          "id:0987654321fedcba9",
+          "id:i-1234567890abcdef0",
+          "value:i-0987654321fedcba9"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "transfer_to_human_agent",
+        "target": "i-1234567890abcdef0",
+        "rationale": [
+          "i-1234567890abcdef0=268",
+          "i-0987654321fedcba9=265",
+          "vpc-pcx-12345678=267",
+          "id:1234567890abcdef0",
+          "id:0987654321fedcba9",
+          "id:12345678",
+          "value:i-1234567890abcdef0"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "1234567890abcdef0",
+            "0987654321fedcba9",
+            "12345678",
+            "us-west-2",
+            "sa-east-1",
+            "i-1234567890abcdef0",
+            "i-0987654321fedcba9",
+            "vpc-pcx-12345678",
+            "user-12345"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"Customer reporting persistent cross-region latency between us-west-2 and sa-east-1 exceeding 250ms SLA threshold. Verified metrics show: i-1234567890abcdef0: 268ms latency, 2.1% packet loss; i-0987654321fedcba9: 265ms latency, 1.8% packet loss; vpc-pcx-12345678: 267ms latency, 2.3% packet loss. Diagnostic ping confirms 266ms latency, 2.5% packet loss. User is Admin role (user-12345). Escalation required per policy for cross-region latency >250ms.\"}, \"name\": \"transfer_to_human_agent\"}",
+        "msg_idx": 32
+      },
+      "reproduced": {
+        "action": "transfer_to_human_agent",
+        "target": "i-1234567890abcdef0",
+        "rationale": [
+          "i-1234567890abcdef0=268",
+          "i-0987654321fedcba9=265",
+          "vpc-pcx-12345678=267",
+          "id:1234567890abcdef0",
+          "id:0987654321fedcba9",
+          "id:12345678",
+          "value:i-1234567890abcdef0"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1652,
+    "comp_total_toks": 1787,
+    "reduction": -8.171912832929774,
+    "DRR_soft": 0.9454545454545454,
+    "RCI": 1.0
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfCu\u00e1les ser\u00edan los pasos para poder aprender ingl\u00e9s por mi cuenta?",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Aprender ingl\u00e9s por tu cuenta es un proceso emocionante y desafiante, pero con dedicaci\u00f3n y motivaci\u00f3n, puedes lograrlo. Aqu\u00ed hay algunos pasos que te pueden ayudar:\n\n1- Establece tus objetivos: deter",
+      "tok_count": 426,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "\u00bfCu\u00e1les ser\u00edan los pasos para poder aprender ingl\u00e9s por mi cuenta?",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Aprender ingl\u00e9s por tu cuenta es un proceso emocionante y desafiante, pero con dedicaci\u00f3n y motivaci\u00f3n, puedes lograrlo. Aqu\u00ed hay algunos pasos que te pueden ayudar:\n\n1- Establece tus objetivos: deter",
+      "tok_count": 426
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 18,
+      "retained_tokens": 18,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 426,
+      "retained_tokens": 426,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Practica",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Aprender ingl\u00e9s por tu cuenta es un proceso emocionante y desafiante, pero con dedicaci\u00f3n y motivaci\u00f3n, puedes lograrlo. Aqu\u00ed hay algunos pasos que te pueden ayudar:\n\n1- Establece tus objetivos: determina qu\u00e9 nivel de ingl\u00e9s deseas alcanzar y cu\u00e1les son tus motivos para aprenderlo.\n\n2- Familiar\u00edzate con la gram\u00e1tica y el vocabulario: una base s\u00f3lida en gram\u00e1tica y vocabulario es clave para hablar y escribir con fluidez en ingl\u00e9s.\n\n3- Practica la escucha y el habla: escucha a nativos hablando ingl\u00e9s y trata de imitarlos. Puedes hacer esto a trav\u00e9s de pel\u00edculas, programas de televisi\u00f3n, m\u00fasica o conversando con personas que hablen ingl\u00e9s.\n\n4- Lee en ingl\u00e9s: leer material en ingl\u00e9s, como libros, peri\u00f3dicos o art\u00edculos en l\u00ednea, te ayudar\u00e1 a mejorar tu comprensi\u00f3n y ampliar tu vocabulario.\n\n5- Usa herramientas en l\u00ednea: hay muchas herramientas en l\u00ednea, como aplicaciones de aprendizaje de idiomas, que te pueden ayudar a mejorar tus habilidades de escucha, habla y gram\u00e1tica.\n\n6- Practica con un tutor o un compa\u00f1ero de habla inglesa: practicar con alguien que hable ingl\u00e9s de forma nativa es una manera efectiva de mejorar tus habilidades de conversaci\u00f3n.\n\n7- Tambi\u00e9n puedes practicar entrevistando a una persona que hable ingles, grabando en tu mente las preguntas y respuestas antes de realizarlas. Y tambi\u00e9n puedes anotar lo que paso en esa entrevista en un cuaderno para que cuando llegues a casa practiques las nuevas palabras o las que ya sabes.\n\nRecuerda ser paciente y constante en tu aprendizaje, y no tengas miedo de cometer errores. La pr\u00e1ctica hace al maestro y aprender un nuevo idioma requiere tiempo y esfuerzo.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Practica",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 444,
+    "comp_total_toks": 444,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Find the estimated travel time by car from San Francisco to Los Angeles with stops at Santa Barbara and Monterey.",
+      "tok_count": 21,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the route.estimate_time function to handle this request. {\"args\": {}, \"name\": \"route.estimate_time\"}",
+      "tok_count": 27,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Find the estimated travel time by car from San Francisco to Los Angeles with stops at Santa Barbara and Monterey.",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "{\"args\": {}, \"name\": \"route.estimate_time\"} {\"args\": {}, \"name\": \"route.estimate_time\"}",
+      "tok_count": 26
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 21,
+      "retained_tokens": 21,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 27,
+      "retained_tokens": 26,
+      "retention_frac": 0.9629629629629629
+    },
+    "3": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "route.estimate_time",
+        "target": "estimate_time",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I'll use the route.estimate_time function to handle this request. {\"args\": {}, \"name\": \"route.estimate_time\"}",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "route.estimate_time",
+        "target": "estimate_time",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 60,
+    "comp_total_toks": 59,
+    "reduction": 1.6666666666666718,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

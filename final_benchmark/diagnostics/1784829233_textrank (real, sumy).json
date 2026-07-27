@@ -1,0 +1,667 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "[SYSTEM POLICY] # Retail agent policy\n\nAs a retail agent, you can help users cancel or modify pending orders, return or exchange delivered orders, modify their default user address, or provide informa",
+      "tok_count": 1203,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": " Hi, I just placed an order but my card only has $950 limit left. Can I split payment with another card?",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": " I'll help you check and modify the payment method for your order. First, I need to authenticate your identity. Could you please provide your email address?\n\nAlso, to assist you better, I'll need:\n1. ",
+      "tok_count": 112,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "user",
+      "preview": " My email is daikisanchez1479@example.com. Sorry, I don't have the order ID right now. If we can't split payment, can you tell me what's the most expensive item in my order? Maybe I can remove that?",
+      "tok_count": 51,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": " Let me help you find your user information and order details using your email.\n\n<antml:function_calls>\n<antml:invoke name=\"find_user_id_by_email\">\n<antml:parameter name=\"email\">daikisanchez1479@examp",
+      "tok_count": 67,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "[tool result] Error: user not found",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "\n\nI apologize, but I'm unable to find an account with the email address you provided (daikisanchez1479@example.com). Could you please:\n1. Verify if the email address is correct, or\n2. Provide your fir",
+      "tok_count": 92,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "user",
+      "preview": " Oh, I'm Daiki Sanchez and my zip code is 46236. Please help check my order.",
+      "tok_count": 22,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": " I'll look up your account using your name and zip code.\n\n<antml:function_calls>\n<antml:invoke name=\"find_user_id_by_name_zip\">\n<antml:parameter name=\"first_name\">Daiki</antml:parameter>\n<antml:parame",
+      "tok_count": 96,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "[tool result] daiki_sanchez_3253",
+      "tok_count": 12,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "\n\nThank you. I've located your account. Let me check your user details and recent order.\n\n<antml:function_calls>\n<antml:invoke name=\"get_user_details\">\n<antml:parameter name=\"user_id\">daiki_sanchez_32",
+      "tok_count": 71,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": {\"first_name\": \"Daiki\", \"last_name\": \"Sanchez\"}, \"address\": {\"address1\": \"661 Elm Avenue\", \"address2\": \"Suite 517\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"province\": \"IN\", \"",
+      "tok_count": 139,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": "\n\nLet me check your recent order details:\n\n<antml:function_calls>\n<antml:invoke name=\"get_order_details\">\n<antml:parameter name=\"order_id\">#W9348897</antml:parameter>\n</antml:invoke>\n</antml:function_",
+      "tok_count": 56,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W9348897\", \"user_id\": \"daiki_sanchez_3253\", \"address\": {\"address1\": \"113 Hickory Lane\", \"address2\": \"Suite 991\", \"city\": \"Denver\", \"country\": \"USA\", \"state\": \"CO\", \"zip\": ",
+      "tok_count": 442,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "\n\nI can see your recent order (#W9348897) which is still in pending status. The most expensive item in your order is the Action Camera at $481.50. Here's a breakdown of all items in your order:\n\n1. Ac",
+      "tok_count": 242,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "user",
+      "preview": " Yes, please remove the Action Camera so total is under $950.",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": " I apologize, but I need to clarify something - I am not able to remove individual items from an existing order. For a pending order, your options are:\n\n1. Cancel the entire order and place a new orde",
+      "tok_count": 146,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "user",
+      "preview": " Yes, please cancel. I ordered by mistake.",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "assistant",
+      "preview": " I'll help you cancel the order #W9348897. Here are the details of what will happen:\n\n- Order #W9348897 with total amount of $1,166.98 will be cancelled\n- Since the payment was made with a credit card",
+      "tok_count": 179,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W9348897\", \"user_id\": \"daiki_sanchez_3253\", \"address\": {\"address1\": \"113 Hickory Lane\", \"address2\": \"Suite 991\", \"city\": \"Denver\", \"country\": \"USA\", \"state\": \"CO\", \"zip\": ",
+      "tok_count": 480,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "assistant",
+      "preview": "\n\nYour order has been successfully cancelled. The refund of $1,166.98 will be processed to your credit card ending in 6593 within 5-7 business days.\n\nYou can now place a new order without the Action C",
+      "tok_count": 70,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "user",
+      "preview": " No thanks, that's all I need! ###STOP###",
+      "tok_count": 12,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "- This action can only be called once, and will change the order status to 'pending (items modifed)', and the agent will not be able to modify or cancel the order anymore. - The user needs to confirm ",
+      "tok_count": 66
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "Hi, I just placed an order but my card only has $950 limit left. Can I split payment with another card?",
+      "tok_count": 25
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I'll help you check and modify the payment method for your order. Please note that for pending orders, we can only use one payment method at a time - we cannot split the payment between multiple cards",
+      "tok_count": 41
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "user",
+      "preview": "Sorry, I don't have the order ID right now. If we can't split payment, can you tell me what's the most expensive item in my order?",
+      "tok_count": 33
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "Let me help you find your user information and order details using your email. <antml:function_calls> <antml:invoke name=\"find_user_id_by_email\"> <antml:parameter name=\"email\">daikisanchez1479@example",
+      "tok_count": 67
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "[tool result] Error: user not found",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": "I apologize, but I'm unable to find an account with the email address you provided (daikisanchez1479@example.com). Once we can locate your account, I'll be able to help you check your recent order det",
+      "tok_count": 53
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "user",
+      "preview": "Oh, I'm Daiki Sanchez and my zip code is 46236. Please help check my order.",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": "I'll look up your account using your name and zip code. <antml:function_calls> <antml:invoke name=\"find_user_id_by_name_zip\"> <antml:parameter name=\"first_name\">Daiki</antml:parameter> <antml:paramete",
+      "tok_count": 96
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "[tool result] daiki_sanchez_3253",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "assistant",
+      "preview": "Let me check your user details and recent order. <antml:function_calls> <antml:invoke name=\"get_user_details\"> <antml:parameter name=\"user_id\">daiki_sanchez_3253</antml:parameter> </antml:invoke> </an",
+      "tok_count": 61
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": {\"first_name\": \"Daiki\", \"last_name\": \"Sanchez\"}, \"address\": {\"address1\": \"661 Elm Avenue\", \"address2\": \"Suite 517\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"province\": \"IN\", \"",
+      "tok_count": 139
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 12,
+      "role": "assistant",
+      "preview": "Let me check your recent order details: <antml:function_calls> <antml:invoke name=\"get_order_details\"> <antml:parameter name=\"order_id\">#W9348897</antml:parameter> </antml:invoke> </antml:function_cal",
+      "tok_count": 55
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W9348897\", \"user_id\": \"daiki_sanchez_3253\", \"address\": {\"address1\": \"113 Hickory Lane\", \"address2\": \"Suite 991\", \"city\": \"Denver\", \"country\": \"USA\", \"state\": \"CO\", \"zip\": ",
+      "tok_count": 442
+    },
+    {
+      "c_idx": 14,
+      "orig_idx": 14,
+      "role": "assistant",
+      "preview": "The most expensive item in your order is the Action Camera at $481.50. Cancel the order and place a new one with the items you want to keep",
+      "tok_count": 32
+    },
+    {
+      "c_idx": 15,
+      "orig_idx": 15,
+      "role": "user",
+      "preview": "Yes, please remove the Action Camera so total is under $950.",
+      "tok_count": 14
+    },
+    {
+      "c_idx": 16,
+      "orig_idx": 16,
+      "role": "assistant",
+      "preview": "Cancel the entire order and place a new order with just the items you want to keep 2. If you'd like to proceed with cancelling the order (so you can place a new order without the Action Camera), I can",
+      "tok_count": 50
+    },
+    {
+      "c_idx": 17,
+      "orig_idx": 17,
+      "role": "user",
+      "preview": "Yes, please cancel. I ordered by mistake.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 18,
+      "orig_idx": 18,
+      "role": "assistant",
+      "preview": "- Order #W9348897 with total amount of $1,166.98 will be cancelled - Since the payment was made with a credit card (ending in 6593), the refund will be processed to the same card within 5-7 business d",
+      "tok_count": 136
+    },
+    {
+      "c_idx": 19,
+      "orig_idx": 19,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W9348897\", \"user_id\": \"daiki_sanchez_3253\", \"address\": {\"address1\": \"113 Hickory Lane\", \"address2\": \"Suite 991\", \"city\": \"Denver\", \"country\": \"USA\", \"state\": \"CO\", \"zip\": ",
+      "tok_count": 480
+    },
+    {
+      "c_idx": 20,
+      "orig_idx": 20,
+      "role": "assistant",
+      "preview": "The refund of $1,166.98 will be processed to your credit card ending in 6593 within 5-7 business days. You can now place a new order without the Action Camera, which should bring your total below the ",
+      "tok_count": 52
+    },
+    {
+      "c_idx": 21,
+      "orig_idx": 21,
+      "role": "user",
+      "preview": " No thanks, that's all I need! ###STOP###",
+      "tok_count": 12
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1203,
+      "retained_tokens": 66,
+      "retention_frac": 0.05486284289276808
+    },
+    "1": {
+      "orig_tokens": 25,
+      "retained_tokens": 25,
+      "retention_frac": 1.0
+    },
+    "2": {
+      "orig_tokens": 112,
+      "retained_tokens": 41,
+      "retention_frac": 0.36607142857142855
+    },
+    "3": {
+      "orig_tokens": 51,
+      "retained_tokens": 33,
+      "retention_frac": 0.6470588235294118
+    },
+    "4": {
+      "orig_tokens": 67,
+      "retained_tokens": 67,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "6": {
+      "orig_tokens": 92,
+      "retained_tokens": 53,
+      "retention_frac": 0.5760869565217391
+    },
+    "7": {
+      "orig_tokens": 22,
+      "retained_tokens": 22,
+      "retention_frac": 1.0
+    },
+    "8": {
+      "orig_tokens": 96,
+      "retained_tokens": 96,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    },
+    "10": {
+      "orig_tokens": 71,
+      "retained_tokens": 61,
+      "retention_frac": 0.8591549295774648
+    },
+    "11": {
+      "orig_tokens": 139,
+      "retained_tokens": 139,
+      "retention_frac": 1.0
+    },
+    "12": {
+      "orig_tokens": 56,
+      "retained_tokens": 55,
+      "retention_frac": 0.9821428571428571
+    },
+    "13": {
+      "orig_tokens": 442,
+      "retained_tokens": 442,
+      "retention_frac": 1.0
+    },
+    "14": {
+      "orig_tokens": 242,
+      "retained_tokens": 32,
+      "retention_frac": 0.1322314049586777
+    },
+    "15": {
+      "orig_tokens": 14,
+      "retained_tokens": 14,
+      "retention_frac": 1.0
+    },
+    "16": {
+      "orig_tokens": 146,
+      "retained_tokens": 50,
+      "retention_frac": 0.3424657534246575
+    },
+    "17": {
+      "orig_tokens": 10,
+      "retained_tokens": 10,
+      "retention_frac": 1.0
+    },
+    "18": {
+      "orig_tokens": 179,
+      "retained_tokens": 136,
+      "retention_frac": 0.7597765363128491
+    },
+    "19": {
+      "orig_tokens": 480,
+      "retained_tokens": 480,
+      "retention_frac": 1.0
+    },
+    "20": {
+      "orig_tokens": 70,
+      "retained_tokens": 52,
+      "retention_frac": 0.7428571428571429
+    },
+    "21": {
+      "orig_tokens": 12,
+      "retained_tokens": 12,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "additional payment method",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " I'll help you check and modify the payment method for your order. First, I need to authenticate your identity. Could you please provide your email address?\n\nAlso, to assist you better, I'll need:\n1. The order ID number (starts with #W)\n2. Details of the additional payment method you'd like to use\n\nPlease note that for pending orders, we can only use one payment method at a time - we cannot split the payment between multiple cards. I can help you switch to a different payment method entirely if that would be helpful.",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "payment between multiple cards",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.2857,
+        "rationale_score": 1.0,
+        "decision_score": 0.7143,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "example.com",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "example.com"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " Let me help you find your user information and order details using your email.\n\n<antml:function_calls>\n<antml:invoke name=\"find_user_id_by_email\">\n<antml:parameter name=\"email\">daikisanchez1479@example.com</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+        "msg_idx": 4
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "example.com",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "using",
+        "target": "46236",
+        "rationale": [
+          "value:46236"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " I'll look up your account using your name and zip code.\n\n<antml:function_calls>\n<antml:invoke name=\"find_user_id_by_name_zip\">\n<antml:parameter name=\"first_name\">Daiki</antml:parameter>\n<antml:parameter name=\"last_name\">Sanchez</antml:parameter>\n<antml:parameter name=\"zip\">46236</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": "using",
+        "target": "46236",
+        "rationale": [
+          "value:46236"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "prefer",
+        "target": "W9348897",
+        "rationale": [
+          "amount=$1,166.98",
+          "id:W9348897"
+        ],
+        "artifacts": {
+          "paths": [
+            "481.50",
+            "288.82",
+            "193.38",
+            "150.01",
+            "166.98"
+          ],
+          "ids": [
+            "W9348897"
+          ],
+          "errors": []
+        },
+        "verbatim": "\n\nI can see your recent order (#W9348897) which is still in pending status. The most expensive item in your order is the Action Camera at $481.50. Here's a breakdown of all items in your order:\n\n1. Action Camera (4K, Silver) - $481.50\n2. Patio Umbrella (6ft, Green) - $288.82\n3. Backpack (Green, Small) - $193.38\n4. Desk Lamp (Silver) - $150.01\n5. T-Shirt (Black, XXL) - $53.27\n\nTotal order amount: $1,166.98\n\nSince you mentioned your card has a $950 limit, and we cannot split payments between multiple cards, you have a few options:\n1. Remove the Action Camera (most expensive item) to bring the total below $950\n2. Switch the entire payment to a different payment method that has sufficient funds\n3. Cancel the order and place a new one with the items you want to keep\n\nWould you like to proceed with any of these options? Please let me know which you prefer and I'll help you with the next steps.",
+        "msg_idx": 14
+      },
+      "reproduced": {
+        "action": "keep",
+        "target": "481.50",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "W9348897",
+        "rationale": [
+          "id:W9348897"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "W9348897"
+          ],
+          "errors": []
+        },
+        "verbatim": " I apologize, but I need to clarify something - I am not able to remove individual items from an existing order. For a pending order, your options are:\n\n1. Cancel the entire order and place a new order with just the items you want to keep\n2. Keep all items but change the payment method to a different card with sufficient funds\n\nIf you'd like to proceed with cancelling the order (so you can place a new order without the Action Camera), I can help you with that. Would you like me to cancel order #W9348897? Please confirm with \"yes\" if you want to cancel the order, and let me know if the reason is \"no longer needed\" or \"ordered by mistake\".",
+        "msg_idx": 16
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "new order without",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.4,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "W9348897",
+        "rationale": [
+          "id:W9348897"
+        ],
+        "artifacts": {
+          "paths": [
+            "166.98"
+          ],
+          "ids": [
+            "W9348897"
+          ],
+          "errors": []
+        },
+        "verbatim": " I'll help you cancel the order #W9348897. Here are the details of what will happen:\n\n- Order #W9348897 with total amount of $1,166.98 will be cancelled\n- Since the payment was made with a credit card (ending in 6593), the refund will be processed to the same card within 5-7 business days\n- After cancellation, you can place a new order with just the items you want to keep\n\nPlease confirm once more with \"yes\" that you want me to proceed with the cancellation.\n\n<antml:function_calls>\n<antml:invoke name=\"cancel_pending_order\">\n<antml:parameter name=\"order_id\">#W9348897</antml:parameter>\n<antml:parameter name=\"reason\">ordered by mistake</antml:parameter>\n</antml:invoke>\n</antml:function_calls>",
+        "msg_idx": 18
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "new order without",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.4,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 3550,
+    "comp_total_toks": 1907,
+    "reduction": 46.281690140845065,
+    "DRR_soft": 0.5857166666666667,
+    "RCI": 1.0
+  }
+}

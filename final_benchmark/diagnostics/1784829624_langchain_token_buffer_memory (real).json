@@ -1,0 +1,76 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Quy\u1ec3n s\u00e1ch Ngh\u00ecn l\u1ebb m\u1ed9t \u0111\u00eam l\u00e0 g\u00ec?",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Quy\u1ec3n s\u00e1ch Ngh\u00ecn l\u1ebb m\u1ed9t \u0111\u00eam l\u00e0 tuy\u1ec3n t\u1eadp truy\u1ec7n d\u00e2n gian c\u1ee7a Trung \u0110\u00f4ng. Cu\u1ed1n tuy\u1ec3n t\u1eadp Ngh\u00ecn l\u1ebb m\u1ed9t \u0111\u00eam hi\u1ec7n nay bao g\u1ed3m nh\u1eefng c\u00e2u truy\u1ec7n n\u1ed5i ti\u1ebfng nh\u01b0 \"Aladdin v\u00e0 c\u00e2y \u0111\u00e8n th\u1ea7n\", \"Ali Baba v\u00e0 b\u1ed1n m\u01b0\u01a1",
+      "tok_count": 115,
+      "protected": true
+    }
+  ],
+  "trace_post": [],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 19,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 115,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Trung",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Quy\u1ec3n s\u00e1ch Ngh\u00ecn l\u1ebb m\u1ed9t \u0111\u00eam l\u00e0 tuy\u1ec3n t\u1eadp truy\u1ec7n d\u00e2n gian c\u1ee7a Trung \u0110\u00f4ng. Cu\u1ed1n tuy\u1ec3n t\u1eadp Ngh\u00ecn l\u1ebb m\u1ed9t \u0111\u00eam hi\u1ec7n nay bao g\u1ed3m nh\u1eefng c\u00e2u truy\u1ec7n n\u1ed5i ti\u1ebfng nh\u01b0 \"Aladdin v\u00e0 c\u00e2y \u0111\u00e8n th\u1ea7n\", \"Ali Baba v\u00e0 b\u1ed1n m\u01b0\u01a1i t\u00ean c\u01b0\u1edbp\", v\u00e0 \"Th\u1ee7y th\u1ee7 Sinbad\".",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 134,
+    "comp_total_toks": 0,
+    "reduction": 100.0,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

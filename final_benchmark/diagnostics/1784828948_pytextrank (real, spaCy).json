@@ -1,0 +1,234 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Who is Dawn from Pokemon?",
+      "tok_count": 6,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Dawn (Japanese name: Hikari) is a main character in the Pokemon anime series. She is a young Coordinator from Twinleaf Town in the Sinnoh region and travels with Ash and Brock on their journey. Her go",
+      "tok_count": 72,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "What is the Stand named The World?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "The World is a Stand in the manga and anime series \"JoJo's Bizarre Adventure\". It is the Stand of the main antagonist of Part 3, DIO. The World is a powerful and versatile Stand that can stop time for",
+      "tok_count": 114,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Write a story about a fight between Jotaro Kujo and DIO.",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Jotaro Kujo had been chasing after the evil vampire DIO for months. The two had a long-standing rivalry, and Jotaro was determined to put an end to DIO's reign of terror once and for all.\n\nFinally, Jo",
+      "tok_count": 427,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Who is Dawn from Pokemon?",
+      "tok_count": 6
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Dawn (Japanese name: Hikari) is a main character in the Pokemon anime series.",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "What is the Stand named The World?",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "The World is a powerful and versatile Stand that can stop time for a few seconds, allowing its user to move and attack freely while everyone else is frozen in time.",
+      "tok_count": 33
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Write a story about a fight between Jotaro Kujo and DIO.",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Jotaro Kujo had been chasing after the evil vampire DIO for months. The two had a long-standing rivalry, and Jotaro was determined to put an end to DIO's reign of terror once and for all.\n\nFinally, Jo",
+      "tok_count": 427
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 6,
+      "retained_tokens": 6,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 72,
+      "retained_tokens": 20,
+      "retention_frac": 0.2777777777777778
+    },
+    "2": {
+      "orig_tokens": 8,
+      "retained_tokens": 8,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 114,
+      "retained_tokens": 33,
+      "retention_frac": 0.2894736842105263
+    },
+    "4": {
+      "orig_tokens": 16,
+      "retained_tokens": 16,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 427,
+      "retained_tokens": 427,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Pokemon",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Dawn (Japanese name: Hikari) is a main character in the Pokemon anime series. She is a young Coordinator from Twinleaf Town in the Sinnoh region and travels with Ash and Brock on their journey. Her goal is to become a top Coordinator and participate in the Pokemon Contests. She has a Piplup as her main Pokemon.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Pokemon",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "move",
+        "target": "can stop time",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "The World is a Stand in the manga and anime series \"JoJo's Bizarre Adventure\". It is the Stand of the main antagonist of Part 3, DIO. The World is a powerful and versatile Stand that can stop time for a few seconds, allowing its user to move and attack freely while everyone else is frozen in time. It also has incredible strength and speed, making it a formidable opponent. The World is known for its iconic battle cry \"Muda Muda Muda\" which means \"useless\" or \"futile\" in Japanese.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "move",
+        "target": "can stop time",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "final",
+        "target": "move or defend himself",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Jotaro Kujo had been chasing after the evil vampire DIO for months. The two had a long-standing rivalry, and Jotaro was determined to put an end to DIO's reign of terror once and for all.\n\nFinally, Jotaro caught up with DIO in an abandoned castle in Egypt. The two stood facing each other, ready to fight to the death.\n\nDIO taunted Jotaro, telling him that he was no match for him and that he would soon be defeated. But Jotaro was undaunted. He knew that he had to win this battle, not just for himself, but for all of humanity.\n\nThe two clashed, exchanging blows and Stand attacks. Jotaro's Stand, Star Platinum, was incredibly powerful, but DIO's Stand, The World, had the ability to stop time, making him a formidable opponent.\n\nAs the battle raged on, Jotaro began to gain the upper hand. He managed to land several powerful blows on DIO, causing him to stagger backwards.\n\nBut just when it seemed like Jotaro had won, DIO activated his Stand's time-stopping ability. Jotaro was frozen in time, unable to move or defend himself.\n\nDIO took advantage of the situation, landing a devastating blow on Jotaro. It seemed like all was lost, but then something incredible happened.\n\nJotaro's Stand, Star Platinum, began to move on its own, even though time was still frozen. Jotaro realized that he had developed the same ability as DIO, and he used it to his advantage.\n\nThe two stood facing each other once again, both with the ability to stop time. But Jotaro was the stronger of the two, and he managed to land the final blow on DIO, defeating him once and for all.\n\nJotaro emerged victorious, but he knew that the battle was far from over. There would always be new enemies to face, new battles to fight. But for now, he was content in the knowledge that he had saved the world from the evil of DIO.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "final",
+        "target": "move or defend himself",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 643,
+    "comp_total_toks": 510,
+    "reduction": 20.684292379471223,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

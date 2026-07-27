@@ -1,0 +1,109 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Where is Brian?",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "There are many persons named Brian.  Can you specify some more information, such as Brian's surname or other identifying information?",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "He plays guitar, curly hair, not from USA",
+      "tok_count": 10,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "You may be referring to Brian Harold May, who is an English musician known worldwide for being the lead guitarist of the rock band Queen. He also has curly hair, so it fits your description. As for hi",
+      "tok_count": 62,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "You may be referring to Brian Harold May, who is an English musician known worldwide for being the lead guitarist of the rock band Queen. He also has curly hair, so it fits your description. As for hi",
+      "tok_count": 62
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 4,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 25,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 10,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 62,
+      "retained_tokens": 62,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Brian",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "There are many persons named Brian.  Can you specify some more information, such as Brian's surname or other identifying information?",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 101,
+    "comp_total_toks": 62,
+    "reduction": 38.613861386138616,
+    "DRR_soft": 0.0,
+    "RCI": 1.0
+  }
+}

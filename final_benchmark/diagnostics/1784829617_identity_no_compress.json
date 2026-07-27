@@ -1,0 +1,94 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Combien de livres Hunger Games existe-t-il ? \u00e7a fait environ combien de pages ?",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Il existe 4 livres Hunger Games:\n-Hunger Games (384 pages)\n-Hunger Games: L'embrasement (400 pages)\n-Hunger Games: La R\u00e9volte (339 pages)\n-Hunger Games: La Ballade du Serpent de l'Oiseau Chanteur (171",
+      "tok_count": 107,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Combien de livres Hunger Games existe-t-il ? \u00e7a fait environ combien de pages ?",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Il existe 4 livres Hunger Games:\n-Hunger Games (384 pages)\n-Hunger Games: L'embrasement (400 pages)\n-Hunger Games: La R\u00e9volte (339 pages)\n-Hunger Games: La Ballade du Serpent de l'Oiseau Chanteur (171",
+      "tok_count": 107
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 19,
+      "retained_tokens": 19,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 107,
+      "retained_tokens": 107,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "1712",
+        "rationale": [
+          "value:1712"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Il existe 4 livres Hunger Games:\n-Hunger Games (384 pages)\n-Hunger Games: L'embrasement (400 pages)\n-Hunger Games: La R\u00e9volte (339 pages)\n-Hunger Games: La Ballade du Serpent de l'Oiseau Chanteur (1712 pages)\n\n384+400+339+1712= 2835 pages\n(Le nombre de page est calcul\u00e9 \u00e0 partir des \u00e9ditions originales de ces livres, et non des versions fran\u00e7aises)",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "1712",
+        "rationale": [
+          "value:1712"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 126,
+    "comp_total_toks": 126,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

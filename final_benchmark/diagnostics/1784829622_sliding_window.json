@@ -1,0 +1,85 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "What's a black swan?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "A black swan is a metaphorical term that refers to an event that is rare, unpredictable, and has severe consequences. The concept of a black swan was popularized by Nassim Nicholas Taleb in his book \"",
+      "tok_count": 195,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "What's a black swan?",
+      "tok_count": 7
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 195,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "1697",
+        "rationale": [
+          "value:1697"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "A black swan is a metaphorical term that refers to an event that is rare, unpredictable, and has severe consequences. The concept of a black swan was popularized by Nassim Nicholas Taleb in his book \"The Black Swan: The Impact of the Highly Improbable.\"\n\nThe term \"black swan\" comes from the Western belief that all swans were white, as the only swans that were known were of the white species. However, in 1697, Dutch explorer Willem de Vlamingh discovered black swans in Western Australia, which upended the belief that all swans were white. This discovery is seen as a metaphor for unexpected and highly improbable events.\n\nIn the context of finance and economics, a black swan event might be a major market crash, a sudden financial crisis, or the collapse of a large company. These events are difficult to predict and can have a significant impact on the economy and society as a whole.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 202,
+    "comp_total_toks": 7,
+    "reduction": 96.53465346534654,
+    "DRR_soft": 0.0,
+    "RCI": null
+  }
+}

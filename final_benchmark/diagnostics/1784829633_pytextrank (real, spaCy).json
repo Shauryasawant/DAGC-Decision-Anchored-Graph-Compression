@@ -1,0 +1,90 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfCuales son los ingredientes para preparar un pozole?",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "El pozole tiene diferentes ingredientes, depende mucho de quien lo prepare y de la regi\u00f3n en donde se encuentre, por ejemplo:\n\nPozole blanco: Es el m\u00e1s popular, se prepara con ma\u00edz cacahuazintle seco ",
+      "tok_count": 232,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "\u00bfCuales son los ingredientes para preparar un pozole?",
+      "tok_count": 14
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "El pozole tiene diferentes ingredientes, depende mucho de quien lo prepare y de la regi\u00f3n en donde se encuentre, por ejemplo:\n\nPozole blanco: Es el m\u00e1s popular, se prepara con ma\u00edz cacahuazintle seco ",
+      "tok_count": 232
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 14,
+      "retained_tokens": 14,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 232,
+      "retained_tokens": 232,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Pozole",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "El pozole tiene diferentes ingredientes, depende mucho de quien lo prepare y de la regi\u00f3n en donde se encuentre, por ejemplo:\n\nPozole blanco: Es el m\u00e1s popular, se prepara con ma\u00edz cacahuazintle seco y con parte de la cabeza del puerco, se condimenta con jugo de lim\u00f3n, sal, salsa picante o chile piqu\u00edn molido, lechuga, r\u00e1banos rebanados, cebolla picada y or\u00e9gano molido.\n\nPozole rojo: Se cree que proviene del estado de Jalisco, la principal diferencia es que se prepara con chile ancho y chile guajillo. Com\u00fanmente lo comen con cerdo, pero hay quienes los preparan con pollo o pavo.\n\nPozole verde: preparado con tomates verdes, epazote y pepita de calabaza, se dice que proviene del estado de Guerrero, y en algunos casos se agrega chicharr\u00f3n de puerco y aguacate para acompa\u00f1ar.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Pozole",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 246,
+    "comp_total_toks": 246,
+    "reduction": 0.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

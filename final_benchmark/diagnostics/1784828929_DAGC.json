@@ -1,0 +1,123 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Do you know which mobile service provider has the most expensive prices in the world?",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "As an AI language model, I do not have access to the most current data on mobile service provider prices. However, this information may vary depending on the country and region.",
+      "tok_count": 35,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "How about you base my question on mildly old sources and views from consumers around the world",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "According to a global survey conducted by Cable.co.uk in 2019, the mobile service provider with the most expensive prices in the world is in the West African nation of Chad. The survey found that the ",
+      "tok_count": 132,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "How about you base my question on mildly old sources and views from consumers around the world",
+      "tok_count": 17
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "According to a global survey conducted by Cable.co.uk in 2019 the mobile service provider with the most expensive prices in the world is in the West African nation of Chad. The survey found that the a",
+      "tok_count": 57
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 16,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 35,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 17,
+      "retained_tokens": 17,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 132,
+      "retained_tokens": 57,
+      "retention_frac": 0.4318181818181818
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "22.50",
+        "rationale": [
+          "value:22.50"
+        ],
+        "artifacts": {
+          "paths": [
+            "Cable.co"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "According to a global survey conducted by Cable.co.uk in 2019, the mobile service provider with the most expensive prices in the world is in the West African nation of Chad. The survey found that the average monthly cost of a mobile service plan in Chad was approximately $22.50 USD, which is quite high compared to other countries. Other countries with high mobile service provider prices included Zimbabwe, which had an average monthly cost of $20.00 USD, and Saint Helena, which had an average monthly cost of $19.50 USD. However, it is important to note that prices may have changed since then and vary according to different regions and providers.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "22.50",
+        "rationale": [
+          "value:22.50"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 200,
+    "comp_total_toks": 74,
+    "reduction": 63.0,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

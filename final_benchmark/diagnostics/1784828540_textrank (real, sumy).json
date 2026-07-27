@@ -1,0 +1,380 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "In order to establish your true identity and get to know your authentic self, you need to take several steps. Here is a complete guide to help you:\n\nStep 1: Engage in self-reflection.\nTake some time t",
+      "tok_count": 366,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Step 6: Challenge your beliefs and assumptions.\nTake some time to examine your deeply held beliefs and assumptions about the world around you. Ask yourself whether these beliefs are really yours, or i",
+      "tok_count": 263,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "how to say im hungry in thai",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "\"I'm hungry\" in Thai can be said as \"\u0e09\u0e31\u0e19\u0e2b\u0e34\u0e27\u0e41\u0e25\u0e49\u0e27\" (ch\u0103n h\u012du l\u00e1ew) if you are a female, or \"\u0e1c\u0e21\u0e2b\u0e34\u0e27\u0e41\u0e25\u0e49\u0e27\" (p\u014fm h\u012du l\u00e1ew) if you are a male.",
+      "tok_count": 69,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "i thought its hiu khao?",
+      "tok_count": 8,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Yes, you are correct. \"\u0e2b\u0e34\u0e27\u0e02\u0e49\u0e32\u0e27\" (hiu khao) is also another common way to say \"I'm hungry\" in Thai. The phrase literally translates to \"hungry for rice,\" as rice is a staple in Thai cuisine. Thank you ",
+      "tok_count": 61,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "so khao specifically means hungry for rice?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "No, \"khao\" itself means \"rice\" in Thai, but the phrase \"\u0e2b\u0e34\u0e27\u0e02\u0e49\u0e32\u0e27\" (hiu khao) is a common way to say \"I'm hungry\" in Thai. The phrase literally translates to \"hungry for rice,\" indicating that the perso",
+      "tok_count": 91,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "but does hiu anerm means thirsty for water in thai?",
+      "tok_count": 13,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "In Thai language, we typically use the word \"\u0e02\u0e32\u0e14\" (k\u00e0at) to mean \"thirsty\". So in Thai, \"thirsty for water\" is translated as \"\u0e02\u0e32\u0e14\u0e19\u0e49\u0e33\" (k\u00e0at n\u00e1am). The word \"\u0e2b\u0e34\u0e27\" (hiu) specifically means \"hungry\".",
+      "tok_count": 73,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Try new things that you may have never thought to do before, such as taking a class on a new topic, going on a solo trip, starting a new hobby, or volunteering for a cause you care about.",
+      "tok_count": 43
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Write down your goals and values, and use them as a guide for decision making and prioritizing your time.",
+      "tok_count": 22
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "how to say im hungry in thai",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "\"I'm hungry\" in Thai can be said as \"\u0e09\u0e31\u0e19\u0e2b\u0e34\u0e27\u0e41\u0e25\u0e49\u0e27\" (ch\u0103n h\u012du l\u00e1ew) if you are a female, or \"\u0e1c\u0e21\u0e2b\u0e34\u0e27\u0e41\u0e25\u0e49\u0e27\" (p\u014fm h\u012du l\u00e1ew) if you are a male.",
+      "tok_count": 69
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "i thought its hiu khao?",
+      "tok_count": 8
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "The phrase literally translates to \"hungry for rice,\" as rice is a staple in Thai cuisine.",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "so khao specifically means hungry for rice?",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "The phrase literally translates to \"hungry for rice,\" indicating that the person is hungry and could eat a meal that includes rice.",
+      "tok_count": 26
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "but does hiu anerm means thirsty for water in thai?",
+      "tok_count": 13
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "In Thai language, we typically use the word \"\u0e02\u0e32\u0e14\" (k\u00e0at) to mean \"thirsty\". So in Thai, \"thirsty for water\" is translated as \"\u0e02\u0e32\u0e14\u0e19\u0e49\u0e33\" (k\u00e0at n\u00e1am). The word \"\u0e2b\u0e34\u0e27\" (hiu) specifically means \"hungry\".",
+      "tok_count": 73
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 366,
+      "retained_tokens": 43,
+      "retention_frac": 0.11748633879781421
+    },
+    "1": {
+      "orig_tokens": 263,
+      "retained_tokens": 22,
+      "retention_frac": 0.08365019011406843
+    },
+    "2": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 69,
+      "retained_tokens": 69,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 8,
+      "retained_tokens": 8,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 61,
+      "retained_tokens": 20,
+      "retention_frac": 0.32786885245901637
+    },
+    "6": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 91,
+      "retained_tokens": 26,
+      "retention_frac": 0.2857142857142857
+    },
+    "8": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    },
+    "9": {
+      "orig_tokens": 73,
+      "retained_tokens": 73,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "10",
+        "rationale": [
+          "value:10"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Step 6: Challenge your beliefs and assumptions.\nTake some time to examine your deeply held beliefs and assumptions about the world around you. Ask yourself whether these beliefs are really yours, or if you\u2019ve just adopted them from others. Consider different perspectives and challenge yourself to see things in a new light.\n\nStep 7: Set boundaries.\nEstablishing healthy boundaries can help you stay true to yourself and avoid getting sidetracked by other people\u2019s expectations or demands. Take some time to identify your boundaries and communicate them clearly to others.\n\nStep 8: Clarify your goals and values.\nTake some time to think about what really matters to you and what you want to achieve in life. Write down your goals and values, and use them as a guide for decision making and prioritizing your time.\n\nStep 9: Seek support.\nEstablishing your true identity can be a challenging and sometimes overwhelming process. Seek support from friends, family, or a therapist who can provide guidance and encouragement along the way.\n\nStep 10: Practice authenticity.\nOnce you\u2019ve gained a better understanding of your authentic self, practice being true to that self in everything you do. Speak honestly, act with integrity, and make choices that align with your values and goals. By consistently practicing authenticity, you can live a more fulfilling and meaningful life.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "use",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.4,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Thai",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\"I'm hungry\" in Thai can be said as \"\u0e09\u0e31\u0e19\u0e2b\u0e34\u0e27\u0e41\u0e25\u0e49\u0e27\" (ch\u0103n h\u012du l\u00e1ew) if you are a female, or \"\u0e1c\u0e21\u0e2b\u0e34\u0e27\u0e41\u0e25\u0e49\u0e27\" (p\u014fm h\u012du l\u00e1ew) if you are a male.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Thai",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Thai",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Yes, you are correct. \"\u0e2b\u0e34\u0e27\u0e02\u0e49\u0e32\u0e27\" (hiu khao) is also another common way to say \"I'm hungry\" in Thai. The phrase literally translates to \"hungry for rice,\" as rice is a staple in Thai cuisine. Thank you for the correction!",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Thai",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Thai",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "No, \"khao\" itself means \"rice\" in Thai, but the phrase \"\u0e2b\u0e34\u0e27\u0e02\u0e49\u0e32\u0e27\" (hiu khao) is a common way to say \"I'm hungry\" in Thai. The phrase literally translates to \"hungry for rice,\" indicating that the person is hungry and could eat a meal that includes rice. Rice is a staple food in Thailand, so it's often assumed to be a part of meals.",
+        "msg_idx": 7
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Thai",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "Thai",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "In Thai language, we typically use the word \"\u0e02\u0e32\u0e14\" (k\u00e0at) to mean \"thirsty\". So in Thai, \"thirsty for water\" is translated as \"\u0e02\u0e32\u0e14\u0e19\u0e49\u0e33\" (k\u00e0at n\u00e1am). The word \"\u0e2b\u0e34\u0e27\" (hiu) specifically means \"hungry\".",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "use",
+        "target": "Thai",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 960,
+    "comp_total_toks": 290,
+    "reduction": 69.79166666666667,
+    "DRR_soft": 0.8800000000000001,
+    "RCI": 1.0
+  }
+}

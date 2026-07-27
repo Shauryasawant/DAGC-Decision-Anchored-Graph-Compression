@@ -1,0 +1,83 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfComo puedo grabar automatizaciones de un parametro de un VST externo en Ableton Live 11?",
+      "tok_count": 24,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Bien para grabar automatizaciones de un par\u00e1metro de un VST externo en Ableton Live 11, puedes seguir estos pasos:\n\n1. Abre una pista MIDI o de audio en Ableton Live 11.\n2. Agrega el VST externo a la ",
+      "tok_count": 450,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "\u00bfComo puedo grabar automatizaciones de un parametro de un VST externo en Ableton Live 11?",
+      "tok_count": 24
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 24,
+      "retained_tokens": 24,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 450,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    }
+  },
+  "removed_message_indices": [
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "VST",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Bien para grabar automatizaciones de un par\u00e1metro de un VST externo en Ableton Live 11, puedes seguir estos pasos:\n\n1. Abre una pista MIDI o de audio en Ableton Live 11.\n2. Agrega el VST externo a la pista. Para hacerlo, haz clic en el bot\u00f3n \"Agregar pista\" en la parte inferior de la ventana de Ableton, selecciona \"Instrumento\" y luego selecciona el VST externo que deseas agregar.\n3. En el VST externo, identifica el par\u00e1metro que deseas automatizar. Puedes hacerlo moviendo el par\u00e1metro y observando el cambio en el sonido o la apariencia del VST.\n4. En Ableton Live 11, haz clic en el bot\u00f3n \"Automatizaci\u00f3n\" en la parte superior de la ventana. Esto abrir\u00e1 la vista de automatizaci\u00f3n.\n5. Selecciona el par\u00e1metro del VST externo que deseas automatizar. Para hacerlo, haz clic en el men\u00fa desplegable de la automatizaci\u00f3n y selecciona el par\u00e1metro del VST externo.\n6. Haz clic en el bot\u00f3n \"Arm\" en la pista que contiene el VST externo. Esto activar\u00e1 la grabaci\u00f3n de automatizaci\u00f3n.\n7. Haz clic en el bot\u00f3n \"Grabar\" en la vista de automatizaci\u00f3n. Esto iniciar\u00e1 la grabaci\u00f3n de la automatizaci\u00f3n.\n8. Haz los ajustes en el par\u00e1metro del VST externo que deseas automatizar. Mueve el par\u00e1metro seg\u00fan sea necesario para crear la automatizaci\u00f3n.\n9. Cuando hayas terminado de grabar la automatizaci\u00f3n, haz clic en el bot\u00f3n \"Parar\" en la vista de automatizaci\u00f3n para detener la grabaci\u00f3n.\nAhora, podr\u00e1s reproducir la pista y escuchar la automatizaci\u00f3n que has grabado. Puedes editar la automatizaci\u00f3n m\u00e1s adelante si es necesario, haciendo clic en la vista de automatizaci\u00f3n y ajustando los puntos de automatizaci\u00f3n seg\u00fan sea necesario.\nEspero haberte sido de utilidad.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 474,
+    "comp_total_toks": 24,
+    "reduction": 94.9367088607595,
+    "DRR_soft": 0.0,
+    "RCI": 1.0
+  }
+}

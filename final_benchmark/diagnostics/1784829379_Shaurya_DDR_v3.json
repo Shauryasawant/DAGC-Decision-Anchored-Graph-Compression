@@ -1,0 +1,687 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "[SYSTEM POLICY] # Retail agent policy\n\nAs a retail agent, you can help users cancel or modify pending orders, return or exchange delivered orders, modify their default user address, or provide informa",
+      "tok_count": 1203,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Hi, I recently decided to stop gaming and I\u2019d like to cancel or return everything I bought related to it. Can you help me with that?",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I can assist you with canceling or returning your gaming-related orders. To get started, I'll need to authenticate your identity. Could you please provide your email address or your name and zip code?",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "user",
+      "preview": "Sure! My email is mia.garcia2723@example.com.",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "[calls find_user_id_by_email({\"email\":\"mia.garcia2723@example.com\"})]",
+      "tok_count": 20,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "[tool result] mia_garcia_4516",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "Thank you, Mia. I have successfully authenticated your identity. Now, let's proceed with your request. Could you please provide the order IDs for the gaming-related items you wish to cancel or return?",
+      "tok_count": 40,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "user",
+      "preview": "I\u2019m sorry, but I don\u2019t have the order IDs with me right now.",
+      "tok_count": 17,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "No worries, Mia. I can help you look up your order details. Let me retrieve the information for you.",
+      "tok_count": 23,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": {\"first_name\": \"Mia\", \"last_name\": \"Garcia\"}, \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"province\": \"IN\", \"zi",
+      "tok_count": 168,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "assistant",
+      "preview": "[calls get_order_details({\"order_id\": \"#W5490111\"})]",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W5490111\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\"",
+      "tok_count": 405,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "assistant",
+      "preview": "[calls get_order_details({\"order_id\":\"#W7387996\"})]",
+      "tok_count": 16,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W7387996\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\"",
+      "tok_count": 204,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "assistant",
+      "preview": "Here are the details of your gaming-related orders:\n\n1. **Order #W5490111** (Status: Delivered)\n   - Mechanical Keyboard: $268.77\n   - Action Camera: $481.50\n\n2. **Order #W7387996** (Status: Delivered",
+      "tok_count": 101,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "user",
+      "preview": "I\u2019d like to return the keyboard and the mouse, please. I'd prefer the refund to be on the original payment method.",
+      "tok_count": 26,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "assistant",
+      "preview": "To proceed with the return, here are the details:\n\n- **Items to be returned:**\n  - Mechanical Keyboard from Order #W5490111\n  - Gaming Mouse from Order #W7387996\n\n- **Refund Method:**\n  - Mechanical K",
+      "tok_count": 92,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "user",
+      "preview": "Yes, that looks correct. Please go ahead with the return process.",
+      "tok_count": 14,
+      "protected": false
+    },
+    {
+      "idx": 18,
+      "role": "assistant",
+      "preview": "[calls return_delivered_order_items({\"order_id\": \"#W5490111\", \"item_ids\": [\"1421289881\"], \"payment_method_id\": \"credit_card_3124723\"})]",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 19,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W5490111\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\"",
+      "tok_count": 429,
+      "protected": false
+    },
+    {
+      "idx": 20,
+      "role": "assistant",
+      "preview": "[calls return_delivered_order_items({\"order_id\":\"#W7387996\",\"item_ids\":[\"5796612084\"],\"payment_method_id\":\"paypal_9497703\"})]",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 21,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W7387996\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\"",
+      "tok_count": 227,
+      "protected": false
+    },
+    {
+      "idx": 22,
+      "role": "assistant",
+      "preview": "The return process has been successfully initiated for the following items:\n\n- **Mechanical Keyboard** from Order #W5490111: The refund will be processed to your Visa card ending in 7285.\n- **Gaming M",
+      "tok_count": 95,
+      "protected": false
+    },
+    {
+      "idx": 23,
+      "role": "user",
+      "preview": "Thank you for your help. I appreciate it!###STOP###",
+      "tok_count": 13,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I can assist you with canceling or returning your gaming-related orders.",
+      "tok_count": 14
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "user",
+      "preview": "My email is mia.garcia2723@example.com.",
+      "tok_count": 12
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "[dropped \u2014 contained: example.com]",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "[tool result] mia_garcia_4516",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "[tool result] {\"name\": {\"first_name\": \"Mia\", \"last_name\": \"Garcia\"}, \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"province\": \"IN\", \"zi",
+      "tok_count": 168
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 10,
+      "role": "assistant",
+      "preview": "[dropped \u2014 contained: W5490111]",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W5490111\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\"",
+      "tok_count": 405
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 12,
+      "role": "assistant",
+      "preview": "[calls get_order_details({\"order_id\":\"#W7387996\"})]",
+      "tok_count": 16
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W7387996\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\"",
+      "tok_count": 204
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 14,
+      "role": "assistant",
+      "preview": "Here are the details of your gaming-related orders: **Order #W5490111** (Status: Delivered) Mechanical Keyboard: $268.77 Action Camera: $481.50 **Order #W7387996** (Status: Delivered) Gaming Mouse: $1",
+      "tok_count": 61
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 16,
+      "role": "assistant",
+      "preview": "Mechanical Keyboard from Order #W5490111 Gaming Mouse from Order #W7387996 Please confirm if everything is correct",
+      "tok_count": 25
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 18,
+      "role": "assistant",
+      "preview": "[calls return_delivered_order_items({\"order_id\": \"#W5490111\", \"item_ids\": [\"1421289881\"], \"payment_method_id\": \"credit_card_3124723\"})]",
+      "tok_count": 41
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 19,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W5490111\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\"",
+      "tok_count": 429
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 20,
+      "role": "assistant",
+      "preview": "[calls return_delivered_order_items({\"order_id\":\"#W7387996\",\"item_ids\":[\"5796612084\"],\"payment_method_id\":\"paypal_9497703\"})]",
+      "tok_count": 36
+    },
+    {
+      "c_idx": 14,
+      "orig_idx": 21,
+      "role": "assistant",
+      "preview": "[tool result] {\"order_id\": \"#W7387996\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\"",
+      "tok_count": 227
+    },
+    {
+      "c_idx": 15,
+      "orig_idx": 22,
+      "role": "assistant",
+      "preview": "The return process has been successfully initiated for the following items: **Gaming Mouse** from Order #W7387996: The refund will be processed to your PayPal account.",
+      "tok_count": 35
+    },
+    {
+      "c_idx": 16,
+      "orig_idx": 23,
+      "role": "user",
+      "preview": "Thank you for your help. I appreciate it!###STOP###",
+      "tok_count": 13
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 1203,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 30,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 40,
+      "retained_tokens": 14,
+      "retention_frac": 0.35
+    },
+    "3": {
+      "orig_tokens": 14,
+      "retained_tokens": 12,
+      "retention_frac": 0.8571428571428571
+    },
+    "4": {
+      "orig_tokens": 20,
+      "retained_tokens": 9,
+      "retention_frac": 0.45
+    },
+    "5": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "6": {
+      "orig_tokens": 40,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 17,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "8": {
+      "orig_tokens": 23,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "9": {
+      "orig_tokens": 168,
+      "retained_tokens": 168,
+      "retention_frac": 1.0
+    },
+    "10": {
+      "orig_tokens": 16,
+      "retained_tokens": 11,
+      "retention_frac": 0.6875
+    },
+    "11": {
+      "orig_tokens": 405,
+      "retained_tokens": 405,
+      "retention_frac": 1.0
+    },
+    "12": {
+      "orig_tokens": 16,
+      "retained_tokens": 16,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 204,
+      "retained_tokens": 204,
+      "retention_frac": 1.0
+    },
+    "14": {
+      "orig_tokens": 101,
+      "retained_tokens": 61,
+      "retention_frac": 0.6039603960396039
+    },
+    "15": {
+      "orig_tokens": 26,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "16": {
+      "orig_tokens": 92,
+      "retained_tokens": 25,
+      "retention_frac": 0.2717391304347826
+    },
+    "17": {
+      "orig_tokens": 14,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "18": {
+      "orig_tokens": 41,
+      "retained_tokens": 41,
+      "retention_frac": 1.0
+    },
+    "19": {
+      "orig_tokens": 429,
+      "retained_tokens": 429,
+      "retention_frac": 1.0
+    },
+    "20": {
+      "orig_tokens": 36,
+      "retained_tokens": 36,
+      "retention_frac": 1.0
+    },
+    "21": {
+      "orig_tokens": 227,
+      "retained_tokens": 227,
+      "retention_frac": 1.0
+    },
+    "22": {
+      "orig_tokens": 95,
+      "retained_tokens": 35,
+      "retention_frac": 0.3684210526315789
+    },
+    "23": {
+      "orig_tokens": 13,
+      "retained_tokens": 13,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0,
+    1,
+    6,
+    7,
+    8,
+    15,
+    17
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "gaming-related",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I can assist you with canceling or returning your gaming-related orders. To get started, I'll need to authenticate your identity. Could you please provide your email address or your name and zip code?",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "gaming-related",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "switch",
+        "target": "credit_card_3124723",
+        "rationale": [
+          "id:8310926033",
+          "id:4579334072",
+          "id:1656367028",
+          "value:credit_card_3124723"
+        ],
+        "artifacts": {
+          "paths": [
+            "268.77",
+            "481.5",
+            "218.04",
+            "1023.16"
+          ],
+          "ids": [
+            "8310926033",
+            "4579334072",
+            "1656367028",
+            "1421289881",
+            "3377618313",
+            "6117189161",
+            "2524789262",
+            "4947717507",
+            "574297338433",
+            "W5490111",
+            "mia_garcia_4516",
+            "credit_card_3124723"
+          ],
+          "errors": []
+        },
+        "verbatim": "[tool result] {\"order_id\": \"#W5490111\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\": \"46229\"}, \"items\": [{\"name\": \"Water Bottle\", \"product_id\": \"8310926033\", \"item_id\": \"4579334072\", \"price\": 54.85, \"options\": {\"capacity\": \"750ml\", \"material\": \"glass\", \"color\": \"black\"}}, {\"name\": \"Mechanical Keyboard\", \"product_id\": \"1656367028\", \"item_id\": \"1421289881\", \"price\": 268.77, \"options\": {\"switch type\": \"linear\", \"backlight\": \"none\", \"size\": \"80%\"}}, {\"name\": \"Action Camera\", \"product_id\": \"3377618313\", \"item_id\": \"6117189161\", \"price\": 481.5, \"options\": {\"resolution\": \"4K\", \"waterproof\": \"yes\", \"color\": \"silver\"}}, {\"name\": \"Backpack\", \"product_id\": \"2524789262\", \"item_id\": \"4947717507\", \"price\": 218.04, \"options\": {\"color\": \"green\", \"size\": \"medium\", \"material\": \"leather\", \"compartment\": \"camera\"}}], \"fulfillments\": [{\"tracking_id\": [\"574297338433\"], \"item_ids\": [\"4579334072\", \"1421289881\", \"6117189161\", \"4947717507\"]}], \"status\": \"delivered\", \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 1023.16, \"payment_method_id\": \"credit_card_3124723\"}]}",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "switch",
+        "target": "credit_card_3124723",
+        "rationale": [
+          "id:8310926033",
+          "id:4579334072",
+          "id:1656367028",
+          "value:credit_card_3124723"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "W5490111",
+        "rationale": [
+          "Keyboard=$268.77",
+          "Camera=$481.50",
+          "Mouse=$158.89",
+          "id:W5490111",
+          "id:W7387996"
+        ],
+        "artifacts": {
+          "paths": [
+            "268.77",
+            "481.50",
+            "158.89"
+          ],
+          "ids": [
+            "W5490111",
+            "W7387996"
+          ],
+          "errors": []
+        },
+        "verbatim": "Here are the details of your gaming-related orders:\n\n1. **Order #W5490111** (Status: Delivered)\n   - Mechanical Keyboard: $268.77\n   - Action Camera: $481.50\n\n2. **Order #W7387996** (Status: Delivered)\n   - Gaming Mouse: $158.89\n\nWould you like to proceed with returning these items? If so, please confirm the items you wish to return and the payment method for the refund.",
+        "msg_idx": 14
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "W5490111",
+        "rationale": [
+          "Keyboard=$268.77",
+          "Camera=$481.50",
+          "Mouse=$158.89",
+          "id:W5490111",
+          "id:W7387996"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "confirmation",
+        "action": "confirm",
+        "target": "W5490111",
+        "rationale": [
+          "id:W5490111",
+          "id:W7387996"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "W5490111",
+            "W7387996"
+          ],
+          "errors": []
+        },
+        "verbatim": "To proceed with the return, here are the details:\n\n- **Items to be returned:**\n  - Mechanical Keyboard from Order #W5490111\n  - Gaming Mouse from Order #W7387996\n\n- **Refund Method:**\n  - Mechanical Keyboard: Refund to Visa ending in 7285\n  - Gaming Mouse: Refund to PayPal\n\nPlease confirm if everything is correct, and I'll initiate the return process for you.",
+        "msg_idx": 16
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "W5490111",
+        "rationale": [
+          "id:W5490111",
+          "id:W7387996"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "switch",
+        "target": "credit_card_3124723",
+        "rationale": [
+          "id:8310926033",
+          "id:4579334072",
+          "id:1656367028",
+          "value:credit_card_3124723"
+        ],
+        "artifacts": {
+          "paths": [
+            "268.77",
+            "481.5",
+            "218.04",
+            "1023.16"
+          ],
+          "ids": [
+            "8310926033",
+            "4579334072",
+            "1656367028",
+            "1421289881",
+            "3377618313",
+            "6117189161",
+            "2524789262",
+            "4947717507",
+            "574297338433",
+            "W5490111",
+            "mia_garcia_4516",
+            "credit_card_3124723"
+          ],
+          "errors": []
+        },
+        "verbatim": "[tool result] {\"order_id\": \"#W5490111\", \"user_id\": \"mia_garcia_4516\", \"address\": {\"address1\": \"537 Main Street\", \"address2\": \"Suite 572\", \"city\": \"Indianapolis\", \"country\": \"USA\", \"state\": \"IN\", \"zip\": \"46229\"}, \"items\": [{\"name\": \"Water Bottle\", \"product_id\": \"8310926033\", \"item_id\": \"4579334072\", \"price\": 54.85, \"options\": {\"capacity\": \"750ml\", \"material\": \"glass\", \"color\": \"black\"}}, {\"name\": \"Mechanical Keyboard\", \"product_id\": \"1656367028\", \"item_id\": \"1421289881\", \"price\": 268.77, \"options\": {\"switch type\": \"linear\", \"backlight\": \"none\", \"size\": \"80%\"}}, {\"name\": \"Action Camera\", \"product_id\": \"3377618313\", \"item_id\": \"6117189161\", \"price\": 481.5, \"options\": {\"resolution\": \"4K\", \"waterproof\": \"yes\", \"color\": \"silver\"}}, {\"name\": \"Backpack\", \"product_id\": \"2524789262\", \"item_id\": \"4947717507\", \"price\": 218.04, \"options\": {\"color\": \"green\", \"size\": \"medium\", \"material\": \"leather\", \"compartment\": \"camera\"}}], \"fulfillments\": [{\"tracking_id\": [\"574297338433\"], \"item_ids\": [\"4579334072\", \"1421289881\", \"6117189161\", \"4947717507\"]}], \"status\": \"return requested\", \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 1023.16, \"payment_method_id\": \"credit_card_3124723\"}], \"return_items\": [\"1421289881\"], \"return_payment_method_id\": \"credit_card_3124723\"}",
+        "msg_idx": 19
+      },
+      "reproduced": {
+        "action": "switch",
+        "target": "credit_card_3124723",
+        "rationale": [
+          "id:8310926033",
+          "id:4579334072",
+          "id:1656367028",
+          "value:credit_card_3124723"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 3281,
+    "comp_total_toks": 1717,
+    "reduction": 47.668393782383426,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Zeige mir Links von Studien, welche aufzeigen, dass ein Mutterschaftstest mit mtDNA m\u00f6glich ist.",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Es gibt wissenschaftliche Studien und Ver\u00f6ffentlichungen, die den Einsatz von mtDNA bei Mutterschaftstests diskutieren. Hier sind einige Links zu diesen Studien:\n\n1. Hou, Q., Zhang, J., Li, H., Liu, R",
+      "tok_count": 453,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Was heisst monoklonal?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Monoklonal bedeutet, dass eine Zellpopulation oder eine Gruppe von Molek\u00fclen, wie Antik\u00f6rper, aus einer einzigen Zelle oder einem einzigen Vorl\u00e4ufer stammt. Monoklonale Antik\u00f6rper sind Molek\u00fcle, die v",
+      "tok_count": 212,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Kannst du mir eine Studie (mit Link) finden, welche untersucht, ob man HV1, HV2 und HV3 zur Unterscheidung von Individuen verwenden kann?",
+      "tok_count": 39,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Ich habe eine Studie gefunden, die auf die Verwendung von HV1, HV2 und HV3 in mitochondrialen DNA-Tests eingeht. Hier ist der Link zur Studie:\n\n- Irwin, J.A., Saunier, J.L., Strouss, K.M. et al. (2009",
+      "tok_count": 325,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Wieviele Haplotypen gibt es beim Menschen? Gib mir einen Link, welcher dieses Thema aufgreift",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Es ist schwierig, eine genaue Anzahl von Haplotypen beim Menschen zu bestimmen, da neue Haplotypen entdeckt werden, wenn mehr Menschen sequenziert werden und da Haplotypen auf verschiedenen Zeitskalen",
+      "tok_count": 419,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "[dropped \u2014 contained: /www.sciencedirect.com/science/article/abs/pii/S1752928X13006551, /www.tandfonline.com/doi/full/10.3109/03014460.2014.946372, /onlinelibrary.wiley.com/doi/abs/10.1520/JFS2001250,",
+      "tok_count": 109
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Monoklonale Antik\u00f6rper sind Molek\u00fcle die von einer einzigen Zelllinie dem sogenannten Klon produziert werden und daher identisch sind und gegen das gleiche Epitop also den Teil des Antigens",
+      "tok_count": 53
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Link: https://www.sciencedirect.com/science/article/pii/S187249730900004X Hier ist der Link zur Studie: Forensic Sci Int Genet 3, 154\u2013157.",
+      "tok_count": 44
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "Wieviele Haplotypen gibt es beim Menschen? Gib mir einen Link, welcher dieses Thema aufgreift",
+      "tok_count": 25
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "Ein wichtiger Aspekt menschlicher Haplotypen ist die mitochondriale DNA (mtDNA). Link: https://www.nature.com/articles/nature15393 Nature 526, 68\u201374.",
+      "tok_count": 45
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 25,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 453,
+      "retained_tokens": 109,
+      "retention_frac": 0.24061810154525387
+    },
+    "2": {
+      "orig_tokens": 9,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "3": {
+      "orig_tokens": 212,
+      "retained_tokens": 53,
+      "retention_frac": 0.25
+    },
+    "4": {
+      "orig_tokens": 39,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "5": {
+      "orig_tokens": 325,
+      "retained_tokens": 44,
+      "retention_frac": 0.13538461538461538
+    },
+    "6": {
+      "orig_tokens": 25,
+      "retained_tokens": 25,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 419,
+      "retained_tokens": 45,
+      "retention_frac": 0.10739856801909307
+    }
+  },
+  "removed_message_indices": [
+    0,
+    2,
+    4
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Monoklonale",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Monoklonal bedeutet, dass eine Zellpopulation oder eine Gruppe von Molek\u00fclen, wie Antik\u00f6rper, aus einer einzigen Zelle oder einem einzigen Vorl\u00e4ufer stammt. Monoklonale Antik\u00f6rper sind Molek\u00fcle, die von einer einzigen Zelllinie, dem sogenannten Klon, produziert werden und daher identisch sind und gegen das gleiche Epitop, also den Teil des Antigens, gerichtet sind. Monoklonale Zellpopulationen sind in Bezug auf ihre Eigenschaften und Funktionen homogen, weil sie aus einer einzigen Zelle entstanden sind. \n\nMonoklonale Antik\u00f6rper werden in der medizinischen Forschung und Behandlung eingesetzt und haben eine wichtige Rolle in der Diagnostik und Therapie verschiedener Erkrankungen, wie Krebs, Autoimmunerkrankungen und Infektionskrankheiten, eingenommen.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Monoklonale",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "/www.sciencedirect.com/science/article/pii/S187249730900004X",
+        "rationale": [
+          "value:/www.sciencedirect.com/science/article/pii/S187249730900004X"
+        ],
+        "artifacts": {
+          "paths": [
+            "/www.sciencedirect.com/science/article/pii/S187249730900004X"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Ich habe eine Studie gefunden, die auf die Verwendung von HV1, HV2 und HV3 in mitochondrialen DNA-Tests eingeht. Hier ist der Link zur Studie:\n\n- Irwin, J.A., Saunier, J.L., Strouss, K.M. et al. (2009). Development and Expansion of High-Quality Control Region Databases to Improve Forensic mtDNA Evidence Interpretation. Forensic Sci Int Genet 3, 154\u2013157.\nLink: https://www.sciencedirect.com/science/article/pii/S187249730900004X\n\nIn dieser Studie wurden HV1, HV2 und HV3sequenzen von 4.839 unabh\u00e4ngigen europ\u00e4isch-amerikanischen, afroamerikanischen, hispanischen, englisch-amerikanischen und amerikanisch-indischen Individuen analysiert, um zu bewerten, wie gut diese hypervariablen Bereiche die Unterscheidung von Individuen erm\u00f6glichen. Die Autoren entwickelten und erweiterten hochwertige Kontrollregiondatenbanken, um die Interpretation von forensischen mtDNA-Beweisen zu verbessern. Anhand von Identifizierungsindizes und H\u00e4ufigkeiten der gefundenen Sequenzen wurden Unterschiede zwischen und innerhalb der Populationen bewertet.\n\nBitte beachten Sie, dass der Zugriff auf den Volltext dieses Artikels m\u00f6glicherweise einen kostenpflichtigen Abonnement- oder Kaufdienst erfordert.",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "/www.sciencedirect.com/science/article/pii/S187249730900004X",
+        "rationale": [
+          "value:/www.sciencedirect.com/science/article/pii/S187249730900004X"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1507,
+    "comp_total_toks": 276,
+    "reduction": 81.68546781685468,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

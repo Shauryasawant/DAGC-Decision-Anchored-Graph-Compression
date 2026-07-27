@@ -1,0 +1,298 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 831,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I need help resetting my account PIN as I've forgotten it. My User ID is ARC456 and email is user@example.com. I want to modify my subscription settings but can't proceed without the PIN. Cou",
+      "tok_count": 57,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"email\": \"user@example.com\", \"method\": \"account\", \"user_id\": \"ARC456\"}, \"name\": \"authenticate_user\"}",
+      "tok_count": 32,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"user_id\": \"ARC456\"}, \"name\": \"get_user_details\"}",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"subscription_id\": \"SUB-4567\"}, \"name\": \"get_subscription_details\"}",
+      "tok_count": 21,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how yo[\u2026]",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"email\": \"user@example.com\", \"method\": \"account\", \"user_id\": \"ARC456\"}, \"name\": \"authenticate_user\"}",
+      "tok_count": 32
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 6,
+      "role": "assistant",
+      "preview": " {\"args\": {\"user_id\": \"ARC456\"}, \"name\": \"get_user_details\"}",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": " {\"args\": {\"subscription_id\": \"SUB-4567\"}, \"name\": \"get_subscription_details\"}",
+      "tok_count": 21
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 831,
+      "retained_tokens": 19,
+      "retention_frac": 0.02286401925391095
+    },
+    "1": {
+      "orig_tokens": 57,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 32,
+      "retained_tokens": 32,
+      "retention_frac": 1.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 19,
+      "retained_tokens": 19,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "8": {
+      "orig_tokens": 21,
+      "retained_tokens": 21,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_user",
+        "target": "user@example.com",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "example.com"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"email\": \"user@example.com\", \"method\": \"account\", \"user_id\": \"ARC456\"}, \"name\": \"authenticate_user\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "authenticate_user",
+        "target": "user@example.com",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_user_details",
+        "target": "ARC456",
+        "rationale": [
+          "value:ARC456"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"user_id\": \"ARC456\"}, \"name\": \"get_user_details\"}",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": "get_user_details",
+        "target": "ARC456",
+        "rationale": [
+          "value:ARC456"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "action",
+        "action": "get_subscription_details",
+        "target": "SUB-4567",
+        "rationale": [
+          "id:SUB-4567"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "SUB-4567"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"subscription_id\": \"SUB-4567\"}, \"name\": \"get_subscription_details\"}",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": "get_subscription_details",
+        "target": "SUB-4567",
+        "rationale": [
+          "id:SUB-4567"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 960,
+    "comp_total_toks": 91,
+    "reduction": 90.52083333333334,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

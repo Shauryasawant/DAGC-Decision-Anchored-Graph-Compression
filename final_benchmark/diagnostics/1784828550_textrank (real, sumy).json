@@ -1,0 +1,206 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "Describe an unmade Christopher Nolan film",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Title: Paragon\n\nGenre: Science Fiction/ Thriller\n\nSet in the near future where technology has achieved the unthinkable, the global political landscape has changed forever as world leaders have turned ",
+      "tok_count": 327,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Outline an unmade Wes Anderson film",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Title: The Curious Chronicles of Penelope Pines\n\nGenre: Comedy/Drama\n\nSet in the quirky and whimsical world of Anderson's signature style, The Curious Chronicles of Penelope Pines follows the adventur",
+      "tok_count": 506,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Ken Rafi\u00f1an",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Title: The Marvelous Misadventures of Ken Rafi\u00f1an\n\nGenre: Comedy/Drama\n\nSet against the charming and offbeat backdrop of a small European coastal town, The Marvelous Misadventures of Ken Rafi\u00f1an is a ",
+      "tok_count": 483,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "Karla Manikad",
+      "tok_count": 5,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Title: The Whimsical World of Karla Manikad\n\nGenre: Comedy/Drama\n\nThe Whimsical World of Karla Manikad is a Wes Anderson-style film set in a picturesque and vibrant small town, known for its thriving ",
+      "tok_count": 490,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "Describe an unmade Christopher Nolan film",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "The nonlinear narrative bounces between the past, present, and future, challenging the audience to piece together the story and raising questions about the nature of human consciousness.",
+      "tok_count": 32
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Outline an unmade Wes Anderson film",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "The town's colorful and idiosyncratic inhabitants become a central part of Penelope's life, including the mayor, the eccentric librarian, the oddball shopkeeper, and a gang of misfit kids who help Pen",
+      "tok_count": 60
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Ken Rafi\u00f1an",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "The Marvelous Misadventures of Ken Rafi\u00f1an is a heartwarming, quirky, and visually captivating film that showcases the beauty of embracing the oddities of life, the importance of finding one's purpose",
+      "tok_count": 54
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "Karla Manikad",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "Title: The Whimsical World of Karla Manikad\n\nGenre: Comedy/Drama\n\nThe Whimsical World of Karla Manikad is a Wes Anderson-style film set in a picturesque and vibrant small town, known for its thriving ",
+      "tok_count": 490
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 327,
+      "retained_tokens": 32,
+      "retention_frac": 0.09785932721712538
+    },
+    "2": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 506,
+      "retained_tokens": 60,
+      "retention_frac": 0.11857707509881422
+    },
+    "4": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 483,
+      "retained_tokens": 54,
+      "retention_frac": 0.11180124223602485
+    },
+    "6": {
+      "orig_tokens": 5,
+      "retained_tokens": 5,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 490,
+      "retained_tokens": 490,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "final",
+        "target": "her peculiar family",
+        "rationale": [],
+        "artifacts": {
+          "paths": [
+            "Comedy/Drama"
+          ],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Title: The Curious Chronicles of Penelope Pines\n\nGenre: Comedy/Drama\n\nSet in the quirky and whimsical world of Anderson's signature style, The Curious Chronicles of Penelope Pines follows the adventures of a young, eccentric girl named Penelope who inherits a rundown, seemingly haunted Victorian mansion in the heart of a quaint New England town.\n\nAct I:\nPenelope Pines, an intelligent and quirky 12-year-old, receives news that her great-aunt, a reclusive author of a beloved children's book series, has passed away and left her the mansion. Together with her peculiar family, they move into the sprawling, dusty estate filled with hidden passages, secret rooms, and bizarre artifacts.\n\nThe town's colorful and idiosyncratic inhabitants become a central part of Penelope's life, including the mayor, the eccentric librarian, the oddball shopkeeper, and a gang of misfit kids who help Penelope unravel the secrets of the mansion and her great-aunt's past.\n\nAct II:\nPenelope and her newfound friends uncover the long-lost final manuscript of her great-aunt's book series, which seems to mirror the strange occurrences happening in the mansion. The group starts to investigate the connection between the book and the mysterious past of Penelope's great-aunt.\n\nSimultaneously, Penelope's family struggles to fit in with the townspeople and grapple with their individual challenges. Penelope's father, an aspiring artist, wrestles with self-doubt, while her mother attempts to preserve her marriage and hold the family together.\n\nAct III:\nAs Penelope delves deeper into her great-aunt's life, she learns that the eccentric woman was more than just a writer, but also an explorer who traveled the world collecting relics and stories. This revelation leads Penelope and her friends on a grand adventure through the town, solving puzzles, deciphering codes, and ultimately uncovering the secret treasure her great-aunt had hidden away in the mansion.\n\nIn the end, Penelope and her family discover the true value of love, friendship, and imagination. They come to understand that sometimes, the most extraordinary adventures can be found in the most ordinary places.\n\nWith The Curious Chronicles of Penelope Pines, Wes Anderson presents a heartwarming and visually stunning film, filled with vibrant colors, meticulous set designs, and eccentric characters. It's a delightful journey through the magical world of a child's imagination and the importance of family, self-discovery, and acceptance.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Penelope",
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1830,
+    "comp_total_toks": 660,
+    "reduction": 63.934426229508205,
+    "DRR_soft": 0.54,
+    "RCI": null
+  }
+}

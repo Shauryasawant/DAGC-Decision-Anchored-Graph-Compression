@@ -1,0 +1,149 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 724,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out as a real estate agent preparing a pre-sale strategy for a property at 77 Listing Lane. I need specific data on how residential solar installations impact home appraisal valu",
+      "tok_count": 75,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"I understand you're looking for data on how solar installations impact home appraisal values. Unfortunately, I don't have access to proprietary mar",
+      "tok_count": 187,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "I appreciate the clarification, but my client specifically needs quantifiable data to justify the investment in solar for their pre-sale strategy. While I understand your limitations, I\u2019m under the im",
+      "tok_count": 92,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Real estate agent requesting home value increase data from solar installations for pre-sale strategy at 77 Listing Lane.\"}, \"name\": \"transfer_to_human_agent\"}",
+      "tok_count": 38,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "Try to be helpful and always follow the policy.",
+      "tok_count": 10
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "but my client specifically needs quantifiable data to justify the investment in solar for their pre-sale strategy. Even a ballpark range (e.g. 3-5% increase) would be valuable for our listing presenta",
+      "tok_count": 43
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Real estate agent requesting home value increase data from solar installations for pre-sale strategy at 77 Listing Lane.\"}, \"name\": \"transfer_to_human_agent\"}",
+      "tok_count": 38
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 724,
+      "retained_tokens": 10,
+      "retention_frac": 0.013812154696132596
+    },
+    "1": {
+      "orig_tokens": 75,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 187,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 92,
+      "retained_tokens": 43,
+      "retention_frac": 0.4673913043478261
+    },
+    "5": {
+      "orig_tokens": 38,
+      "retained_tokens": 38,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    2,
+    3
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "transfer_to_human_agent",
+        "target": null,
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"Real estate agent requesting home value increase data from solar installations for pre-sale strategy at 77 Listing Lane.\"}, \"name\": \"transfer_to_human_agent\"}",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "transfer_to_human_agent",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.85,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": null,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": false
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1116,
+    "comp_total_toks": 91,
+    "reduction": 91.84587813620072,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

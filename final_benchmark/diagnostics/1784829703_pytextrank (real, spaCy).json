@@ -1,0 +1,161 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 724,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I'm reaching out as a real estate agent preparing a pre-sale strategy for a property at 77 Listing Lane. I need specific data on how residential solar installations impact home appraisal valu",
+      "tok_count": 75,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"I understand you're looking for data on how solar installations impact home appraisal values. Unfortunately, I don't have access to proprietary mar",
+      "tok_count": 187,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "I appreciate the clarification, but my client specifically needs quantifiable data to justify the investment in solar for their pre-sale strategy. While I understand your limitations, I\u2019m under the im",
+      "tok_count": 92,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Real estate agent requesting home value increase data from solar installations for pre-sale strategy at 77 Listing Lane.\"}, \"name\": \"transfer_to_human_agent\"}",
+      "tok_count": 38,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 724
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "user",
+      "preview": "I understand your company has access to proprietary market transaction data\u2014can you share percentage increase estimates for resale value based on recent solar-equipped home sales in the region?",
+      "tok_count": 32
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "My capabilities are focused on assisting with active solar projects and customer service for SunSource Solar Solutions.\\n\\nI can help you with:\\n- Checking if there's an existing solar project at 77 L",
+      "tok_count": 131
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "While I understand your limitations, I\u2019m under the impression that solar companies often track such metrics internally.",
+      "tok_count": 20
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": " {\"args\": {\"summary\": \"Real estate agent requesting home value increase data from solar installations for pre-sale strategy at 77 Listing Lane.\"}, \"name\": \"transfer_to_human_agent\"}",
+      "tok_count": 38
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 724,
+      "retained_tokens": 724,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 75,
+      "retained_tokens": 32,
+      "retention_frac": 0.4266666666666667
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 187,
+      "retained_tokens": 131,
+      "retention_frac": 0.7005347593582888
+    },
+    "4": {
+      "orig_tokens": 92,
+      "retained_tokens": 20,
+      "retention_frac": 0.21739130434782608
+    },
+    "5": {
+      "orig_tokens": 38,
+      "retained_tokens": 38,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    2
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "transfer_to_human_agent",
+        "target": null,
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"summary\": \"Real estate agent requesting home value increase data from solar installations for pre-sale strategy at 77 Listing Lane.\"}, \"name\": \"transfer_to_human_agent\"}",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "transfer_to_human_agent",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.85,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": null,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": false
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1116,
+    "comp_total_toks": 945,
+    "reduction": 15.322580645161288,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}

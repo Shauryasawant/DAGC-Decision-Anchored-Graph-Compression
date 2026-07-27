@@ -1,0 +1,278 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how you should respond to requests from users is described below between the <policy> and </policy> tags.\n\nIn each tur",
+      "tok_count": 832,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "\n\nHello, I need assistance with purchasing tickets and returning some merchandise. My account ID is EAGL-11009, and my zip code is 60660. How can we handle these requests?",
+      "tok_count": 41,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": " {\"args\": {\"account_id\": \"EAGL-11009\", \"zip_code\": \"60660\"}, \"name\": \"authenticate_user\"}",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "assistant",
+      "preview": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I've successfully authenticated your account EAGL-11009. \\n\\nTo assist you with both requests, I'll need to handle them one at a time as per",
+      "tok_count": 175,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "user",
+      "preview": "I\u2019d like to purchase tickets for event ID REG12. I need 2 tickets in the Premium tier. I\u2019ll pay with my credit card. Let\u2019s process that first.",
+      "tok_count": 36,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "assistant",
+      "preview": "I can help you purchase 2 Premium tickets for event REG12 using your credit card. \n\nBefore I proceed, I need your explicit confirmation to process this payment. Please note that credit card transactio",
+      "tok_count": 76,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a customer service agent that helps the user.  The policy that determines how yo[\u2026]",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 4,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "",
+      "tok_count": 0
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 7,
+      "role": "user",
+      "preview": "I\u2019d like to purchase tickets for event ID REG12. I need 2 tickets in the Premium tier. I\u2019ll pay with my credit card. Let\u2019s process that first.",
+      "tok_count": 36
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 8,
+      "role": "assistant",
+      "preview": "I can help you purchase 2 Premium tickets for event REG12 using your credit card. \n\nBefore I proceed, I need your explicit confirmation to process this payment. Please note that credit card transactio",
+      "tok_count": 76
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 832,
+      "retained_tokens": 19,
+      "retention_frac": 0.02283653846153846
+    },
+    "1": {
+      "orig_tokens": 41,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "3": {
+      "orig_tokens": 30,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "4": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "5": {
+      "orig_tokens": 0,
+      "retained_tokens": 0,
+      "retention_frac": null
+    },
+    "6": {
+      "orig_tokens": 175,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "7": {
+      "orig_tokens": 36,
+      "retained_tokens": 36,
+      "retention_frac": 1.0
+    },
+    "8": {
+      "orig_tokens": 76,
+      "retained_tokens": 76,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1,
+    3,
+    6
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "authenticate_user",
+        "target": "EAGL-11009",
+        "rationale": [
+          "id:EAGL-11009"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "EAGL-11009"
+          ],
+          "errors": []
+        },
+        "verbatim": " {\"args\": {\"account_id\": \"EAGL-11009\", \"zip_code\": \"60660\"}, \"name\": \"authenticate_user\"}",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "move",
+        "target": "EAGL-11009",
+        "rationale": [
+          "id:EAGL-11009"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [
+            "EAGL-11009"
+          ],
+          "errors": []
+        },
+        "verbatim": "[{'annotations': [], 'type': 'output_text', 'text': \"Hello! I've successfully authenticated your account EAGL-11009. \\n\\nTo assist you with both requests, I'll need to handle them one at a time as per policy. Let's start with the ticket purchase.\\n\\n**For ticket purchase, I need the following details:**\\n1. **Event ID** (e.g., REG12)\\n2. **Quantity** (1-10 tickets)\\n3. **Price tier** (Standard, Premium, or VIP)\\n4. **Payment method** (credit_card, eagles_wallet, or gift_card)\\n\\nOnce I have this information, I can process your ticket purchase. After that, we can move on to your merchandise return.\\n\\nPlease provide the ticket purchase details first.\"}]",
+        "msg_idx": 6
+      },
+      "reproduced": {
+        "action": null,
+        "target": null,
+        "rationale": [],
+        "confidence": 0.0,
+        "_success": false,
+        "_fallback": "no_llm"
+      },
+      "match": {
+        "action_score": 0.0,
+        "target_score": 0.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.0,
+        "reproduced": false,
+        "failure": "llm_error",
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "confirm",
+        "target": "Premium",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I can help you purchase 2 Premium tickets for event REG12 using your credit card. \n\nBefore I proceed, I need your explicit confirmation to process this payment. Please note that credit card transactions have a maximum limit of $2,000 per transaction.\n\nPlease confirm: \"Yes, I confirm I want to purchase 2 Premium tickets for event REG12 using my credit card.\"",
+        "msg_idx": 8
+      },
+      "reproduced": {
+        "action": "confirm",
+        "target": "Premium",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1190,
+    "comp_total_toks": 131,
+    "reduction": 88.99159663865545,
+    "DRR_soft": 0.3333333333333333,
+    "RCI": 0.3333
+  }
+}

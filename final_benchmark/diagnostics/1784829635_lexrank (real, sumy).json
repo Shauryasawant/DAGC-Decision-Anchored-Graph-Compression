@@ -1,0 +1,111 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "I'm trying to write a black metal song in the style of the Christian black metal band Horde. Can you help me think of the main riff?",
+      "tok_count": 30,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Certainly, I can help you with that! To create a main riff for a black metal song in the style of Horde, here's a simple process you can follow:\n\nDetermine the key: The first step is to determine the ",
+      "tok_count": 456,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Thank you! But could you please explain to me what tremolo picking is? I am unfamiliar with it.",
+      "tok_count": 22,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "I'm trying to write a black metal song in the style of the Christian black metal band Horde. Can you help me think of the main riff?",
+      "tok_count": 30
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "To create a main riff for a black metal song in the style of Horde, here's a simple process you can follow: Create a riff: Now that you have a chord progression to work with, you can start creating yo",
+      "tok_count": 48
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Thank you! But could you please explain to me what tremolo picking is? I am unfamiliar with it.",
+      "tok_count": 22
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 30,
+      "retained_tokens": 30,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 456,
+      "retained_tokens": 48,
+      "retention_frac": 0.10526315789473684
+    },
+    "2": {
+      "orig_tokens": 22,
+      "retained_tokens": 22,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "choose",
+        "target": "chord progression",
+        "rationale": [
+          "beats:blast"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Certainly, I can help you with that! To create a main riff for a black metal song in the style of Horde, here's a simple process you can follow:\n\nDetermine the key: The first step is to determine the key you want to write your song in. Horde's music is typically in minor keys, so you may want to consider using a natural minor or harmonic minor scale.\n\nChoose a chord progression: Once you've determined the key, you can choose a chord progression that will serve as the foundation for your main riff. A common chord progression in black metal is i - VI - III - VII (using Roman numerals to indicate the scale degrees).\n\nCreate a riff: Now that you have a chord progression to work with, you can start creating your main riff. Horde's music often features tremolo-picked guitar riffs that alternate between two or three notes. You can start with a simple melody and gradually build up the complexity.\n\nAdd drums: Once you have a basic riff, you can add drums to give it more power and drive. Double bass drumming is a common technique in black metal, and blast beats can be used to add intensity.\n\nRefine and adjust: Once you have the basic structure of your main riff, you can refine and adjust it until you're happy with the final result. Try experimenting with different rhythms, melodies, and harmonies to see what works best.\n\nHere's an example of a main riff that follows this process:\n\nKey: E minor\nChord progression: Em - C - G - D\nRiff:\n\n```lua\ne|---------------------------------|\nB|---------------------------------|\nG|---------------------------------|\nD|---------0-2-3-2-0---------------|\nA|-0-2-3-5-----------3-2-0---------|\nE|---------------------------3-2-0-|\n```\n\nThis riff alternates between the notes E and D, with a brief excursion to G in the third measure. The rhythm is fast and aggressive, with a tremolo-picked feel. You can experiment with adding different drum patterns, harmonies, and variations to make it your own.\n\nI hope this helps you get started on your black metal song in the style of Horde. Good luck!",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "chord progression",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 1.0,
+        "rationale_score": 0.0,
+        "decision_score": 0.74,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 508,
+    "comp_total_toks": 100,
+    "reduction": 80.31496062992126,
+    "DRR_soft": 0.74,
+    "RCI": null
+  }
+}

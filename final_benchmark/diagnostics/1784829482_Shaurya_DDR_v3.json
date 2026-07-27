@@ -1,0 +1,123 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "system",
+      "preview": "You are a helpful tool-calling assistant.",
+      "tok_count": 9,
+      "protected": true
+    },
+    {
+      "idx": 1,
+      "role": "user",
+      "preview": "Calculate the entropy change for a certain process given an initial temperature of 300K, a final temperature of 400K, and a heat capacity of 5J/K.",
+      "tok_count": 35,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the calculate_entropy_change function to handle this request. {\"args\": {}, \"name\": \"calculate_entropy_change\"}",
+      "tok_count": 25,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "system",
+      "preview": "You are a helpful [\u2026]",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 2,
+      "role": "assistant",
+      "preview": "I'll use the calculate_entropy_change function to handle this request. {\"args\": {}, \"name\": \"calculate_entropy_change\"}",
+      "tok_count": 25
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Task completed.",
+      "tok_count": 3
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 9,
+      "retained_tokens": 5,
+      "retention_frac": 0.5555555555555556
+    },
+    "1": {
+      "orig_tokens": 35,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "2": {
+      "orig_tokens": 25,
+      "retained_tokens": 25,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    1
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "action",
+        "action": "calculate_entropy_change",
+        "target": "calculate entropy change function",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "I'll use the calculate_entropy_change function to handle this request. {\"args\": {}, \"name\": \"calculate_entropy_change\"}",
+        "msg_idx": 2
+      },
+      "reproduced": {
+        "action": "calculate_entropy_change",
+        "target": "calculate entropy change function",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 72,
+    "comp_total_toks": 33,
+    "reduction": 54.16666666666667,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

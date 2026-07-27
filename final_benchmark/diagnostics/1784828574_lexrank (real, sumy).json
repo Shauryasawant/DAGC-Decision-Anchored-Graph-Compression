@@ -1,0 +1,504 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "In the context of a hypothetical episode of a British legal courtroom drama called \"County Court\" which presented fictional but plausible cases that could have come before the fictional Millsbury Coun",
+      "tok_count": 113,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Title: The Bus Delayed\"\n\nSummary: The episode presents the case of Mr. John Smith who missed a job interview due to the delayed or diverted bus service of Millsbury Bus Company arising from a burst wa",
+      "tok_count": 290,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "Can you go into more depth as to what points of law may arise in the episode?",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Sure! Here are some potential points of law that may arise in this episode:\n\n1. Negligence: A key argument in this case revolves around the concept of negligence. The plaintiff's counsel is arguing th",
+      "tok_count": 333,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "Restate the title as the case would have appeared ?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "\"Civil Case No. 1234567: John Smith vs. Millsbury Bus Company\"",
+      "tok_count": 19,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "In a different episode,  another hypothetical case involves 2 allotment owners,  One (plaintiff) is suing the other (defendant) over a claim that the plaintiff allowed a rat infestation to take up res",
+      "tok_count": 118,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Title: \"The Rat Infestation\"\n\nSummary: The episode presents the case of two allotment owners, where the plaintiff is suing the defendant over a rat infestation on the plaintiff's allotment shed. The d",
+      "tok_count": 405,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "One final hypothetical case,    The Plaintiff (Axis Motor Spares) is seeking to recover payment for parts it supplied to Smithson Garage (defendant).   The parts were delivered late, by which time Sim",
+      "tok_count": 103,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "Title: \"Late Delivery of Auto Parts\"\n\nSummary: The episode presents the case of Axis Motor Spares, which is seeking payment from Smithson Garage for auto parts that were delivered late. The defendant ",
+      "tok_count": 430,
+      "protected": false
+    },
+    {
+      "idx": 10,
+      "role": "user",
+      "preview": "Point of law query,   Would any terms of delivery have to be formally written down?",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 11,
+      "role": "assistant",
+      "preview": "It's not necessarily a requirement for the terms of delivery to be formally written down, but it is generally recommended to have a written agreement in place that sets out the terms and conditions of",
+      "tok_count": 153,
+      "protected": false
+    },
+    {
+      "idx": 12,
+      "role": "user",
+      "preview": "How would the Plaintiff's counsel use this point of law this in sample dialouge?",
+      "tok_count": 18,
+      "protected": false
+    },
+    {
+      "idx": 13,
+      "role": "assistant",
+      "preview": "Here's an example of how the Plaintiff's counsel, Barrister Lisa Patel, could use the point of law regarding the absence of written delivery terms in her argument:\n\n\"My lord, while it's true that ther",
+      "tok_count": 270,
+      "protected": false
+    },
+    {
+      "idx": 14,
+      "role": "user",
+      "preview": "And the Defendant Counsel's response to that?",
+      "tok_count": 9,
+      "protected": false
+    },
+    {
+      "idx": 15,
+      "role": "assistant",
+      "preview": "Here's an example of how the Defendant Counsel, Barrister Tom Jackson, could respond to the Plaintiff's Counsel's argument regarding the absence of written delivery terms:\n\n\"My lord, while it may be t",
+      "tok_count": 228,
+      "protected": false
+    },
+    {
+      "idx": 16,
+      "role": "user",
+      "preview": "Thanks for explaining the reasoning here :)",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 17,
+      "role": "assistant",
+      "preview": "You're welcome! It was my pleasure to explain it to you. If you have any more questions, feel free to ask!",
+      "tok_count": 26,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "In the context of a hypothetical episode of a British legal courtroom drama called \"County Court\" which presented fictional but plausible cases that could have come before the fictional Millsbury Coun",
+      "tok_count": 99
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "Summary: The episode presents the case of Mr. John Smith who missed a job interview due to the delayed or diverted bus service of Millsbury Bus Company arising from a burst water main incident. Plaint",
+      "tok_count": 83
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "Can you go into more depth as to what points of law may arise in the episode?",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "The plaintiff's counsel is arguing that the defendant breached its duty of care to the plaintiff, which resulted in the plaintiff suffering a financial loss and emotional distress. The specific detail",
+      "tok_count": 47
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "Restate the title as the case would have appeared ?",
+      "tok_count": 11
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "\"Civil Case No. 1234567: John Smith vs. Millsbury Bus Company\"",
+      "tok_count": 19
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "In a different episode,  another hypothetical case involves 2 allotment owners,  One (plaintiff) is suing the other (defendant) over a claim that the plaintiff allowed a rat infestation to take up res",
+      "tok_count": 71
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "Points of law: The case may raise issues on the implied covenant of letting, which implies that the tenant will not cause a nuisance to the other tenants and will comply with the rules of the allotmen",
+      "tok_count": 71
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "One final hypothetical case,    The Plaintiff (Axis Motor Spares) is seeking to recover payment for parts it supplied to Smithson Garage (defendant). for them.",
+      "tok_count": 34
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "He will claim that the defendant had to source the parts elsewhere because of the plaintiff's breach of contract and the plaintiff is not entitled to a restocking charge since the unused parts were re",
+      "tok_count": 80
+    },
+    {
+      "c_idx": 10,
+      "orig_idx": 10,
+      "role": "user",
+      "preview": "Point of law query,   Would any terms of delivery have to be formally written down?",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 11,
+      "orig_idx": 11,
+      "role": "assistant",
+      "preview": "It's not necessarily a requirement for the terms of delivery to be formally written down, but it is generally recommended to have a written agreement in place that sets out the terms and conditions of",
+      "tok_count": 77
+    },
+    {
+      "c_idx": 12,
+      "orig_idx": 12,
+      "role": "user",
+      "preview": "How would the Plaintiff's counsel use this point of law this in sample dialouge?",
+      "tok_count": 18
+    },
+    {
+      "c_idx": 13,
+      "orig_idx": 13,
+      "role": "assistant",
+      "preview": "\"My lord, while it's true that there is no written agreement setting out the delivery terms, it is clear from the parties' course of conduct and trade practices that the delivery date was not an essen",
+      "tok_count": 71
+    },
+    {
+      "c_idx": 14,
+      "orig_idx": 14,
+      "role": "user",
+      "preview": "And the Defendant Counsel's response to that?",
+      "tok_count": 9
+    },
+    {
+      "c_idx": 15,
+      "orig_idx": 15,
+      "role": "assistant",
+      "preview": "\"The absence of a written agreement setting out delivery terms does not mean that the plaintiff is not liable for their breach of contract. They had an obligation to deliver the parts on time, and the",
+      "tok_count": 58
+    },
+    {
+      "c_idx": 16,
+      "orig_idx": 16,
+      "role": "user",
+      "preview": "Thanks for explaining the reasoning here :)",
+      "tok_count": 7
+    },
+    {
+      "c_idx": 17,
+      "orig_idx": 17,
+      "role": "assistant",
+      "preview": "You're welcome! It was my pleasure to explain it to you. If you have any more questions, feel free to ask!",
+      "tok_count": 26
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 113,
+      "retained_tokens": 99,
+      "retention_frac": 0.8761061946902655
+    },
+    "1": {
+      "orig_tokens": 290,
+      "retained_tokens": 83,
+      "retention_frac": 0.28620689655172415
+    },
+    "2": {
+      "orig_tokens": 18,
+      "retained_tokens": 18,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 333,
+      "retained_tokens": 47,
+      "retention_frac": 0.14114114114114115
+    },
+    "4": {
+      "orig_tokens": 11,
+      "retained_tokens": 11,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 19,
+      "retained_tokens": 19,
+      "retention_frac": 1.0
+    },
+    "6": {
+      "orig_tokens": 118,
+      "retained_tokens": 71,
+      "retention_frac": 0.6016949152542372
+    },
+    "7": {
+      "orig_tokens": 405,
+      "retained_tokens": 71,
+      "retention_frac": 0.17530864197530865
+    },
+    "8": {
+      "orig_tokens": 103,
+      "retained_tokens": 34,
+      "retention_frac": 0.3300970873786408
+    },
+    "9": {
+      "orig_tokens": 430,
+      "retained_tokens": 80,
+      "retention_frac": 0.18604651162790697
+    },
+    "10": {
+      "orig_tokens": 18,
+      "retained_tokens": 18,
+      "retention_frac": 1.0
+    },
+    "11": {
+      "orig_tokens": 153,
+      "retained_tokens": 77,
+      "retention_frac": 0.5032679738562091
+    },
+    "12": {
+      "orig_tokens": 18,
+      "retained_tokens": 18,
+      "retention_frac": 1.0
+    },
+    "13": {
+      "orig_tokens": 270,
+      "retained_tokens": 71,
+      "retention_frac": 0.26296296296296295
+    },
+    "14": {
+      "orig_tokens": 9,
+      "retained_tokens": 9,
+      "retention_frac": 1.0
+    },
+    "15": {
+      "orig_tokens": 228,
+      "retained_tokens": 58,
+      "retention_frac": 0.2543859649122807
+    },
+    "16": {
+      "orig_tokens": 7,
+      "retained_tokens": 7,
+      "retention_frac": 1.0
+    },
+    "17": {
+      "orig_tokens": 26,
+      "retained_tokens": 26,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "therefore",
+        "target": "burst water main incident",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Sure! Here are some potential points of law that may arise in this episode:\n\n1. Negligence: A key argument in this case revolves around the concept of negligence. The plaintiff's counsel is arguing that the defendant breached its duty of care to the plaintiff, which resulted in the plaintiff suffering a financial loss and emotional distress. The defendant's counsel is disputing this claim, arguing that the burst water main incident was an unforeseeable event beyond the defendant's control.\n\n2. Causation: Another important point of law in this case is the issue of causation. The plaintiff must prove that the defendant's breach of duty was the cause of their financial loss and emotional distress. Conversely, the defendant must prove that the plaintiff's losses were not caused by the defendant's actions or inactions.\n\n3. Mitigation of damages: If the plaintiff is successful in proving that the defendant breached its duty of care and caused the plaintiff harm, the defendant may argue that the plaintiff did not take reasonable steps to mitigate their damages. This means that the plaintiff could have taken actions to reduce or avoid their financial losses, but failed to do so, and therefore should not be fully compensated.\n\n4. Foreseeability: The defendant may argue that the burst water main incident was unforeseeable and, therefore, the defendant should not be held liable for any resulting harm. The plaintiff may counter this argument by pointing to other incidents in the past where the defendant has failed to adequately communicate with passengers during service disruptions.\n\nThese are just a few potential points of law that could arise in this episode. The specific details of the case will dictate which points of law are most relevant.",
+        "msg_idx": 3
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.7,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.48,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "1234567",
+        "rationale": [
+          "value:1234567"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "\"Civil Case No. 1234567: John Smith vs. Millsbury Bus Company\"",
+        "msg_idx": 5
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "1234567",
+        "rationale": [
+          "value:1234567"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "best",
+        "target": "delivery terms",
+        "rationale": [
+          "winner:practice"
+        ],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "It's not necessarily a requirement for the terms of delivery to be formally written down, but it is generally recommended to have a written agreement in place that sets out the terms and conditions of the contract. If the parties have negotiated the terms of the contract and have agreed on delivery terms, it's best practice to document those terms in writing to avoid any ambiguity or disputes down the line. \n\nIn the absence of a written agreement setting out the delivery terms, the parties' course of conduct and trade practices may be used to determine the terms of the contract. In a case where there is a dispute over delivery terms, the court may look at the evidence presented by both parties to determine if there was a valid agreement and what the agreed-upon terms and conditions were.",
+        "msg_idx": 11
+      },
+      "reproduced": {
+        "action": "best",
+        "target": "delivery terms",
+        "rationale": [
+          "winner:practice"
+        ],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    },
+    {
+      "original": {
+        "type": "judgment",
+        "action": "use",
+        "target": "defendant cannot avoid",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Here's an example of how the Plaintiff's counsel, Barrister Lisa Patel, could use the point of law regarding the absence of written delivery terms in her argument:\n\n\"My lord, while it's true that there is no written agreement setting out the delivery terms, it is clear from the parties' course of conduct and trade practices that the delivery date was not an essential term of the contract. Our client has supplied parts to the defendant on numerous occasions, and the delivery date has never been an issue. Moreover, the defendant did not raise any concerns about the delivery date until the parts were actually delivered late.\"\n\n\"This is further evidenced by the fact that the defendant did go ahead and make arrangements with another supplier to source the parts, which suggests that the delivery date was not an essential term of the contract. As such, the fact that the delivery was delayed should not absolve the defendant of their obligation to pay for the supplied parts.\"\n\n\"Furthermore, my lord, under the doctrine of course of conduct and trade practice, the absence of a formal written agreement does not automatically mean that there was no contract in place. The contract may be based on the parties' previous dealings and trade practices. Therefore, the defendant cannot avoid their obligation to pay for the supplied parts simply because the delivery was delayed, and they should be held accountable for the breach of contract.\"",
+        "msg_idx": 13
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": null,
+        "rationale": [],
+        "confidence": 0.8,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "re_derived",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 0.85,
+        "target_score": 0.0,
+        "rationale_score": 1.0,
+        "decision_score": 0.54,
+        "reproduced": false,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 2569,
+    "comp_total_toks": 817,
+    "reduction": 68.19774231218373,
+    "DRR_soft": 0.755,
+    "RCI": 1.0
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "\u00bfPor qu\u00e9 solo hay 12 notas musicales?",
+      "tok_count": 11,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "La raz\u00f3n por la cual existen solamente 12 notas musicales se debe a la forma en que la m\u00fasica occidental se desarroll\u00f3 hist\u00f3ricamente.\n\nLa escala musical occidental est\u00e1 basada en la divisi\u00f3n de la oc",
+      "tok_count": 303,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "La raz\u00f3n por la cual existen solamente 12 notas musicales se debe a la forma en que la m\u00fasica occidental se desarroll\u00f3 hist\u00f3ricamente.\n\nLa escala musical occidental est\u00e1 basada en la divisi\u00f3n de la oc",
+      "tok_count": 303
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 11,
+      "retained_tokens": 0,
+      "retention_frac": 0.0
+    },
+    "1": {
+      "orig_tokens": 303,
+      "retained_tokens": 303,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [
+    0
+  ],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "decide",
+        "target": "Sol",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "La raz\u00f3n por la cual existen solamente 12 notas musicales se debe a la forma en que la m\u00fasica occidental se desarroll\u00f3 hist\u00f3ricamente.\n\nLa escala musical occidental est\u00e1 basada en la divisi\u00f3n de la octava en 12 intervalos iguales, conocidos como semitonos. Estos semitonos se usan para crear las notas que componen la escala, que son siete: Do, Re, Mi, Fa, Sol, La y Si. Cada una de estas notas puede ser alterada mediante el uso de sostenidos (#) o bemoles (b), que aumentan o disminuyen su frecuencia.\n\nLa elecci\u00f3n de 12 notas en la escala occidental tiene sus ra\u00edces en la antigua Grecia, donde los pitag\u00f3ricos descubrieron que las proporciones matem\u00e1ticas entre las frecuencias de los sonidos se pod\u00edan expresar en t\u00e9rminos de n\u00fameros enteros simples. Estas proporciones, conocidas como relaciones arm\u00f3nicas, formaron la base para el desarrollo de la escala de 12 notas.\n\nEs importante destacar que existen otras culturas musicales que utilizan escalas diferentes, con m\u00e1s o menos notas que la escala occidental de 12 notas. Por lo tanto, el n\u00famero de notas en una escala musical depende del contexto cultural y del sistema musical que se est\u00e9 utilizando.",
+        "msg_idx": 1
+      },
+      "reproduced": {
+        "action": "decide",
+        "target": "Sol",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 314,
+    "comp_total_toks": 303,
+    "reduction": 3.5031847133757954,
+    "DRR_soft": 1.0,
+    "RCI": null
+  }
+}

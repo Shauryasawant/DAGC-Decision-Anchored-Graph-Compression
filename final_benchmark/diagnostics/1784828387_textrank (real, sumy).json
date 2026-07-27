@@ -1,0 +1,242 @@
+{
+  "trace_pre": [
+    {
+      "idx": 0,
+      "role": "user",
+      "preview": "lets brainstorm?",
+      "tok_count": 3,
+      "protected": false
+    },
+    {
+      "idx": 1,
+      "role": "assistant",
+      "preview": "Sure! What is the topic?",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 2,
+      "role": "user",
+      "preview": "ice cream creative shapes",
+      "tok_count": 4,
+      "protected": false
+    },
+    {
+      "idx": 3,
+      "role": "assistant",
+      "preview": "Great topic! Here are some brainstorming ideas for creative ice cream shapes:\n\n1. Animal-shaped ice cream cones (for example, a lion, dolphin or elephant)\n2. Ice cream cones shaped like a flower or a ",
+      "tok_count": 223,
+      "protected": false
+    },
+    {
+      "idx": 4,
+      "role": "user",
+      "preview": "miniature dogs",
+      "tok_count": 3,
+      "protected": false
+    },
+    {
+      "idx": 5,
+      "role": "assistant",
+      "preview": "Oh, miniature dogs are adorable! Here are some ideas for brainstorming on this topic:\n\n1. Miniature dog figurines made with colorful and edible toppings\n2. Ice cream cones shaped like different breeds",
+      "tok_count": 254,
+      "protected": false
+    },
+    {
+      "idx": 6,
+      "role": "user",
+      "preview": "rhino mountain",
+      "tok_count": 3,
+      "protected": false
+    },
+    {
+      "idx": 7,
+      "role": "assistant",
+      "preview": "Great idea, here are some brainstorming ideas on creating ice cream shapes that resembles a rhino mountain:\n\n1. Ice cream cake designed to look like the mountain with a rhino figurine on top.\n2. Rocky",
+      "tok_count": 274,
+      "protected": false
+    },
+    {
+      "idx": 8,
+      "role": "user",
+      "preview": "lets brainstorm? Silk-made city architecture",
+      "tok_count": 7,
+      "protected": false
+    },
+    {
+      "idx": 9,
+      "role": "assistant",
+      "preview": "Sure, here are some brainstorming ideas on creating silk-made city architecture-inspired ice cream shapes:\n\n1. Ice cream cakes designed to look like architectural landmarks, such as the Eiffel Tower o",
+      "tok_count": 304,
+      "protected": true
+    }
+  ],
+  "trace_post": [
+    {
+      "c_idx": 0,
+      "orig_idx": 0,
+      "role": "user",
+      "preview": "lets brainstorm?",
+      "tok_count": 3
+    },
+    {
+      "c_idx": 1,
+      "orig_idx": 1,
+      "role": "assistant",
+      "preview": "What is the topic?",
+      "tok_count": 5
+    },
+    {
+      "c_idx": 2,
+      "orig_idx": 2,
+      "role": "user",
+      "preview": "ice cream creative shapes",
+      "tok_count": 4
+    },
+    {
+      "c_idx": 3,
+      "orig_idx": 3,
+      "role": "assistant",
+      "preview": "Ice cream cones in the form of letters, numbers, or even a name or a phrase 10.",
+      "tok_count": 21
+    },
+    {
+      "c_idx": 4,
+      "orig_idx": 4,
+      "role": "user",
+      "preview": "miniature dogs",
+      "tok_count": 3
+    },
+    {
+      "c_idx": 5,
+      "orig_idx": 5,
+      "role": "assistant",
+      "preview": "Adorable ice cream sundaes made to look like various dog breeds with different flavored ice cream for each facial feature 5.",
+      "tok_count": 26
+    },
+    {
+      "c_idx": 6,
+      "orig_idx": 6,
+      "role": "user",
+      "preview": "rhino mountain",
+      "tok_count": 3
+    },
+    {
+      "c_idx": 7,
+      "orig_idx": 7,
+      "role": "assistant",
+      "preview": "An ice cream sundae with chocolate crunch on top, served in a waffle cone bowl, decorated to look like a mountain with a miniature rhino figurine.",
+      "tok_count": 33
+    },
+    {
+      "c_idx": 8,
+      "orig_idx": 8,
+      "role": "user",
+      "preview": "lets brainstorm?",
+      "tok_count": 3
+    },
+    {
+      "c_idx": 9,
+      "orig_idx": 9,
+      "role": "assistant",
+      "preview": "Sure, here are some brainstorming ideas on creating silk-made city architecture-inspired ice cream shapes:\n\n1. Ice cream cakes designed to look like architectural landmarks, such as the Eiffel Tower o",
+      "tok_count": 304
+    }
+  ],
+  "per_message_retention": {
+    "0": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    },
+    "1": {
+      "orig_tokens": 7,
+      "retained_tokens": 5,
+      "retention_frac": 0.7142857142857143
+    },
+    "2": {
+      "orig_tokens": 4,
+      "retained_tokens": 4,
+      "retention_frac": 1.0
+    },
+    "3": {
+      "orig_tokens": 223,
+      "retained_tokens": 21,
+      "retention_frac": 0.09417040358744394
+    },
+    "4": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    },
+    "5": {
+      "orig_tokens": 254,
+      "retained_tokens": 26,
+      "retention_frac": 0.10236220472440945
+    },
+    "6": {
+      "orig_tokens": 3,
+      "retained_tokens": 3,
+      "retention_frac": 1.0
+    },
+    "7": {
+      "orig_tokens": 274,
+      "retained_tokens": 33,
+      "retention_frac": 0.12043795620437957
+    },
+    "8": {
+      "orig_tokens": 7,
+      "retained_tokens": 3,
+      "retention_frac": 0.42857142857142855
+    },
+    "9": {
+      "orig_tokens": 304,
+      "retained_tokens": 304,
+      "retention_frac": 1.0
+    }
+  },
+  "removed_message_indices": [],
+  "repro_results": [
+    {
+      "original": {
+        "type": "judgment",
+        "action": "keep",
+        "target": "edible cityscape designs",
+        "rationale": [],
+        "artifacts": {
+          "paths": [],
+          "ids": [],
+          "errors": []
+        },
+        "verbatim": "Sure, here are some brainstorming ideas on creating silk-made city architecture-inspired ice cream shapes:\n\n1. Ice cream cakes designed to look like architectural landmarks, such as the Eiffel Tower or the Empire State Building.\n2. Silk-like waffle cones filled with multi-flavored ice cream and decorated with colorful icing to look like a city skyline.\n3. Miniature silk-like ice cream cups, decorated with edible cityscape designs using icing for the windows, and served with an ice cream flavor and color to match the design.\n4. Ice cream scoops served on top of edible silk-like ribbon napkins, designed to look like a city street layout which features famous architectures.\n5. Silk-made ice cream sculptures of well-known city buildings, landmarks, and bridges such as the Golden Gate Bridge in San Francisco.\n6. Multi-layered ice cream cakes designed to resemble city skyscrapers and buildings.\n7. Ice cream sandwiches made with silk-like wafers that are designed to have intricate designs of city architecture.\n8. Ice cream sculptures with various colors that are designed to look like a unique masterpiece in different architectural designs.\n9. Edible silk-like ribbons made with colorful fruit flavors that are meant to represent the unique colorful city architecture.\n10. Ice cream rolls that are designed to look like a weaved or embroidered silk-like fabric, colored to represent various city skyline designs or buildings.\n\nThese are some idea to create ice cream shapes inspired by silk-made city architecture. Let's keep adding to this list!",
+        "msg_idx": 9
+      },
+      "reproduced": {
+        "action": "keep",
+        "target": "edible cityscape designs",
+        "rationale": [],
+        "confidence": 0.9,
+        "_success": true,
+        "_fallback": "deterministic",
+        "_target_source": "pinned",
+        "_raw": "deterministic_fallback"
+      },
+      "match": {
+        "action_score": 1.0,
+        "target_score": 1.0,
+        "rationale_score": 1.0,
+        "decision_score": 1.0,
+        "reproduced": true,
+        "failure": null,
+        "target_scoreable": true
+      }
+    }
+  ],
+  "summary": {
+    "orig_total_toks": 1082,
+    "comp_total_toks": 405,
+    "reduction": 62.569316081330875,
+    "DRR_soft": 1.0,
+    "RCI": 1.0
+  }
+}
