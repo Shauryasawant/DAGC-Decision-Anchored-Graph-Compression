@@ -37,7 +37,7 @@ from __future__ import annotations
 import re
 from typing import Dict, List, Optional, Set, Tuple
 
-from .utils import _tok, _get_text, _value_still_recoverable
+from .utils import _tok, _get_text, _value_still_recoverable, _RE_CODE_FENCE
 from .compressor import _is_meaningful_candidate_value
 
 try:
@@ -101,6 +101,26 @@ _ENTITY_RE = re.compile(
 
 def _clauses(text: str) -> List[str]:
     return [c.strip() for c in _CLAUSE_SPLIT_RE.split(text) if c.strip()]
+
+def _clauses_fence_aware(text: str) -> List[str]:
+    """Same purpose as _clauses(), but treats each fenced code block
+    (```...```) as a single atomic clause instead of comma/newline-
+    splitting inside it. Mirrors _split_sents' fence handling in
+    utils.py. Used only by the filler-filter call sites in
+    filler_score.py, which is the path where clause-splitting inside
+    code was silently deleting fragments (e.g. a comma-split kwarg).
+    _clauses()/_clauses_with_offsets() are left untouched for all other
+    callers (convmem.py topic classification, _scan_clauses_for_rationale)."""
+    out: List[str] = []
+    last_end = 0
+    for fence_m in _RE_CODE_FENCE.finditer(text):
+        out.extend(c.strip() for c in _CLAUSE_SPLIT_RE.split(text[last_end:fence_m.start()]) if c.strip())
+        fence_body = fence_m.group(0).strip()
+        if fence_body:
+            out.append(fence_body)
+        last_end = fence_m.end()
+    out.extend(c.strip() for c in _CLAUSE_SPLIT_RE.split(text[last_end:]) if c.strip())
+    return out
 
 
 def _clauses_with_offsets(text: str) -> List[Tuple[int, int]]:

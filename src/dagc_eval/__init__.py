@@ -31,7 +31,7 @@ from .export import to_json, to_csv, to_markdown, to_html
 from .normalize import normalize_message, normalize_trace
 from .leaderboard import efficiency_score, rank_leaderboard, print_leaderboard
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = ["normalize_message", "normalize_trace", "explain_drr", "diff_trace", "diff_trace_report",
            "to_json", "to_csv", "to_markdown", "to_html",

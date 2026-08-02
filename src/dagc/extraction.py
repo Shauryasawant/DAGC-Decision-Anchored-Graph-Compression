@@ -3,10 +3,8 @@ Decision extractor: turns a raw agent trace into a list of structured
 decisions (tool calls, judgments, confirmations) with extracted targets,
 rationale, and cited artifacts. Pure regex/heuristic -- no LLM calls.
 # extraction.py
-EXTRACTION_LOGIC_VERSION = "2026-07-22.1"
-
-# wherever a decision is built and frozen into a fixture
-decision_record["_extractor_version"] = EXTRACTION_LOGIC_VERSION
+EXTRACTION_LOGIC_VERSION = "2026-08-02.1"  # bumped: _mask_code_fences now masks a
+# dangling (unpaired) ``` to end-of-text instead of leaving it as visible prose.
 
 # wherever ground truth is loaded for scoring, before comparing
 if decision.get("_extractor_version") != EXTRACTION_LOGIC_VERSION:
@@ -21,17 +19,67 @@ import json
 import re
 from collections import Counter, defaultdict
 from typing import Any, Dict, List, Optional, Set, Tuple
-
 from .utils import (
     CRITICAL, STOPWORDS, _artifacts, _get_text, _tok, _uw,
 )
-EXTRACTION_LOGIC_VERSION = "2026-07-25.2"  # bumped: verb extraction scoped to the
-# decisive sentence + preserved-tag/tool-footprint spans masked (fixes verbs
-# leaking from other decisions' rescue tags); object-phrase/bigram target
-# fallbacks now respect clause boundaries instead of a punctuation-stripped
-# flat word list (fixes multi-clause-spanning nonsense targets); decisive
-# sentence hard-guaranteed during compression. Fixtures built with
-# 2026-07-25.1 or earlier must be regenerated.
+class StaleGroundTruthError(RuntimeError):
+    """Raised when a stored ground-truth decision was stamped with an
+    EXTRACTION_LOGIC_VERSION that no longer matches the live extractor.
+    This turns a previously-silent failure mode into a loud one: without
+    this check, compress_dagc's fresh re-extraction (which drives the
+    hard-guarantee set) can silently diverge from a stale fixture's
+    action/target -- the fixture keeps expecting an old label (e.g.
+    'request') that the current extractor no longer produces for that
+    text, so nothing protects it, and reproduction (correctly, per the
+    CURRENT extractor) comes back with the current label instead. That
+    reads as an action mismatch during scoring, but it's actually a
+    fixture/version skew bug, not a reproduction failure."""
+    pass
+
+
+def assert_ground_truth_current(decisions: List[Dict], source: str = "") -> None:
+    """Call this immediately after loading any stored/frozen ground-truth
+    decision list, before using it for compression guarantees or scoring.
+    Raises StaleGroundTruthError listing every decision whose stamped
+    _extractor_version doesn't match the live EXTRACTION_LOGIC_VERSION,
+    so drift is caught at load time instead of surfacing as mysterious
+    per-trace action mismatches downstream."""
+    stale = [
+        (d.get('msg_idx'), d.get('_extractor_version'))
+        for d in decisions
+        if d.get('_extractor_version') != EXTRACTION_LOGIC_VERSION
+    ]
+    if stale:
+        detail = ', '.join(f"msg_idx={i} (built with {v!r})" for i, v in stale[:10])
+        more = f" (+{len(stale) - 10} more)" if len(stale) > 10 else ""
+        raise StaleGroundTruthError(
+            f"{source or 'ground truth'}: {len(stale)} decision(s) stamped with a "
+            f"stale extractor version, current is {EXTRACTION_LOGIC_VERSION!r}: "
+            f"{detail}{more}. Regenerate fixtures before scoring/compressing."
+        )  # bumped: closes the remaining
+# false-negative sample gaps that had NO decisive-verb match at all (so no
+# amount of target/rationale tuning could have caught them) --
+# (1) "need to" joins the intent-modal family, and intent-modal matches
+#     ('d like to / want to / need to / wish to) now resolve to the real
+#     verb that follows them instead of leaking the bare modal phrase as
+#     the action label;
+# (2) bare standalone-imperative instructions with an open-class leading
+#     verb ("Obtain...", "Get directions...") now anchor target extraction
+#     on their own leading verb instead of relying on the bigram-
+#     corroboration fallback, which requires the same bigram twice and so
+#     silently drops any single-mention instruction;
+# (3) a "Could/Can/Would/Will you (please) VERB...?" polite request now
+#     fires even when VERB sits outside the closed _JUDGMENT_VERBS
+#     vocabulary, not only when the existing interrogative-mood override
+#     already found a decisive match to override mood for;
+# (4) a first-person future-intent statement ("I will/I'll/we'll VERB...")
+#     is now recognized as a decision even though it is, by design,
+#     excluded from the standalone-imperative check;
+# (5) a first-person certainty assertion re-stating/correcting a concrete
+#     number or id ("I'm absolutely certain there were 3 of us") is now
+#     captured as a confirmation, mirroring what _CONFIRM_SIGNALS already
+#     does for assistant turns.
+# Fixtures built with 2026-07-25.2 or earlier must be regenerated.
 
 _JUDGMENT_VERBS = re.compile(
     r'\b(recommend|conclude|suggest|decide|choos(?:e|es|ing)|chose|select(?:s|ed|ing)?|prefer|'
@@ -39,24 +87,51 @@ _JUDGMENT_VERBS = re.compile(
     r'implement|adopt|us(?:e|es|ed|ing)|switch(?:ed|ing)?|migrat(?:e|ed|ing)|'
     r'deploy(?:s|ed|ing)?|provision(?:s|ed|ing)?|'
     r'(?:go(?:es|ing)?|went)\s+with|'
-    # NEW: directive/imperative action verbs. Same open-class tradeoff
-    # _JUDGMENT_VERBS already accepts (see rationale_ext.py's own
-    # docstring on this exact issue) -- these are the specific gaps
-    # T001/T004/T005/T006/T009/T011 exposed. Extend further as new
-    # gaps turn up; this list is not, and can never be, complete.
     r'keep(?:s|ing)?|remov(?:e|es|ed|ing)|push(?:es|ed|ing)?|merg(?:e|es|ed|ing)|'
     r'mov(?:e|es|ed|ing)|target(?:s|ed|ing)?|delet(?:e|es|ed|ing)|renam(?:e|es|ed|ing)|'
-    r'revert(?:s|ed|ing)?)\b',
+    r'revert(?:s|ed|ing)?|'
+    r'cancel\w*|exchang\w*|refund\w*|rebook\w*|reschedul\w*|'
+    r'return(?:s|ed|ing)?|book(?:s|ed|ing)?|add(?:s|ed|ing)?|'
+    # NEW 2026-08-01: "need to" added to the intent-modal family below.
+    # Proven miss: "I need this to be resolved" (trace54_tau) carries the
+    # same decision-intent weight as "I want this resolved" but had zero
+    # coverage. Same tight "must be followed by to" shape as its siblings
+    # so it doesn't swallow plain uses of "need" with no following verb
+    # ("I need a refund" stays uncovered by this branch, as intended).
+    r"(?:'d|would)\s+like\s+to|want(?:s|ed|ing)?\s+to|wish(?:es)?\s+to|need(?:s|ed)?\s+to)\b",
     re.IGNORECASE)
+
+# NEW 2026-08-01: intent-modal phrases ("'d like to", "want to", "need to",
+# "wish to") match _JUDGMENT_VERBS above so the SIGNAL fires correctly, but
+# they are not themselves actions -- the real action verb always follows
+# them ("I'd like to CANCEL the order"). Before this fix, _extract_verb
+# could return the bare modal phrase itself as the action label whenever
+# it won priority or was the first match (proven: trace0/trace57/trace58/
+# trace33_rwt3 in the false-negative sample review all surfaced
+# action="'d like to" / "would like to" instead of the real verb -- not
+# wrong exactly, just uninformative and inconsistent with every other verb
+# this function returns). _resolve_intent_modal_action looks immediately
+# past the modal for the next word and uses THAT as the action when it
+# reads as a plausible verb, falling back to a generic 'request' label
+# rather than leaking the modal phrase.
+_RE_INTENT_MODAL_HEAD = re.compile(
+    r"^(?:'d|would|want(?:s|ed|ing)?|wish(?:es)?|need(?:s|ed)?)\s+(?:like\s+)?to$",
+    re.IGNORECASE)
+
+_BARE_EVALUATIVE_ADJ_WORDS = {'final', 'best', 'optimal'}
+_DECISION_NOUN_NEARBY = re.compile(
+    r'\b(decision|answer|choice|option|pick|call|verdict|recommendation|'
+    r'winner|result|conclusion)\b', re.IGNORECASE)
+
+def _bare_adjective_is_decisive(text: str, m: 're.Match') -> bool:
+    if m.group(0).lower() not in _BARE_EVALUATIVE_ADJ_WORDS:
+        return True
+    window = text[max(0, m.start() - 30):min(len(text), m.end() + 30)]
+    return bool(_DECISION_NOUN_NEARBY.search(window))
 
 _RE_CODE_FENCE = re.compile(r'```.*?```', re.S)
 
 def _mask_code_fences(text: str) -> str:
-    """Blank out fenced code blocks before judgment-signal/verb detection,
-    preserving length and structure so match offsets (used by
-    _sentence_containing, decisive_span, etc.) stay valid against the
-    original text. Code syntax (import/using/keep/target/...) must never
-    be mistaken for a decision verb."""
     return _RE_CODE_FENCE.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
 
 _JUDGMENT_CONNECTIVE_WORDS = ('therefore', 'thus', 'hence')
@@ -81,10 +156,20 @@ _STRONG_JUDGMENT_VERBS = re.compile(
 _CONFIRM_SIGNALS = re.compile(
     r'\b(confirm(?:ed|ation|s)?|verified?|preserv|ensur|kept?|maintain)\b', re.IGNORECASE)
 
+_OUTCOME_CONFIRM_SIGNALS = re.compile(
+    r'\b(successfully|(?:has|have) been (?:applied|processed|completed|updated|modified|'
+    r'refunded|charged|cancelled|confirmed|saved)|(?:was|were) (?:applied|processed|completed)|'
+    r"(?:i(?:'ve| have)|we(?:'ve| have)) (?:applied|processed|completed|updated|modified|"
+    r'refunded|charged|cancelled|confirmed|finished|done|saved)|'
+    r'(?:has|have) (?:already )?saved\b)\b',
+    re.IGNORECASE
+)
+
 _ACTION_VERB_PRIORITY = [
     'recommend', 'confirm', 'adopt', 'implement', 'select', 'choose',
     'decide', 'prefer', 'suggest', 'conclude', 'use',
     'best', 'optimal', 'winner', 'final',
+    'cancel', 'exchange', 'refund', 'rebook', 'reschedule',
     'keep', 'remove', 'push', 'merge', 'move', 'target', 'delete', 'rename', 'revert',
 ]
 _ACTION_DECISION_CUE = re.compile(
@@ -127,20 +212,6 @@ _RE_METRIC_KV_INLINE = re.compile(
 _RE_EQUATION_OPERATOR = re.compile(r'[=≈]')
 
 def _is_chained_equation(sentence: str) -> bool:
-    """True if the sentence contains more than one '='/'≈'-like operator --
-    the shape of a multi-step derivation ('A = B = C ≈ D'), not a single
-    declarative key-value statement. In this shape, the word immediately
-    preceding any one operator is often a fragment of an intermediate
-    restatement (e.g. '...number of payments = 7088.34 * 300 ≈ 2,126,502'
-    -- '7088.34' is the monthly payment, not 'number of payments'), not
-    the true label of the number that follows it -- naive nearest-token
-    attribution silently mislabels the value. Requiring a single operator
-    per sentence keeps the simple, reliable 'key = value' case and drops
-    the ambiguous chained case rather than emitting a confidently wrong
-    label. ':'-separated labels (e.g. 'Mirror_1: 18TB_disk') are
-    unaffected -- ':' isn't counted as an equation operator here, since
-    a paragraph can legitimately contain many unrelated ':' labels
-    without any chained-derivation ambiguity."""
     return len(_RE_EQUATION_OPERATOR.findall(sentence)) > 1
 
 
@@ -150,20 +221,12 @@ _RE_OWNER_SUFFIX = re.compile(r'^(.*?)#d([\d,]+)$')
 _RE_WORD_CHAR = re.compile(r'[^\W\d_]', re.UNICODE)
 
 def _snap_to_word_boundaries(text: str, s: int, e: int) -> Tuple[int, int]:
-    """Nudge a raw character slice so it never starts or ends mid-word.
-    A word-tokenizing regex run on a slice that begins/ends inside a
-    word treats the truncated remainder as a real token (e.g.
-    'strictly' cut to 'ly') -- it has no way to detect the cut
-    happened. Trim the partial word off each edge instead of guessing
-    where the original word 'should' have started."""
     while s < e and s > 0 and _RE_WORD_CHAR.match(text[s - 1]) and _RE_WORD_CHAR.match(text[s]):
         s += 1
     while e > s and e < len(text) and _RE_WORD_CHAR.match(text[e - 1]) and _RE_WORD_CHAR.match(text[e]):
         e -= 1
     return s, e
 
-_RE_PRESERVED_TAG = re.compile(r'\[preserved:\s*([^\]]+)\]')
-_RE_OWNER_SUFFIX = re.compile(r'^(.*?)#d([\d,]+)$')
 _RE_ENTRY_SPLIT = re.compile(r',\s+')
 _RE_INTERROGATIVE_END = re.compile(r'\?\s*$')
 _RE_WH_FRONT = re.compile(r'^\s*(?:so\s+)?(what|which|who|whom|whose|why|how)\b', re.I)
@@ -186,12 +249,7 @@ _RE_PATH = re.compile(
     r'|[A-Za-z]:[\\/][\w.\\/-]+(?<![.,;:!?])'
     r'|\b[\w][\w\-]{2,60}\.(?:' + '|'.join(_KNOWN_FILE_EXTENSIONS) + r')\b(?<![.,;:!?]))',
     re.IGNORECASE)
-# ── Bug C: entity fallback needs corroboration, not just capitalization ──
 
-# Closed-class discourse connectives/adverbials. Unlike verbs or entity
-# names this genuinely IS a small, finite class in English grammar — 
-# enumerating it once covers the category permanently, it isn't the
-# same kind of whack-a-mole as enumerating open-class content words.
 _DISCOURSE_CONNECTIVES = set(_JUDGMENT_CONNECTIVE_WORDS) | {
     'however', 'since', 'after', 'before', 'because', 'although', 'though',
     'while', 'whereas', 'despite', 'meanwhile', 'moreover', 'furthermore',
@@ -219,36 +277,33 @@ _HEDGE_MARKERS = re.compile(
     r"undecided)\b",
     re.IGNORECASE)
 
-_RE_LOCAL_NEGATION = re.compile(r"\b(?:not|n't|never|no longer|without)\s*$",
+_RE_LOCAL_NEGATION = re.compile(r"\b(?:not|never|no longer|without)\s*$|n't\s*$",
                                  re.IGNORECASE)
 _RE_SENTENCE_END = re.compile(r'(?<!\d)([.!?])(?!\d)(?:\s+|$)|\n+|\s+--\s+'r'|(?<![A-Za-z0-9_])</?[A-Za-z_][A-Za-z0-9_]{0,29}\s*/?>\s*')
-
-# extraction.py
 
 _RE_PRESERVED_TAG_SPAN = re.compile(r'\[preserved:[^\]]*\]')
 _RE_TOOL_FOOTPRINT_SPAN = re.compile(r'→TOOL:[A-Za-z_][\w.]*\([^)]*\)')
 
+_RE_DANGLING_FENCE = re.compile(r'```.*\Z', re.S)
+
 def _mask_code_fences(text: str) -> str:
-    """Blank out fenced code blocks AND compressor-injected bookkeeping
-    spans ([preserved: ...] rescue tags, →TOOL:(...) footprints) before
-    judgment-signal/verb detection, preserving length/offsets. These
-    spans are DAGC's own accounting artifacts, not language the model
-    produced -- a verb-shaped token inside one (e.g. a rescued value
-    that belongs to a DIFFERENT decision) must never be mistaken for
-    this message's own decisive clause. Same discipline as code-fence
-    masking, extended to the other non-semantic span types."""
     text = _RE_CODE_FENCE.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
+    # Compression can truncate a code block so only its OPENING ``` survives
+    # (the matching close got cut by sentence-selection/budget trimming).
+    # Left unhandled, everything after that dangling marker -- including
+    # code tokens like 'return'/'push' that _JUDGMENT_VERBS matches -- reads
+    # as ordinary prose and can surface as a spurious decisive match that
+    # was never visible (and never decisive) in the original message. An
+    # odd ``` count after the paired substitution above means exactly one
+    # is left dangling; mask from there to the end of the text the same way
+    # a genuine closed fence is masked.
+    if text.count('```') % 2 == 1:
+        text = _RE_DANGLING_FENCE.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
     text = _RE_PRESERVED_TAG_SPAN.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
     text = _RE_TOOL_FOOTPRINT_SPAN.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
     return text
-# Starting points, not final values -- calibrate against your real
-# corpus and report what you land on + its effect, same as everything
-# else in this pass.
+
 def _extract_question_options(prior_text: str) -> List[str]:
-    """Candidate option names from a preceding either/or or open
-    question -- reuses the SAME entity/snake_case shapes the rest of
-    this file already trusts as identifier-like, plus a plain 'X or Y'
-    split for lowercase alternatives ('postgres or mysql?')."""
     opts = set()
     for m in _RE_ENTITY.finditer(prior_text):
         w = m.group(0)
@@ -266,22 +321,6 @@ def _extract_question_options(prior_text: str) -> List[str]:
 
 
 def _is_bare_option_answer(text: str, prior_text: Optional[str]) -> Optional[str]:
-    """
-    Detects an elliptical answer-then-justify decision: no judgment verb
-    anywhere, but the message's first clause names an option that the
-    IMMEDIATELY PRIOR message posed as an alternative. Returns the
-    matched option as the target, or None.
-
-    Gated deliberately narrow to avoid false positives:
-    - prior message must actually look like a question (ends in '?')
-      AND contain >=2 extractable options -- a single-option or
-      non-question prior can't corroborate anything.
-    - this message's first clause (up to first '.', '!', or newline)
-      must be short (<=4 words) -- rules out normal-length statements
-      that happen to mention an option word in passing.
-    - first clause must NOT itself be interrogative (reuses
-      _clause_is_interrogative -- same mood check used elsewhere).
-    """
     if not prior_text or '?' not in prior_text:
         return None
     options = _extract_question_options(prior_text)
@@ -300,26 +339,18 @@ def _is_bare_option_answer(text: str, prior_text: Optional[str]) -> Optional[str
             return first_clause.strip('.,;:')
     return None
 
-def _looks_grounded_np(tokens: List[str]) -> bool:
-    """Structural gate, not a word list: modifier+head ('staging
-    bucket', 'v2 endpoint') vs. a bare single noun ('meeting', 'flow').
-    >=2 content tokens, one token carrying a digit (version/resource
-    tag), or a single capitalized token (proper-noun shaped -- product/
-    tool/company names like 'Redis', 'Claude', 'Kubernetes') separates
-    the grounded shapes from a bare common noun, without naming either
-    category. Callers must pass ORIGINAL-CASE tokens for the
-    capitalization check to mean anything."""
+def _looks_grounded_np(tokens: List[str], allow_bare_single: bool = False) -> bool:
     if len(tokens) >= 2:
         return True
     if len(tokens) == 1 and any(ch.isdigit() for ch in tokens[0]):
         return True
     if len(tokens) == 1 and tokens[0][:1].isupper():
         return True
+    if allow_bare_single and len(tokens) == 1 and tokens[0].isalpha():
+        return True
     return False
 
 
-# Closed, tiny grammatical classes -- safe to special-case the same way
-# _DEGREE_MODIFIERS already is, unlike open-class content verbs.
 _FOCUS_ADVERBS = {'only', 'just', 'also', 'even', 'solely', 'merely', 'simply'}
 _COORD_CONJUNCTIONS = {'and', 'or'}
 
@@ -337,17 +368,12 @@ def _extract_decisive_object_phrase(text: str, decisive_span: Optional[Tuple[int
     i = 0
     if words[i].lower() in _PREPOSITIONS_OBJECT:
         i += 1
-    # Was two single-shot checks in a fixed order (determiner, then
-    # degree modifier) -- "only the X" never got past "only" (a focus
-    # adverb, matching neither check) to reach the determiner skip.
-    # Loop until none apply, in whatever order they actually occur.
     while i < len(words) and (words[i].lower() in _DETERMINERS
                                or words[i].lower() in _DEGREE_MODIFIERS
-                               or words[i].lower() in _FOCUS_ADVERBS):
+                               or words[i].lower() in _FOCUS_ADVERBS
+                               or words[i].lower() in _VAGUE_QUALIFIERS):
         i += 1
 
-    # Coordinated lists ("accuracy and latency plots") shouldn't be cut
-    # at the conjunction.
     phrase_tokens = []
     content_count = 0
     for w in words[i:i + 8]:
@@ -359,24 +385,16 @@ def _extract_decisive_object_phrase(text: str, decisive_span: Optional[Tuple[int
             continue
         if wl in _NP_STOP_WORDS:
             break
-        # Keep original casing so _looks_grounded_np can recognize
-        # single-token proper nouns (product/tool/company names like
-        # 'Claude', 'Redis') by capitalization shape, not just digits.
         phrase_tokens.append(w)
         content_count += 1
         if content_count >= 4:
             break
 
-    if not _looks_grounded_np(phrase_tokens):
+    if not _looks_grounded_np(phrase_tokens, allow_bare_single=True):
         return None
     return ' '.join(t.lower() for t in phrase_tokens)
 
 def _is_sentence_initial(text: str, pos: int) -> bool:
-    """True if the character at `pos` is the first non-whitespace char
-    of its sentence -- meaning any capitalization there is a pure
-    orthographic artifact of starting a sentence, not evidence the word
-    is a proper noun/identifier. General, position-based -- catches any
-    connective, listed or not."""
     for s, e in _sentence_spans(text):
         if s <= pos < e:
             i = s
@@ -387,15 +405,6 @@ def _is_sentence_initial(text: str, pos: int) -> bool:
 
 
 def _best_corroborated_match(matches, text, id_prefixes):
-    """
-    Among regex matches for one candidate pool (camel or snake), picks
-    the most frequent candidate -- but a candidate only counts if it's
-    corroborated: it recurs somewhere in the text, OR its one occurrence
-    isn't sentence-initial. A single sentence-initial hit is precisely
-    the shape of a false positive ("However", "Since", "Based" opening a
-    clause) -- this filters that shape out regardless of which specific
-    word it is, so it also catches connectives never enumerated above.
-    """
     groups = defaultdict(list)
     for m in matches:
         w = m.group(0)
@@ -413,18 +422,6 @@ def _best_corroborated_match(matches, text, id_prefixes):
     return best
 
 def _is_meaningful_target_candidate(val: str) -> bool:
-    """
-    Same meaningful-content bar _is_meaningful_rationale_key already
-    applies to rationale keys, extended to winner-pattern target
-    candidates. A signal word ('best', 'winner', 'recommended', ...)
-    matching is necessary but not sufficient -- the captured text after
-    it must not be pure function-word filler, or the match latched onto
-    incidental phrasing near the signal word rather than a real target.
-    Rejects 'to provide' out of 'do my best to provide...' by checking
-    its first token is a function word, not by hand-listing the phrase --
-    so it also catches the next occurrence of this shape with different
-    words.
-    """
     words = val.strip().split()
     if not words:
         return False
@@ -434,17 +431,6 @@ def _is_meaningful_target_candidate(val: str) -> bool:
             and first not in _FILLER_ACK_WORDS)
 
 def _extract_entity_target(text, known_ids=None, decisive_span=None):
-    """
-    decisive_span: (start, end) of the verb/connective match that
-    qualified this message as a decision, if known. When given, the
-    camelCase/snake_case fallback searches only the sentence containing
-    that span -- not the whole message -- so it can't return an entity
-    that's merely frequent/corroborated elsewhere in unrelated text
-    (e.g. code blocks, prior context) but unconnected to the actual
-    decisive clause. Falls back to whole-text search only when no span
-    is available (matches current behavior for callers that can't
-    supply one yet).
-    """
     known_ids = known_ids or []
     id_prefixes = {i.split('-')[0] for i in known_ids if '-' in i}
 
@@ -491,10 +477,6 @@ def _extract_entity_target(text, known_ids=None, decisive_span=None):
                     and wl not in _ENTITY_BLOCKLIST
                     and bool(re.fullmatch(r'[a-z][a-z0-9]{1,20}', wl)))
 
-        # Same clause-boundary discipline as _extract_all_object_phrases:
-        # build bigrams PER CHUNK, never across a comma/semicolon/colon/
-        # dash, so "prevent data loss, makes use" can't yield "loss makes"
-        # and a comma-separated list can't yield a false compound phrase.
         bigrams = []
         for chunk in re.split(r'[,;:]|--|—', search_text):
             cw = _RE_WORD_TOKEN_UNICODE.findall(chunk)
@@ -510,46 +492,79 @@ def _extract_entity_target(text, known_ids=None, decisive_span=None):
             return top_bg
 
 def _clause_is_interrogative(clause: str) -> bool:
-    """Deterministic mood check, no parser needed. A judgment-shaped word
-    inside a QUESTION means someone is being asked to judge, not that a
-    judgment was asserted. This gates on sentence STRUCTURE, not
-    vocabulary -- transfers across every domain without naming a single
-    new word, unlike adding/removing entries from _JUDGMENT_VERBS."""
     c = clause.strip()
     return bool(_RE_INTERROGATIVE_END.search(c)
                 or _RE_WH_FRONT.match(c)
                 or _RE_AUX_INVERSION_FRONT.match(c))
 
 def _clause_is_hedged(clause: str) -> bool:
-    """Epistemic-modality check, same closed-class logic as the
-    connectives above: hedge markers are a small, finite grammatical
-    class, not open-class vocabulary -- enumerate once, covers the
-    category permanently."""
-    return bool(_HEDGE_MARKERS.search(clause))
+    check_text = clause.strip()
+    front_m = _RE_POLITE_REQUEST_FRONT.match(check_text)
+    if front_m:
+        check_text = check_text[front_m.end() - 1:]
+    return bool(_HEDGE_MARKERS.search(check_text))
 
 
 def _verb_locally_negated(text: str, m: 're.Match') -> bool:
-    """True only if negation sits immediately before THIS verb match --
-    'NOT using', "isn't adopting". Deliberately a short window ending
-    at the match, not the whole sentence: negation elsewhere in the
-    sentence for a different purpose ('using X, not Y') must not
-    suppress a real decision -- only negation attached to the verb
-    itself should."""
     window = text[max(0, m.start() - 20):m.start()]
     return bool(_RE_LOCAL_NEGATION.search(window))
 
+_RE_POLITE_REQUEST_FRONT = re.compile(
+    r"^\s*(?:[A-Za-z ]{0,20}?,\s*)?"
+    r"(?:so\s+)?(?:could|can|would|will)\s+you\s+(?:please\s+|kindly\s+)?\w",
+    re.IGNORECASE)
+
+def _is_polite_request_question(sentence: str) -> bool:
+    return bool(_RE_POLITE_REQUEST_FRONT.match(sentence.strip()))
+
+EXTRACTION_LOGIC_VERSION = "2026-08-02.2"  # bumped: a JUDGMENT_VERBS match inside
+# a fence-less, stranded code-statement fragment (compression can cut a code
+# block mid-fence, leaving no ``` markers to mask) is no longer treated as
+# decisive -- see _sentence_looks_like_code.
+_RE_CODE_SYMBOL = re.compile(r'[{}();<>=\[\]]')
+
+def _sentence_looks_like_code(sentence: str) -> bool:
+    """True if `sentence` reads like a bare source-code statement rather
+    than natural-language prose.
+
+    Needed because compressed output can leave a code line stranded
+    WITHOUT its original ``` fence markers -- compression's sentence
+    splitter can cut a code block mid-fence, so _mask_code_fences (which
+    only recognizes fence markers) has nothing left to mask. An ordinary
+    English word that also doubles as a common code token (return/add/
+    keep/push/target/use) inside such a stranded fragment is syntax, not
+    a decisive prose verb, and must not be treated as one.
+
+    Two independent, cheap signals, BOTH required (either alone is too
+    easy to trip on legitimate prose that happens to mention one symbol
+    or one technical term):
+      1. Code-punctuation density -- prose rarely has more than a symbol
+         or two per clause; a code statement is dense with them.
+      2. Low natural-language function-word density -- prose is glued
+         together with stopwords (the/a/to/is/with/...); a bare code
+         statement mostly isn't.
+    """
+    s = sentence.strip()
+    if len(s) < 3:
+        return False
+    words = _RE_WORD_TOKEN.findall(s)
+    if not words:
+        return False
+    symbol_density = len(_RE_CODE_SYMBOL.findall(s)) / max(len(s), 1)
+    stopword_ratio = sum(1 for w in words if w.lower() in STOPWORDS) / len(words)
+    return symbol_density >= 0.05 and stopword_ratio <= 0.15
+
+
 def _verb_match_is_decisive(text: str, m: 're.Match') -> bool:
-    """Clause-scoped mood check on the sentence containing this match:
-    not a question, not hedged, not locally negated."""
     sentence = _sentence_containing(text, m.start(), m.end())
-    return (not _clause_is_interrogative(sentence)
+    is_question = (_clause_is_interrogative(sentence)
+                   and not _is_polite_request_question(sentence))
+    return (not is_question
             and not _clause_is_hedged(sentence)
-            and not _verb_locally_negated(text, m))
+            and not _verb_locally_negated(text, m)
+            and not _sentence_looks_like_code(sentence)
+            and _bare_adjective_is_decisive(text, m))
 def _prior_message_is_interrogative(messages: List[Dict], idx: int) -> bool:
-    """True if the message immediately before `idx` reads as a question --
-    the same mood check already used to REJECT verb matches inside
-    questions, reused here as a POSITIVE signal that idx's message is
-    likely answering something."""
     if idx <= 0:
         return False
     prior_text = _get_text(messages[idx - 1]).strip()
@@ -569,14 +584,6 @@ _SUBJECT_LEADING_WORDS = frozenset({
 
 
 def _prior_message_is_imperative_directive(messages: List[Dict], idx: int) -> bool:
-    """Sibling check to _prior_message_is_interrogative, same idea for
-    the other closed mood category: is the immediately preceding
-    message a COMMAND rather than a question or a declarative
-    statement? Imperative sentences in English open on a bare verb
-    with no explicit subject ('Upload X', 'Set Y to Z', 'Delete W') --
-    a small, structurally closed distinction, not a verb whitelist:
-    any leading pronoun/auxiliary/article instead marks a declarative
-    or interrogative sentence, not a command."""
     if idx <= 0:
         return False
     prior_text = _get_text(messages[idx - 1]).strip()
@@ -593,21 +600,6 @@ def _prior_message_is_imperative_directive(messages: List[Dict], idx: int) -> bo
 
 
 def _has_imperative_response_signal(text: str, messages: List[Dict], idx: int) -> bool:
-    """
-    Closed STRUCTURAL signal, sibling to _has_directive_response_signal:
-    an assistant turn immediately following a directive/command is a
-    decision regardless of which word it uses ('Sent report.pdf to
-    Priya', 'Saved config.yaml with port: 8443') -- imperative
-    commands ('Upload X', 'Save it', 'Delete Y') are the gap an
-    enumerated verb list can never fully close, same as Q&A pairs were
-    before this.
-
-    Two conditions required, same discipline as the interrogative case:
-      1. The immediately preceding message reads as a command.
-      2. This message is not itself a question and not hedged.
-    Concreteness is left to the existing _has_concrete_referent gate
-    downstream, not duplicated here.
-    """
     if not _prior_message_is_imperative_directive(messages, idx):
         return False
     first_clause = re.split(r'(?<=[.!?])\s+', text.strip(), maxsplit=1)[0]
@@ -615,35 +607,158 @@ def _has_imperative_response_signal(text: str, messages: List[Dict], idx: int) -
 
 
 def _has_directive_response_signal(text: str, messages: List[Dict], idx: int) -> bool:
-    """
-    Closed STRUCTURAL signal, not another verb for the pile: an assistant
-    turn immediately answering a preceding question is a decision
-    regardless of which word it uses ("moved to Friday", "cosine
-    similarity is the better choice", "goes under cache_v2") -- the gap
-    an enumerated verb list can never fully close.
-
-    Two conditions required, mirroring rationale_ext.py's own
-    negation+corroboration discipline (one cue alone isn't enough):
-      1. The immediately preceding message reads as a question.
-      2. This message is not itself a question and not hedged.
-    Concreteness is left to the existing _has_concrete_referent gate
-    downstream, not duplicated here.
-    """
     if not _prior_message_is_interrogative(messages, idx):
         return False
     first_clause = re.split(r'(?<=[.!?])\s+', text.strip(), maxsplit=1)[0]
     return not _clause_is_interrogative(first_clause) and not _clause_is_hedged(first_clause)
 
+
+_POLITENESS_LEAD_IN = re.compile(
+    r'^(?:please|kindly|could you please|just|now)\s+', re.IGNORECASE)
+
+
+def _is_standalone_imperative(text: str) -> bool:
+    first_clause = re.split(r'(?<=[.!?])\s+', text.strip(), maxsplit=1)[0]
+    if _clause_is_interrogative(first_clause) or _clause_is_hedged(first_clause):
+        return False
+    stripped = _POLITENESS_LEAD_IN.sub('', first_clause.strip())
+    first_word = re.match(r"^[A-Za-z']+", stripped)
+    if not first_word:
+        return False
+    return first_word.group(0).lower() not in _SUBJECT_LEADING_WORDS
+
+
+def _has_standalone_imperative_signal(text: str) -> bool:
+    return _is_standalone_imperative(text)
+
+
+def _first_sentence(text: str) -> str:
+    return re.split(r'(?<=[.!?])\s+', text.strip(), maxsplit=1)[0]
+
+
+def _leading_offset(text: str) -> int:
+    return len(text) - len(text.lstrip())
+
+
+def _leading_verb_span(text: str) -> Optional[Tuple[int, int]]:
+    """A standalone imperative ('Obtain comprehensive details about a
+    movie...', 'Get directions from X to Y...') that doesn't happen to use
+    one of the closed-class _JUDGMENT_VERBS has no decisive_span to anchor
+    object-phrase extraction on. _extract_target then falls through to the
+    bigram-corroboration fallback in _extract_entity_target -- which only
+    returns a bigram that repeats TWICE in the message, so a single bare
+    instruction (the overwhelmingly common case for an opening task
+    request) silently produces no target and the whole decision gets
+    dropped by _has_concrete_referent. Proven gap: 'Obtain comprehensive
+    details about a movie, excluding cast information and images.'
+    Anchor directly on the clause's own leading verb instead, so the
+    already-reliable _extract_decisive_object_phrase /
+    _extract_all_object_phrases machinery has a local span to work from --
+    exactly as it already does for a genuine _JUDGMENT_VERBS hit."""
+    first_clause = _first_sentence(text)
+    stripped = _POLITENESS_LEAD_IN.sub('', first_clause.strip())
+    m = re.match(r"[A-Za-z']+", stripped)
+    if not m:
+        return None
+    verb = m.group(0)
+    start = text.find(verb, _leading_offset(text))
+    if start == -1:
+        return None
+    return (start, start + len(verb))
+
+
+# NEW 2026-08-01: broadened, last-resort sibling of _is_polite_request_question.
+# 'Could you help me cancel...' already works today because 'cancel' is
+# itself a _JUDGMENT_VERBS hit and the polite-request check only overrides
+# the interrogative-mood veto for an ALREADY-found decisive match. 'Can you
+# make the exoskeleton walk?' / 'Can you try to be more imaginative?' carry
+# the exact same second-person-modal request shape but front a verb
+# ('make', 'try') outside the closed _JUDGMENT_VERBS vocabulary, so no
+# decisive match is ever found and the polite-request exception never gets
+# a chance to fire. This signal doesn't require a _JUDGMENT_VERBS hit at
+# all -- it only requires the closed second-person-modal-request SHAPE
+# (mirroring _RE_POLITE_REQUEST_FRONT) at the front of a genuine question.
+# Deliberately checked only after every more specific branch in
+# extract_decisions, so it can only fill a gap, never shadow a better
+# classification.
+_RE_POLITE_REQUEST_VERB = re.compile(
+    r"^\s*(?:[A-Za-z ]{0,20}?,\s*)?(?:so\s+)?(?:could|can|would|will)\s+you\s+"
+    r"(?:please\s+|kindly\s+)?(?:help me\s+)?([a-z]+)\b", re.IGNORECASE)
+
+
+def _polite_request_verb_match(text: str) -> Optional['re.Match']:
+    first = _first_sentence(text)
+    if not first.rstrip().endswith('?'):
+        return None
+    return _RE_POLITE_REQUEST_VERB.match(first.strip())
+
+
+def _has_polite_request_signal(text: str) -> bool:
+    return _polite_request_verb_match(text) is not None
+
+
+# NEW 2026-08-01: a first-person future-intent statement ("I will check
+# X...", "I'll cancel Y...", "We'll proceed with Z...") carries the same
+# decision content as an imperative, but _is_standalone_imperative
+# structurally cannot catch it -- it explicitly excludes clauses that open
+# with a pronoun/auxiliary (_SUBJECT_LEADING_WORDS includes "i"/"we"/
+# "will"/"'ll" territory) precisely so it doesn't mistake an ordinary
+# declarative sentence for an instruction. That exclusion is correct in
+# general but throws out this one real pattern along with it. Proven
+# miss: "I will first check the details of your reservations to ensure
+# they meet the criteria for cancellation." (trace69, assistant turn) --
+# no _JUDGMENT_VERBS hit ('check' isn't one), no directive/imperative
+# response context, no standalone-imperative match. Narrow and
+# closed-class on purpose: only the "I will / I'll / we will / we'll"
+# fronting, optionally through one throwaway adverb ("first", "now",
+# "then", "also"), immediately followed by the real verb.
+_RE_FIRST_PERSON_INTENT = re.compile(
+    r"^\s*(?:so\s+)?(?:I(?:'ll|\s+will)|we(?:'ll|\s+will))\s+"
+    r"(?:first\s+|now\s+|then\s+|also\s+|just\s+)?([a-z]+)\b",
+    re.IGNORECASE)
+
+
+def _first_person_intent_match(text: str) -> Optional['re.Match']:
+    first = _first_sentence(text)
+    if _clause_is_interrogative(first) or _clause_is_hedged(first):
+        return None
+    return _RE_FIRST_PERSON_INTENT.match(first)
+
+
+def _has_first_person_intent_signal(text: str) -> bool:
+    return _first_person_intent_match(text) is not None
+
+
+# NEW 2026-08-01: a user firmly restating/correcting a concrete fact
+# ("I'm absolutely certain there were 3 of us", "I distinctly remember
+# paying for the insurance") functions the same way _CONFIRM_SIGNALS
+# does for an assistant's "confirmed"/"verified" -- it's the person
+# asserting a value should be taken as settled -- but none of that
+# vocabulary ("confirm/verify/preserve/ensure/keep/maintain") appears.
+# Proven miss: "No, I'm absolutely certain there were 3 of us on that
+# delayed flight!" (trace76) carries a concrete numeric correction with
+# zero coverage under the existing confirm-signal vocabulary. Gated on
+# the SAME sentence also containing a digit, so a bare confident opinion
+# with no concrete fact attached ("I'm sure that's a bad idea") is not
+# swept in.
+_RE_CERTAINTY_ASSERTION = re.compile(
+    r"\b(?:i(?:'m|\s+am)\s+(?:absolutely\s+|completely\s+|100%\s+)?"
+    r"(?:certain|sure|positive)|i know (?:for (?:a )?fact )?that|"
+    r"i distinctly remember)\b",
+    re.IGNORECASE)
+
+
+def _has_certainty_assertion_signal(text: str) -> bool:
+    m = _RE_CERTAINTY_ASSERTION.search(text)
+    if not m:
+        return False
+    sentence = _sentence_containing(text, m.start(), m.end())
+    if _clause_is_interrogative(sentence):
+        return False
+    return bool(re.search(r'\d', sentence))
+
+
 def _preserved_tag_candidates(text, decision_idx=None):
-    """
-    Parses '[preserved: value#dN, value2#dM,K]' tags. Returns a list of
-    (value, is_owned) pairs:
-      is_owned=True  -> carried an explicit '#dN' suffix that matched
-                         decision_idx (or decision_idx was not given).
-      is_owned=False -> untagged/legacy entry -- no ownership info, so
-                         downstream callers should corroborate it against
-                         something else before trusting it for THIS decision.
-    """
     m = _RE_PRESERVED_TAG.search(text)
     if not m:
         return []
@@ -670,7 +785,6 @@ def _cap_target_length(t, max_words=6):
 
 
 def _flatten_arg_values(obj, prefix='', max_depth=3, _depth=0):
-    """Yield (key, value) leaf pairs from nested dict/list tool args."""
     out = []
     if _depth > max_depth:
         return out
@@ -706,17 +820,15 @@ _TRAILING_ADVERBIALS = {
     'real', 'quick', 'quickly', 'now', 'soon', 'immediately', 'right',
     'away', 'today', 'briefly', 'fast', 'shortly', 'already', 'just',
 }
-_DEGREE_MODIFIERS = {                                    # <-- new
+_DEGREE_MODIFIERS = {
     'more', 'less', 'very', 'much', 'quite', 'somewhat', 'rather', 'fairly',
 }
 
 _NP_STOP_WORDS = (STOPWORDS | _DISCOURSE_CONNECTIVES | _FILLER_CONNECTORS
-                   | _FILLER_ACK_WORDS | _ENTITY_BLOCKLIST
-                   | _VAGUE_QUALIFIERS | _TRAILING_ADVERBIALS)
+                   | _FILLER_ACK_WORDS | _ENTITY_BLOCKLIST | _TRAILING_ADVERBIALS)
 
-_RE_WORD_TOKEN = re.compile(r"[a-zA-Z][a-zA-Z0-9]*")
+_RE_WORD_TOKEN = re.compile(r"[A-Za-z0-9]+")
 _RE_WORD_TOKEN_UNICODE = re.compile(r"[^\W\d_]+", re.UNICODE)
-# Stable target-key priority shared by extraction and evaluation.
 _CANONICAL_TARGET_KEY_TIERS: Tuple[Tuple[str, ...], ...] = (
     ('new_', 'updated_', 'target_'),
     ('email',),
@@ -741,8 +853,6 @@ def _tokenize_key(key: str) -> List[str]:
 
 
 def _key_tier_rank(key: Optional[str]) -> Optional[int]:
-    """Format-agnostic key-priority lookup: matches by SUBSTRING against
-    each tier's tokens instead of requiring exact key equality."""
     if key is None:
         return None
     key_norm = re.sub(r'[^a-z0-9_]', '', str(key).lower())
@@ -761,7 +871,6 @@ def _stringify_arg_value(v):
     else:
         s = str(v).strip()
     return s if len(s) >= 2 else None
-# Do not split decimal values as sentence boundaries.
 
 
 def _sentence_spans(text: str) -> List[Tuple[int, int]]:
@@ -777,29 +886,17 @@ def _sentence_spans(text: str) -> List[Tuple[int, int]]:
 
 
 def _sentence_containing(text: str, pos_start: int, pos_end: int) -> str:
-    """
-    Returns the sentence containing the match. Long sentences are
-    windowed to the text immediately around the match rather than
-    returned in full, and -- whether windowed or falling back to a raw
-    local slice because no sentence span was found -- the result is
-    always snapped to word boundaries first (_snap_to_word_boundaries),
-    so a downstream word-tokenizing regex never sees a truncated
-    fragment (e.g. 'strictly' cut to 'ly') as if it were a real token.
-    """
     for s, e in _sentence_spans(text):
         if s <= pos_start < e:
             if e - s <= 240:
                 return text[s:e]
             lo, hi = _snap_to_word_boundaries(text, max(s, pos_start - 120), min(e, pos_end + 120))
             return text[lo:hi]
-    # No sentence span found at all -- small local window.
     lo, hi = _snap_to_word_boundaries(text, max(0, pos_start - 80), min(len(text), pos_end + 80))
     return text[lo:hi]
 
 
 def _connective_is_corroborated(text: str, m: 're.Match', verb_pattern) -> bool:
-    """A connective match counts only if its own sentence also contains
-    a real judgment verb or an explicit action cue."""
     sentence = _sentence_containing(text, m.start(), m.end())
     return bool(verb_pattern.search(sentence) or _ACTION_DECISION_CUE.search(sentence))
 
@@ -831,20 +928,6 @@ def _has_strong_decisive_no_confirm(text: str) -> bool:
 
 def _find_decisive_match(text):
     text = _mask_code_fences(text)
-    """
-    Locate the single match — verb or connective — that qualifies this
-    message as a decision, using the SAME priority extract_decisions()
-    already applies (strong signal first, then general signal). Returns
-    a re.Match or None.
-
-    This is the one place "what counts as the decisive clause" is
-    decided. Both extract_decisions (ground truth) and reproduce.py's
-    deterministic fallback (reproduced side) call this instead of each
-    re-implementing their own notion of "the decisive part of the
-    text" — so both sides scope the entity fallback to the identical
-    sentence, and can no longer silently drift apart the way the
-    unscoped whole-message fallback did.
-    """
     m = _find_strong_judgment_match(text)
     if m is not None:
         return m
@@ -872,9 +955,6 @@ _RE_IDLIKE_VALUE = re.compile(r'^[A-Za-z0-9][A-Za-z0-9._-]{2,29}$')
 
 
 def _looks_identifier_shaped(cand: str) -> bool:
-    """Value-shape prior, independent of key name or domain: short,
-    no-whitespace, alphanumeric token with a digit reads as an
-    identifier/code regardless of field name or business domain."""
     c = cand.strip()
     if not _RE_IDLIKE_VALUE.match(c):
         return False
@@ -882,8 +962,6 @@ def _looks_identifier_shaped(cand: str) -> bool:
 
 
 def _looks_structural_numeric(cand):
-    """Bare small integers read as pagination/limit/offset-style params
-    regardless of what key they're stored under."""
     return bool(re.fullmatch(r'-?\d{1,4}', cand.strip()))
 
 
@@ -891,9 +969,16 @@ def _is_sane_candidate(s: str) -> bool:
     return '\n' not in s and sum(c.isalnum() for c in s) >= len(s) * 0.4
 
 
+def _number_is_threshold_shaped(number: str, text: str) -> bool:
+    positions = [m.start() for m in re.finditer(re.escape(number), text)]
+    if not positions:
+        return False
+    return all(_preceded_by_threshold_cue(text, p) for p in positions)
+
+
 def _score_target_candidate(cand, source, tool_name, text, key=None, is_owned=False, local=False):
     low = cand.strip().lower()
-    if len(low) < 2:
+    if len(low) < 2 and not _is_numeric_literal(low):
         return -1e9
     if tool_name and low == str(tool_name).strip().lower():
         return -1e9
@@ -908,19 +993,11 @@ def _score_target_candidate(cand, source, tool_name, text, key=None, is_owned=Fa
         score -= 2.5
     if _looks_identifier_shaped(cand):
         score += 1.2
-    if _looks_structural_numeric(cand):
+    if _looks_structural_numeric(cand) and not _looks_like_reportable_number(cand):
         score -= 1.0
+    if _is_numeric_literal(low) and _number_is_threshold_shaped(cand.strip(), text):
+        score -= 4.0
 
-    # Self-referential "does this candidate look like an id/path/url"
-    # bonus -- gated on the SAME digit-bearing definition
-    # _looks_identifier_shaped already uses everywhere else in this file,
-    # not a separate, looser check. A dotted token with no digit at all
-    # (a library/module path like "scipy.stats.kendalltau") is exactly as
-    # "id-shaped" under a loose dots-and-letters pattern as a real
-    # business identifier ("order-4471") is -- but only the latter is
-    # ever actually the ANSWER to a question. URLs/emails keep their own
-    # unambiguous signal (scheme, @) and aren't put through this gate,
-    # since that signal doesn't depend on digits at all.
     a = _artifacts(cand)
     looks_like_url_or_email = bool(a.get('urls')) or '@' in cand
     looks_like_real_id_or_path = (a.get('ids') or a.get('paths')) and _looks_identifier_shaped(cand)
@@ -936,30 +1013,12 @@ def _score_target_candidate(cand, source, tool_name, text, key=None, is_owned=Fa
             n_tiers = len(_CANONICAL_TARGET_KEY_TIERS)
             score += 3.0 - (rank / n_tiers) * 2.0
 
-    # Locality: a candidate that actually occurs in the same sentence as
-    # the verb/connective that MADE this a decision is far more likely to
-    # be what the decision is about than a number or phrase sitting in an
-    # earlier, unrelated sentence of the same message (a supporting
-    # statistic mentioned before the actual verdict, e.g.). This is a
-    # BONUS, not a filter -- an out-of-sentence candidate can still win
-    # if nothing local scores higher, so a genuinely correct target
-    # phrased apart from the decisive clause is never made unreachable,
-    # only deprioritized relative to a same-sentence candidate.
     if local:
         score += 1.5
 
     return score
 
 
-# A standalone numeric literal, in any form a model would actually report
-# one: signed/unsigned integers, decimals, scientific notation, and
-# optional percent sign. This exists as its own recognizer -- distinct
-# from the generic identifier/entity candidates -- because a numeric
-# answer's validity has nothing to do with digit-count length; a
-# 17-digit p-value and a 1-digit class label are both legitimate targets,
-# just of different shapes. Length-based filtering was conflating "is
-# this numeric" with "is this the right numeric", which are different
-# questions that need different answers.
 _NUMERIC_LITERAL_RE = re.compile(
     r'^-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?%?$'
 )
@@ -968,28 +1027,16 @@ def _is_numeric_literal(s: str) -> bool:
     return bool(_NUMERIC_LITERAL_RE.fullmatch(s.strip()))
 
 
-# Bare short integers (page numbers, list indices, small counts like "14",
-# "08") are genuinely likely to be noise on their own -- that part of the
-# old heuristic was doing real work and shouldn't be thrown out. The bug
-# was applying that same suspicion to EVERY numeric shape, including
-# decimals and long digit runs, which are essentially never noise: nobody
-# accidentally writes "0.05595605111076938" as filler.
 def _looks_like_reportable_number(s: str) -> bool:
     if not _is_numeric_literal(s):
         return False
     core = s.rstrip('%').lstrip('-')
     if '.' in core or 'e' in core.lower():
-        return True                      # any decimal/scientific-notation value: always reportable
-    return len(core) >= 4                 # bare integers: keep the existing noise filter
+        return True
+    return len(core) >= 4
 
 def _extract_all_object_phrases(sentence: str) -> List[str]:
     candidates = []
-    # A candidate phrase must never straddle a comma/semicolon/colon/
-    # dash -- those mark clause boundaries or coordinate list items
-    # ("consumption, investment, government spending"). Word-tokenizing
-    # discards that punctuation, so without this cut the builder can't
-    # tell "the end of one clause" from "an ordinary adjacent word" --
-    # it silently glues "loss" to the next clause's "makes".
     for chunk in re.split(r'[,;:]|--|—', sentence):
         words = _RE_WORD_TOKEN.findall(chunk)
         for i, w in enumerate(words):
@@ -1005,10 +1052,6 @@ def _extract_all_object_phrases(sentence: str) -> List[str]:
             for w2 in words[j:j + 4]:
                 if w2.lower() in _NP_STOP_WORDS:
                     break
-                # Keep original casing so _looks_grounded_np can recognize
-                # single-token proper nouns (product/tool/company names
-                # like 'Claude', 'Redis') by capitalization shape, not
-                # just digits.
                 phrase.append(w2)
             if _looks_grounded_np(phrase):
                 candidates.append(' '.join(t.lower() for t in phrase))
@@ -1053,9 +1096,6 @@ def _extract_target(args, text, tool_name=None, decision_idx=None, decisive_span
     if not candidates:
         return None
 
-    # Same sentence _find_decisive_match/entity_target already anchor to --
-    # computed once here so every candidate source is judged by the same
-    # locality standard, not just the entity fallback.
     decisive_sentence = (_sentence_containing(text, decisive_span[0], decisive_span[1])
                           if decisive_span is not None else None)
 
@@ -1068,34 +1108,85 @@ def _extract_target(args, text, tool_name=None, decision_idx=None, decisive_span
         return None
     return _cap_target_length(best_cand, max_words=12)
 
+def _try_last_resort(text, role, idx, arts, llm_fallback_fn=None):
+    from .reclassify_decisions import find_decision_evidence
+
+    m = find_decision_evidence(text, role)
+    if m is not None:
+        span = (m.start(), m.end())
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=span)
+        if _has_concrete_referent(target, None, arts):
+            return {
+                "type": "judgment", "action": m.group(0).lower(), "target": target,
+                "rationale": _extract_rationale(text, arts, decision_values={target} if target else set(), decision_idx=idx),
+                "artifacts": {k: arts[k] for k in ("paths", "ids", "errors")},
+                "verbatim": text, "msg_idx": idx,
+            }
+
+    from .multilingual_decision_detector import MULTILINGUAL_PATTERNS
+    for _, pattern in MULTILINGUAL_PATTERNS:
+        mm = pattern.search(text)
+        if mm:
+            span = (mm.start(), mm.end())
+            target = _extract_target({}, text, decision_idx=idx, decisive_span=span)
+            if _has_concrete_referent(target, None, arts):
+                return {
+                    "type": "judgment", "action": "request", "target": target,
+                    "rationale": _extract_rationale(text, arts, decision_values={target} if target else set(), decision_idx=idx),
+                    "artifacts": {k: arts[k] for k in ("paths", "ids", "errors")},
+                    "verbatim": text, "msg_idx": idx,
+                }
+
+    if llm_fallback_fn is not None:
+        return llm_fallback_fn(text, role)
+
+    return None
+
+def _resolve_intent_modal_action(scope_text: str, verb_text: str, match_end: int) -> str:
+    """See _RE_INTENT_MODAL_HEAD above: a bare intent-modal match ('d like
+    to / want to / need to / wish to) is never itself the action -- walk
+    past it to the real verb ('...to CANCEL the order') and return that
+    instead. Non-modal matches pass through untouched."""
+    if not _RE_INTENT_MODAL_HEAD.match(verb_text.strip()):
+        return verb_text
+    tail = scope_text[match_end:match_end + 40].strip()
+    nxt = re.match(r"[A-Za-z']+", tail)
+    if nxt and nxt.group(0).lower() not in _NP_STOP_WORDS:
+        return nxt.group(0).lower()
+    return 'request'
+
+EXTRACTION_LOGIC_VERSION = "2026-08-02.4"
 def _extract_verb(text, decision_idx=None, decisive_span=None):
     text = _mask_code_fences(text)
 
-    def _pick(matches):
+    def _pick(scope_text):
+        matches = [
+            m for m in _JUDGMENT_VERBS.finditer(scope_text)
+            if not _sentence_looks_like_code(
+                _sentence_containing(scope_text, m.start(), m.end()))
+        ]
+        if not matches:
+            return None
+        by_text = defaultdict(list)
+        for m in matches:
+            by_text[m.group(0).lower()].append(m)
         for v in _ACTION_VERB_PRIORITY:
-            if v in matches:
-                return v
-        return matches[0] if matches else None
+            if v in by_text:
+                m = by_text[v][0]
+                return _resolve_intent_modal_action(scope_text, v, m.end())
+        m = matches[0]
+        return _resolve_intent_modal_action(scope_text, m.group(0).lower(), m.end())
 
-    # Prefer the sentence that actually qualified this message as a
-    # decision. A verb-shaped token anywhere ELSE in the message is not
-    # evidence about THIS decision -- it may be a different clause, a
-    # rescued value's neighbor, or leftover phrasing from earlier
-    # compression. Falls back to whole-message scanning only if the
-    # decisive sentence itself has no match, so nothing findable today
-    # becomes unreachable.
     if decisive_span is not None:
         local = _sentence_containing(text, decisive_span[0], decisive_span[1])
-        picked = _pick([g.lower() for g in _JUDGMENT_VERBS.findall(local)])
+        picked = _pick(local)
         if picked:
             return picked
 
-    picked = _pick([g.lower() for g in _JUDGMENT_VERBS.findall(text)])
+    picked = _pick(text)
     if picked:
         return picked
 
-    # Ownership-scoped: only THIS decision's own tagged rescue values
-    # count as candidate verbs, not another decision's leaked tag.
     for val, _owned in _preserved_tag_candidates(text, decision_idx=decision_idx):
         low = val.strip().lower()
         if _JUDGMENT_VERBS.fullmatch(low) or _JUDGMENT_CONNECTIVES.fullmatch(low):
@@ -1110,15 +1201,8 @@ def _extract_verb(text, decision_idx=None, decisive_span=None):
 
 
 def _is_meaningful_rationale_key(key: str) -> bool:
-    """
-    A rationale key/value is only worth keeping if it names something --
-    not a function word that happened to sit next to a number or a
-    'winner'-style signal. Centralizing this means every extraction loop
-    in _extract_rationale (present or future) gets the same standard,
-    instead of each loop carrying its own ad-hoc word list.
-    """
     low = key.strip().lower()
-    if len(low) < 2:
+    if len(low) < 2 and not _is_numeric_literal(low):
         return False
     if low in STOPWORDS or low in _FILLER_CONNECTORS or low in _FILLER_ACK_WORDS:
         return False
@@ -1126,34 +1210,9 @@ def _is_meaningful_rationale_key(key: str) -> bool:
 
 
 def _is_meaningful_candidate_value(val: str) -> bool:
-    """
-    Stricter gate for values entering critical-artifact sets directly
-    (action verbs, resolved targets, rationale k=v values) rather than
-    being scored/ranked candidates first. Reuses the stopword/filler
-    check everything else already relies on.
-
-    NOTE: this previously also rejected bare short numerics (e.g. "14",
-    "08", "150", "100%") on the theory they're usually incidental noise
-    (a disk-size fragment). In practice every value reaching this gate
-    has ALREADY been vetted upstream -- by _extract_rationale's own
-    digit-or-identifier-shaped check for rationale entries, or by
-    _score_target_candidate's ranking for targets -- so re-rejecting
-    short numbers here doesn't filter noise that got through; it drops
-    real decision-critical numbers (percentages, day counts, dollar
-    amounts, class counts) that upstream extraction had already
-    correctly identified as meaningful. That gap is what leaves them
-    unprotected during compression.
-    """
     return _is_meaningful_rationale_key(val)
 
 def _bare_rationale_value(rat: str) -> str:
-    """
-    Strip whichever label prefix produced this rationale token (id:,
-    winner:, preserved:, beats:, or key=value) down to just the
-    substantive value -- so the SAME underlying fact isn't kept twice
-    under two different extraction paths (e.g. 'id:X' and 'preserved:X'
-    both surviving when X is genuinely a single fact, not two).
-    """
     if ':' in rat:
         return rat.split(':', 1)[1].strip().lower()
     if '=' in rat:
@@ -1162,8 +1221,6 @@ def _bare_rationale_value(rat: str) -> str:
 
 
 def _format_rationale_entry(val: str, default_prefix: str = 'preserved') -> str:
-    """Preserve an existing rationale tag prefix when present; otherwise
-    fall back to the generic preserved marker used for compressor tags."""
     stripped = str(val).strip()
     if not stripped:
         return stripped
@@ -1174,9 +1231,6 @@ def _format_rationale_entry(val: str, default_prefix: str = 'preserved') -> str:
 def _extract_rationale(text, arts, decision_values=None, decision_idx=None):
     rat = []
     for val, is_owned in _preserved_tag_candidates(text, decision_idx=decision_idx):
-        # Only gate UNTAGGED/legacy entries against decision_values.
-        # Owner-tagged entries are already correctly scoped -- don't
-        # additionally require them to equal the target/action.
         if not is_owned and decision_values is not None and val not in decision_values:
             continue
         rat.append(_format_rationale_entry(val, default_prefix='preserved'))
@@ -1224,14 +1278,7 @@ def _extract_rationale(text, arts, decision_values=None, decision_idx=None):
         out.append(r)
     return out[:8]
 
-# Tool-call accessors shared by the compressor and evaluator.
-
 def _get_tool_call_args(tc: Optional[dict]) -> dict:
-    """
-    Handles both common tool_call shapes:
-      Format 1: {"name": "tool_name", "args": {...}}
-      Format 2: {"function": {"name": "tool_name", "arguments": "..."}}
-    """
     if not isinstance(tc, dict):
         return {}
     if 'function' in tc and isinstance(tc['function'], dict):
@@ -1253,6 +1300,29 @@ def _get_tool_call_name(tc: Optional[dict], default: str = 'unknown_tool') -> st
     return tc.get('name', default)
 
 
+_RE_INLINE_TOOL_INVOKE = re.compile(
+    r'<(?:\w+:)?invoke\s+name=["\']([A-Za-z_][\w.]*)["\']', re.IGNORECASE)
+_RE_INLINE_TOOL_PARAM = re.compile(
+    r'<parameter\s+name=["\']([\w.]+)["\']>(.*?)</parameter>',
+    re.IGNORECASE | re.DOTALL)
+_RE_BRACKET_CALL = re.compile(
+    r'\[calls?\s+([A-Za-z_][\w.]*)\s*\(', re.IGNORECASE)
+
+
+def _extract_inline_tool_call(text):
+    m = _RE_INLINE_TOOL_INVOKE.search(text)
+    if m:
+        name = m.group(1)
+        block_end = text.find('</invoke>', m.end())
+        block = text[m.end(): block_end if block_end != -1 else len(text)]
+        args = {pm.group(1): pm.group(2).strip()
+                for pm in _RE_INLINE_TOOL_PARAM.finditer(block)}
+        return {"name": name, "args": args}
+    m2 = _RE_BRACKET_CALL.search(text)
+    if m2:
+        return {"name": m2.group(1), "args": {}}
+    return None
+
 
 def _has_concrete_referent(target: Optional[str], tool_name: Optional[str], arts: Dict) -> bool:
     if target:
@@ -1265,327 +1335,326 @@ def _has_concrete_referent(target: Optional[str], tool_name: Optional[str], arts
         return True
     return False
 
+
+def _confirming_match(text):
+    m = _OUTCOME_CONFIRM_SIGNALS.search(text)
+    if m:
+        return m
+    return _CONFIRM_SIGNALS.search(text)
+
+
+def _anchor_span_for_numbers(text, decisive_span):
+    if decisive_span is not None:
+        return decisive_span
+    m = _confirming_match(text)
+    return (m.start(), m.end()) if m is not None else None
+
+
+_THRESHOLD_CUE = re.compile(
+    r'\b(?:under|below|over|above|at least|at most|less than|more than|'
+    r'up to|no more than|not (?:to )?exceed(?:ing)?|exceeding|'
+    r'threshold|limit|cap(?:ped)?)\s*$',
+    re.IGNORECASE)
+
+def _preceded_by_threshold_cue(sentence: str, match_start: int, window: int = 20) -> bool:
+    start = max(0, match_start - window)
+    return bool(_THRESHOLD_CUE.search(sentence[start:match_start]))
+
+
+def _full_sentence_containing(text: str, pos_start: int, pos_end: int) -> str:
+    for s, e in _sentence_spans(text):
+        if s <= pos_start < e:
+            return text[s:e]
+    lo, hi = _snap_to_word_boundaries(text, max(0, pos_start - 80), min(len(text), pos_end + 80))
+    return text[lo:hi]
+
+# extraction.py — new shared helper
+def _resolve_multilingual_action(text: str, span: Tuple[int, int]) -> str:
+    """Single source of truth for non-English judgment action labels.
+    Used identically by ground-truth extraction (_try_multilingual) and
+    by the reproducer's deterministic fallback, so the two can never
+    disagree on a translated action."""
+    from .multilingual_decision_detector import lightweight_translate
+    translated = lightweight_translate(text)
+    dm = _find_decisive_match(translated)
+    if dm is not None:
+        return _extract_verb(translated, decisive_span=(dm.start(), dm.end()))
+    return 'request'   # only used when translation truly yields no verb signal
+
+def _confirmed_numbers_in_message(text, arts, decisive_span=None, target=None):
+    numbers = arts.get('numbers', [])
+    if not numbers:
+        return set()
+
+    spans = []
+    if decisive_span is not None:
+        spans.append(decisive_span)
+    m = _confirming_match(text)
+    if m is not None:
+        spans.append((m.start(), m.end()))
+    if not spans and target:
+        tm = re.search(r'(?<![\d.])' + re.escape(target) + r'(?![\d])', text)
+        if tm:
+            spans.append((tm.start(), tm.end()))
+    if not spans:
+        return set()
+
+    found = set()
+    for s, e in spans:
+        sentence = _full_sentence_containing(text, s, e)
+        sentence_hits = []
+        for n in numbers:
+            if n in found:
+                continue
+            for num_m in re.finditer(r'(?<![\d.])' + re.escape(n) + r'(?![\d])', sentence):
+                sentence_hits.append((n, num_m.start()))
+                break
+
+        non_threshold = [n for n, pos in sentence_hits
+                          if not _preceded_by_threshold_cue(sentence, pos)]
+        keep = non_threshold if non_threshold else [n for n, _ in sentence_hits]
+        found.update(keep)
+
+    return found
+
+
+def _build_decision_for_message(
+    messages: List[Dict],
+    idx: int,
+    llm_fallback_fn=None,
+) -> Optional[Dict]:
+    """
+    Build the decision (or None) for messages[idx] alone, using the exact
+    priority-ordered builder chain extract_decisions() applies per-message.
+
+    Pulled out into its own function so it is the SINGLE SOURCE OF TRUTH for
+    "what decision, and what action, does this message represent." Both
+    ground-truth extraction (extract_decisions, which now just loops and
+    calls this) and deterministic reproduction (dagc.reproduce.
+    _deterministic_extract, via a reconstructed positional message list)
+    call this SAME function.
+
+    ROOT CAUSE this closes: reproduce.py used to re-implement its own
+    partial/reordered subset of this priority chain. Whenever an EARLIER,
+    non-judgment-verb builder here (imperative directive, confirm-signal,
+    certainty assertion, bare-option-answer, polite-request, first-person-
+    intent, etc.) claimed a message and its own _extract_verb call landed
+    on the generic 'decide' fallback, ground truth recorded action='decide'
+    -- but the old reproduction shortcut, seeing decisive_span=None, would
+    independently re-check MULTILINGUAL_PATTERNS / the last-resort evidence
+    table against the SAME text and often find a translated or
+    table-matched verb ground truth never had a chance to consider, since
+    ground truth's loop stops at the FIRST successful builder and never
+    reaches those later stages once an earlier one wins. Calling this exact
+    function on recovered/compressed text instead closes that gap
+    structurally: the two paths can no longer take divergent routes through
+    the same priority list.
+    """
+    msg = messages[idx]
+    text = _get_text(msg)
+    arts = _artifacts(text)
+
+    dm = _find_decisive_match(text)
+    decisive_span = (dm.start(), dm.end()) if dm is not None else None
+
+    tool_call = msg.get("tool_call")
+    if not isinstance(tool_call, dict):
+        tool_call = _extract_inline_tool_call(text)
+
+    def _finalize(dtype, action, target, span_for_numbers, extra_values=None):
+        if not _has_concrete_referent(target, None, arts):
+            return None
+        values = {v for v in (target,) if v}
+        if extra_values:
+            values |= extra_values
+        values |= _confirmed_numbers_in_message(text, arts, span_for_numbers, target=target)
+        return {
+            "type": dtype,
+            "action": action,
+            "target": target,
+            "rationale": _extract_rationale(text, arts, decision_values=values, decision_idx=idx),
+            "artifacts": {k: arts[k] for k in ("paths", "ids", "errors")},
+            "verbatim": text,
+            "msg_idx": idx,
+        }
+
+    def _try_tool_call():
+        if not isinstance(tool_call, dict):
+            return None
+        tool_name = _get_tool_call_name(tool_call, "unknown_tool")
+        tool_args = _get_tool_call_args(tool_call)
+        target = _extract_target(tool_args, text, tool_name, decision_idx=idx, decisive_span=decisive_span)
+        if not _has_concrete_referent(target, tool_name, arts):
+            return None
+        values = {v for v in (target,) if v} | _confirmed_numbers_in_message(
+            text, arts, decisive_span, target=target)
+        return {
+            "type": "action", "action": tool_name, "target": target,
+            "rationale": _extract_rationale(text, arts, decision_values=values, decision_idx=idx),
+            "artifacts": {k: arts[k] for k in ("paths", "ids", "errors")},
+            "verbatim": text, "msg_idx": idx,
+        }
+
+    def _try_strong_judgment():
+        if not _has_strong_judgment_signal(text):
+            return None
+        action = _extract_verb(text, decision_idx=idx, decisive_span=decisive_span)
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=decisive_span)
+        return _finalize("judgment", action, target, decisive_span)
+
+    def _try_confirm_paths_ids_no_strong():
+        if not (_CONFIRM_SIGNALS.search(text) and (arts["paths"] or arts["ids"])
+                and not _has_strong_decisive_no_confirm(text)):
+            return None
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=decisive_span)
+        if target is None:
+            fallback = [a for a in (arts["paths"] + arts["ids"]) if _is_sane_candidate(a)]
+            target = fallback[0] if fallback else None
+        return _finalize("confirmation", "confirm", target, decisive_span)
+
+    def _try_outcome_confirm():
+        if not (_OUTCOME_CONFIRM_SIGNALS.search(text)
+                and (arts["numbers"] or arts["ids"] or arts["paths"])
+                and not _has_strong_decisive_no_confirm(text)):
+            return None
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=decisive_span)
+        if target is None:
+            fallback = [a for a in (arts["paths"] + arts["ids"] + arts["numbers"]) if _is_sane_candidate(a)]
+            target = fallback[0] if fallback else None
+        return _finalize("confirmation", "confirm", target, decisive_span)
+
+    def _try_judgment():
+        if not _has_judgment_signal(text):
+            return None
+        action = _extract_verb(text, decision_idx=idx, decisive_span=decisive_span)
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=decisive_span)
+        return _finalize("judgment", action, target, decisive_span)
+
+    def _try_confirm_paths_ids():
+        if not (_CONFIRM_SIGNALS.search(text) and (arts["paths"] or arts["ids"])):
+            return None
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=decisive_span)
+        if target is None:
+            fallback = [a for a in (arts["paths"] + arts["ids"]) if _is_sane_candidate(a)]
+            target = fallback[0] if fallback else None
+        return _finalize("confirmation", "confirm", target, decisive_span)
+
+    def _try_directive_response():
+        if not _has_directive_response_signal(text, messages, idx):
+            return None
+        action = _extract_verb(text, decision_idx=idx, decisive_span=decisive_span)
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=decisive_span)
+        return _finalize("judgment", action, target, decisive_span)
+
+    def _try_imperative_response():
+        if not _has_imperative_response_signal(text, messages, idx):
+            return None
+        action = _extract_verb(text, decision_idx=idx, decisive_span=decisive_span)
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=decisive_span)
+        return _finalize("judgment", action, target, decisive_span)
+
+    def _try_standalone_imperative():
+        if not _has_standalone_imperative_signal(text):
+            return None
+        local_span = decisive_span or _leading_verb_span(text)
+        action = _extract_verb(text, decision_idx=idx, decisive_span=local_span)
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=local_span)
+        return _finalize("judgment", action, target, local_span)
+
+    def _try_polite_request():
+        m = _polite_request_verb_match(text)
+        if m is None:
+            return None
+        verb_span = (_leading_offset(text) + m.start(1), _leading_offset(text) + m.end(1))
+        action = m.group(1).lower()
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=verb_span)
+        return _finalize("judgment", action, target, verb_span)
+
+    def _try_first_person_intent():
+        m = _first_person_intent_match(text)
+        if m is None:
+            return None
+        verb_span = (_leading_offset(text) + m.start(1), _leading_offset(text) + m.end(1))
+        action = m.group(1).lower()
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=verb_span)
+        return _finalize("judgment", action, target, verb_span)
+
+    def _try_certainty_assertion():
+        if not _has_certainty_assertion_signal(text):
+            return None
+        m = _RE_CERTAINTY_ASSERTION.search(text)
+        cert_span = (m.start(), m.end())
+        target = _extract_target({}, text, decision_idx=idx, decisive_span=cert_span)
+        if target is None:
+            fallback = [a for a in (arts["ids"] + arts["numbers"]) if _is_sane_candidate(a)]
+            target = fallback[0] if fallback else None
+        return _finalize("confirmation", "confirm", target, cert_span)
+
+    def _try_bare_option_answer():
+        prior_text = _get_text(messages[idx - 1]) if idx > 0 else None
+        bare_target = _is_bare_option_answer(text, prior_text)
+        if not bare_target:
+            return None
+        return _finalize("judgment", "decide", bare_target, decisive_span)
+
+    def _try_multilingual():
+        from .multilingual_decision_detector import MULTILINGUAL_PATTERNS
+        for _, pattern in MULTILINGUAL_PATTERNS:
+            m = pattern.search(text)
+            if m:
+                span = (m.start(), m.end())
+                action = _resolve_multilingual_action(text, span)
+                target = _extract_target({}, text, decision_idx=idx, decisive_span=span)
+                return _finalize("judgment", action, target, span)
+        return None
+
+    builders = (
+        _try_tool_call,
+        _try_strong_judgment,
+        _try_confirm_paths_ids_no_strong,
+        _try_outcome_confirm,
+        _try_judgment,
+        _try_confirm_paths_ids,
+        _try_directive_response,
+        _try_imperative_response,
+        _try_standalone_imperative,
+        _try_polite_request,
+        _try_first_person_intent,
+        _try_certainty_assertion,
+        _try_bare_option_answer,
+        _try_multilingual,
+    )
+
+    for build in builders:
+        decision = build()
+        if decision is not None:
+            decision["_extractor_version"] = EXTRACTION_LOGIC_VERSION
+            return decision
+
+    fallback = _try_last_resort(text, msg.get("role", ""), idx, arts, llm_fallback_fn=llm_fallback_fn)
+    if fallback is not None:
+        fallback["_extractor_version"] = EXTRACTION_LOGIC_VERSION
+        fallback["_source"] = "last_resort_fallback"
+    return fallback
+
+
 def extract_decisions(
     messages: List[Dict],
-    decision_roles: Tuple[str, ...] = ("assistant",),) -> List[Dict]:
-    decisions = []
+    decision_roles: Tuple[str, ...] = ("assistant", "user"),
+    llm_fallback_fn=None,
+) -> List[Dict]:
+    """
+    Turn a raw agent trace into a list of structured decisions.
 
+    Thin loop over _build_decision_for_message() -- see that function's
+    docstring for the priority-chain rationale that makes it safe to reuse
+    from dagc.reproduce for deterministic re-derivation.
+    """
+    decisions = []
     for idx, msg in enumerate(messages):
         if msg.get("role") not in decision_roles:
             continue
-
-        text = _get_text(msg)
-        arts = _artifacts(text)
-
-        dm = _find_decisive_match(text)
-        decisive_span = (dm.start(), dm.end()) if dm is not None else None
-
-        if isinstance(msg.get("tool_call"), dict):
-            tc = msg["tool_call"]
-            tool_name = _get_tool_call_name(tc, "unknown_tool")
-            tool_args = _get_tool_call_args(tc)
-
-            target = _extract_target(
-                tool_args,
-                text,
-                tool_name,
-                decision_idx=idx,
-                decisive_span=decisive_span,
-            )
-
-            if not _has_concrete_referent(target, tool_name, arts):
-                continue
-
-            this_decision_values = {v for v in (target, tool_name) if v}
-
-            decisions.append(
-                {
-                    "type": "action",
-                    "action": tool_name,
-                    "target": target,
-                    "rationale": _extract_rationale(
-                        text,
-                        arts,
-                        decision_values=this_decision_values,
-                        decision_idx=idx,
-                    ),
-                    "artifacts": {
-                        k: arts[k] for k in ("paths", "ids", "errors")
-                    },
-                    "verbatim": text,
-                    "msg_idx": idx,
-                }
-            )
-
-        elif _has_strong_judgment_signal(text):
-            action = _extract_verb(text, decision_idx=idx, decisive_span=decisive_span)
-
-            target = _extract_target(
-                {},
-                text,
-                decision_idx=idx,
-                decisive_span=decisive_span,
-            )
-
-            if not _has_concrete_referent(target, None, arts):
-                continue
-
-            this_decision_values = {v for v in (target, action) if v}
-
-            decisions.append(
-                {
-                    "type": "judgment",
-                    "action": action,
-                    "target": target,
-                    "rationale": _extract_rationale(
-                        text,
-                        arts,
-                        decision_values=this_decision_values,
-                        decision_idx=idx,
-                    ),
-                    "artifacts": {
-                        k: arts[k] for k in ("paths", "ids", "errors")
-                    },
-                    "verbatim": text,
-                    "msg_idx": idx,
-                }
-            )
-
-        elif (
-            _CONFIRM_SIGNALS.search(text)
-            and (arts["paths"] or arts["ids"])
-            and not _has_strong_decisive_no_confirm(text)
-        ):
-            target = _extract_target(
-                {},
-                text,
-                decision_idx=idx,
-                decisive_span=decisive_span,
-            )
-
-            if target is None:
-                fallback = [
-                    a
-                    for a in (arts["paths"] + arts["ids"])
-                    if _is_sane_candidate(a)
-                ]
-                target = fallback[0] if fallback else None
-
-            if not _has_concrete_referent(target, None, arts):
-                continue
-
-            this_decision_values = {v for v in (target,) if v}
-
-            decisions.append(
-                {
-                    "type": "confirmation",
-                    "action": "confirm",
-                    "target": target,
-                    "rationale": _extract_rationale(
-                        text,
-                        arts,
-                        decision_values=this_decision_values,
-                        decision_idx=idx,
-                    ),
-                    "artifacts": {
-                        k: arts[k] for k in ("paths", "ids", "errors")
-                    },
-                    "verbatim": text,
-                    "msg_idx": idx,
-                }
-            )
-
-        elif _has_judgment_signal(text):
-            action = _extract_verb(text, decision_idx=idx, decisive_span=decisive_span)
-
-            target = _extract_target(
-                {},
-                text,
-                decision_idx=idx,
-                decisive_span=decisive_span,
-            )
-
-            if not _has_concrete_referent(target, None, arts):
-                continue
-
-            this_decision_values = {v for v in (target, action) if v}
-
-            decisions.append(
-                {
-                    "type": "judgment",
-                    "action": action,
-                    "target": target,
-                    "rationale": _extract_rationale(
-                        text,
-                        arts,
-                        decision_values=this_decision_values,
-                        decision_idx=idx,
-                    ),
-                    "artifacts": {
-                        k: arts[k] for k in ("paths", "ids", "errors")
-                    },
-                    "verbatim": text,
-                    "msg_idx": idx,
-                }
-            )
-
-        elif _CONFIRM_SIGNALS.search(text) and (
-            arts["paths"] or arts["ids"]
-        ):
-            target = _extract_target(
-                {},
-                text,
-                decision_idx=idx,
-                decisive_span=decisive_span,
-            )
-
-            if target is None:
-                fallback = [
-                    a
-                    for a in (arts["paths"] + arts["ids"])
-                    if _is_sane_candidate(a)
-                ]
-                target = fallback[0] if fallback else None
-
-            if not _has_concrete_referent(target, None, arts):
-                continue
-
-            this_decision_values = {v for v in (target,) if v}
-
-            decisions.append(
-                {
-                    "type": "confirmation",
-                    "action": "confirm",
-                    "target": target,
-                    "rationale": _extract_rationale(
-                        text,
-                        arts,
-                        decision_values=this_decision_values,
-                        decision_idx=idx,
-                    ),
-                    "artifacts": {
-                        k: arts[k] for k in ("paths", "ids", "errors")
-                    },
-                    "verbatim": text,
-                    "msg_idx": idx,
-                }
-            )
-
-        elif _has_directive_response_signal(text, messages, idx):
-            action = _extract_verb(text, decision_idx=idx, decisive_span=decisive_span)
-            
-            target = _extract_target(
-                {}, 
-                text, 
-                decision_idx=idx, 
-                decisive_span=decisive_span
-            )
-            
-            if not _has_concrete_referent(target, None, arts):
-                continue
-                
-            this_decision_values = {v for v in (target, action) if v}
-            
-            decisions.append(
-                {
-                    "type": "judgment",
-                    "action": action,
-                    "target": target,
-                    "rationale": _extract_rationale(
-                        text, 
-                        arts, 
-                        decision_values=this_decision_values, 
-                        decision_idx=idx
-                    ),
-                    "artifacts": {k: arts[k] for k in ("paths", "ids", "errors")},
-                    "verbatim": text,
-                    "msg_idx": idx,
-                }
-            )
-
-        elif _has_imperative_response_signal(text, messages, idx):
-            action = _extract_verb(text, decision_idx=idx, decisive_span=decisive_span)
-
-            target = _extract_target(
-                {},
-                text,
-                decision_idx=idx,
-                decisive_span=decisive_span
-            )
-
-            if not _has_concrete_referent(target, None, arts):
-                continue
-
-            this_decision_values = {v for v in (target, action) if v}
-
-            decisions.append(
-                {
-                    "type": "judgment",
-                    "action": action,
-                    "target": target,
-                    "rationale": _extract_rationale(
-                        text,
-                        arts,
-                        decision_values=this_decision_values,
-                        decision_idx=idx
-                    ),
-                    "artifacts": {k: arts[k] for k in ("paths", "ids", "errors")},
-                    "verbatim": text,
-                    "msg_idx": idx,
-                }
-            )
-        elif _has_imperative_response_signal(text, messages, idx):
-            action = _extract_verb(text, decision_idx=idx, decisive_span=decisive_span)
-
-            target = _extract_target(
-                {},
-                text,
-                decision_idx=idx,
-                decisive_span=decisive_span
-            )
-
-            if not _has_concrete_referent(target, None, arts):
-                continue
-
-            this_decision_values = {v for v in (target, action) if v}
-
-            decisions.append(
-                {
-                    "type": "judgment",
-                    "action": action,
-                    "target": target,
-                    "rationale": _extract_rationale(
-                        text,
-                        arts,
-                        decision_values=this_decision_values,
-                        decision_idx=idx
-                    ),
-                    "artifacts": {k: arts[k] for k in ("paths", "ids", "errors")},
-                    "verbatim": text,
-                    "msg_idx": idx,
-                }
-            )
-
-        else:
-            prior_text = (
-                _get_text(messages[idx - 1]) if idx > 0 else None
-            )
-            bare_target = _is_bare_option_answer(text, prior_text)
-
-            if bare_target and _has_concrete_referent(bare_target, None, arts):
-                decisions.append(
-                    {
-                        "type": "judgment",
-                        "action": "decide",
-                        "target": bare_target,
-                        "rationale": _extract_rationale(
-                            text, arts, decision_values={bare_target}, decision_idx=idx,
-                        ),
-                        "artifacts": {k: arts[k] for k in ("paths", "ids", "errors")},
-                        "verbatim": text,
-                        "msg_idx": idx,
-                        "_extractor_version": EXTRACTION_LOGIC_VERSION,
-                    }
-                )
-
+        decision = _build_decision_for_message(messages, idx, llm_fallback_fn=llm_fallback_fn)
+        if decision is not None:
+            decisions.append(decision)
     return decisions

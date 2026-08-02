@@ -97,7 +97,7 @@ from .extraction import _STRONG_DECISIVE_VERBS_NO_CONFIRM
 # those modules propagate here for free.
 from .utils import _artifacts, STOPWORDS
 from .extraction import _ACTION_DECISION_CUE, _ENTITY_BLOCKLIST, _RE_ENTITY, _RE_ENTITY_SNAKE
-from .rationale_ext import _CAUSAL_RE, _clauses
+from .rationale_ext import _CAUSAL_RE, _clauses, _clauses_fence_aware
 
 
 # --- Closed-class courtesy openers -----------------------------------------
@@ -141,7 +141,7 @@ def apply_deletions(text: str, clauses_to_delete: List[str]) -> str:
     partial removal.
     """
     to_delete = set(clauses_to_delete)
-    kept = [c for c in _clauses(text) if c not in to_delete]
+    kept = [c for c in _clauses_fence_aware(text) if c not in to_delete]
     return ' '.join(c.strip() for c in kept if c.strip())
 
 def _clause_features(clause: str) -> Dict[str, bool]:
@@ -390,7 +390,7 @@ def filler_deletion_candidates(
     """
     mention_counts, total = _mention_counts(full_text)
     out = []
-    for clause in _clauses(text):
+    for clause in _clauses_fence_aware(text):
         p = scorer.score(clause)
         if p < prob_threshold:
             continue

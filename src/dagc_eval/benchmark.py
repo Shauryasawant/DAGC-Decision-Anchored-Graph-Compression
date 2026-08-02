@@ -13,7 +13,6 @@ import random
 from typing import Callable, Dict, List, Optional
 
 import numpy as np
-
 from dagc.compressor import compress_dagc
 from dagc.extraction import extract_decisions
 from dagc.graph import compute_rci
@@ -126,11 +125,33 @@ def _legacy_metrics(orig_msgs, comp_msgs, decisions=None):
     result = {'SP': round(SP, 4), 'art_ret': art_ret, 'art_ret_strict': art_ret_strict}
 
     if decisions:
-        from dagc.compressor import _collect_decision_artifacts
-        crit = _collect_decision_artifacts(decisions)
-        dec_ret, dec_ret_strict = _ratio(crit)
-        result['decision_art_ret'] = dec_ret
-        result['decision_art_ret_strict'] = dec_ret_strict
+        from dagc.compressor import _collect_decision_artifacts_by_decision
+        from dagc.extraction import _preserved_tag_candidates
+        by_decision = _collect_decision_artifacts_by_decision(decisions)
+
+        # Map each surviving compressed message back to its original msg_idx.
+        text_by_orig_idx = {}
+        for m in comp_msgs:
+            oi = m.get('_orig_idx')
+            if oi is not None:
+                text_by_orig_idx.setdefault(oi, []).append(_get_text(m))
+
+        hits, total = 0, 0
+        for msg_idx, arts in by_decision.items():
+            if not arts:
+                continue
+            own_text = ' '.join(text_by_orig_idx.get(msg_idx, []))
+            # A value legitimately rescued via a [preserved: value#d<msg_idx>]
+            # tag elsewhere in the trace also counts -- that's the compressor's
+            # own real rescue path, not a false positive.
+            rescued_here = {val for m in comp_msgs
+                            for val, _ in _preserved_tag_candidates(_get_text(m), decision_idx=msg_idx)}
+            for a in arts:
+                total += 1
+                if target_still_recoverable(a, own_text) or a in rescued_here:
+                    hits += 1
+
+        result['decision_art_ret'] = round(hits / total, 4) if total else None
 
     return result
 

@@ -34,7 +34,7 @@ _RE_PATH = re.compile(
     r'|[A-Za-z]:[\\/][\w.\\/-]+(?<![.,;:!?])'
     r'|\b[A-Za-z][\w.-]*(?:/[\w.-]+)+(?<![.,;:!?])'        # relative path / branch name
     r'|(?<![\w.])\.[A-Za-z_][\w.-]{1,30}\b(?<![.,;:!?])'   # dotfile
-    r'|\b[\w][\w\-]{2,60}\.[a-z0-9]{1,5}\b(?<![.,;:!?]))')
+    r'|(?<!,)\b[\w][\w\-]{2,60}\.(?=[a-z0-9]*[a-z])[a-z0-9]{1,5}\b(?<![.,;:!?]))')
 
 _RE_ID_ALNUM = re.compile(r'\b(?=[A-Z0-9]*[A-Z])(?=[A-Z0-9]*\d)[A-Z0-9]{8,15}\b')
 _RE_URL = re.compile(r'https?://\S+')
@@ -42,7 +42,7 @@ _RE_EMAIL = re.compile(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b')
 _RE_ID_AZ = re.compile(r'\b[A-Z][A-Z0-9]{1,}-[A-Z0-9]*\d[A-Z0-9]*\b')
 _RE_ID_HX = re.compile(r'\b[a-f0-9]{8,32}\b')
 _RE_COORD = re.compile(r'-?\d{1,3}\.\d{3,8},-?\d{1,3}\.\d{3,8}')
-_RE_NUM = re.compile(r'\b\d+(?:\.\d+)?%?\b')
+_RE_NUM = re.compile(r'\$?\b\d{1,3}(?:,\d{3})+(?:\.\d+)?%?\b|\$?\b\d+(?:\.\d+)?%?\b')
 _RE_ERR = re.compile(r'(?i)(?:error|exception|warning):\s.{0,120}')
 
 _INFRA_NOISE_PATTERNS = (
@@ -401,15 +401,24 @@ def _split_sents(text, min_t=4):
         if inner_lines and re.fullmatch(r'[A-Za-z0-9_+-]{0,12}', inner_lines[0].strip()):
             inner_lines = inner_lines[1:]
 
-        for raw_line in inner_lines:
-            s = raw_line.strip()
-            if not s or not (_art_count(s) > 0 or _tok(s) >= min_t):
-                continue
-            if _needs_fence_protection(s):
-                out.append(f'```{s}```')
-            else:
-                out.append(s)
-
+        # FIX (code-block atomicity): previously each line inside a fence
+        # was scored and selected INDEPENDENTLY, so the selector could keep
+        # e.g. `labels = data.keys()` while dropping `data = {...}` --
+        # syntactically broken code kept while looking "selected" fine.
+        # A fenced block has hard line-to-line dependencies a sentence-
+        # level scorer has no way to see, so it's now treated as ONE
+        # atomic candidate: the whole block survives selection or none of
+        # it does. This only changes granularity going INTO the selection
+        # pool -- target_arts, by_decision, phase1/phase2 budgeting, and
+        # the hard-guarantee rescue passes are all unaffected; decision-
+        # critical values inside code are still separately protected via
+        # target_arts_all regardless of this block being selected or not.
+        has_content = any(
+            _art_count(ln.strip()) > 0 or _tok(ln.strip()) >= min_t
+            for ln in inner_lines if ln.strip()
+        )
+        if has_content:
+            out.append(fence_body)
         last_end = fence_m.end()
 
     out.extend(_split_sents_plain(text[last_end:], min_t))

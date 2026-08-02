@@ -94,6 +94,23 @@ def test_tool_calls_plural_list_takes_first():
     assert out['tool_call']['name'] == 'search'
 
 
+def test_xml_function_calls_in_content_are_parsed():
+    msg = {
+        'role': 'assistant',
+        'content': (
+            'I will update that reservation. '
+            '<antml:function_calls><antml:invoke name="update_reservation_baggages">'
+            '<antml:parameter name="reservation_id">OBUT9V</antml:parameter>'
+            '<antml:parameter name="checked_bags">2</antml:parameter>'
+            '</antml:invoke></antml:function_calls>'
+        ),
+    }
+    out = normalize_message(msg)
+    assert out['tool_call']['name'] == 'update_reservation_baggages'
+    assert out['tool_call']['args']['reservation_id'] == 'OBUT9V'
+    assert out['tool_call']['args']['checked_bags'] == '2'
+
+
 def test_no_tool_call_at_all():
     out = normalize_message({'role': 'user', 'content': 'just chat'})
     assert out['tool_call'] is None

@@ -8,6 +8,7 @@ The point here is to keep the trace handling in one place:
 """
 from __future__ import annotations
 
+import re
 from typing import Any, Callable, Dict, List, Optional, Union
 
 REGISTRY: Dict[str, Callable[[Any], Dict]] = {}
@@ -77,6 +78,40 @@ def _normalize_role(msg: Dict, default_role: str = "unknown") -> str:
     return default_role
 
 
+def _local_name(tag: str) -> str:
+    if not isinstance(tag, str):
+        return ""
+    if tag.startswith("{") and "}" in tag:
+        return tag.split("}", 1)[1]
+    return tag.split(":", 1)[-1]
+
+
+def _extract_tool_call_from_content(content: str) -> Optional[Dict]:
+    """Best-effort extraction of XML-style function calls embedded in content."""
+    if not isinstance(content, str) or not content.strip():
+        return None
+
+    invoke_pattern = re.compile(
+        r"<(?:[A-Za-z0-9_.-]+:)?invoke\b[^>]*name=[\"']([^\"']+)[\"'][^>]*>(.*?)</(?:[A-Za-z0-9_.-]+:)?invoke>",
+        re.IGNORECASE | re.DOTALL,
+    )
+    param_pattern = re.compile(
+        r"<(?:[A-Za-z0-9_.-]+:)?parameter\b[^>]*name=[\"']([^\"']+)[\"'][^>]*>(.*?)</(?:[A-Za-z0-9_.-]+:)?parameter>",
+        re.IGNORECASE | re.DOTALL,
+    )
+
+    for match in invoke_pattern.finditer(content):
+        name = match.group(1).strip()
+        body = match.group(2)
+        args: Dict[str, Any] = {}
+        for param_match in param_pattern.finditer(body):
+            args[param_match.group(1).strip()] = re.sub(r"<[^>]+>", "", param_match.group(2)).strip()
+        if name:
+            return {"name": name, "args": args}
+
+    return None
+
+
 def normalize_message(msg: Any, default_role: str = "unknown") -> Dict:
     """Normalize one message into dagc's canonical dict shape."""
     if not isinstance(msg, dict):
@@ -90,6 +125,8 @@ def normalize_message(msg: Any, default_role: str = "unknown") -> Dict:
     role = _normalize_role(msg, default_role=default_role)
     content = _flatten_content_blocks(msg.get("content", msg.get("text", "")))
     tool_call = _normalize_tool_calls(msg)
+    if tool_call is None:
+        tool_call = _extract_tool_call_from_content(content)
 
     known_keys = {"role", "content", "text", "tool_call", "tool_calls",
                   "sender", "speaker", "from"}

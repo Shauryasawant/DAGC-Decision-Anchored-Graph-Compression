@@ -24,7 +24,7 @@ from .rationale_ext import inject_rationale_stubs, inject_dropped_rationale_stub
 from .state_goal_extract import extract_state_goal_candidates
 from .anchor_lifecycle import resolve_lifecycle, active_anchors, inject_anchor_stubs
 from .referent_anchor import inject_referent_stubs
-
+from .value_recovery_ext import inject_value_recovery_stubs
 
 def _find_owner_idx(artifact: str, messages: List[Dict]) -> Optional[int]:
     """Locate the earliest original message that actually contains this
@@ -257,6 +257,19 @@ def compress_dagc_sv(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
             max_stub_tokens=max_referent_stub_tokens,
             lookback_window=referent_lookback)
         report.update(referent_report)
+
+    if getattr(cfg, 'PRESERVE_VALUE_RECOVERY', True):
+        # Isolated the same way as preserve_referents / preserve_state
+        # above: reads `messages` directly, only ever appends to
+        # `compressed`. Recovers $ amounts present in raw messages
+        # (e.g. proposal-stage cost/savings estimates) that never made
+        # it into any decision, rationale, or anchor stub and would
+        # otherwise be silently lost. See value_recovery_ext.py.
+        compressed, value_report = inject_value_recovery_stubs(
+            compressed, messages,
+            max_stubs=getattr(cfg, 'MAX_VALUE_RECOVERY_STUBS', 15),
+            max_stub_tokens=getattr(cfg, 'MAX_VALUE_RECOVERY_STUB_TOKENS', 25))
+        report.update(value_report)
 
     if diagnostics is not None:
         diagnostics.update(report)

@@ -105,6 +105,14 @@ class CausalGraphConfig:
     SEQ_KEYWORD_OVERLAP: int = 4
     MIN_KEYWORD_LEN: int = 5
     IDF_SMOOTH: float = 1.0
+    # Forward-confirmation scan (see _confirming_descendants): whether to
+    # include, for each decision node, the messages AFTER it in the same
+    # "turn" that literally contain one of the decision's own critical
+    # values -- the tool_call that applies the decision and the tool_result
+    # that confirms exactly which variant/value was actually used. Off
+    # switch kept for anyone relying on the old (ancestors-only) M_star
+    # for a byte-for-byte comparison; should stay True in production.
+    INCLUDE_CONFIRMING_DESCENDANTS: bool = True
 
 
 class CausalMessageGraph:
@@ -174,11 +182,60 @@ class CausalMessageGraph:
         self._anc_cache[node] = visited
         return visited
 
+    def _confirming_descendants(self, dn: int) -> Set[int]:
+        """
+        Messages AFTER decision node `dn`, within the same conversational
+        "turn" (up to but not including the next 'user' message), that
+        literally contain one of dn's own critical values.
+
+        Why this can't be done with `ancestors()`/`rev_adj` at all: those
+        walk BACKWARD along producer->consumer edges, and a decision's
+        resolving tool_call/tool_result always comes AFTER the decision in
+        the trace -- forward, not backward. A naive fix ("also walk adj[dn]
+        forward") still isn't enough, because `art_producer` only records
+        a value's FIRST occurrence. If the decision's chosen value (e.g. an
+        item ID) first appeared earlier in the trace -- in a
+        get_product_details variant dump, say -- then THAT earlier message
+        is the recorded producer, and both the decision message and its
+        confirming tool_result are merely sibling descendants of it. They
+        are never connected to each other by any edge in this graph, so
+        `ancestors(confirming_tool_result)` includes the variant dump but
+        not the decision, and there is no edge-walk from the decision node
+        that reaches the confirming tool_result either. The only way to
+        find it is to check literal value-membership going forward, not to
+        walk edges.
+
+        Bounded to the current turn (stops at the next user message) so
+        this can't balloon M_star across an entire long trace -- it only
+        pulls in the local tool_call/tool_result exchange that actually
+        resolves this specific decision.
+        """
+        from .compressor import _decision_critical_values, _art_in_text
+        d = next((d for d in self.decisions if d['msg_idx'] == dn), None)
+        if d is None:
+            return set()
+        dec_vals = set(d['artifacts'].get('paths', []) + d['artifacts'].get('ids', []))
+        dec_vals |= _decision_critical_values([d])
+        if not dec_vals:
+            return set()
+
+        confirming: Set[int] = set()
+        for i in range(dn + 1, self.n):
+            if self.messages[i].get('role') == 'user':
+                break
+            text_i = _get_text(self.messages[i])
+            if any(_art_in_text(a, text_i) for a in dec_vals):
+                confirming.add(i)
+        return confirming
+
     def minimal_sufficient_set(self):
         D_nodes = {d['msg_idx'] for d in self.decisions if d['msg_idx'] < self.n}
         M_star = set(D_nodes)
         for dn in D_nodes:
             M_star |= self.ancestors(dn)
+        if self.cfg.INCLUDE_CONFIRMING_DESCENDANTS:
+            for dn in D_nodes:
+                M_star |= self._confirming_descendants(dn)
         for i, m in enumerate(self.messages):
             if m.get('role') == 'system':
                 M_star.add(i)

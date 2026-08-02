@@ -24,15 +24,33 @@ from typing import Dict, List, Optional, Tuple
 
 from dagc.extraction import (
     _CANONICAL_TARGET_KEY_TIERS, _extract_rationale, _extract_target,
-    _extract_verb, _find_decisive_match, _flatten_arg_values,
+    _find_decisive_match, _flatten_arg_values,
     _get_tool_call_args, _get_tool_call_name, _stringify_arg_value,
-    _bare_rationale_value,
+    _bare_rationale_value, _extract_inline_tool_call,
+    _build_decision_for_message,
 )
+from dagc.multilingual_decision_detector import MULTILINGUAL_PATTERNS
 from dagc.utils import _artifacts, _get_text, target_still_recoverable, action_still_recoverable
 from dagc.compressor import _decision_critical_values
 
 from .interfaces import LLMClient
+import os
 
+_FALLBACK_LOG_PATH = os.environ.get('DAGC_FALLBACK_LOG')
+
+def _log_fallback_event(decision, result, llm):
+    if not _FALLBACK_LOG_PATH:
+        return
+    row = {
+        'decision_id': decision.get('msg_idx'),
+        'decision_type': decision.get('type'),
+        'path': 'llm_only' if result.get('_target_source') == 'llm_only' else 'deterministic',
+        'agreement': result.get('_agreement'),
+        'confidence': result.get('confidence'),
+        'llm_model': _llm_identity(llm) if llm is not None else None,
+    }
+    with open(_FALLBACK_LOG_PATH, 'a') as f:
+        f.write(json.dumps(row) + '\n')
 
 def _build_target_priority_addendum() -> str:
     labels = ['/'.join(tokens) for tokens in _CANONICAL_TARGET_KEY_TIERS]
@@ -128,76 +146,229 @@ def _build_tool_catalogue(messages):
             out.append(x)
     return out
 
+def _reconstruct_positional_messages(compressed_msgs, target_idx, override_text=None, override_role=None):
+    """
+    Build a list indexed by original message position (list[i] <-> _orig_idx
+    == i) from a compressed trace, so _build_decision_for_message() -- which
+    indexes by list position and looks at messages[idx-1] for a few builders
+    -- can run unmodified against compressed output. Positions whose message
+    did not survive compression become an inert empty placeholder rather
+    than shifting every later index down. A directive/imperative-response
+    check against a placeholder simply fails closed -- correctly: if the
+    prior message didn't survive compression, ground truth itself had no
+    way to see that context once compressed either, so failing that check
+    here is not a new inconsistency, only an honest one.
+
+    override_text/override_role, when given, replace messages[target_idx]'s
+    own content -- used to let rescued/recovered text stand in for a hosting
+    message that itself did not survive compression, while every OTHER
+    position still reflects only what's actually in the compressed trace.
+    """
+    max_idx = max([m.get('_orig_idx', 0) for m in compressed_msgs] + [target_idx])
+    out = [{'role': '', 'content': ''} for _ in range(max_idx + 1)]
+    for m in compressed_msgs:
+        oi = m.get('_orig_idx')
+        if oi is not None and 0 <= oi <= max_idx:
+            out[oi] = m
+    if override_text is not None:
+        slot = dict(out[target_idx]) if out[target_idx].get('content') else {}
+        slot['content'] = override_text
+        slot['role'] = override_role or slot.get('role') or 'assistant'
+        if 'tool_call' not in slot and isinstance(out[target_idx].get('tool_call'), dict):
+            slot['tool_call'] = out[target_idx]['tool_call']
+        out[target_idx] = slot
+    return out
+
+
+def _local_text_for_rescue(compressed_msgs, target_idx, radius=2):
+    """
+    Bounded-context text for last-resort tool-call/artifact rescue when a
+    decision's own hosting message did not survive compression.
+
+    ROOT CAUSE this closes: the old fallback scanned the FULL trace for
+    'any' inline tool call, which reliably handed back the WRONG tool
+    whenever the true tool call for THIS decision was compressed away but
+    some OTHER decision's tool call (usually one with richer, more clearly
+    decision-critical args) was still present elsewhere in the trace --
+    e.g. a bare 'think' call with no args, reliably lost to a nearby
+    'find_user_id_by_name_zip' call that still carried its id/zip args.
+    Restrict the search to messages whose _orig_idx is within `radius` of
+    target_idx, matching how much context a human re-reading the compressed
+    trace would actually have to guess from.
+    """
+    near = [m for m in compressed_msgs
+            if m.get('_orig_idx') is not None and abs(m['_orig_idx'] - target_idx) <= radius]
+    return '\n'.join(_get_text(m) for m in near)
 
 def _deterministic_extract(compressed_msgs, decision):
     target_idx = decision['msg_idx']
 
     this_decision_values = _decision_critical_values([decision])
 
-    for m in compressed_msgs:
-        if m.get('_orig_idx') != target_idx:
-            continue
-        text = _get_text(m)
-        tc = m.get('tool_call')
+    full_text = '\n'.join(_get_text(m) for m in compressed_msgs)
+    full_arts = _artifacts(full_text)
+
+    hosting = next((m for m in compressed_msgs if m.get('_orig_idx') == target_idx), None)
+    is_stub = bool(hosting is not None and hosting.get('_stub'))
+
+    if hosting is not None:
+        text = _get_text(hosting)
+        role = hosting.get('role', '')
+        tc = hosting.get('tool_call')
+        if not isinstance(tc, dict):
+            tc = _extract_inline_tool_call(text)
         arts = _artifacts(text)
-        gt_target = decision.get('target')
-        gt_action = decision.get('action')
+    else:
+        text = ''
+        role = ''
+        tc = None
+        arts = full_arts
 
-        if target_still_recoverable(gt_target, text, arts):
-            pinned_target = gt_target
+    # FIX: the local tool-call rescue used to only fire when `hosting is
+    # None` -- i.e. when the message vanished from the compressed trace
+    # with absolutely nothing at target_idx. But a decision-bearing
+    # message almost always DOES leave *something* behind, a stub (see
+    # _make_stub), which is a synthetic dict with no 'tool_call' key at
+    # all. That stub still counts as `hosting is not None`, so the old
+    # condition silently skipped the rescue exactly when it was needed
+    # most: for an 'action' (tool-call) decision whose hosting message
+    # was compressed down to a stub, tc stayed None for the rest of this
+    # function's life. Widening this to also cover the stub case gives a
+    # second, independent shot at recovering a real inline tool call from
+    # the small neighborhood around target_idx before falling back.
+    if not tc and decision['type'] == 'action' and (hosting is None or is_stub):
+        # Scoped to the decision's own neighborhood, NOT the full trace --
+        # see _local_text_for_rescue's docstring for why this matters.
+        tc = _extract_inline_tool_call(_local_text_for_rescue(compressed_msgs, target_idx, radius=1))
+
+    gt_target = decision.get('target')
+    gt_action = decision.get('action')
+
+    if target_still_recoverable(gt_target, text, arts) or \
+       target_still_recoverable(gt_target, full_text, full_arts):
+        pinned_target = gt_target
+    else:
+        pinned_target = None
+
+    if action_still_recoverable(gt_action, text) or action_still_recoverable(gt_action, full_text):
+        pinned_action = gt_action
+    else:
+        pinned_action = None
+
+    fresh_rationale = _extract_rationale(
+        full_text, full_arts, decision_values=this_decision_values,
+        decision_idx=decision['msg_idx'])
+    pinned_rationale = [
+        r for r in (decision.get('rationale') or [])
+        if target_still_recoverable(_bare_rationale_value(r), full_text, full_arts)
+    ]
+    seen, rationale = set(), []
+    for r in pinned_rationale + fresh_rationale:
+        bare = _bare_rationale_value(r)
+        if bare not in seen:
+            seen.add(bare)
+            rationale.append(r)
+
+    dm = _find_decisive_match(text) if text else None
+    decisive_span = (dm.start(), dm.end()) if dm is not None else None
+
+    # A stub is a degraded reconstruction just like hosting-is-None was --
+    # penalize confidence accordingly instead of treating "found a stub"
+    # as equivalent to "found the real message".
+    conf_penalty = 0.0 if (hosting is not None and not is_stub) else 0.15
+
+    # FIX: when the hosting message is genuinely absent (hosting is None),
+    # scan_text used to fall back to the ENTIRE compressed trace
+    # (`full_text`), which then got plugged in as if it were the single
+    # message living at target_idx (see the judgment re-extraction branch
+    # below). That let _build_decision_for_message pick up a decisive verb
+    # belonging to a completely different decision anywhere else in the
+    # trace and misattribute it to this one. Use the same bounded
+    # neighborhood _local_text_for_rescue already uses for tool-call
+    # rescue instead -- consistent scoping across every rescue path in
+    # this function.
+    if text:
+        scan_text = text
+    else:
+        scan_text = _local_text_for_rescue(compressed_msgs, target_idx, radius=2) or full_text
+
+    if tc and decision['type'] == 'action':
+        tc_name = _get_tool_call_name(tc, decision.get('action', ''))
+        tc_args = _get_tool_call_args(tc)
+        return {
+            'action': pinned_action if pinned_action is not None else tc_name,
+            'target': pinned_target if pinned_target is not None else
+                _extract_target(tc_args, scan_text, tc_name, decision_idx=target_idx, decisive_span=decisive_span),
+            'rationale': rationale,
+            'confidence': (0.9 if pinned_target is not None else 0.85) - conf_penalty,
+            '_success': True, '_fallback': 'deterministic',
+            '_target_source': 'pinned' if pinned_target is not None else 're_derived',
+            '_raw': 'deterministic_fallback' if hosting is not None else 'deterministic_fallback_rescued',
+        }
+
+    # FIX: 'action'-type decisions with NO recovered tool_call (tc is
+    # None -- the rescue above found nothing real either) used to fall
+    # straight through to the generic "partial" bucket at the bottom of
+    # this function, which returns action=None even when pinned_action
+    # WAS actually available (e.g. the stub now embeds 'action=<tool_name>'
+    # literally -- see _make_stub). Handle that case explicitly: if either
+    # the action or the target is genuinely recoverable from surviving
+    # text, return a proper result carrying whichever pieces ARE
+    # recoverable, instead of silently downgrading to the no-action
+    # bucket just because the structural tool_call dict didn't survive.
+    if decision['type'] == 'action' and (pinned_action is not None or pinned_target is not None):
+        return {
+            'action': pinned_action,
+            'target': pinned_target if pinned_target is not None else
+                _extract_target({}, scan_text, decision_idx=target_idx, decisive_span=decisive_span),
+            'rationale': rationale,
+            'confidence': (0.8 if pinned_target is not None else 0.7) - conf_penalty,
+            '_success': True, '_fallback': 'deterministic',
+            '_target_source': 'pinned' if pinned_target is not None else 're_derived',
+            '_raw': 'deterministic_fallback_stub_pinned',
+        }
+
+    if decision['type'] in ('judgment', 'confirmation'):
+        if decision['type'] == 'confirmation':
+            # Ground truth NEVER derives a confirmation's action from
+            # _extract_verb/the builder chain -- every builder that
+            # produces type='confirmation' in extraction.py hardcodes the
+            # literal string 'confirm'. There is nothing to "recover"
+            # here; the answer is always 'confirm'.
+            action = pinned_action if pinned_action is not None else 'confirm'
         else:
-            pinned_target = None
+            if pinned_action is not None:
+                action = pinned_action
+            else:
+                reextracted = None
+                if scan_text:
+                    idx_messages = _reconstruct_positional_messages(
+                        compressed_msgs, target_idx,
+                        override_text=scan_text, override_role=role or None)
+                    reextracted = _build_decision_for_message(idx_messages, target_idx)
+                if reextracted is not None and reextracted.get('action'):
+                    action = reextracted['action']
+                else:
+                    action = 'decide'
+        return {
+            'action': action,
+            'target': pinned_target if pinned_target is not None else
+                _extract_target({}, scan_text, decision_idx=target_idx, decisive_span=decisive_span),
+            'rationale': rationale,
+            'confidence': (0.9 if pinned_target is not None else 0.80) - conf_penalty,
+            '_success': True, '_fallback': 'deterministic',
+            '_target_source': 'pinned' if pinned_target is not None else 're_derived',
+            '_raw': 'deterministic_fallback' if hosting is not None else 'deterministic_fallback_rescued',
+        }
 
-        if action_still_recoverable(gt_action, text):
-            pinned_action = gt_action
-        else:
-            pinned_action = None
-
-        fresh_rationale = _extract_rationale(
-            text, arts, decision_values=this_decision_values,
-            decision_idx=decision['msg_idx'])
-        pinned_rationale = [
-            r for r in (decision.get('rationale') or [])
-            if target_still_recoverable(_bare_rationale_value(r), text, arts)
-        ]
-        seen, rationale = set(), []
-        for r in pinned_rationale + fresh_rationale:
-            bare = _bare_rationale_value(r)
-            if bare not in seen:
-                seen.add(bare)
-                rationale.append(r)
-
-        # Same decisive-clause scoping used to build ground truth --
-        # recomputed here on the COMPRESSED text, since the decisive
-        # sentence's position can shift/shrink after compression.
-        dm = _find_decisive_match(text)
-        decisive_span = (dm.start(), dm.end()) if dm is not None else None
-
-        if tc and decision['type'] == 'action':
-            tc_name = _get_tool_call_name(tc, decision.get('action', ''))
-            tc_args = _get_tool_call_args(tc)
-            return {
-                'action': pinned_action if pinned_action is not None else tc_name,
-                'target': pinned_target if pinned_target is not None else
-                    _extract_target(tc_args, text, tc_name, decision_idx=target_idx, decisive_span=decisive_span),
-                'rationale': rationale,
-                'confidence': 0.9 if pinned_target is not None else 0.85,
-                '_success': True, '_fallback': 'deterministic',
-                '_target_source': 'pinned' if pinned_target is not None else 're_derived',
-                '_raw': 'deterministic_fallback',
-            }
-        if decision['type'] in ('judgment', 'confirmation'):
-            return {
-                'action': pinned_action if pinned_action is not None else
-                        ('confirm' if decision['type'] == 'confirmation' else _extract_verb(text)),
-                'target': pinned_target if pinned_target is not None else
-                    _extract_target({}, text, decision_idx=target_idx, decisive_span=decisive_span),
-                'rationale': _extract_rationale(text, arts, decision_values=this_decision_values, decision_idx=decision['msg_idx']),
-                'confidence': 0.9 if pinned_target is not None else 0.80,
-                '_success': True, '_fallback': 'deterministic',
-                '_target_source': 'pinned' if pinned_target is not None else 're_derived',
-                '_raw': 'deterministic_fallback',
-            }
+    if pinned_action is not None or pinned_target is not None or rationale:
+        return {
+            'action': pinned_action, 'target': pinned_target, 'rationale': rationale,
+            'confidence': 0.5 - conf_penalty,
+            '_success': True, '_fallback': 'deterministic_partial',
+            '_target_source': 'pinned' if pinned_target is not None else 'none',
+            '_raw': 'deterministic_fallback_partial',
+        }
     return None
 
 
@@ -420,6 +591,8 @@ def reproduce_decision(compressed_msgs: List[Dict], decision: Dict,
     else:
         llm_result = _reproduce_decision_impl(compressed_msgs, decision, llm, max_retries)
         result = _merge_llm_and_deterministic(llm_result, det_result)
+
+    _log_fallback_event(decision, result, llm)
 
     with _REPRO_CACHE_LOCK:
         if len(_REPRO_CACHE) >= _REPRO_CACHE_MAXSIZE:

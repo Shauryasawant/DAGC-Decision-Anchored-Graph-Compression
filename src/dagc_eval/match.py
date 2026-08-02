@@ -63,6 +63,7 @@ _VERB_SYNONYM_FAMILIES = [
     {'use', 'utilize', 'utilise', 'employ'},
     {'prefer'},
     {'best', 'optimal', 'winner', 'final'},
+    {'request', 'ask', 'inquire', 'query'},
 ]
 
 # Nominalizations (verb -> noun-of-that-verb) that plain suffix-stripping

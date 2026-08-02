@@ -168,6 +168,9 @@ def run_adversarial_suite(task_spec: Dict, n_seeds: int = 3, verbose: bool = Tru
         base = generate_trace(task_spec, noise_level=3, rng_seed=seed)
         decs = extract_decisions(base)
         if not decs:
+            print(f"\n[DEBUG] seed={seed}: extract_decisions returned EMPTY, {len(base)} messages:")
+            for m in base:
+                print("   role=%r content=%r" % (m.get('role'), _get_text(m)[:120]))
             continue
         clean_orig_toks = sum(_tok(_footprint_text(m)) for m in base)
         clean_budget = max(1, int(clean_orig_toks * (1 - DAGC_CFG.TARGET_REDUCTION)))
@@ -192,7 +195,11 @@ def run_adversarial_suite(task_spec: Dict, n_seeds: int = 3, verbose: bool = Tru
                 agg[name]['adv'].append(adv_drr)
                 agg[name]['clean_diagnostics'].append(clean_diagnostics)
                 agg[name]['adv_diagnostics'].append(adv_diagnostics)
-            except Exception:
+            # in run_adversarial_suite, replace the except block temporarily:
+            except Exception as e:
+                import traceback
+                print(f"\n--- EXCEPTION in attack={name}, seed={seed} ---")
+                traceback.print_exc()
                 agg[name]['clean'].append(clean_drr)
                 agg[name]['adv'].append(float('nan'))
 
