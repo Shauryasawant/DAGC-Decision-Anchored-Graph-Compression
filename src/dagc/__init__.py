@@ -38,7 +38,7 @@ from .formats import (
 )
 from .schema import register_adapter, to_dagc_format
 
-__version__ = "0.1.1"
+__version__ = "0.1.3"
 
 __all__ = [
     "compress", "compress_any", "compress_dagc", "DAGCConfig", "DAGC_CFG",
