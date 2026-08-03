@@ -207,6 +207,126 @@ def _multiword_art_re(art_lower: str):
     parts = [r'(?<![A-Za-z0-9_])' + re.escape(w) + r'(?![A-Za-z0-9_])' for w in words]
     return re.compile(r'[^A-Za-z0-9]*'.join(parts))
 
+import re
+
+_DEADLINE_PATTERN = re.compile(
+    r'\b(?:by|due|deadline(?:\s+is)?)\s+'
+    r'((?:Mon|Tues?|Wed(?:nes)?|Thu(?:rs)?|Fri|Sat(?:ur)?|Sun)\w*\s+\d{1,2}(?::\d{2})?\s*(?:AM|PM|am|pm)?)',
+    re.IGNORECASE,
+)
+
+_ASSIGNMENT_PATTERN = re.compile(
+    r'\b([A-Z][a-z]+)\s+will\s+((?:handle|verify|manage|own|lead|coordinate|monitor)\s+[\w\s]{3,40})',
+)
+
+_MODAL_COMMITMENT_RE = re.compile(
+    r'\b(will|must|shall|need(?:s)? to|have to|going to|is scheduled to|'
+    r'requires?|expect(?:ed)? to|plan(?:s|ning)? to)\b',
+    re.IGNORECASE,
+)
+
+_CONDITIONAL_RE = re.compile(
+    r'\b(if|unless|once|after|as soon as|in case|assuming)\b.{3,100}?'
+    r'\b(will|shall|we\'ll|then|restore|notify|stop|revert|escalate|'
+    r'roll ?back|close|begin|start)\b',
+    re.IGNORECASE,
+)
+_DECISION_PROTOTYPES = [
+    "The team will complete this task by a specific deadline.",
+    "A meeting is scheduled to review progress.",
+    "If a problem occurs, we will take a specific corrective action.",
+    "We will confirm that a step was completed successfully before proceeding.",
+    "We will notify someone once a task is finished.",
+    "We will monitor the system for a period of time after the change.",
+    "A specific person is responsible for a specific task.",
+]
+_SEMANTIC_SIM_THRESHOLD = 0.55  # conservative -- prefer missing a few over
+                                  # flooding target_arts with false positives
+
+_dec_proto_embs = None  # lazy-cached, computed once per process
+
+
+def _get_decision_prototype_embeddings():
+    global _dec_proto_embs
+    if _dec_proto_embs is None:
+        try:
+            _dec_proto_embs = _encode(_DECISION_PROTOTYPES)
+        except Exception:
+            _dec_proto_embs = []
+    return _dec_proto_embs
+
+
+def _sentence_already_covered(sent: str, msg_idx: int, existing_decisions: List[Dict]) -> bool:
+    """True if an existing decision's rationale/verbatim already overlaps
+    this sentence for the same message -- avoids duplicate decision
+    objects for content the primary extractor already caught."""
+    sent_low = sent.lower().strip()
+    for d in existing_decisions:
+        if d.get('msg_idx') != msg_idx:
+            continue
+        for rat in d.get('rationale', []) or []:
+            if isinstance(rat, str) and sent_low in rat.lower():
+                return True
+        verbatim = d.get('verbatim') or ''
+        if sent_low and sent_low in verbatim.lower():
+            return True
+    return False
+
+
+def _extract_supplementary_decisions(messages: List[Dict],
+                                      decision_roles: Tuple[str, ...] = ('user', 'assistant'),
+                                      existing_decisions: Optional[List[Dict]] = None
+                                      ) -> List[Dict]:
+    existing_decisions = existing_decisions or []
+    extra: List[Dict] = []
+    seen_sents: Set[Tuple[int, str]] = set()
+
+    proto_embs = _get_decision_prototype_embeddings()
+
+    for i, m in enumerate(messages):
+        if m.get('role') not in decision_roles:
+            continue
+        text = m.get('content', '') or ''
+        try:
+            sents = _split_sents(text, 4)
+        except Exception:
+            continue
+
+        for sent in sents:
+            key = (i, sent.strip().lower())
+            if key in seen_sents:
+                continue
+            if _sentence_already_covered(sent, i, existing_decisions):
+                continue
+
+            is_modal = bool(_MODAL_COMMITMENT_RE.search(sent))
+            is_conditional = bool(_CONDITIONAL_RE.search(sent))
+            is_semantic = False
+
+            if not (is_modal or is_conditional) and proto_embs is not None and len(proto_embs) > 0:
+                try:
+                    sent_emb = _encode([sent])[0]
+                    best_sim = max((_cos(sent_emb, pe) for pe in proto_embs), default=0.0)
+                    is_semantic = best_sim >= _SEMANTIC_SIM_THRESHOLD
+                except Exception:
+                    is_semantic = False
+
+            if not (is_modal or is_conditional or is_semantic):
+                continue
+
+            action = ('commitment' if is_modal else
+                      'conditional' if is_conditional else 'related')
+            extra.append({
+                'msg_idx': i,
+                'type': 'action',
+                'action': action,
+                'target': sent.strip()[:80],
+                'rationale': [sent],
+                'artifacts': {'paths': [], 'ids': [], 'errors': []},
+            })
+            seen_sents.add(key)
+
+    return extra
 
 def _art_in_text(art: str, text: str) -> bool:
     """
@@ -1113,6 +1233,14 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
         decisions = _attach_dependencies(messages, decisions)
     except Exception:
         decisions = []
+
+    try:
+        decisions += _extract_supplementary_decisions(
+            messages, decision_roles, existing_decisions=decisions)
+    except Exception:
+        pass 
+
+    decisions += _extract_supplementary_decisions(messages, decision_roles)
 
     injection_filtered: Set[int] = set()
     for d in decisions:

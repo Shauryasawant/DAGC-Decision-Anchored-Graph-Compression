@@ -20,3 +20,12 @@ htmlcov/
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*ssh-agent*
+
+# local demo app files
+src/app.py
+src/dagc/app.py
