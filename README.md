@@ -12,7 +12,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](#install) [![Status](https://img.shields.io/badge/status-early--stage-yellow.svg)](#project-layout)
 
-[Why DAGC](#why-dagc) · [Install](#install) · [Quick start](#quick-start) · [How it works](#how-compression-works) · [Evaluation](#evaluate-a-trace) · [Proxy](#optional-proxy)
+[Paper](#paper) · [Why DAGC](#why-dagc) · [Proof](#proof) · [Install](#install) · [Quick start](#quick-start) · [How it works](#how-compression-works) · [Evaluation](#evaluate-a-trace) · [Proxy](#optional-proxy) · [Contributing](#contributing)
 
 ---
 
@@ -64,6 +64,64 @@ Compressed trace (target_reduction met, decisions intact)
 DAGC uses heuristic selection strategies — evaluate compression quality on representative production traces before relying on it in a critical path.
 
 → [Decision rationale](#decision-rationale) · [Tuning](#tuning) · [Evaluation](#evaluate-a-trace)
+
+## Proof
+
+Benchmarked on **951 agent traces (8,895 messages)** across six corpora (WildChat, BFCL, TauBench, OASST1, Nemotron, Qwen) and 14 operational domains; 691 traces contained an extractable decision and were scored. Full methodology, theory, and figures are in the [paper](#paper) — this is the summary.
+
+**Leaderboard** (mean DRR — Decision Reproducibility Rate — vs. 10 baselines, ranked among methods that meaningfully compress the trace):
+
+| Rank | Method | Mean DRR | Reduction | RCI |
+| --- | --- | --- | --- | --- |
+| 1 | **DAGC** | **0.9958** | **74.0%** | **0.994** |
+| 2 | TextRank (sumy) | 0.7934 | 36.5% | 0.922 |
+| 3 | PyTextRank (spaCy) | 0.7927 | 35.2% | 0.932 |
+| 4 | LexRank (sumy) | 0.7803 | 39.4% | 0.909 |
+| 5 | LlamaIndex | 0.3574 | 54.1% | 0.746 |
+| 6 | Random Drop | 0.3467 | 65.7% | 0.689 |
+| 7 | Tail Truncation | 0.3432 | 77.1% | 0.725 |
+| 8 | Token Trim Last N | 0.2757 | 67.2% | 0.636 |
+| 9 | Sliding Window | 0.0958 | 80.4% | 0.504 |
+| 10 | LangChain Token Buffer Memory | 0.0619 | 84.0% | 0.339 |
+
+DAGC compresses **74.0%** of the trace while keeping **99.6%** decision reproducibility — over 20 points of DRR ahead of the next-best real compressor, which only reduces the trace by half as much. Every baseline that cuts the trace by more than 50% (other than DAGC) drops to a mean DRR at or below 0.36.
+
+**Statistical significance** — paired Wilcoxon signed-rank test on per-trace DRR, Bonferroni-corrected, on the full 691-trace benchmark: DAGC beats every baseline that meaningfully compresses the trace with large positive effect size (Cohen's d from 1.23 up to 7.65 vs. LangChain's token buffer memory), all significant after correction.
+
+**Adversarial robustness** — under a 4-family perturbation suite (prompt injection, noise amplification, decision masking, contradiction injection), DAGC's adversarial-to-clean DRR ratio stays within **0.998–1.009** of parity — no measurable degradation, well clear of the 0.85 robustness threshold.
+
+Reproduce it yourself:
+
+```bash
+dagc benchmark --n-traces 3 -o benchmark.json
+```
+
+## When to use · When to skip
+
+**Good fit if you…**
+
+- run agents or long chat sessions where tool calls, file paths, config values, or confirmed decisions need to survive into later turns
+- need the trace to stay debuggable — decision rationale, not just raw text, has to come through compression intact
+- want deterministic, offline evaluation (DRR) before trusting compression in a critical path
+- are fine tuning `TARGET_REDUCTION` per-trace rather than expecting an exact percentage every time
+
+**Skip it if you…**
+
+- only need to trim conversation length for display purposes, with no decision-fidelity requirement — plain truncation or summarization is simpler
+- need a hard guarantee on the exact reduction percentage (DAGC hard-protects decision evidence first, so aggressive targets can fall short)
+- want a hosted/managed compression API rather than a local library — DAGC's core makes no network calls by design
+
+## Compared to
+
+|                                    | Scope                                    | Basis of retention          | Mean DRR @ its own reduction |
+| ---------------------------------- | ----------------------------------------- | ---------------------------- | ----------------------------- |
+| **DAGC**                           | Decision-critical artifacts, causal graph | Hard-guaranteed dependency graph | **0.9958 @ 74.0%**      |
+| TextRank / PyTextRank / LexRank    | Whole document                            | Embedding/lexical centrality | 0.78–0.79 @ 35–39%             |
+| LlamaIndex / LangChain buffer      | Conversation history                      | Recency / production heuristics | 0.06–0.36 @ 54–84%          |
+| Sliding window / tail truncation   | Conversation history                      | Positional (keep last N)     | 0.10–0.34 @ 77–80%             |
+| LLMLingua                          | Prompt tokens                             | Perplexity                   | ~1.00 @ ~0% (barely compresses) |
+
+Numbers are mean DRR and mean token reduction from the [paper's](#paper) 691-trace benchmark, not marketing estimates. Centrality-based summarizers and perplexity filters are theoretically biased against rare, low-frequency tokens (IDs, hashes, config values) — see [Section 5 of the paper](#paper) for the proof.
 
 ## Install
 
@@ -251,6 +309,35 @@ dagc-server
 ```
 
 The proxy auto-detects common request formats (`messages`, `trace`, `conversation`, `turns`), compresses the conversation, preserves tool-call payloads, and forwards to the configured upstream API. If compression fails for any reason, the original request is forwarded unchanged.
+
+## Contributing
+
+```bash
+git clone https://github.com/Shauryasawant/DAGC-Decision-Anchored-Graph-Compression.git
+cd DAGC-Decision-Anchored-Graph-Compression
+pip install -e ".[tiktoken,sentence-transformers]"
+pytest
+```
+
+Issues and PRs are welcome — see [tests/](tests/) for the format-robustness suite before changing core compression logic.
+
+## Community
+
+- **[Issues](https://github.com/Shauryasawant/DAGC-Decision-Anchored-Graph-Compression/issues)** — bugs, questions, feature requests.
+
+## Paper
+
+DAGC is described in full — theory, algorithm, 951-trace benchmark, adversarial robustness suite, and statistical analysis — in the accompanying paper, *DAGC: Decision-Anchored Graph Compression for Reproducible Context Compression* (Shaurya Sawant).
+
+```bibtex
+@misc{sawant_dagc,
+  title  = {DAGC: Decision-Anchored Graph Compression for Reproducible Context Compression},
+  author = {Sawant, Shaurya},
+  note   = {Independent AI Research}
+}
+```
+
+> Add `year`, a link to the paper PDF/arXiv page, and a DOI once available.
 
 ## Project layout
 
