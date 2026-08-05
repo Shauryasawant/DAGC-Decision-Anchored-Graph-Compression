@@ -337,7 +337,7 @@ DAGC is described in full — theory, algorithm, 951-trace benchmark, adversaria
 }
 ```
 
-> Add `year`, a link to the paper PDF/arXiv page, and a DOI once available.
+> https://zenodo.org/records/21621103
 
 ## Project layout
 
