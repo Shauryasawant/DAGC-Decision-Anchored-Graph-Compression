@@ -346,7 +346,7 @@ def _deterministic_extract(compressed_msgs, decision):
                         compressed_msgs, target_idx,
                         override_text=scan_text, override_role=role or None)
                     reextracted = _build_decision_for_message(idx_messages, target_idx)
-                if reextracted is not None and reextracted.get('action'):
+                if reextracted is not None and reextracted.get('action') and reextracted.get('type') == 'judgment':
                     action = reextracted['action']
                 else:
                     action = 'decide'

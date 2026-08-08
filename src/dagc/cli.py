@@ -72,6 +72,14 @@ def cmd_stats(args):
     print(f"mean={ci['mean']:.4f}  95% CI=[{ci['ci_lo']:.4f}, {ci['ci_hi']:.4f}]  n={ci['n']}")
 
 
+def cmd_rescue(args):
+    import validate_rescue
+
+    print("Loaded rescue validation helper")
+    if hasattr(validate_rescue, "main"):
+        validate_rescue.main()
+
+
 def main():
     parser = argparse.ArgumentParser(prog='dagc', description='DAGC — Decision-Anchored Graph Compression CLI')
     sub = parser.add_subparsers(dest='command', required=True)
@@ -103,6 +111,9 @@ def main():
     p_stats = sub.add_parser('stats', help='Bootstrap CI over a JSON list of DRR_soft scores')
     p_stats.add_argument('input', help='Path to JSON list of floats')
     p_stats.set_defaults(func=cmd_stats)
+
+    p_rescue = sub.add_parser('rescue', help='Run the rescue validation helper')
+    p_rescue.set_defaults(func=cmd_rescue)
 
     args = parser.parse_args()
     args.func(args)

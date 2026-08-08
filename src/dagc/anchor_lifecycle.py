@@ -77,16 +77,24 @@ _RE_GOAL_ABANDON_CUE = re.compile(
 )
 
 
-def _is_state_supersession(old: Dict, new: Dict, messages: List[Dict]) -> bool:
+def _is_state_supersession(old: Dict, new: Dict) -> bool:
     """True if `new` (a later State candidate) explicitly supersedes
     `old` (an earlier one of the same category): same-topic (shared
     content word) AND an explicit update/contradiction cue present
-    somewhere in new's source message."""
+    somewhere in new's source message.
+
+    Takes resolved text (old['clause'], new['clause'], new['msg_text'])
+    rather than a message index to dereference. Callers must resolve
+    msg_text against their own messages list BEFORE constructing these
+    dicts, at the point where the index is known to be valid. This
+    function never looks anything up itself, so a record whose index
+    later goes stale (e.g. after ShadowBuffer._trim() reindexes) can't
+    silently produce a wrong answer -- there is no index left to go
+    stale."""
     shared = _content_tokens(old['clause']) & _content_tokens(new['clause'])
     if len(shared) < MIN_SHARED_CONTENT_TOKENS:
         return False
-    new_msg_text = _get_text(messages[new['msg_idx']])
-    return bool(_RE_STATE_UPDATE_CUE.search(new_msg_text))
+    return bool(_RE_STATE_UPDATE_CUE.search(new['msg_text']))
 
 
 def _goal_resolution_status(goal: Dict, messages: List[Dict]) -> str:
@@ -127,7 +135,8 @@ def resolve_lifecycle(messages: List[Dict], candidates: List[Dict]) -> List[Dict
     for i, c in enumerate(state_cands):
         status = 'active'
         for later in state_cands[i + 1:]:
-            if _is_state_supersession(c, later, messages):
+            later_resolved = {**later, 'msg_text': _get_text(messages[later['msg_idx']])}
+            if _is_state_supersession(c, later_resolved):
                 status = 'superseded'
                 break
         out.append({**c, 'status': status})

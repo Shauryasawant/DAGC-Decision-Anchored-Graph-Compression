@@ -12,7 +12,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](#install) [![Status](https://img.shields.io/badge/status-early--stage-yellow.svg)](#project-layout)
 
-[Paper](#paper) · [Why DAGC](#why-dagc) · [Proof](#proof) · [Install](#install) · [Quick start](#quick-start) · [How it works](#how-compression-works) · [Evaluation](#evaluate-a-trace) · [Proxy](#optional-proxy) · [Contributing](#contributing)
+[Paper](#paper) · [Why DAGC](#why-dagc) · [Proof](#proof) · [Install](#install) · [Quick start](#quick-start) · [How it works](#how-compression-works) · [Evaluation](#evaluate-a-trace) · [Proxy](#optional-proxy) · [MCP server](#optional-mcp-server) · [Contributing](#contributing)
 
 ---
 
@@ -27,6 +27,7 @@ The core package runs entirely locally. It makes no LLM or network calls unless 
 - **Decision rationale extraction** — recovers *why* a choice was made, including alternatives that were considered and ruled out, and can inject that rationale back into the compressed trace so it survives.
 - **Deterministic, offline evaluation** — `dagc_eval` measures Decision Reproducibility Rate (DRR) plus supporting diagnostics, fully offline by default.
 - **Optional HTTP proxy** — wire-compatible compression proxy for production deployments, with automatic passthrough if compression fails.
+- **Optional MCP server** — expose compression, evaluation, and rescue as MCP tools for Claude Desktop or any MCP client, with pluggable single-process, file, or Redis-backed persistence for multi-instance deployments.
 - **Pluggable adapters** — lightweight local fallback tokenizer/embedder out of the box; optional `tiktoken`, Sentence Transformers, OpenAI, and Cohere adapters for production-matched quality.
 
 ## Why DAGC?
@@ -35,8 +36,19 @@ Traditional conversation compression and summarization preserve general meaning 
 
 DAGC is built to preserve exactly those decision-critical artifacts while still aggressively reducing context size. Its evaluation toolkit measures this directly with **Decision Reproducibility Rate (DRR)** — whether the original operational decisions are still reproducible after compression.
 
-## How compression works
+## Where DAGC fits best
 
+DAGC is most valuable in environments where preserving the correctness of the next action matters more than simply shortening text. It is especially well-suited for:
+
+- Enterprise agent automation, copilots, and workflow assistants.
+- Software engineering and debugging agents that rely on tool calls, file paths, identifiers, and configuration values.
+- Finance, operations, compliance, and regulated workflows where losing a key detail can cause a wrong decision.
+- Customer support, account operations, and multi-step task agents that must retain state across long conversations.
+- Any system that needs to compress long traces while still preserving decision-critical evidence, rationale, and tool-call payloads.
+
+This is different from generic summarization or prompt-compression approaches, which often optimize for semantic similarity or shorter prompts but may discard the operational details that an agent needs to act correctly. DAGC is designed for decision-faithful compression: keeping the evidence needed to reproduce the original action, not just the gist of the conversation. Production environments where "the summary looked fine but the agent made the wrong call" is unacceptable are exactly where DAGC earns its keep.
+
+## How compression works
 ```
 Conversation / agent trace
        │
@@ -62,6 +74,8 @@ Compressed trace (target_reduction met, decisions intact)
 ```
 
 DAGC uses heuristic selection strategies — evaluate compression quality on representative production traces before relying on it in a critical path.
+
+Between turns, an optional **rescue engine** extends this same guarantee across a whole session: if a later message references a value that survived only in an earlier, now-uncompressed turn, rescue detects the reference and force-preserves the owning decision on the next compression pass — without re-implementing anything `compress_dagc` already does. See [Rescue feature](#rescue-feature).
 
 → [Decision rationale](#decision-rationale) · [Tuning](#tuning) · [Evaluation](#evaluate-a-trace)
 
@@ -143,6 +157,22 @@ The core package only needs NumPy and SciPy. For model-aligned token counts and 
 pip install "dagc[tiktoken,sentence-transformers]"
 ```
 
+### Rescue feature
+
+The rescue capability is available as part of the installed package. You can import it directly:
+
+```python
+from dagc import RescueEngine, ShadowBuffer, reset_rescue_session
+```
+
+Or run the bundled helper from the CLI after installation:
+
+```bash
+dagc rescue
+```
+
+`compress()` calls rescue automatically (`enable_rescue=True` by default) — see [Quick start](#quick-start) for the `session_id` semantics that govern it.
+
 ## Quick start
 
 Compress a conversation before storing it as long-term memory or forwarding it to an LLM.
@@ -180,6 +210,8 @@ from dagc import compress_any
 
 compressed_payload = compress_any(request_payload, target_reduction=0.85)
 ```
+
+> **`session_id` note:** rescue is keyed by `session_id` (default `"default"`), and `messages` must be a growing, append-only prefix across calls that share one `session_id`. Use a distinct `session_id` per independent conversation, or call `reset_rescue_session(session_id)` before reusing one — otherwise unrelated traces will contaminate each other's rescue state. Pass `enable_rescue=False` for one-shot calls with no session semantics.
 
 ## Configure production adapters
 
@@ -310,6 +342,47 @@ dagc-server
 
 The proxy auto-detects common request formats (`messages`, `trace`, `conversation`, `turns`), compresses the conversation, preserves tool-call payloads, and forwards to the configured upstream API. If compression fails for any reason, the original request is forwarded unchanged.
 
+## Optional MCP server
+
+> **Status: prototype, not yet merged.** The `dagc-mcp` command and the tools/scaling options below were designed and drafted in a working session and reflect the intended shape of this feature. They require `store.py`'s `RedisBackend` addition and a new `rescue_redis.py` module to actually be merged into `src/dagc/` before `dagc-mcp` behaves as documented here — check `src/dagc/mcp_server.py` in this repo for what's actually shipped before depending on this section.
+
+Install the MCP extra to expose DAGC as tools for Claude Desktop or any other MCP client:
+
+```bash
+pip install "dagc[mcp]"
+
+dagc-mcp   # stdio transport
+```
+
+No LLM call happens inside the server by default (BYOK — see [Configure production adapters](#configure-production-adapters)); it does not require an API key to run.
+
+**Tools:**
+
+| Tool | What it does |
+| --- | --- |
+| `dagc_compress` | Compress a message trace, format-tolerant. Takes `target_reduction`, `force_preserve`, `trace_id`, `session_id`, `enable_rescue`, `strict_no_loss`. |
+| `dagc_evaluate` | Score a trace's decision-reproducibility (wraps `compute_drr`) without compressing it. |
+| `dagc_get_original` | Resolve one compressed message's `_orig_idx` back to its original content. |
+| `dagc_resolve_trace` | Batch version — resolve a whole compressed trace at once, or dump everything stored for a `trace_id`. |
+| `dagc_verify` | Independent, from-scratch check that a compressed trace still contains every decision-critical value (wraps `verify_no_decision_loss`). |
+| `dagc_frontier` | Empirical rate-distortion curve — output tokens vs. decision loss across a list of candidate budgets (wraps `decision_loss_frontier`). |
+| `dagc_reset_session` | Drop all rescue state for a `session_id` — use when a new, unrelated conversation reuses one. |
+| `dagc_stats` | Aggregated monitoring: call counts, token totals, achieved reduction, unrescuable evictions — global or scoped to one `session_id`. |
+
+**`session_id` vs. `trace_id`:** these are two different keys. `trace_id` is a storage key, purely for `dagc_get_original`/`dagc_resolve_trace` lookups later. `session_id` is a rescue key — `messages` must be a growing, append-only prefix across calls sharing one `session_id`, same rule as `compress()` itself. If you don't pass `session_id` explicitly, `dagc_compress` defaults it to `trace_id` (not a shared global default), so distinct traces don't silently share rescue state.
+
+**Persistence and scaling**, controlled entirely by environment variables — no code changes required to move between tiers:
+
+| Env var | Effect |
+| --- | --- |
+| *(none set)* | In-memory only. Fine for local use; state is lost on restart and not shared across processes. |
+| `DAGC_MCP_STORE_PATH` | Trace storage persists to disk (`FileBackend`) — survives restarts on a single machine. No cross-process write locking; not safe for multiple server instances sharing the same path. |
+| `DAGC_REDIS_URL` | Trace storage **and** rescue session state move to Redis — durable and shared across every server instance, the tier needed for real horizontal scaling. Trace storage uses an atomic per-field hash write (no read-modify-write race). Rescue state is protected by a Redis distributed lock held for the duration of each `dagc_compress` call, so concurrent calls for the same `session_id` across instances are strictly serialized. |
+| `DAGC_REDIS_TRACE_TTL_S` | Idle expiry (seconds) for stored traces when using Redis. Defaults to 7 days. |
+| `DAGC_MCP_ANALYTICS_PATH` | Persists `dagc_stats` data to a JSON snapshot after every call. |
+
+Two caveats worth knowing before relying on the Redis tier in production: rescue session state is pickled (safe only because the server fleet is the sole writer to that keyspace — never point it at a Redis instance an untrusted party can write to), and the distributed lock is single-Redis-primary locking, not the multi-node RedLock algorithm — revisit if you run Redis Cluster/Sentinel with failover.
+
 ## Contributing
 
 ```bash
@@ -343,7 +416,9 @@ DAGC is described in full — theory, algorithm, 951-trace benchmark, adversaria
 
 ```
 src/dagc/        Core compression engine, graph construction, formats, adapters,
-                 and decision-rationale extraction (rationale_ext.py)
+                 decision-rationale extraction (rationale_ext.py), rescue engine
+                 (rescue.py), persistence (store.py), and the optional MCP
+                 server (mcp_server.py)
 src/dagc_eval/   Evaluation toolkit, DRR, benchmarking, diagnostics, exports, and proxy server
 examples/        Runnable integration examples
 tests/           Unit tests and format robustness tests

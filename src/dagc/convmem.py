@@ -9,7 +9,6 @@ import time
 from typing import Any, Callable, Dict, List, Optional
 
 import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
 
 # ---------------------------------------------------------------------------
 # Extraction
@@ -98,6 +97,7 @@ class TfidfEmbedder:
     bigger or for better semantic (non-lexical) recall."""
 
     def encode(self, texts: List[str]) -> np.ndarray:
+        from sklearn.feature_extraction.text import TfidfVectorizer
         if not texts:
             return np.zeros((0, 1))
         vec = TfidfVectorizer(ngram_range=(1, 2), min_df=1, lowercase=True)
