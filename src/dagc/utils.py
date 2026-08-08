@@ -243,12 +243,62 @@ def _encode_uncached(texts, max_chunk=200):
     return out
 
 
+import ast
+
+_RE_STRINGIFIED_CONTENT_BLOCKS = re.compile(r"^\s*\[\s*\{.*\}\s*\]\s*$", re.S)
+
+def _extract_text_from_content_blocks(blocks) -> str:
+    """blocks: list of content-block dicts (OpenAI Responses-API shape,
+    e.g. [{'type': 'output_text', 'text': '...'}]). Concatenates the
+    'text' fields in order; blocks with no 'text' are skipped."""
+    out = []
+    for b in blocks:
+        if isinstance(b, dict):
+            t = b.get('text')
+            if isinstance(t, str):
+                out.append(t)
+    return ' '.join(out)
+
+
+def _normalize_content_value(v):
+    """Return the real prose string behind msg['content'].
+
+    Three shapes:
+      - plain str -> returned as-is (the common case, unaffected).
+      - a native list of content-block dicts (not yet stringified) ->
+        text fields extracted and joined. Previously silently dropped.
+      - a string that is itself a Python repr of that same list shape
+        (content stringified upstream, e.g. str(response.content)
+        before the trace was serialized to JSON) -> parsed back via
+        ast.literal_eval and handled like the native-list case.
+        Falls back to the raw string unchanged if parsing fails or
+        the parsed value doesn't look like content blocks, so an
+        unrelated string that happens to start with '[{' is never
+        mangled.
+    """
+    if isinstance(v, list):
+        return _extract_text_from_content_blocks(v)
+    if isinstance(v, str) and _RE_STRINGIFIED_CONTENT_BLOCKS.match(v):
+        try:
+            parsed = ast.literal_eval(v)
+        except Exception:
+            return v
+        if isinstance(parsed, list) and any(
+                isinstance(b, dict) and 'text' in b for b in parsed):
+            return _extract_text_from_content_blocks(parsed)
+        return v
+    if isinstance(v, str):
+        return v
+    return None
+
+
 def _get_text(msg):
     parts = []
     for k in ('content', 'name'):
         v = msg.get(k)
-        if isinstance(v, str):
-            parts.append(v)
+        normalized = _normalize_content_value(v)
+        if normalized:
+            parts.append(normalized)
     tc = msg.get('tool_call')
     if isinstance(tc, dict):
         import json

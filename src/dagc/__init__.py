@@ -37,8 +37,9 @@ from .formats import (
     register_adapter as register_format_adapter,
 )
 from .schema import register_adapter, to_dagc_format
+from .rescue import RescueEngine, ShadowBuffer, reset_rescue_session
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 
 __all__ = [
     "compress", "compress_any", "compress_dagc", "DAGCConfig", "DAGC_CFG",
@@ -52,4 +53,5 @@ __all__ = [
     "normalize_message", "normalize_trace",
     "denormalize_message", "denormalize_trace",
     "register_adapter", "register_format_adapter", "to_dagc_format",
+    "RescueEngine", "ShadowBuffer", "reset_rescue_session",
 ]

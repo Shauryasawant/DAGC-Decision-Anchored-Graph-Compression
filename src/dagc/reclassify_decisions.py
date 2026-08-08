@@ -38,6 +38,7 @@ import glob
 import json
 import os
 import re
+from dagc.extraction import _mask_code_fences
 
 _QUIZ_STEM = re.compile(r'\bselect one\b', re.IGNORECASE)
 
@@ -144,11 +145,9 @@ def reclassify_file(in_path: str, out_path: str) -> int:
 
 
 def find_decision_evidence(text: str, role: str):
-    """Same logic as is_genuine_decision, but returns the matched span
-    instead of a bool, so a caller can use it as a decisive_span for
-    target extraction. Returns None if no genuine decision signal found."""
     if role == 'system':
         return None
+    text = _mask_code_fences(text)   # <-- add this
     if _QUIZ_STEM.search(text):
         return None
     if _HEDGE.search(text) and not _CONFIRM_CORRECT_SIGNALS.search(text):

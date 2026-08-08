@@ -82,9 +82,10 @@ def assert_ground_truth_current(decisions: List[Dict], source: str = "") -> None
 # Fixtures built with 2026-07-25.2 or earlier must be regenerated.
 
 _JUDGMENT_VERBS = re.compile(
-    r'\b(recommend|conclude|suggest|decide|choos(?:e|es|ing)|chose|select(?:s|ed|ing)?|prefer|'
+    r'\b(recommend(?:ation|ations|s)?|conclude|conclusion|suggest(?:ion|ions)?|decide|decision|'
+    r'choos(?:e|es|ing)|chose|select(?:s|ed|ing)?|prefer|'
     r'best|winner|optimal|final|confirm(?:ed|ation|s)?|'
-    r'implement|adopt|us(?:e|es|ed|ing)|switch(?:ed|ing)?|migrat(?:e|ed|ing)|'
+    r'implement(?:ation|ations)?|adopt(?:ion|ions)?|us(?:e|es|ed|ing)|switch(?:ed|ing)?|migrat(?:e|ed|ing)|'
     r'deploy(?:s|ed|ing)?|provision(?:s|ed|ing)?|'
     r'(?:go(?:es|ing)?|went)\s+with|'
     r'keep(?:s|ing)?|remov(?:e|es|ed|ing)|push(?:es|ed|ing)?|merg(?:e|es|ed|ing)|'
@@ -283,8 +284,26 @@ _RE_SENTENCE_END = re.compile(r'(?<!\d)([.!?])(?!\d)(?:\s+|$)|\n+|\s+--\s+'r'|(?
 
 _RE_PRESERVED_TAG_SPAN = re.compile(r'\[preserved:[^\]]*\]')
 _RE_TOOL_FOOTPRINT_SPAN = re.compile(r'→TOOL:[A-Za-z_][\w.]*\([^)]*\)')
+_RE_TOOL_CALL_TAG_SPAN = re.compile(r'<tool_call>.*?</tool_call>', re.DOTALL)
 
 _RE_DANGLING_FENCE = re.compile(r'```.*\Z', re.S)
+
+# NEW 2026-08-08: some trace formats (OpenAI-style tool-calling agent
+# transcripts) embed a serialized JSON representation of the tool call
+# itself inside the message TEXT, in addition to the structured tool_call
+# field -- e.g. '{"function": {"arguments": "{...}", "name": "bash"}, "id":
+# "call_ac49ccbf..."}'. Left unmasked, this is ordinary text as far as
+# every judgment/target-extraction helper is concerned, so the tool
+# call's own id string can get picked up as a "target" even when a
+# DIFFERENT builder (_try_strong_judgment / _try_judgment) is the one
+# constructing the decision -- silently reproducing the exact
+# tool-call-id-as-target problem the builder reordering above was meant
+# to fix, one layer downstream. Masked the same way code fences are
+# masked: replaced with same-length whitespace so offsets/spans used
+# elsewhere stay valid, never deleted outright.
+_RE_EMBEDDED_TOOL_CALL_JSON = re.compile(
+    r'\{\s*"function"\s*:\s*\{.*?\}\s*,\s*"id"\s*:\s*"[^"]*"\s*\}',
+    re.DOTALL)
 
 def _mask_code_fences(text: str) -> str:
     text = _RE_CODE_FENCE.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
@@ -301,6 +320,8 @@ def _mask_code_fences(text: str) -> str:
         text = _RE_DANGLING_FENCE.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
     text = _RE_PRESERVED_TAG_SPAN.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
     text = _RE_TOOL_FOOTPRINT_SPAN.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
+    text = _RE_TOOL_CALL_TAG_SPAN.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
+    text = _RE_EMBEDDED_TOOL_CALL_JSON.sub(lambda m: re.sub(r'[^\n]', ' ', m.group(0)), text)
     return text
 
 def _extract_question_options(prior_text: str) -> List[str]:
@@ -524,32 +545,16 @@ EXTRACTION_LOGIC_VERSION = "2026-08-02.2"  # bumped: a JUDGMENT_VERBS match insi
 _RE_CODE_SYMBOL = re.compile(r'[{}();<>=\[\]]')
 
 def _sentence_looks_like_code(sentence: str) -> bool:
-    """True if `sentence` reads like a bare source-code statement rather
-    than natural-language prose.
-
-    Needed because compressed output can leave a code line stranded
-    WITHOUT its original ``` fence markers -- compression's sentence
-    splitter can cut a code block mid-fence, so _mask_code_fences (which
-    only recognizes fence markers) has nothing left to mask. An ordinary
-    English word that also doubles as a common code token (return/add/
-    keep/push/target/use) inside such a stranded fragment is syntax, not
-    a decisive prose verb, and must not be treated as one.
-
-    Two independent, cheap signals, BOTH required (either alone is too
-    easy to trip on legitimate prose that happens to mention one symbol
-    or one technical term):
-      1. Code-punctuation density -- prose rarely has more than a symbol
-         or two per clause; a code statement is dense with them.
-      2. Low natural-language function-word density -- prose is glued
-         together with stopwords (the/a/to/is/with/...); a bare code
-         statement mostly isn't.
-    """
     s = sentence.strip()
     if len(s) < 3:
         return False
     words = _RE_WORD_TOKEN.findall(s)
     if not words:
         return False
+    # NEW: bare return/pass/break/continue/yield statements have no
+    # symbol punctuation at all but are unambiguously code, not prose.
+    if re.match(r'^(return|pass|break|continue|yield)\b', s):
+        return True
     symbol_density = len(_RE_CODE_SYMBOL.findall(s)) / max(len(s), 1)
     stopword_ratio = sum(1 for w in words if w.lower() in STOPWORDS) / len(words)
     return symbol_density >= 0.05 and stopword_ratio <= 0.15
@@ -1142,20 +1147,73 @@ def _try_last_resort(text, role, idx, arts, llm_fallback_fn=None):
 
     return None
 
+# NEW 2026-08-08: the intent-modal fallback below only ever checked the
+# next word against _NP_STOP_WORDS before accepting it as the action
+# label. That check exists to reject grammatical filler, not to
+# guarantee the word is an actual committed action -- so perception/
+# copula verbs like "be"/"see"/"understand"/"find" (none of which are
+# stopwords) sailed through untouched. Proven junk labels from the
+# Orchard SWE-agent corpus: "Now I need to SEE the test file..." ->
+# action='see'; "...need to UNDERSTAND the structure..." ->
+# action='understand'. Neither communicates what was actually decided;
+# it's the generic thinking-out-loud verb that happens to follow the
+# intent-modal phrase, not the real committed action (which, if
+# present, is usually caught later in the same message by the main
+# _JUDGMENT_VERBS scan anyway). Closed-class and deliberately narrow --
+# only rejects verbs actually observed as junk, so it can't accidentally
+# swallow a real action verb that needs to be added here later.
+_WEAK_NON_COMMITTAL_VERBS = {
+    'be', 'see', 'look', 'understand', 'know', 'think', 'feel', 'seem',
+    'appear', 'become', 'find', 'try', 'check', 'target', 'always', 'store',
+}
+
 def _resolve_intent_modal_action(scope_text: str, verb_text: str, match_end: int) -> str:
     """See _RE_INTENT_MODAL_HEAD above: a bare intent-modal match ('d like
     to / want to / need to / wish to) is never itself the action -- walk
     past it to the real verb ('...to CANCEL the order') and return that
-    instead. Non-modal matches pass through untouched."""
+    instead. Non-modal matches pass through untouched. Also rejects
+    _WEAK_NON_COMMITTAL_VERBS (see above) the same way it already rejects
+    stopwords, falling back to the existing 'request' label rather than
+    leaking a vague perception/copula verb as if it were the decision."""
     if not _RE_INTENT_MODAL_HEAD.match(verb_text.strip()):
         return verb_text
     tail = scope_text[match_end:match_end + 40].strip()
     nxt = re.match(r"[A-Za-z']+", tail)
-    if nxt and nxt.group(0).lower() not in _NP_STOP_WORDS:
-        return nxt.group(0).lower()
+    if nxt:
+        candidate = nxt.group(0).lower()
+        if candidate not in _NP_STOP_WORDS and candidate not in _WEAK_NON_COMMITTAL_VERBS:
+            return candidate
     return 'request'
 
-EXTRACTION_LOGIC_VERSION = "2026-08-02.4"
+_ACTION_NOUN_TO_VERB = {
+    'recommendation': 'recommend', 'recommendations': 'recommend',
+    'conclusion': 'conclude', 'conclusions': 'conclude',
+    'suggestion': 'suggest', 'suggestions': 'suggest',
+    'implementation': 'implement', 'adoption': 'adopt', 'decision': 'decide',
+}
+def _canonicalize_action(word: str) -> str:
+    return _ACTION_NOUN_TO_VERB.get(word, word)
+
+
+# BUMPED 2026-08-08: three coordinated changes, validated against a
+# 20-trace / 891-tool-call-decision ablation before being applied:
+#   1. Builder priority order: judgment-language builders
+#      (_try_strong_judgment, _try_judgment) now run BEFORE
+#      _try_tool_call, not after. Previously _try_tool_call claimed any
+#      tool_call-bearing message unconditionally and first, so genuine
+#      (even STRONG) judgment language in the same message was never
+#      reached -- 100% of 891 tool-call decisions in the ablation corpus
+#      were type='action' regardless of judgment content; 323 of those
+#      actually contained judgment language this reorder now surfaces.
+#   2. _mask_code_fences also masks embedded serialized tool-call JSON
+#      substrate, so a judgment-classified decision's target can no
+#      longer resolve to the tool-call's own id just because that id
+#      appears as raw JSON elsewhere in the same message text.
+#   3. _resolve_intent_modal_action rejects a closed set of weak/
+#      non-committal verbs, falling back to 'request' instead of
+#      leaking action='see' / action='understand' / action='be'.
+# Fixtures built with 2026-08-02.4 or earlier must be regenerated.
+EXTRACTION_LOGIC_VERSION = "2026-08-02.5"
 def _extract_verb(text, decision_idx=None, decisive_span=None):
     text = _mask_code_fences(text)
 
@@ -1169,13 +1227,13 @@ def _extract_verb(text, decision_idx=None, decisive_span=None):
             return None
         by_text = defaultdict(list)
         for m in matches:
-            by_text[m.group(0).lower()].append(m)
+            by_text[_canonicalize_action(m.group(0).lower())].append(m)
         for v in _ACTION_VERB_PRIORITY:
             if v in by_text:
                 m = by_text[v][0]
                 return _resolve_intent_modal_action(scope_text, v, m.end())
         m = matches[0]
-        return _resolve_intent_modal_action(scope_text, m.group(0).lower(), m.end())
+        return _canonicalize_action(_resolve_intent_modal_action(scope_text, m.group(0).lower(), m.end()))
 
     if decisive_span is not None:
         local = _sentence_containing(text, decisive_span[0], decisive_span[1])
@@ -1307,6 +1365,7 @@ _RE_INLINE_TOOL_PARAM = re.compile(
     re.IGNORECASE | re.DOTALL)
 _RE_BRACKET_CALL = re.compile(
     r'\[calls?\s+([A-Za-z_][\w.]*)\s*\(', re.IGNORECASE)
+_RE_TOOL_CALL_TAG = re.compile(r'<tool_call>\s*(\{.*?\})\s*</tool_call>', re.DOTALL)
 
 
 def _extract_inline_tool_call(text):
@@ -1321,6 +1380,14 @@ def _extract_inline_tool_call(text):
     m2 = _RE_BRACKET_CALL.search(text)
     if m2:
         return {"name": m2.group(1), "args": {}}
+    m3 = _RE_TOOL_CALL_TAG.search(text)
+    if m3:
+        try:
+            payload = json.loads(m3.group(1))
+            if isinstance(payload, dict) and 'name' in payload:
+                return {"name": payload.get('name'), "args": payload.get('arguments', {}) or {}}
+        except Exception:
+            pass
     return None
 
 
@@ -1609,11 +1676,11 @@ def _build_decision_for_message(
         return None
 
     builders = (
-        _try_tool_call,
         _try_strong_judgment,
         _try_confirm_paths_ids_no_strong,
         _try_outcome_confirm,
         _try_judgment,
+        _try_tool_call,
         _try_confirm_paths_ids,
         _try_directive_response,
         _try_imperative_response,

@@ -97,7 +97,7 @@ class DAGCConfig:
 
     COMPRESS_PROTECTED: bool = True
     JUDGMENT_HEAD_FRAC: float = 0.20
-
+    STRICT_PHASE1_BUDGET: bool = False
     PROTECT_TOOL_CALLS: bool = True
     PROTECT_JUDGMENTS: bool = True
 
@@ -112,7 +112,22 @@ class DAGCConfig:
 
     GAMMA: float = 0.72
     MMR_LAMBDA: float = 0.65
-    MIN_EFF_THRESHOLD: float = 1e-3
+    MIN_EFF_THRESHOLD: float = 0.028  # was 1e-3. Phase-2's greedy MMR loop had
+    # no meaningful stop condition below this on evidence-dense-in-practice
+    # SWE-agent traces (EVIDENCE_DENSITY_TOPK_CAP/EVIDENCE_DECAY_RATIO never
+    # engaged -- evidence_dense was False on every trace tested, so those two
+    # knobs were inert) -- confirmed via measure_phase2_padding.py
+    # (--force-disable-phase2) + sweep_min_eff_threshold.py against
+    # verify_no_decision_loss on n=15 Orchard(swe) resolved traces: phase-2
+    # was adding ~9% padding tokens (11,377/126,152) with ZERO effect on
+    # decision recoverability (0 missing at every threshold tested, p10
+    # through p99 of phase-2's own eff-score distribution). 0.028 sits at the
+    # p85-p90 mark: captures ~8.5% of that headroom while leaving margin
+    # below the tested ceiling (p99 threshold was 0.081, still 0 missing).
+    # NOT yet validated on a larger/different trace sample or non-SWE-agent
+    # domains -- re-run the sweep before trusting this beyond the tested
+    # distribution if traces look structurally different (e.g. much shorter,
+    # or dense in the EVIDENCE_DENSITY_TOOL_RATIO sense).
 
     USE_CAUSAL_SKELETON: bool = True
     USE_SPECTRAL: bool = False
@@ -137,6 +152,40 @@ class DAGCConfig:
                                 # reduction relative to the existing causal/
                                 # semantic efficiency score, both expressed
                                 # per token spent.
+
+    # Evidence-density cap: on evidence-dense traces (many tool messages
+    # relative to how many decisions they support -- e.g. a debugging
+    # trace with dozens of individually-relevant log lines and one root
+    # cause), phase-2's MMR selection has no natural stopping point short
+    # of the token budget, because low pairwise redundancy between log
+    # lines keeps every candidate above MIN_EFF_THRESHOLD. This caps the
+    # NUMBER of phase-2 items on flagged traces only. None = off (default,
+    # zero behavior change). Does not touch phase 1 or the unconditional
+    # target_arts_all rescue pass -- both stay exactly as strict as today.
+    EVIDENCE_DENSITY_TOPK_CAP: Optional[int] = None
+    EVIDENCE_DENSITY_TOOL_RATIO: float = 3.0  # tool_msgs / n_valid_decisions
+    EVIDENCE_DENSITY_MIN_TOOL_MSGS: int = 5   # floor so a 1-tool-msg trace
+                                                # with 0 decisions can't trip it
+
+    # Phase-2 stop condition scoped to phase 2's OWN objective (marginal
+    # causal/semantic efficiency), not to decision coverage. On an
+    # evidence-dense trace, near-duplicate low-redundancy candidates (e.g.
+    # distinct log lines) can all clear MIN_EFF_THRESHOLD indefinitely, so
+    # phase 2 has no natural stop short of the token budget. This stops
+    # once the best available candidate's efficiency has decayed to a
+    # small fraction of the FIRST phase-2 pick's efficiency -- a signal
+    # that remaining candidates are low-marginal-value padding, regardless
+    # of whether any decision still needs coverage (that's job A, already
+    # owned by phase1 + the unconditional rescue + final verify pass).
+    # None = off (default, zero behavior change).
+    EVIDENCE_DECAY_RATIO: Optional[float] = None
+    EVIDENCE_DECAY_DEBUG: bool = False  # when True AND diagnostics is passed,
+                                      # records each phase-2 iteration's
+                                      # (best_eff, break_reason) to
+                                      # diagnostics['phase2_trace']. Zero
+                                      # behavior change when False (default) —
+                                      # pure instrumentation, no selection
+                                      # logic is touched.
     USE_FILLER_FILTER: bool = True         
     FILLER_PROB_THRESHOLD: float = 0.75
     FILLER_SURPRISAL_BITS: float = 4.0
@@ -1093,7 +1142,8 @@ def _compute_causal_centrality(messages, decisions, cfg: DAGCConfig = DAGC_CFG):
     return dict(centrality)
 
 
-def _phase1_hard_guarantee(pool, decisions, budget, extra_critical=None, by_decision=None):
+def _phase1_hard_guarantee(pool, decisions, budget, extra_critical=None, by_decision=None,
+                            strict_phase1_budget=False):
     target_arts = _collect_decision_artifacts(decisions) | (extra_critical or set())
     if not target_arts:
         return [], set()
@@ -1140,7 +1190,8 @@ def _phase1_hard_guarantee(pool, decisions, budget, extra_critical=None, by_deci
             satisfied |= owners if owners else set()
             continue
 
-        if used_toks + cost > budget and cost > 40:
+        bypass_ok = cost <= 40 and (not strict_phase1_budget or used_toks <= budget)
+        if used_toks + cost > budget and not bypass_ok:
             continue
 
         injected.add(idx)
@@ -1453,7 +1504,8 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
     p1_idx, covered_arts = _phase1_hard_guarantee(
         pool, valid_decisions, phase1_budget,
         extra_critical=dependency_vals | (target_arts_all - target_arts),
-        by_decision=by_decision)
+        by_decision=by_decision,
+        strict_phase1_budget=cfg.STRICT_PHASE1_BUDGET)
     p1_set = set(p1_idx)
     p1_toks = sum(_tok(pool[i][0]) for i in p1_idx)
 
@@ -1490,8 +1542,25 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
                 covered_arts.update(_artifacts(s)[kind])
 
     remaining = max(0, free_budget - p1_toks)
+    diagnostics_extra = {'phase1_budget': phase1_budget, 'p1_toks': p1_toks, 'remaining': remaining}
+    if diagnostics is not None:
+        diagnostics.update(diagnostics_extra)
+    # Evidence-density heuristic -- see EVIDENCE_DENSITY_TOPK_CAP docstring
+    # above. Computed unconditionally (cheap: one scan over messages) but
+    # only ever CONSULTED below if the cap is explicitly set, so this line
+    # alone changes nothing about default output.
+    _tool_msg_count = sum(1 for m in messages if m.get('role') == 'tool')
+    evidence_dense = (
+        _tool_msg_count >= cfg.EVIDENCE_DENSITY_MIN_TOOL_MSGS
+        and _tool_msg_count / max(1, n_valid_decisions) > cfg.EVIDENCE_DENSITY_TOOL_RATIO
+    )
+    if diagnostics is not None:
+        diagnostics['evidence_dense'] = evidence_dense
+        diagnostics['tool_msg_count'] = _tool_msg_count
 
     pending = [i for i in range(len(pool)) if i not in p1_set]
+    if diagnostics is not None:
+        diagnostics['min_pending_cost'] = min((_tok(pool[i][0]) for i in pending), default=None)
     selected_embs = [pool_embs[i] for i in p1_idx]
     p2_idx: List[int] = []
     used_p2 = 0
@@ -1502,8 +1571,12 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
         loss_covered: Set[str] = {a for arts in by_decision.values() for a in arts
                                     if a in covered_arts}
 
+    first_best_eff: Optional[float] = None
+    phase2_trace = [] if (diagnostics is not None and cfg.EVIDENCE_DECAY_DEBUG) else None
     for _ in range(len(pending)):
         if not pending or used_p2 >= remaining:
+            if phase2_trace is not None:
+                phase2_trace.append({'reason': 'pending_empty_or_budget_exhausted'})
             break
         best_eff, best_i = -1e18, None
         for idx in pending:
@@ -1527,9 +1600,29 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
                 eff += cfg.LOSS_LAMBDA * (lr / (t + 1e-9))
             if eff > best_eff:
                 best_eff, best_i = eff, idx
+                best_debug = {'causal': causal, 'sem': sem, 'rel': rel, 'red': red, 't': t}
 
         if best_i is None or best_eff <= cfg.MIN_EFF_THRESHOLD:
+            if phase2_trace is not None:
+                phase2_trace.append({'reason': 'min_eff_threshold', 'best_eff': best_eff, 'debug': best_debug if best_i is not None else None})
             break
+        if (evidence_dense and cfg.EVIDENCE_DENSITY_TOPK_CAP is not None
+                and len(p2_idx) >= cfg.EVIDENCE_DENSITY_TOPK_CAP):
+            if phase2_trace is not None:
+                phase2_trace.append({'reason': 'topk_cap', 'best_eff': best_eff})
+            break
+        if first_best_eff is None:
+            first_best_eff = best_eff
+        elif (evidence_dense and cfg.EVIDENCE_DECAY_RATIO is not None
+                and best_eff < first_best_eff * cfg.EVIDENCE_DECAY_RATIO):
+            if phase2_trace is not None:
+                phase2_trace.append({'reason': 'decay_ratio', 'best_eff': best_eff,
+                                      'first_best_eff': first_best_eff})
+            break
+
+        if phase2_trace is not None:
+            phase2_trace.append({'reason': 'selected', 'best_eff': best_eff,
+                                  'first_best_eff': first_best_eff})
 
         s, _mi = pool[best_i]
         if cfg.USE_DECISION_LOSS_OBJECTIVE:
@@ -1546,7 +1639,8 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
                 covered_metrics.add(ms)
         used_p2 += _tok(s)
         pending.remove(best_i)
-
+    if phase2_trace is not None:
+        diagnostics['phase2_trace'] = phase2_trace
     for i in protected:
         cc = compressed_protected_content.get(i, _get_text(messages[i]))
         # FIX (numbers omission): protected (system/judgment/tool-call)
@@ -1712,10 +1806,13 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
 
 
 # Public shorthand for compress_dagc.
-def compress(messages: List[Dict], target_reduction: Optional[float] = None,
+def compress(messages: List[Dict], target_reduction: float = ...,
              cfg: Optional[DAGCConfig] = None,
              decision_roles: Tuple[str, ...] = ('user', 'assistant'),
              force_preserve: Optional[Iterable[str]] = None,
+             enable_rescue: bool = True,
+             session_id: str = "default",
+             diagnostics: Optional[Dict[str, Any]] = None,
              **overrides) -> List[Dict]:
     """
     Compress an agent/chat message trace while preserving every artifact
@@ -1723,24 +1820,27 @@ def compress(messages: List[Dict], target_reduction: Optional[float] = None,
 
         from dagc import compress
         compressed = compress(messages, target_reduction=0.85)
-        response = client.chat.completions.create(model="gpt-4", messages=compressed)
 
     Args:
-        messages: list of {'role', 'content', ...} dicts (OpenAI-style;
-            'tool_call' key optional, both {'name','args'} and
-            {'function':{'name','arguments'}} shapes are supported).
-        target_reduction: fraction of tokens to remove (0-1). Overrides
-            cfg.TARGET_REDUCTION if given.
-        cfg: a full DAGCConfig for advanced tuning. If omitted, a copy of
-            the module default is used.
+        messages: list of {'role', 'content', ...} dicts.
+        target_reduction: fraction of tokens to remove (0-1).
+        cfg: a full DAGCConfig for advanced tuning.
         force_preserve: extra literal values to hard-guarantee, on top of
-            decision-derived values.
-        **overrides: any other DAGCConfig field, e.g. compress(msgs, KEEP_LAST_K=3).
+            decision-derived values. Merged with rescue's own set when
+            enable_rescue=True -- neither overrides the other.
+        enable_rescue: if True, automatically maintains a ShadowBuffer and
+            RescueEngine per session_id and folds their force_preserve
+            output into this call. If False (default), behaves exactly as
+            before -- rescue.py is not even imported, zero overhead.
+        session_id: identifies which rescue session this call belongs to.
+            `messages` must be a growing, append-only prefix across calls
+            sharing a session_id -- use a distinct session_id (or call
+            dagc.rescue.reset_rescue_session(session_id)) per independent
+            conversation.
+        **overrides: any other DAGCConfig field.
 
     Returns:
-        A new list of message dicts (each carrying '_orig_idx') -- roughly
-        target_reduction smaller in token count, safe to pass straight to
-        an LLM call.
+        A new list of message dicts (each carrying '_orig_idx').
     """
     import copy as _copy
     c = _copy.deepcopy(cfg) if cfg is not None else DAGCConfig()
@@ -1748,13 +1848,46 @@ def compress(messages: List[Dict], target_reduction: Optional[float] = None,
         c.TARGET_REDUCTION = target_reduction
     for k, v in overrides.items():
         setattr(c, k, v)
+
+    merged_force_preserve: Set[str] = set(force_preserve) if force_preserve else set()
+    _rescue_sess = None
+
+    if enable_rescue:
+        # Lazy import: rescue.py imports back from this module
+        # (_decision_critical_values / _art_in_text / _footprint_text),
+        # so a top-level import here would be circular. This also means
+        # enable_rescue=False truly costs nothing -- rescue.py is never
+        # touched.
+        from .rescue import _run_rescue_for_call
+
+        if c.ABSOLUTE_BUDGET_TOKENS is not None:
+            budget_estimate = c.ABSOLUTE_BUDGET_TOKENS
+        else:
+            # Rough estimate for rescue's own GuaranteedSet sizing only --
+            # not used for the actual compression budget, which
+            # compress_dagc computes for real from orig_toks below.
+            orig_toks_estimate = sum(_tok(_footprint_text(m)) for m in messages)
+            budget_estimate = max(1, int(orig_toks_estimate * (1 - c.TARGET_REDUCTION)))
+
+        rescue_force_preserve, _events, unrescuable, _rescue_sess = _run_rescue_for_call(
+            messages, session_id=session_id, budget_tokens=budget_estimate)
+        merged_force_preserve |= rescue_force_preserve
+        if diagnostics is not None and unrescuable:
+            diagnostics['unrescuable_evictions'] = unrescuable
+
     result = compress_dagc(messages, cfg=c, decision_roles=decision_roles,
-                            force_preserve=force_preserve)
+                            force_preserve=merged_force_preserve or None,
+                            diagnostics=diagnostics)
+
     if getattr(c, 'PRESERVE_VALUE_RECOVERY', True):
         result, _ = inject_value_recovery_stubs(
             result, messages,
             max_stubs=getattr(c, 'MAX_VALUE_RECOVERY_STUBS', 15),
             max_stub_tokens=getattr(c, 'MAX_VALUE_RECOVERY_STUB_TOKENS', 25))
+
+    if _rescue_sess is not None:
+        _rescue_sess["last_compressed"] = result
+
     return result
 
 

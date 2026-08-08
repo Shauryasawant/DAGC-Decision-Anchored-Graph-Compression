@@ -10,6 +10,7 @@ except ModuleNotFoundError:  # pragma: no cover - optional in manual demo mode
     pytest = None
 
 from dagc import compress_any
+from dagc.extraction import _extract_inline_tool_call, _mask_code_fences
 from dagc_eval.normalize import normalize_message, normalize_trace
 
 
@@ -109,6 +110,18 @@ def test_xml_function_calls_in_content_are_parsed():
     assert out['tool_call']['name'] == 'update_reservation_baggages'
     assert out['tool_call']['args']['reservation_id'] == 'OBUT9V'
     assert out['tool_call']['args']['checked_bags'] == '2'
+
+
+def test_hermes_tool_call_tag_is_parsed_and_masked():
+    text = 'Please run <tool_call> {"name": "search", "arguments": {"q": "cats"}} </tool_call> now.'
+    parsed = _extract_inline_tool_call(text)
+    assert parsed is not None
+    assert parsed['name'] == 'search'
+    assert parsed['args']['q'] == 'cats'
+
+    masked = _mask_code_fences(text)
+    assert '<tool_call>' not in masked
+    assert 'search' not in masked
 
 
 def test_no_tool_call_at_all():
