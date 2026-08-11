@@ -35,7 +35,7 @@ in the sequence they come up:
 3. [Evaluation](./evaluation.md) — measure it, don't take the defaults on faith
 4. [Decision Rationale](./decision-rationale.md) — if your downstream task needs *why*, not just *what*
 5. [Architecture](./architecture.md) / [Optional Proxy](./proxy.md) — if you're deploying this, not just calling it in-process
-6. [CLI](./cli.md) / [MCP Server](./mcp-server.md) — if you're driving DAGC from outside Python directly
+6. [CLI](./cli.md) / [MCP Server](docs/CLI.md) — if you're driving DAGC from outside Python directly
 
 ## Something not here?
 
