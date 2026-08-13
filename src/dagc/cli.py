@@ -80,6 +80,17 @@ def cmd_rescue(args):
         validate_rescue.main()
 
 
+def cmd_wrap(args):
+    from dagc import wrap
+
+    handlers = {
+        "claude": wrap.wrap_claude,
+        "codex": wrap.wrap_codex,
+        "aider": wrap.wrap_aider,
+    }
+    sys.exit(handlers[args.tool](args.args, port=args.port, upstream=args.upstream))
+
+
 def main():
     parser = argparse.ArgumentParser(prog='dagc', description='DAGC — Decision-Anchored Graph Compression CLI')
     sub = parser.add_subparsers(dest='command', required=True)
@@ -115,7 +126,35 @@ def main():
     p_rescue = sub.add_parser('rescue', help='Run the rescue validation helper')
     p_rescue.set_defaults(func=cmd_rescue)
 
-    args = parser.parse_args()
+    p_wrap = sub.add_parser(
+        'wrap',
+        help="Start the dagc proxy and launch a CLI tool through it with no code "
+             "changes (dagc wrap claude|codex|aider -- [tool args]). Cursor and "
+             "Copilot CLI are not included: neither honors a user-settable base "
+             "URL for model traffic, so there's no honest way to wrap them yet.",
+    )
+    p_wrap.add_argument('tool', choices=['claude', 'codex', 'aider'])
+    p_wrap.add_argument('--port', type=int, default=None,
+                         help='Proxy port (default: an unused port is picked automatically)')
+    p_wrap.add_argument('--upstream', default=None,
+                         help='Override the upstream API base URL (defaults per tool)')
+    p_wrap.set_defaults(func=cmd_wrap, args=[])
+
+    # nargs=REMAINDER on 'wrap' would silently swallow dagc's own flags
+    # (e.g. --port) into the pass-through args once it starts consuming --
+    # argparse doesn't backtrack to check whether a later token was meant
+    # for the parent parser. Splitting on a literal '--' ourselves, before
+    # argparse ever sees the tail, avoids that ambiguity entirely.
+    argv = sys.argv[1:]
+    extra_args: list[str] = []
+    if argv[:1] == ['wrap'] and '--' in argv:
+        sep = argv.index('--')
+        extra_args = argv[sep + 1:]
+        argv = argv[:sep]
+
+    args = parser.parse_args(argv)
+    if args.command == 'wrap':
+        args.args = extra_args
     args.func(args)
 
 

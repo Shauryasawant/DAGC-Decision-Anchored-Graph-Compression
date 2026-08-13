@@ -146,31 +146,54 @@ async def proxy(path: str, request: Request):
     else:
         outbound_body = None
 
-    async with httpx.AsyncClient(timeout=120.0) as client:
-        if outbound_body is not None:
-            upstream_resp = await client.post(
-                f"{upstream_base_url.rstrip('/')}/{path.lstrip('/')}",
-                json=outbound_body,
-                headers=forwarded_headers,
-            )
-        else:
-            upstream_resp = await client.post(
-                f"{upstream_base_url.rstrip('/')}/{path.lstrip('/')}",
-                content=raw_body,
-                headers=forwarded_headers,
-            )
+    upstream_url = f"{upstream_base_url.rstrip('/')}/{path.lstrip('/')}"
+    send_kwargs: Dict[str, Any] = (
+        {"json": outbound_body} if outbound_body is not None else {"content": raw_body}
+    )
+
+    # Open the upstream request as a stream and inspect only the headers
+    # before deciding how to relay the body. This is what actually makes
+    # SSE token-by-token: previously `client.post()` fully buffered the
+    # upstream response before StreamingResponse ever saw it, so a CLI
+    # like Claude Code / Codex / Aider would sit with no output until the
+    # whole reply arrived, and long agent turns risked client-side
+    # timeouts. httpx.AsyncClient must stay open for the lifetime of the
+    # streamed generator, so it's entered here rather than in a `with`
+    # block that would close it before the response is fully consumed.
+    client = httpx.AsyncClient(timeout=120.0)
+    req = client.build_request("POST", upstream_url, headers=forwarded_headers, **send_kwargs)
+    upstream_resp = await client.send(req, stream=True)
+
+    response_headers = {
+        k: v for k, v in upstream_resp.headers.items()
+        if k.lower() not in _HOP_BY_HOP_HEADERS
+    }
 
     if upstream_resp.headers.get('content-type', '').startswith('text/event-stream'):
+        async def event_stream():
+            try:
+                async for chunk in upstream_resp.aiter_raw():
+                    yield chunk
+            finally:
+                await upstream_resp.aclose()
+                await client.aclose()
+
         return StreamingResponse(
-            iter([upstream_resp.content]),
+            event_stream(),
             status_code=upstream_resp.status_code,
-            headers=dict(upstream_resp.headers),
+            headers=response_headers,
         )
 
+    try:
+        content = await upstream_resp.aread()
+    finally:
+        await upstream_resp.aclose()
+        await client.aclose()
+
     return Response(
-        content=upstream_resp.content,
+        content=content,
         status_code=upstream_resp.status_code,
-        headers=dict(upstream_resp.headers),
+        headers=response_headers,
     )
 
 

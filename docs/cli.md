@@ -106,6 +106,33 @@ multi-turn session).
 dagc rescue
 ```
 
+## `dagc wrap`
+
+Start the DAGC proxy and launch a supported coding CLI through it, without
+editing that tool's configuration:
+
+```bash
+pip install "dagc[server]"
+dagc wrap claude -- --help
+dagc wrap codex -- --help
+dagc wrap aider -- --help
+```
+
+`claude`, `codex`, and `aider` are supported. DAGC starts a loopback proxy on
+an unused port (or the port supplied by `--port`) and injects the correct base
+URL variable for the child process:
+
+| Tool | Variable |
+|---|---|
+| Claude Code | `ANTHROPIC_BASE_URL` |
+| Codex CLI | `OPENAI_BASE_URL` |
+| Aider | `OPENAI_API_BASE` |
+
+Use `--upstream URL` to override the provider endpoint. For Codex and Aider,
+both `https://host` and `https://host/v1` are accepted. Cursor and GitHub
+Copilot CLI are intentionally not supported because their model traffic cannot
+be redirected with a user-settable base URL.
+
 ## Error handling
 
 If an `input` path doesn't exist, the CLI exits with a direct message rather

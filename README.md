@@ -343,6 +343,24 @@ dagc-server
 
 The proxy auto-detects common request formats (`messages`, `trace`, `conversation`, `turns`), compresses the conversation, preserves tool-call payloads, and forwards to the configured upstream API. If compression fails for any reason, the original request is forwarded unchanged.
 
+### Wrap supported coding CLIs
+
+After installing the server extra, launch these tools through the proxy without
+changing their configuration or source code:
+
+```bash
+dagc wrap claude -- --help
+dagc wrap codex -- --help
+dagc wrap aider -- --help
+```
+
+`dagc wrap` selects a free local port, starts the proxy, and sets the one base
+URL variable each tool honors: `ANTHROPIC_BASE_URL` for Claude Code,
+`OPENAI_BASE_URL` for Codex CLI, and `OPENAI_API_BASE` for Aider. Use
+`--upstream URL` to choose a compatible provider; OpenAI-compatible URLs may
+include `/v1` or omit it. Cursor and GitHub Copilot CLI are not supported
+because they do not offer a user-settable model base URL.
+
 ## Optional MCP server
 
 > **Status: prototype, not yet merged.** The `dagc-mcp` command and the tools/scaling options below were designed and drafted in a working session and reflect the intended shape of this feature. They require `store.py`'s `RedisBackend` addition and a new `rescue_redis.py` module to actually be merged into `src/dagc/` before `dagc-mcp` behaves as documented here — check `src/dagc/mcp_server.py` in this repo for what's actually shipped before depending on this section.
