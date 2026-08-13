@@ -234,9 +234,6 @@ def _is_tool_call_msg(m):
         return True
     return _has_inline_tool_call(_get_text(m))
 
-def _is_tool_call_msg(m):
-    return isinstance(m.get('tool_call'), dict)
-
 
 @lru_cache(maxsize=8192)
 def _multiword_art_re(art_lower: str):
@@ -859,6 +856,21 @@ def _get_filler_scorer():
     return _FILLER_SCORER
 
 
+def _clause_carries_judgment_signal(clause: str) -> bool:
+    """True if this clause carries a judgment/confirmation signal on its
+    own -- mirrors the is_signal check in _select_priority_content, so the
+    filler-deletion pass and the priority-selection pass agree on what
+    counts as decision-carrying content. Needed because target_arts only
+    covers artifact-shaped values (ids/paths/errors/numbers); a bare
+    verdict clause has no such value to protect it otherwise.
+    """
+    masked = _mask_code_fences(clause)
+    if _STRONG_JUDGMENT_SIGNALS.search(masked) or _CONFIRM_SIGNALS.search(masked):
+        return True
+    return any(_verb_match_is_decisive(masked, m)
+               for m in _JUDGMENT_VERBS.finditer(masked))
+
+
 def _apply_filler_filter(content: str, full_text: str, target_arts: Set[str],
                           cfg: DAGCConfig) -> str:
     """
@@ -883,7 +895,8 @@ def _apply_filler_filter(content: str, full_text: str, target_arts: Set[str],
         surprisal_threshold_bits=cfg.FILLER_SURPRISAL_BITS,
     )
     safe = [c for c, p, s in candidates
-            if not any(_art_in_text(a, c) for a in target_arts)]
+            if not any(_art_in_text(a, c) for a in target_arts)
+            and not _clause_carries_judgment_signal(c)]
     if not safe:
         return content
     result = apply_deletions(content, safe)
