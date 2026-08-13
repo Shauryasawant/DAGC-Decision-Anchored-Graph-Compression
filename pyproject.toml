@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dagc"
-version = "0.1.6"
+version = "0.1.7"
 description = "Decision-Anchored Graph Compression for agent/chat traces: preserve decision-critical artifacts with regex, embeddings, and graph algorithms, support varied message formats, and include optional evaluation tools."
 readme = "README.md"
 requires-python = ">=3.9"
