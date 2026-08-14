@@ -791,11 +791,20 @@ def _select_priority_content(content: str, target_arts: Set[str], dec_metrics: S
 
 
 
-def _slim_tool_args(args: dict, target_arts: Set[str], max_keys: int = 4) -> dict:
+def _slim_tool_args(args: dict, target_arts: Set[str], max_keys: int = 4,
+                    char_budget: int = 400) -> dict:
     """Choose which tool-call args survive into the compressed trace, using
     the same _key_tier_rank priority as target extraction, so the
     compressed view always shows the same "primary" argument that
-    extraction already picked as ground truth."""
+    extraction already picked as ground truth.
+
+    Previously this hard-capped at `max_keys` (default 4) regardless of
+    dict size, so any 5th+ argument was silently dropped even when it was
+    short and cheap to keep (e.g. retention_days=45 next to 4 other
+    fields). Now: rank-order stays the same, but keys keep filling in
+    past max_keys as long as there's char_budget left -- a low-priority,
+    short key still survives if it's nearly free; only genuinely
+    expensive low-priority values get cut."""
     if not isinstance(args, dict):
         return {}
     scored = []
@@ -807,10 +816,16 @@ def _slim_tool_args(args: dict, target_arts: Set[str], max_keys: int = 4) -> dic
         scored.append((sort_key, k, v))
     scored.sort(key=lambda t: t[0])
     slim: Dict[str, Any] = {}
-    for _, k, v in scored[:max_keys]:
+    spent = 0
+    for i, (_, k, v) in enumerate(scored):
         if isinstance(v, list) and len(v) > 4:
             v = v[:4]
-        slim[k] = v
+        cost = len(str(k)) + len(str(v)) + 4
+        if i < max_keys or spent + cost <= char_budget:
+            slim[k] = v
+            spent += cost
+        else:
+            break
     return slim
 def _already_covered(fact: str, *channels: str) -> bool:
     """True if `fact` is already textually present in any of the given

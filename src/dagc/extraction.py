@@ -981,6 +981,32 @@ def _number_is_threshold_shaped(number: str, text: str) -> bool:
     return all(_preceded_by_threshold_cue(text, p) for p in positions)
 
 
+_NUMERIC_KEY_HINT_RE = re.compile(
+    r'(pool|port|timeout|count|limit|ttl|size|retr(?:y|ies)|capacity|'
+    r'threshold|buffer|depth|replicas?|workers?|shards?|days?|seconds?|'
+    r'minutes?|hours?|max_|min_)',
+    re.IGNORECASE,
+)
+
+
+def _numeric_penalty_should_apply(cand, key, text):
+    """The bare-short-number penalty exists to filter incidental counts in
+    prose ("3 files were checked"), not real config values. A number
+    attached to a recognizable config-key -- either as a structured dict
+    `key`, or immediately adjacent to a key-like token in the surrounding
+    text (e.g. "pool size to 20", "max_pool_size=16") -- is almost always
+    load-bearing and should not be penalized just for being short."""
+    if key is not None and _NUMERIC_KEY_HINT_RE.search(str(key)):
+        return False
+    if text and cand:
+        idx = text.find(cand)
+        if idx != -1:
+            window = text[max(0, idx - 40):idx]
+            if _NUMERIC_KEY_HINT_RE.search(window):
+                return False
+    return True
+
+
 def _score_target_candidate(cand, source, tool_name, text, key=None, is_owned=False, local=False):
     low = cand.strip().lower()
     if len(low) < 2 and not _is_numeric_literal(low):
@@ -998,7 +1024,8 @@ def _score_target_candidate(cand, source, tool_name, text, key=None, is_owned=Fa
         score -= 2.5
     if _looks_identifier_shaped(cand):
         score += 1.2
-    if _looks_structural_numeric(cand) and not _looks_like_reportable_number(cand):
+    if (_looks_structural_numeric(cand) and not _looks_like_reportable_number(cand)
+            and _numeric_penalty_should_apply(cand, key, text)):
         score -= 1.0
     if _is_numeric_literal(low) and _number_is_threshold_shaped(cand.strip(), text):
         score -= 4.0
