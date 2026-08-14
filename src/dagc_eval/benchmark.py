@@ -21,7 +21,7 @@ from dagc.utils import _encode, _artifacts, _cos, _get_text, _tok, target_still_
 from .interfaces import LLMClient
 from .match import DRR_THRESHOLD, match_decision
 from .reproduce import reproduce_decision
-from dagc.baselines import BASELINES
+from dagc.baselines import BASELINES, METHODS_WITH_DAGC
 from .stats import bootstrap_drr, wilcoxon_test, cohen_d, _rec_match, _evid_match
 TASKS = [
     {'task': 'Choose the best compression algorithm for agent traces.',
@@ -311,7 +311,7 @@ def run_method_comparison(n_traces_per_task=2, noise_levels=[3],
     to head across TASKS/noise_levels. If 'DAGC' is present and
     run_stats=True, also runs run_statistical_comparison against it.
     """
-    methods = methods or BASELINES
+    methods = methods or METHODS_WITH_DAGC
     agg = {name: {'compression': [], 'rec_match': [], 'evid_match': [], 'art_ret': [],
                    'CRR': [], 'RCI': [], 'drr_soft_raw': []} for name in methods}
     for task_idx, task_spec in enumerate(TASKS):

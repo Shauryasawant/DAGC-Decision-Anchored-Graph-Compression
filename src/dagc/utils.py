@@ -203,6 +203,15 @@ def _cos(a, b) -> float:
     return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-12))
 
 
+def _cos_norm(a, b, norm_a: float, norm_b: float) -> float:
+    """Same formula as _cos(), but takes pre-computed norms for a and b
+    instead of recomputing np.linalg.norm on every call. Use when the same
+    vectors get compared repeatedly (e.g. a greedy selection loop) and
+    their norms are already known -- identical result, less redundant work.
+    """
+    return float(np.dot(a, b) / (norm_a * norm_b + 1e-12))
+
+
 def _uw(seq):
     seen, out = set(), []
     for x in seq:

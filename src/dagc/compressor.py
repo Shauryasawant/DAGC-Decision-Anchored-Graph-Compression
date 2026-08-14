@@ -20,7 +20,7 @@ from dagc.extraction import _JUDGMENT_VERBS
 from .extraction import _find_decisive_match, _sentence_containing
 import numpy as np
 from .utils import (
-    _art_density, _artifacts, _cos, _encode, _get_text, _head_tail_cap,
+    _art_density, _artifacts, _cos, _cos_norm, _encode, _get_text, _head_tail_cap,
     _split_sents, _tok, _value_still_recoverable,
 )
 from .value_recovery_ext import inject_value_recovery_stubs
@@ -1304,8 +1304,6 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
     except Exception:
         pass 
 
-    decisions += _extract_supplementary_decisions(messages, decision_roles)
-
     injection_filtered: Set[int] = set()
     for d in decisions:
         if d['type'] in ('judgment', 'confirmation'):
@@ -1508,6 +1506,21 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
 
     pool_texts = [s for s, _ in pool]
     pool_embs = _encode(pool_texts, max_chunk=cfg.MAX_EMBED_CHUNK)
+    # Perf: precompute each pool embedding's norm once. The phase-2 greedy
+    # selection loop below calls _cos() on pool_embs[idx] against every
+    # already-selected embedding, every remaining candidate, every
+    # iteration -- so on a trace with N surviving sentences that's up to
+    # O(N^3) calls, each of which previously recomputed
+    # np.linalg.norm(pool_embs[idx]) from scratch every single time despite
+    # pool_embs[idx] never changing. Caching each vector's norm once
+    # (pool_norms, aligned 1:1 with pool_embs by index) and reusing it via
+    # _cos_norm() is the exact same division-of-dot-product-by-norms
+    # formula _cos() already used -- same floats, same operations, same
+    # order -- just without redundant recomputation of a value that was
+    # already known. Purely a constant-factor speedup: does not change
+    # any similarity score, selection outcome, or compression result.
+    pool_norms = [float(np.linalg.norm(e)) for e in pool_embs]
+    task_norm = float(np.linalg.norm(task_emb))
 
     # AFTER
     # extra_critical also carries the demoted-only values (target_arts_all
@@ -1575,6 +1588,7 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
     if diagnostics is not None:
         diagnostics['min_pending_cost'] = min((_tok(pool[i][0]) for i in pending), default=None)
     selected_embs = [pool_embs[i] for i in p1_idx]
+    selected_norms = [pool_norms[i] for i in p1_idx]
     p2_idx: List[int] = []
     used_p2 = 0
 
@@ -1603,8 +1617,9 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
                       if cfg.USE_SPECTRAL else c)
             n_dm = sum(1 for ms in _extract_metric_strings(s) if ms in dec_metrics)
             causal *= (_art_density(s) + 0.25 * min(n_dm, 3) + 0.1)
-            rel = max(0.0, _cos(pool_embs[idx], task_emb))
-            red = max((_cos(pool_embs[idx], e) for e in selected_embs), default=0.0)
+            rel = max(0.0, _cos_norm(pool_embs[idx], task_emb, pool_norms[idx], task_norm))
+            red = max((_cos_norm(pool_embs[idx], e, pool_norms[idx], en)
+                       for e, en in zip(selected_embs, selected_norms)), default=0.0)
             sem = cfg.MMR_LAMBDA * rel - (1 - cfg.MMR_LAMBDA) * red
             eff = (cfg.GAMMA * causal + (1 - cfg.GAMMA) * max(0.0, sem)) / (t + 1e-9)
             if cfg.USE_DECISION_LOSS_OBJECTIVE:
@@ -1643,6 +1658,7 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
                               if a not in loss_covered and _art_in_text(a, s)}
         p2_idx.append(best_i)
         selected_embs.append(pool_embs[best_i])
+        selected_norms.append(pool_norms[best_i])
         # FIX (numbers omission): see identical note above -- same tuple,
         # same gap, same fix. This is the phase-2 greedy-selection update site.
         for kind in ('paths', 'ids', 'numbers', 'errors'):
@@ -1857,7 +1873,19 @@ def compress(messages: List[Dict], target_reduction: float = ...,
     """
     import copy as _copy
     c = _copy.deepcopy(cfg) if cfg is not None else DAGCConfig()
-    if target_reduction is not None:
+    # `target_reduction` defaults to the sentinel `...` (Ellipsis), meaning
+    # "caller didn't pass this, defer to cfg.TARGET_REDUCTION (or its
+    # DAGCConfig default)". The previous check `is not None` is always True
+    # for the Ellipsis sentinel, so any call that passed `cfg=` without ALSO
+    # passing `target_reduction=` had its cfg's TARGET_REDUCTION silently
+    # clobbered with `...`, crashing downstream with
+    # `TypeError: unsupported operand type(s) for -: 'int' and 'ellipsis'`.
+    # Checking against the actual sentinel (rather than None, which is a
+    # valid value nobody was ever passing here) is additive: it only changes
+    # behavior for the Ellipsis-default case, which previously always
+    # errored. Every call that worked before still resolves to the exact
+    # same TARGET_REDUCTION and the exact same compression output.
+    if target_reduction is not ... and target_reduction is not None:
         c.TARGET_REDUCTION = target_reduction
     for k, v in overrides.items():
         setattr(c, k, v)

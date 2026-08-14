@@ -9,7 +9,7 @@ import random
 from typing import Dict, List
 
 from .utils import _get_text, _split_sents, _tok
-from .compressor import DAGCConfig, DAGC_CFG
+from .compressor import DAGCConfig, DAGC_CFG, compress_dagc
 
 
 def compress_tail_truncation(messages: List[Dict], cfg: DAGCConfig = DAGC_CFG, **kw) -> List[Dict]:
@@ -79,4 +79,28 @@ BASELINES = {
     'tail_truncation': compress_tail_truncation,
     'random_drop': compress_random_drop,
     'identity': compress_identity,
+}
+
+
+def compress_dagc_baseline(messages: List[Dict], cfg: DAGCConfig = DAGC_CFG, seed: int = 0, **kw) -> List[Dict]:
+    """
+    Adapter so compress_dagc() can be called through the same
+    `fn(trace, seed=...)` interface as the other BASELINES entries.
+
+    compress_dagc() itself takes no `seed` -- it is deterministic given a
+    trace and cfg (no internal RNG), so seed is accepted here purely for
+    interface compatibility and otherwise ignored. Does not call or modify
+    compress_dagc()'s own logic in any way; this is a passthrough.
+    """
+    return compress_dagc(messages, cfg=cfg)
+
+
+# Same as BASELINES, plus DAGC itself under the 'DAGC' key -- for callers
+# that want a head-to-head comparison set (e.g. dagc_eval.run_method_comparison,
+# the `dagc compare` CLI command) rather than baselines alone. Added instead
+# of changing BASELINES in place so existing importers of BASELINES keep
+# getting exactly the baseline methods, unchanged.
+METHODS_WITH_DAGC = {
+    'DAGC': compress_dagc_baseline,
+    **BASELINES,
 }
