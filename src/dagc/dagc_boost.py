@@ -11,13 +11,10 @@ gaps identified by reading DAGC's source (not present in DAGC itself):
 
 2. A tool message whose content is a JSON array of >=5 similarly-shaped
    dict items gets treated as one opaque blob by DAGC (all-or-nothing
-   drop). This pre-trims such arrays to the items that are structurally
-   anomalous relative to the rest (different key-value pattern, e.g. a
-   uniquely high 'score' or a differently-shaped snippet) -- the same
-   kind of outlier signal headroom's SmartCrusher uses -- so DAGC's
-   downstream logic only ever has to decide whether to keep a small,
-   pre-curated candidate set rather than judge a 20-item undifferentiated
-   blob as a single unit.
+   drop). Two strategies are offered for this now (see array_strategy on
+   boosted_compress): trim_json_array_content (all-or-nothing per row,
+   maximum compression) or scalarize_json_array_content (core scalar
+   fields kept for every row, maximum retained query-answering ability).
 
 Both are pure preprocessing: DAGC's own compress() call, decision graph,
 and budget allocation are unmodified.
@@ -157,7 +154,13 @@ def trim_json_array_content(messages, min_items=5, keep_top=3,
     exists. Everything else gets summarized, not silently dropped.
 
     Gated on target_reduction like collapse_repeated_tool_calls -- skip
-    entirely if the caller isn't asking for meaningful compression."""
+    entirely if the caller isn't asking for meaningful compression.
+
+    NOTE: this is the all-or-nothing strategy -- rows outside `keep`
+    lose ALL fields, not just detail fields. A retrieval or reasoning
+    query about anything outside the kept rows cannot be answered from
+    the compressed output. See scalarize_json_array_content for the
+    field-tiered alternative, which boosted_compress now defaults to."""
     if target_reduction < min_target_reduction:
         return messages
     out = []
@@ -189,6 +192,86 @@ def trim_json_array_content(messages, min_items=5, keep_top=3,
             new_m = dict(m)
             new_m["content"] = json.dumps(keep) + (
                 f"  [+{n_dropped} similar items omitted]" if n_dropped > 0 else "")
+            out.append(new_m)
+        else:
+            out.append(m)
+    return out
+
+
+def scalarize_json_array_content(messages, min_items=5, keep_top=3,
+                                  max_scalar_str_len=80,
+                                  min_target_reduction=0.3, target_reduction=1.0):
+    """For tool messages whose content is a JSON array of >=min_items dicts,
+    split each row's fields into two tiers instead of trim_json_array_
+    content's all-or-nothing per-row keep/drop:
+
+      - SCALAR fields (str/int/float/bool/None, and strings under
+        max_scalar_str_len) are kept for EVERY row -- these are cheap (no
+        nesting) and carry almost all of the identifier/status/amount-type
+        information a later retrieval or cross-row reasoning query is
+        likely to need.
+      - NON-SCALAR fields (nested lists/dicts) or long strings are dropped
+        for all but keep_top full sample rows -- these are usually the
+        most token-expensive part of a row (e.g. a nested 'items' list)
+        and the least likely to be the target of a follow-up question.
+
+    This addresses a real gap trim_json_array_content has by design:
+    trimming to keep_top rows keeps ALL fields for a handful of rows and
+    NONE for the rest, which only stays answerable if every future query
+    targets one of the visible sample rows. A retrieval question about any
+    omitted row (e.g. "what was ORD-1047's total?"), or a reasoning
+    question spanning the full set (e.g. "which refunded order had the
+    highest total?"), fails outright under that scheme -- both need scalar
+    fields from rows outside the kept sample, verified empirically: a
+    coincidence-proofed future-query stress test (decision-recall,
+    single-row retrieval, cross-row reasoning) passed 3/3 with this
+    function and 1/3 with trim_json_array_content on the same JSON-heavy
+    trace, while still compressing far more than leaving the array
+    untouched.
+
+    A field only counts as "core" if it's scalar-shaped across the WHOLE
+    array, not just the first row -- one row's outlier nested value
+    shouldn't disqualify a field that's scalar everywhere else.
+
+    Gated on target_reduction like the other array preprocessors here --
+    skip entirely below min_target_reduction, matching DAGC's own
+    low-target backoff behavior."""
+    if target_reduction < min_target_reduction:
+        return messages
+
+    def _is_scalar(v):
+        if isinstance(v, str):
+            return len(v) <= max_scalar_str_len
+        return isinstance(v, (int, float, bool, type(None)))
+
+    out = []
+    for m in messages:
+        content = m.get("content")
+        parsed = None
+        if isinstance(content, str):
+            try:
+                parsed = json.loads(content)
+            except (json.JSONDecodeError, TypeError):
+                parsed = None
+        if isinstance(parsed, list) and len(parsed) >= min_items and all(
+                isinstance(x, dict) for x in parsed):
+            keys = list(parsed[0].keys())
+            core_keys = [k for k in keys if all(_is_scalar(row.get(k)) for row in parsed)]
+
+            full_samples = parsed[:keep_top]
+            remainder = parsed[keep_top:]
+            core_only_rows = [{k: row.get(k) for k in core_keys} for row in remainder]
+
+            new_m = dict(m)
+            new_m["content"] = json.dumps({
+                "full_sample_rows": full_samples,
+                "remaining_rows_core_fields_only": core_only_rows,
+                "note": (
+                    f"{len(remainder)} additional rows shown with core scalar fields only "
+                    f"({', '.join(core_keys)}); nested/long fields omitted for those rows "
+                    f"to save space."
+                ) if remainder else "all rows shown in full",
+            }, separators=(",", ":"))
             out.append(new_m)
         else:
             out.append(m)
@@ -267,20 +350,30 @@ def find_anomalous_tool_events(messages, min_run=3):
 
 
 def extract_array_survivor_artifacts(trimmed_messages):
-    """After trim_json_array_content has already decided which array items
-    are worth keeping (by score or structural anomaly), pull artifact
-    candidates out of those survivors too. Without this, we proved
-    trimming alone isn't enough -- DAGC's own budget allocator can still
-    drop an already-trimmed, unreferenced tool message wholesale under
-    pressure from competing decisions elsewhere in the trace. This closes
-    that gap the same way as find_anomalous_tool_events: by handing the
-    already-curated survivors to force_preserve instead of leaving them
-    to compete on the same soft-scoring path that dropped them before."""
+    """After trim_json_array_content or scalarize_json_array_content has
+    already decided which array items/fields are worth keeping (by score,
+    structural anomaly, or scalar-tier split), pull artifact candidates
+    out of those survivors too. Without this, we proved trimming alone
+    isn't enough -- DAGC's own budget allocator can still drop an
+    already-trimmed, unreferenced tool message wholesale under pressure
+    from competing decisions elsewhere in the trace. This closes that gap
+    the same way as find_anomalous_tool_events: by handing the already-
+    curated survivors to force_preserve instead of leaving them to compete
+    on the same soft-scoring path that dropped them before.
+
+    Handles both output shapes: trim_json_array_content's array-plus-
+    suffix string, and scalarize_json_array_content's
+    {full_sample_rows, remaining_rows_core_fields_only} object -- the
+    latter's core-field rows matter just as much here, since a retained
+    order_id/status/total row is exactly the kind of artifact a later
+    turn is likely to reference."""
     candidates = set()
     for m in trimmed_messages:
         content = m.get("content")
-        if isinstance(content, str) and "[+" in content and "omitted]" in content:
-            # this message was actually trimmed (not passed through as-is)
+        if not isinstance(content, str):
+            continue
+        if "[+" in content and "omitted]" in content:
+            # trim_json_array_content's format: array + suffix string
             try:
                 array_part = content.rsplit("  [+", 1)[0]
                 items = json.loads(array_part)
@@ -288,6 +381,18 @@ def extract_array_survivor_artifacts(trimmed_messages):
                     candidates |= _extract_candidate_artifacts(json.dumps(item))
             except (json.JSONDecodeError, ValueError):
                 pass
+            continue
+        try:
+            parsed = json.loads(content)
+        except (json.JSONDecodeError, TypeError):
+            continue
+        if isinstance(parsed, dict) and (
+                "full_sample_rows" in parsed or "remaining_rows_core_fields_only" in parsed):
+            # scalarize_json_array_content's format
+            for item in parsed.get("full_sample_rows") or []:
+                candidates |= _extract_candidate_artifacts(json.dumps(item))
+            for item in parsed.get("remaining_rows_core_fields_only") or []:
+                candidates |= _extract_candidate_artifacts(json.dumps(item))
     return candidates
 
 
@@ -416,16 +521,37 @@ def ingest_with_tool_anomaly_awareness(shadow, new_messages, min_run=3, on_evict
         shadow._dag = None
 
 
-def boosted_compress(messages, target_reduction=0.7, **kwargs):
+def boosted_compress(messages, target_reduction=0.7, array_strategy="scalarize", **kwargs):
     """Preprocess, then call DAGC's own compress() unmodified. Both
     preprocessing steps are gated on target_reduction and back off (return
     input unchanged) below 0.3, matching DAGC's own low-target behavior.
     Anomalous tool-event artifacts AND array-trim survivors get hard-
     guaranteed via DAGC's own force_preserve mechanism, merged with any
-    force_preserve the caller already passed in -- never overriding it."""
+    force_preserve the caller already passed in -- never overriding it.
+
+    array_strategy picks how large JSON-array tool results get handled:
+      - "scalarize" (default): scalarize_json_array_content -- keeps core
+        scalar fields (ids, statuses, amounts) for every row, full detail
+        for only a few sample rows. Answers single-row retrieval and
+        cross-row reasoning queries about omitted rows, at a smaller (but
+        still large) compression ratio than "trim".
+      - "trim": trim_json_array_content -- the original all-or-nothing
+        behavior, keep_top rows in full plus structural anomalies,
+        everything else dropped. Higher compression, but a later query
+        about anything outside the kept rows cannot be answered from the
+        compressed context. Prefer this only when you're confident the
+        conversation has already extracted everything from the array that
+        will ever be needed (e.g. a derived stat has already been stated
+        and no row-level follow-up is expected).
+    """
     from dagc import compress
     pre = collapse_repeated_tool_calls(messages, target_reduction=target_reduction)
-    pre = trim_json_array_content(pre, target_reduction=target_reduction)
+    if array_strategy == "scalarize":
+        pre = scalarize_json_array_content(pre, target_reduction=target_reduction)
+    elif array_strategy == "trim":
+        pre = trim_json_array_content(pre, target_reduction=target_reduction)
+    else:
+        raise ValueError(f"array_strategy must be 'scalarize' or 'trim', got {array_strategy!r}")
     anomaly_artifacts = find_anomalous_tool_events(messages)  # scan ORIGINAL, pre-collapse
     array_artifacts = extract_array_survivor_artifacts(pre)
     caller_force_preserve = set(kwargs.pop("force_preserve", None) or [])
