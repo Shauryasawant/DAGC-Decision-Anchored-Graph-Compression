@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## 0.1.10 - 2026-08-16
+
+- Bump version to 0.1.10 for a minor packaging release.
+
 ## Unreleased
 
 - Packaging fix: include runtime JSON/JSONL assets in the distribution so installed builds work outside the repo checkout.

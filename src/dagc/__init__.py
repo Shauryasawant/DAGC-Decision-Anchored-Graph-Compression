@@ -39,7 +39,7 @@ from .formats import (
 from .schema import register_adapter, to_dagc_format
 from .rescue import RescueEngine, ShadowBuffer, reset_rescue_session
 
-__version__ = "0.1.9"
+__version__ = "0.1.10"
 
 __all__ = [
     "compress", "compress_any", "compress_dagc", "DAGCConfig", "DAGC_CFG",
