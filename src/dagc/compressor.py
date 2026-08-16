@@ -328,6 +328,7 @@ def _extract_supplementary_decisions(messages: List[Dict],
     seen_sents: Set[Tuple[int, str]] = set()
 
     proto_embs = _get_decision_prototype_embeddings()
+    candidates = []
 
     for i, m in enumerate(messages):
         if m.get('role') not in decision_roles:
@@ -347,25 +348,34 @@ def _extract_supplementary_decisions(messages: List[Dict],
 
             is_modal = bool(_MODAL_COMMITMENT_RE.search(sent))
             is_conditional = bool(_CONDITIONAL_RE.search(sent))
-            is_semantic = False
-
-            if not (is_modal or is_conditional) and proto_embs is not None and len(proto_embs) > 0:
-                try:
-                    sent_emb = _encode([sent])[0]
-                    best_sim = max((_cos(sent_emb, pe) for pe in proto_embs), default=0.0)
-                    is_semantic = best_sim >= _SEMANTIC_SIM_THRESHOLD
-                except Exception:
-                    is_semantic = False
-
-            if not (is_modal or is_conditional or is_semantic):
+            if not (is_modal or is_conditional):
+                candidates.append((i, sent))
                 continue
 
-            action = ('commitment' if is_modal else
-                      'conditional' if is_conditional else 'related')
+            action = ('commitment' if is_modal else 'conditional')
             extra.append({
                 'msg_idx': i,
                 'type': 'action',
                 'action': action,
+                'target': sent.strip()[:80],
+                'rationale': [sent],
+                'artifacts': {'paths': [], 'ids': [], 'errors': []},
+            })
+            seen_sents.add(key)
+
+    if candidates:
+        embs = _encode([s for _, s in candidates])
+        for (i, sent), sent_emb in zip(candidates, embs):
+            best_sim = max((_cos(sent_emb, pe) for pe in proto_embs), default=0.0)
+            if best_sim < _SEMANTIC_SIM_THRESHOLD:
+                continue
+            key = (i, sent.strip().lower())
+            if key in seen_sents:
+                continue
+            extra.append({
+                'msg_idx': i,
+                'type': 'action',
+                'action': 'related',
                 'target': sent.strip()[:80],
                 'rationale': [sent],
                 'artifacts': {'paths': [], 'ids': [], 'errors': []},
@@ -593,10 +603,42 @@ def _extract_decision_targets(decisions, cfg: DAGCConfig):
     return dict(result)
 
 
+def _build_artifact_index(artifacts, texts_low):
+    idx = {}
+    for a in artifacts:
+        idx[a] = {i for i, t in enumerate(texts_low) if _art_in_text(a, t)}
+    return idx
+
+def _build_pool_artifact_index(pool, target_arts):
+    idx = {}  # artifact -> list of (pool_idx, token_cost)
+    for pool_idx, (s, _mi) in enumerate(pool):
+        t = _tok(s)
+        for a in target_arts:
+            if _art_in_text(a, s):
+                idx.setdefault(a, []).append((pool_idx, t))
+    return idx
+
 def _corroborated_artifacts(messages: List[Dict], decisions: List[Dict],
-                             min_corroboration: int = 2) -> Set[str]:
+                             min_corroboration: int = 2,
+                             art_index: Optional[Dict[str, Set[int]]] = None) -> Set[str]:
+    # FIX (tool-repetition false corroboration): only count occurrences
+    # from non-tool roles toward the frequency threshold. "Corroboration"
+    # is meant to catch a value independently confirmed by different
+    # participants (e.g. user states an id, assistant repeats it back) --
+    # not an identifier that merely shows up twice because two tool calls
+    # happened to touch the same file/record (pagination, repeated
+    # listings, overlapping search results). Tool output routinely
+    # repeats identifiers for reasons that have nothing to do with
+    # decision relevance, so counting it here let ordinary tool-to-tool
+    # overlap get silently promoted to "must survive at any cost."
+    # Genuinely decision-relevant artifacts are unaffected: anything a
+    # real decision actually targets is still hard-protected via
+    # `dec_arts` below regardless of which role it appeared in or how
+    # many times.
     art_freq: Dict[str, int] = defaultdict(int)
     for m in messages:
+        if m.get('role') == 'tool':
+            continue
         text = _get_text(m)
         seen: Set[str] = set()
         for kind in ('paths', 'ids', 'errors'):
@@ -608,7 +650,22 @@ def _corroborated_artifacts(messages: List[Dict], decisions: List[Dict],
     dec_arts = _collect_decision_artifacts(decisions)
     for a in dec_arts:
         if a not in art_freq:
-            art_freq[a] = sum(1 for m in messages if _art_in_text(a, _get_text(m)))
+            # art_index (when the caller already built one, e.g.
+            # compress_dagc / _compute_causal_centrality) maps
+            # artifact -> {message indices where it textually appears},
+            # computed once via _build_artifact_index. Using it here just
+            # avoids re-running _art_in_text over every message for every
+            # dec_art from scratch -- same messages get scanned, same
+            # role filter applied, just via the precomputed candidate set
+            # instead of a full linear scan. Falls back to the original
+            # full scan when no index was supplied, so behavior for any
+            # caller that doesn't pass art_index is unchanged.
+            if art_index is not None and a in art_index:
+                art_freq[a] = sum(1 for i in art_index[a]
+                                   if messages[i].get('role') != 'tool')
+            else:
+                art_freq[a] = sum(1 for m in messages
+                                   if m.get('role') != 'tool' and _art_in_text(a, _get_text(m)))
 
     return {a for a, f in art_freq.items() if f >= min_corroboration or a in dec_arts}
 
@@ -1077,13 +1134,15 @@ def _judgment_has_evidence(msg_idx: int, messages: List[Dict], cfg: DAGCConfig =
 
     return True
 
-def _compute_causal_centrality(messages, decisions, cfg: DAGCConfig = DAGC_CFG):
+def _compute_causal_centrality(messages, decisions, cfg: DAGCConfig = DAGC_CFG,
+                              art_index: Optional[Dict[str, Set[int]]] = None,
+                              msg_artifact_index: Optional[Dict[int, Set[str]]] = None):
     n = len(messages)
     type_weight = {'action': cfg.W_ACTION, 'judgment': cfg.W_JUDGMENT,
                    'confirmation': cfg.W_CONFIRMATION}
 
     min_corr = getattr(cfg, 'ART_CORROBORATION_MIN', 2)
-    corroborated = _corroborated_artifacts(messages, decisions, min_corr)
+    corroborated = _corroborated_artifacts(messages, decisions, min_corr, art_index=art_index)
 
     decision_arts: Set[str] = set()
     for d in decisions:
@@ -1095,17 +1154,26 @@ def _compute_causal_centrality(messages, decisions, cfg: DAGCConfig = DAGC_CFG):
             if a in corroborated:
                 decision_arts.add(a)
 
+    msg_artifact_index = msg_artifact_index or {
+        i: {a for kind in ('paths', 'ids', 'errors') for a in _artifacts(_get_text(m))[kind]}
+        for i, m in enumerate(messages)
+    }
+    art_index = art_index or _build_artifact_index(
+        {a for present in msg_artifact_index.values() for a in present},
+        [_get_text(m).lower() for m in messages],
+    )
+
     art_freq: Dict[str, int] = defaultdict(int)
-    for m in messages:
+    for i, m in enumerate(messages):
         text = _get_text(m)
+        present = msg_artifact_index.get(i, set())
         seen: Set[str] = set()
-        for kind in ('paths', 'ids', 'errors'):
-            for a in _artifacts(text)[kind]:
-                if a in decision_arts and a not in seen:
-                    art_freq[a] += 1
-                    seen.add(a)
+        for a in present:
+            if a in decision_arts and a not in seen:
+                art_freq[a] += 1
+                seen.add(a)
         for a in decision_arts:
-            if a not in seen and _art_in_text(a, text):
+            if a not in seen and i in art_index.get(a, set()):
                 art_freq[a] += 1
                 seen.add(a)
 
@@ -1138,12 +1206,8 @@ def _compute_causal_centrality(messages, decisions, cfg: DAGCConfig = DAGC_CFG):
         text = _get_text(m)
         text_low = text.lower()
 
-        present_arts: Set[str] = set()
-        for kind in ('paths', 'ids', 'errors'):
-            present_arts.update(a for a in _artifacts(text)[kind] if a in decision_arts)
-        for a in decision_arts:
-            if _art_in_text(a, text):
-                present_arts.add(a)
+        present_arts = {a for a in msg_artifact_index.get(i, set()) if a in decision_arts}
+        present_arts |= {a for a in decision_arts if i in art_index.get(a, set())}
 
         for a in present_arts:
             for dec_idx, dec_w in art_to_decs.get(a, []):
@@ -1170,19 +1234,13 @@ def _phase1_hard_guarantee(pool, decisions, budget, extra_critical=None, by_deci
 
     by_decision = by_decision or {}
     all_dec_idxs = set(by_decision.keys())
-
-    best: Dict[str, Tuple[int, int]] = {}
-    for idx, (s, _mi) in enumerate(pool):
-        t = _tok(s)
-        for a in target_arts:
-            if _art_in_text(a, s):
-                if a not in best or t < best[a][1]:
-                    best[a] = (idx, t)
+    pool_art_index = _build_pool_artifact_index(pool, target_arts)
+    best = {a: min(hits, key=lambda h: h[1]) for a, hits in pool_art_index.items()}
 
     n_sents = max(1, len(pool))
 
     def rarity(a):
-        freq = sum(1 for s, _ in pool if _art_in_text(a, s))
+        freq = len(pool_art_index.get(a, []))
         return math.log((n_sents + 1.0) / (freq + 1.0))
 
     selected: List[int] = []
@@ -1293,10 +1351,13 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
     if cfg is None:
         cfg = DAGC_CFG
 
+    _msg_texts = [_get_text(m) for m in messages]
+    _msg_texts_low = [t.lower() for t in _msg_texts]
+
     task = next((m['content'] for m in messages if m.get('role') == 'user'), 'complete the task')
     task_emb = _encode([task])[0]
     orig_toks = sum(_tok(_footprint_text(m)) for m in messages)
-    full_trace_text = '\n'.join(_get_text(m) for m in messages) 
+    full_trace_text = '\n'.join(_msg_texts)
     n = len(messages)
 
     try:
@@ -1369,14 +1430,24 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
     by_decision_all = _collect_decision_artifacts_by_decision(
         all_decisions, force_action_msg_idxs=injection_filtered)
 
-    corroborated = _corroborated_artifacts(messages, valid_decisions, cfg.ART_CORROBORATION_MIN)
+    all_msg_artifacts = set()
+    msg_artifact_index: Dict[int, Set[str]] = {}
+    for i, text in enumerate(_msg_texts):
+        present = set()
+        for kind in ('paths', 'ids', 'errors'):
+            present.update(_artifacts(text)[kind])
+        msg_artifact_index[i] = present
+        all_msg_artifacts |= present
+
+    art_index = _build_artifact_index(all_msg_artifacts | target_arts_all, _msg_texts_low)
+    corroborated = _corroborated_artifacts(messages, valid_decisions, cfg.ART_CORROBORATION_MIN, art_index=art_index)
 
     # User-provided IDs and paths are authoritative on first mention.
     user_stated_artifacts: Set[str] = set()
-    for m in messages:
+    for i, m in enumerate(messages):
         if m.get('role') != 'user':
             continue
-        a = _artifacts(_get_text(m))
+        a = _artifacts(_msg_texts[i])
         user_stated_artifacts.update(a['ids'])
         user_stated_artifacts.update(a['paths'])
 
@@ -1432,7 +1503,9 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
 
     protected_toks = sum(_prot_tok(i) for i in protected)
 
-    centrality = _compute_causal_centrality(messages, valid_decisions, cfg)
+    centrality = _compute_causal_centrality(messages, valid_decisions, cfg,
+                                          art_index=art_index,
+                                          msg_artifact_index=msg_artifact_index)
     max_c = max(centrality.values(), default=1.0) or 1.0
     causal_n = {i: centrality.get(i, 0.0) / max_c for i in range(n)}
     for i in M_star:
@@ -1479,7 +1552,6 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
         if i in protected:
             continue
         text_i = _get_text(m)
-        a_i = _artifacts(text_i)
         # Bypass check for MSTAR_HARD_DROP: must test literal membership
         # against the FULL must-survive set (target_arts_all), not just the
         # ids/paths regex buckets. A message whose only must-survive
@@ -1489,10 +1561,11 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
         # only a_i['ids']+a_i['paths'] silently missed exactly that case,
         # letting the message (and the only carrier of that value) drop
         # out before phase1/rescue ever got a chance to see it.
-        is_corroborated_carrier = any(
-            x in corroborated or x in user_stated_artifacts
-            for x in a_i['ids'] + a_i['paths'] + a_i['errors']
-        ) or any(_art_in_text(a, text_i) for a in target_arts_all)
+        present_arts = msg_artifact_index.get(i, set())
+        is_corroborated_carrier = bool(
+            (present_arts & (corroborated | user_stated_artifacts))
+            or any(i in art_index.get(a, set()) for a in target_arts_all)
+        )
         if cfg.MSTAR_HARD_DROP and i not in M_star and not is_corroborated_carrier:
             continue
         for s in _split_sents(text_i, cfg.MIN_SENT_TOKENS):

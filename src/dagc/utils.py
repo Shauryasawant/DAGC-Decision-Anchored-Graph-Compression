@@ -3,6 +3,7 @@ Shared utilities: artifact/ID extraction, tokenization, embedding cache,
 sentence splitting. No LLM dependency anywhere in this module.
 """
 from __future__ import annotations
+import json
 import re
 from functools import lru_cache
 from typing import Dict, List, Tuple
@@ -372,6 +373,81 @@ _RE_LIST_MARKER_NUM = re.compile(r'(?:^|\n)\s*(\d+)[.)]\s+')
 
 _RE_CODE_FENCE = re.compile(r'```.*?```', re.S)
 
+def _split_json_raw(text: str):
+    """
+    If `text` (after stripping) is a well-formed top-level JSON array or
+    object, return the RAW SOURCE SUBSTRING of each top-level element --
+    e.g. `[{...}, {...}, {...}]` -> ['{...}', '{...}', '{...}'] -- byte-
+    for-byte as they appeared in the original text. Returns None if the
+    text isn't parseable JSON, or parses to fewer than 2 top-level
+    elements (nothing to gain by fragmenting a single-element payload).
+
+    Deliberately does NOT re-serialize via json.dumps: artifact/value
+    extraction and fidelity checks elsewhere in the pipeline work by
+    literal substring match against the original message text, so any
+    reformatting (float precision, key order, whitespace) risks a value
+    "surviving" compression in a form that no longer literally matches
+    what a downstream consumer is looking for. A raw slice of the source
+    string can't introduce that mismatch -- it's exactly what was there.
+
+    This exists to fix a specific blind spot: `_split_sents_plain` finds
+    sentence/line boundaries, which a single-line `json.dumps(...)` tool
+    payload has none of (no newlines, no ". " + capital-letter breaks).
+    Without this, such a payload is one atomic candidate for the entire
+    rest of the pipeline -- phase1/phase2 selection can only take it
+    whole or drop it whole, even when only a handful of its records are
+    ever decision-relevant. Fragmenting at the record level gives the
+    exact same causal/MMR/efficiency scoring machinery downstream
+    (_art_in_text targeting, target_arts_all's rescue guarantee, phase1/
+    phase2 budgeting) something finer-grained to actually discriminate
+    on, the same way it already does for prose sentences and log lines.
+    """
+    s = text.strip()
+    if len(s) < 2 or s[0] not in '[{' or s[-1] not in ']}':
+        return None
+    try:
+        parsed = json.loads(s)
+    except (ValueError, TypeError):
+        return None
+    if not isinstance(parsed, (list, dict)) or len(parsed) < 2:
+        return None
+
+    inner = s[1:-1]
+    frags = []
+    depth = 0
+    in_str = False
+    esc = False
+    start = 0
+    for i, c in enumerate(inner):
+        if in_str:
+            if esc:
+                esc = False
+            elif c == '\\':
+                esc = True
+            elif c == '"':
+                in_str = False
+            continue
+        if c == '"':
+            in_str = True
+        elif c in '[{':
+            depth += 1
+        elif c in ']}':
+            depth -= 1
+        elif c == ',' and depth == 0:
+            frag = inner[start:i].strip()
+            if frag:
+                frags.append(frag)
+            start = i + 1
+    tail = inner[start:].strip()
+    if tail:
+        frags.append(tail)
+
+    # Sanity check: a malformed scan (mismatched output vs. what json
+    # actually parsed) is worse than no fragmentation at all -- fall back
+    # to the normal path rather than risk silently dropping content.
+    if len(frags) != len(parsed):
+        return None
+    return frags if len(frags) > 1 else None
 
 def _split_sents_plain(text, min_t=4):
     """Original line/sentence splitter for text OUTSIDE fenced code
@@ -446,6 +522,13 @@ def _split_sents(text, min_t=4):
     Prose outside any fence is completely unaffected -- routed through
     _split_sents_plain unchanged.
     """
+    
+    json_frags = _split_json_raw(text)
+    if json_frags is not None:
+        out = [f for f in json_frags if _art_count(f) > 0 or _tok(f) >= min_t]
+        if out:
+            return out
+
     out = []
     last_end = 0
     for fence_m in _RE_CODE_FENCE.finditer(text):
