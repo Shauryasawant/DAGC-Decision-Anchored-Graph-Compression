@@ -521,14 +521,6 @@ def _artifact_owners(art: str, by_decision: Dict[int, Set[str]]) -> Set[int]:
 
 
 def _build_preserved_tag(missing, by_decision=None, *channels, max_tokens=None, must_keep=None):
-    if by_decision and missing and not any(_artifact_owners(a, by_decision) for a in missing):
-        import warnings
-        warnings.warn(
-            "_build_preserved_tag: zero owners resolved for any missing "
-            "artifact -- by_decision/missing key-space mismatch likely.",
-            RuntimeWarning,
-        )
-
     def _is_must(a):
         return bool(_JUDGMENT_VERBS.fullmatch(a.strip())) or a in must_keep
 
@@ -711,7 +703,7 @@ def _select_priority_content(content: str, target_arts: Set[str], dec_metrics: S
         return _head_tail_cap(content, budget, head_frac)
 
     # NEW: mask structural/code content ONCE over the full message before
-    # fragmentation. A <tool_call>{...}</tool_call> payload or a bare JSON/
+    # fragmentation. A   <tool_call> {...} </tool_call> payload or a bare JSON/
     # python-repr blob needs its surrounding braces/tags intact to be
     # recognized -- by the time content is split into per-sentence
     # candidates below, that context can live in a SIBLING sentence that
