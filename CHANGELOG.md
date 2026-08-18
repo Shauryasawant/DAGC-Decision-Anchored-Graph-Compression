@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## 0.1.12 - 2026-08-18
+## 0.1.13 - 2026-08-18
 
 - Preserve artifacts from tool responses, compact uniform tool listings, and deduplicate repeated tool messages.
 - Repair decision-critical value recovery in the empty-pool compression path.

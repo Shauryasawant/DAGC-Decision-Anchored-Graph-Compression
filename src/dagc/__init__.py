@@ -41,7 +41,7 @@ from .rescue import RescueEngine, ShadowBuffer, reset_rescue_session
 from .tool_artifacts import (
     extract_tool_artifacts, compact_json_listing, compact_tool_listings,
     dedupe_tool_messages)
-__version__ = "0.1.12"
+__version__ = "0.1.13"
 
 __all__ = [
     "compress", "compress_any", "compress_dagc", "DAGCConfig", "DAGC_CFG",
