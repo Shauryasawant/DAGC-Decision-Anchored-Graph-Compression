@@ -229,13 +229,35 @@ def clear_embed_cache() -> None:
     _EMBED_CACHE.clear()
 
 
+_EMBED_DIM_CACHE = {}  # id(embedder) -> inferred dim, avoids re-probing every call
+
+def _embed_dim() -> int:
+    """Best-effort embedding dimension for runtime.embedder, without
+    assuming a `.dim` attribute exists (HashingEmbedder has one; a
+    SentenceTransformer/OpenAI/Cohere adapter might not). Falls back to
+    encoding a single throwaway string and reading its shape -- cached
+    per-embedder so this only happens once, not on every empty _encode()
+    call."""
+    key = id(runtime.embedder)
+    if key in _EMBED_DIM_CACHE:
+        return _EMBED_DIM_CACHE[key]
+    dim = getattr(runtime.embedder, 'dim', None)
+    if dim is None:
+        probe = runtime.embedder.encode(['.'], normalize_embeddings=False)
+        dim = np.asarray(probe).shape[-1]
+    _EMBED_DIM_CACHE[key] = dim
+    return dim
+
 def _encode(texts, max_chunk=200):
+    if not texts:
+        return np.zeros((0, _embed_dim()), dtype=np.float32)
     uncached_idx = [i for i, t in enumerate(texts) if str(t) not in _EMBED_CACHE]
     if uncached_idx:
         fresh = _encode_uncached([texts[i] for i in uncached_idx], max_chunk)
         for i, emb in zip(uncached_idx, fresh):
             _EMBED_CACHE[str(texts[i])] = emb
     return np.vstack([_EMBED_CACHE[str(t)] for t in texts])
+
 
 
 def _encode_uncached(texts, max_chunk=200):

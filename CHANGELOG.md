@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## 0.1.12 - 2026-08-18
+
+- Preserve artifacts from tool responses, compact uniform tool listings, and deduplicate repeated tool messages.
+- Repair decision-critical value recovery in the empty-pool compression path.
+- Handle empty embedding batches safely.
+
 ## 0.1.10 - 2026-08-16
 
 - Bump version to 0.1.10 for a minor packaging release.

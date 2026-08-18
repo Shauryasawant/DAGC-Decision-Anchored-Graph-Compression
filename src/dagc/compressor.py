@@ -186,7 +186,52 @@ class DAGCConfig:
                                       # behavior change when False (default) —
                                       # pure instrumentation, no selection
                                       # logic is touched.
-    USE_FILLER_FILTER: bool = True         
+    USE_FILLER_FILTER: bool = True
+        # Automatically extracts every scalar literal from role=='tool'
+    # message content (JSON leaves, or code/text literals for non-JSON
+    # payloads) and folds them into force_preserve, on top of whatever
+    # the caller passes explicitly. See tool_artifacts.py for why this
+    # exists: extract_decisions() never looks inside tool payloads on its
+    # own, so a fact that lives ONLY in a tool response (not restated in
+    # any assistant/user text) had no path into target_arts at all before
+    # this -- PROTECT_TOOL_CALLS only covers the calling message's
+    # tool_call arguments, a different message. On by default because the
+    # gap it closes is silent (nothing errors, the fact just vanishes);
+    # set False to restore the old behavior exactly (e.g. if you already
+    # curate force_preserve yourself and want zero extra scanning cost).
+    AUTO_PRESERVE_TOOL_ARTIFACTS: bool = True
+    MAX_TOOL_ARTIFACTS_PER_MESSAGE: int = 200
+    MAX_TOOL_ARTIFACTS_TOTAL: int = 800
+    # See tool_artifacts.py KNOWN LIMITATION: above this size, a tool
+    # message is skipped by the auto-extractor entirely, because blind
+    # per-literal protection on a large payload suppresses reduction% far
+    # more than it helps fidelity. Lower this if your traces are small and
+    # you want the safety net to reach further; raise it only if you have
+    # verified reduction% doesn't collapse on your own traces.
+    TOOL_ARTIFACT_SKIP_ABOVE_CHARS: int = 1200
+
+    # Pre-processing step (see tool_artifacts.compact_json_listing):
+    # replaces a role=='tool' JSON-array-of-uniform-records payload with
+    # an equivalent, smaller table before the normal pipeline runs.
+    # Every value is preserved verbatim; only repeated key names / braces
+    # / quotes are removed. This is what makes AUTO_PRESERVE_TOOL_ARTIFACTS
+    # affordable on large listings instead of only small lookups -- it
+    # shrinks what "protect everything" costs, rather than changing what
+    # gets protected. Off (False) restores the exact previous behavior:
+    # tool message content passed through completely untouched.
+    COMPACT_TOOL_LISTINGS: bool = True
+    COMPACT_LISTING_MIN_RECORDS: int = 3
+    COMPACT_LISTING_MIN_KEY_OVERLAP: float = 0.7
+
+    # Cross-message dedup (see tool_artifacts.dedupe_tool_messages): a
+    # later tool message that exactly duplicates an earlier one's content
+    # is replaced with a short reference instead of repeating it. Exact
+    # match only (JSON-normalized) -- no fuzzy/partial similarity, which
+    # would need its own tunable threshold for a case common enough to
+    # matter (retries, pagination overlap) but not common enough to
+    # justify that extra complexity here.
+    DEDUPE_TOOL_MESSAGES: bool = True
+    DEDUPE_MIN_CONTENT_CHARS: int = 40
     FILLER_PROB_THRESHOLD: float = 0.75
     FILLER_SURPRISAL_BITS: float = 4.0
 
@@ -1571,18 +1616,53 @@ def compress_dagc(messages: List[Dict], cfg: Optional[DAGCConfig] = None,
         for s in _split_sents(text_i, cfg.MIN_SENT_TOKENS):
             pool.append((s, i))
 
-    if not pool:
-        out: List[Dict] = []
-        for i, m in enumerate(messages):
-            if i in protected:
-                mc = dict(m)
-                if cfg.COMPRESS_PROTECTED and i in compressed_protected_content:
-                    mc['content'] = compressed_protected_content[i]
-                mc['_orig_idx'] = i
-                out.append(mc)
-        if diagnostics is not None:
-            diagnostics['output_tokens'] = sum(_tok(_footprint_text(m)) for m in out)
-        return out
+        if not pool:
+            out: List[Dict] = []
+            for i, m in enumerate(messages):
+                if i in protected:
+                    mc = dict(m)
+                    if cfg.COMPRESS_PROTECTED and i in compressed_protected_content:
+                        mc['content'] = compressed_protected_content[i]
+                    mc['_orig_idx'] = i
+                    out.append(mc)
+
+            # Same unconditional final verify-and-repair guarantee the normal
+            # path applies below -- this early-exit branch was skipping it
+            # entirely, so any force_preserve/decision-critical value not
+            # already sitting inside a protected message silently vanished
+            # whenever every non-protected message produced zero pool
+            # candidates (e.g. very short messages under MIN_SENT_TOKENS).
+            final_covered: Set[str] = set()
+            for m_out in out:
+                text = _footprint_text(m_out)
+                for a in target_arts_all:
+                    if a in final_covered:
+                        continue
+                    if _art_in_text(a, text):
+                        final_covered.add(a)
+            truly_missing_all = target_arts_all - final_covered
+            if truly_missing_all:
+                tag = _build_preserved_tag(truly_missing_all, by_decision_all, must_keep=truly_missing_all)
+                if tag:
+                    if out:
+                        out[-1] = dict(out[-1])
+                        out[-1]['content'] = (out[-1].get('content', '') + ' ' + tag).strip()
+                    else:
+                        out.append({'role': 'assistant', '_orig_idx': n, '_stub': True, 'content': tag})
+                    final_text = _footprint_text(out[-1])
+                    truly_missing_all = {a for a in truly_missing_all if not _art_in_text(a, final_text)}
+
+            if diagnostics is not None:
+                diagnostics['decision_loss_final_rescue_all'] = sorted(truly_missing_all)
+                diagnostics['output_tokens'] = sum(_tok(_footprint_text(m)) for m in out)
+
+            if cfg.ASSERT_NO_DECISION_LOSS and truly_missing_all:
+                raise DecisionLossError(
+                    f"{len(truly_missing_all)} decision-critical value(s) unrecoverable in the "
+                    f"empty-pool path: {sorted(truly_missing_all)[:10]}"
+                    f"{'...' if len(truly_missing_all) > 10 else ''}"
+                )
+            return out
 
     pool_texts = [s for s, _ in pool]
     pool_embs = _encode(pool_texts, max_chunk=cfg.MAX_EMBED_CHUNK)
@@ -1971,8 +2051,60 @@ def compress(messages: List[Dict], target_reduction: float = ...,
         setattr(c, k, v)
 
     merged_force_preserve: Set[str] = set(force_preserve) if force_preserve else set()
-    _rescue_sess = None
+    working_messages = messages
 
+    if getattr(c, 'COMPACT_TOOL_LISTINGS', True):
+        # Pure pre-processing: replaces tool-role JSON-array-listing
+        # content with an equivalent, smaller table (see
+        # tool_artifacts.compact_json_listing -- every value preserved,
+        # only the repeated-key/brace/quote overhead is removed). Any
+        # message that isn't a uniform JSON-array listing passes through
+        # unchanged. This runs BEFORE compress_dagc and does not alter
+        # decision extraction, the causal graph, or selection logic --
+        # from their point of view it's simply a shorter tool message.
+        # Runs before extraction below so a listing compaction already
+        # shrank under the skip threshold gets picked up by it.
+        from .tool_artifacts import compact_tool_listings
+        working_messages = compact_tool_listings(
+            messages,
+            min_records=getattr(c, 'COMPACT_LISTING_MIN_RECORDS', 3),
+            min_key_overlap=getattr(c, 'COMPACT_LISTING_MIN_KEY_OVERLAP', 0.7))
+
+    if getattr(c, 'AUTO_PRESERVE_TOOL_ARTIFACTS', True):
+        # Lazy import: keeps this a zero-cost no-op path when disabled,
+        # and avoids adding tool_artifacts.py to compressor.py's
+        # module-load-time import graph.
+        from .tool_artifacts import extract_tool_artifacts
+        # The literal walk itself always reads the ORIGINAL messages --
+        # the JSON leaf-walk is exact on real JSON and there's no reason
+        # to make it depend on the table format's own parsing. But the
+        # skip-threshold size check is measured against working_messages
+        # (post-compaction): a listing compaction already shrank under
+        # the threshold should get the benefit, not be judged by its
+        # pre-compaction size.
+        merged_force_preserve |= extract_tool_artifacts(
+            messages,
+            max_artifacts_per_message=getattr(c, 'MAX_TOOL_ARTIFACTS_PER_MESSAGE', 200),
+            max_total_artifacts=getattr(c, 'MAX_TOOL_ARTIFACTS_TOTAL', 800),
+            skip_message_above_chars=getattr(c, 'TOOL_ARTIFACT_SKIP_ABOVE_CHARS', 1200),
+            size_reference_messages=working_messages)
+
+    if getattr(c, 'DEDUPE_TOOL_MESSAGES', True):
+        # Cross-message dedup: a LATER tool message whose content exactly
+        # duplicates an EARLIER one (e.g. a retried/re-fetched call, or
+        # overlapping pagination) is replaced with a short reference note.
+        # Safe by construction: extract_tool_artifacts above already read
+        # every tool message's ORIGINAL content (including this one)
+        # before this runs, so every literal this message ever contributed
+        # is already in merged_force_preserve regardless of what happens
+        # to its bytes here. This never removes the only copy of a fact --
+        # only a byte-identical repeat of one already captured.
+        from .tool_artifacts import dedupe_tool_messages
+        working_messages = dedupe_tool_messages(
+            working_messages,
+            min_content_chars=getattr(c, 'DEDUPE_MIN_CONTENT_CHARS', 40))
+
+    _rescue_sess = None
     if enable_rescue:
         # Lazy import: rescue.py imports back from this module
         # (_decision_critical_values / _art_in_text / _footprint_text),
@@ -1996,15 +2128,12 @@ def compress(messages: List[Dict], target_reduction: float = ...,
         if diagnostics is not None and unrescuable:
             diagnostics['unrescuable_evictions'] = unrescuable
 
-    result = compress_dagc(messages, cfg=c, decision_roles=decision_roles,
-                            force_preserve=merged_force_preserve or None,
-                            diagnostics=diagnostics)
-
-    if getattr(c, 'PRESERVE_VALUE_RECOVERY', True):
-        result, _ = inject_value_recovery_stubs(
-            result, messages,
-            max_stubs=getattr(c, 'MAX_VALUE_RECOVERY_STUBS', 15),
-            max_stub_tokens=getattr(c, 'MAX_VALUE_RECOVERY_STUB_TOKENS', 25))
+    result = compress_dagc(
+        working_messages,
+        cfg=c,
+        decision_roles=decision_roles,
+        force_preserve=merged_force_preserve or None,
+        diagnostics=diagnostics)
 
     if _rescue_sess is not None:
         _rescue_sess["last_compressed"] = result
